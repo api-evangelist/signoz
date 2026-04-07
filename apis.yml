@@ -5,8 +5,8 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Observability
   - APM
+  - Observability
 url: >-
   https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/apis.yml
 created: '2026-03-25'
@@ -19,8 +19,8 @@ apis:
       SigNoz is an open source observability platform with logs, traces, and metrics in a single pane, built natively on OpenTelemetry.
     humanURL: https://signoz.io
     tags:
-      - Observability
       - APM
+      - Observability
     properties:
       - type: Documentation
         url: https://signoz.io/docs/
