@@ -1,0 +1,20 @@
+{
+  "name": "SigNoz Dashboard",
+  "description": "Structure of a monitoring dashboard in SigNoz observability platform.",
+  "fields": [
+    { "name": "id", "type": "string", "description": "Unique dashboard identifier" },
+    { "name": "title", "type": "string", "description": "Dashboard title", "required": true },
+    { "name": "description", "type": "string", "description": "Dashboard description" },
+    { "name": "tags", "type": "array", "description": "Organizational tags" },
+    { "name": "widgets", "type": "array", "description": "List of visualization widgets" },
+    { "name": "widgets[].id", "type": "string", "description": "Widget unique identifier" },
+    { "name": "widgets[].title", "type": "string", "description": "Widget panel title" },
+    { "name": "widgets[].description", "type": "string", "description": "Widget panel description" },
+    { "name": "widgets[].panelType", "type": "string", "description": "Visualization type: graph, table, value, bar, pie, histogram, list, trace, logs" },
+    { "name": "widgets[].query", "type": "object", "description": "Query configuration for data source" },
+    { "name": "isPublic", "type": "boolean", "description": "Whether dashboard is publicly accessible" },
+    { "name": "createdAt", "type": "string", "format": "date-time", "description": "Creation timestamp" },
+    { "name": "updatedAt", "type": "string", "format": "date-time", "description": "Last modification timestamp" },
+    { "name": "createdBy", "type": "string", "description": "Creator user identifier" }
+  ]
+}

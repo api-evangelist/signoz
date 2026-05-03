@@ -1,0 +1,297 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SigNoz Observability Monitoring"
+  description: >-
+    Unified observability monitoring capability combining SigNoz's alerts, dashboards,
+    metrics, traces, logs, and infrastructure monitoring APIs into a single workflow.
+    Designed for DevOps engineers, SREs, and platform teams managing distributed system
+    observability, incident detection, and performance analysis.
+  tags:
+    - APM
+    - Alerting
+    - Dashboards
+    - Distributed Tracing
+    - Infrastructure
+    - Logs
+    - Metrics
+    - Observability
+    - OpenTelemetry
+    - SRE
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      SIGNOZ_API_KEY: SIGNOZ_API_KEY
+      SIGNOZ_HOST: SIGNOZ_HOST
+      SIGNOZ_PORT: SIGNOZ_PORT
+
+capability:
+  consumes:
+    - import: signoz
+      location: ./shared/signoz.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: signoz-observability-api
+      description: "Unified REST API for SigNoz observability monitoring workflows."
+      resources:
+        - path: /v1/alerts
+          name: alerts
+          description: Alert rule management for observability monitoring
+          operations:
+            - method: GET
+              name: list-alerts
+              description: List all configured alert rules
+              call: "signoz.list-alerts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-alert
+              description: Create a new alert rule for observability monitoring
+              call: "signoz.create-alert"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/alerts/{id}
+          name: alert
+          description: Individual alert rule operations
+          operations:
+            - method: GET
+              name: get-alert
+              description: Get details of a specific alert rule
+              call: "signoz.get-alert"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-alert
+              description: Delete an alert rule
+              call: "signoz.delete-alert"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/channels
+          name: channels
+          description: Notification channel management
+          operations:
+            - method: GET
+              name: list-channels
+              description: List all notification channels
+              call: "signoz.list-channels"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-channel
+              description: Create a new notification channel
+              call: "signoz.create-channel"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/metrics
+          name: metrics
+          description: Metrics catalog and inspection
+          operations:
+            - method: GET
+              name: list-metrics
+              description: List all available metrics in the platform
+              call: "signoz.list-metrics"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/query
+          name: query
+          description: Unified telemetry query endpoint
+          operations:
+            - method: POST
+              name: query-range
+              description: Query metrics, traces, or logs over a time range
+              call: "signoz.query-range"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/traces/{traceId}
+          name: trace
+          description: Distributed trace inspection
+          operations:
+            - method: GET
+              name: get-trace
+              description: Get distributed trace waterfall by trace ID
+              call: "signoz.get-trace-waterfall"
+              with:
+                traceID: "rest.traceId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/hosts
+          name: hosts
+          description: Infrastructure host monitoring
+          operations:
+            - method: GET
+              name: list-hosts
+              description: List all monitored infrastructure hosts
+              call: "signoz.list-hosts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/ingestion-keys
+          name: ingestion-keys
+          description: Ingestion key management for telemetry data collection
+          operations:
+            - method: GET
+              name: list-ingestion-keys
+              description: List all ingestion keys
+              call: "signoz.list-ingestion-keys"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-ingestion-key
+              description: Create a new ingestion key
+              call: "signoz.create-ingestion-key"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: signoz-observability-mcp
+      transport: http
+      description: "MCP server for AI-assisted observability monitoring, incident investigation, and performance analysis."
+      tools:
+        - name: list-alerts
+          description: List all configured alert rules in the SigNoz observability platform
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "signoz.list-alerts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-alert
+          description: Create a new observability alert rule with threshold conditions
+          hints:
+            readOnly: false
+            idempotent: false
+          call: "signoz.create-alert"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-alert
+          description: Get details of a specific alert rule by ID
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "signoz.get-alert"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: delete-alert
+          description: Delete an alert rule from SigNoz
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "signoz.delete-alert"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-notification-channels
+          description: List all alert notification channels (Slack, PagerDuty, email, webhook)
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "signoz.list-channels"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-notification-channel
+          description: Create a new alert notification channel
+          hints:
+            readOnly: false
+            idempotent: false
+          call: "signoz.create-channel"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: query-telemetry
+          description: Query metrics, distributed traces, or logs data over a specified time range
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "signoz.query-range"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-metrics
+          description: List all available metrics in the SigNoz metrics catalog
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "signoz.list-metrics"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-trace-waterfall
+          description: Get the distributed trace waterfall view for a specific trace ID to analyze request flow
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "signoz.get-trace-waterfall"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-infrastructure-hosts
+          description: List all monitored infrastructure hosts and their current status
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "signoz.list-hosts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-ingestion-keys
+          description: List all telemetry ingestion keys for the organization
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "signoz.list-ingestion-keys"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-ingestion-key
+          description: Create a new ingestion key for authenticating telemetry data collection
+          hints:
+            readOnly: false
+            idempotent: false
+          call: "signoz.create-ingestion-key"
+          outputParameters:
+            - type: object
+              mapping: "$."

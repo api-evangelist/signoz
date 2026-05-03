@@ -1,0 +1,42 @@
+{
+  "example": "List all ingestion keys for the organization",
+  "request": {
+    "method": "GET",
+    "path": "/api/v2/gateway/ingestion_keys",
+    "headers": {
+      "SigNoz-Api-Key": "your-api-key"
+    },
+    "queryParameters": {
+      "page_size": 25,
+      "page": 1
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "keys": [
+          {
+            "id": "key-abc123",
+            "name": "Production Ingestion Key",
+            "value": "signoz-***-redacted",
+            "orgId": "org-xyz789",
+            "createdAt": "2026-01-15T08:00:00Z",
+            "updatedAt": "2026-03-01T12:00:00Z"
+          },
+          {
+            "id": "key-def456",
+            "name": "Staging Ingestion Key",
+            "value": "signoz-***-redacted",
+            "orgId": "org-xyz789",
+            "createdAt": "2026-02-01T09:00:00Z",
+            "updatedAt": "2026-02-01T09:00:00Z"
+          }
+        ],
+        "total": 2,
+        "page": 1,
+        "pageSize": 25
+      }
+    }
+  }
+}

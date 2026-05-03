@@ -1,0 +1,132 @@
+name: SigNoz Vocabulary
+description: >-
+  Vocabulary and taxonomy for SigNoz, the open-source OpenTelemetry-native
+  observability platform covering APM, distributed tracing, log management,
+  and infrastructure monitoring.
+version: '1.0'
+created: '2026-05-02'
+modified: '2026-05-02'
+
+domains:
+  - name: Observability
+    description: The ability to measure the internal state of a system by examining its outputs.
+    terms:
+      - name: APM
+        label: Application Performance Monitoring
+        description: >-
+          Monitoring and management of performance and availability of software applications.
+      - name: Distributed Tracing
+        label: Distributed Tracing
+        description: >-
+          Tracking requests as they propagate through distributed microservices systems.
+      - name: Log Management
+        label: Log Management
+        description: >-
+          Centralized collection, storage, search, and analysis of log data from applications and infrastructure.
+      - name: Metrics
+        label: Metrics
+        description: >-
+          Quantitative measurements collected over time representing the health and performance of systems.
+      - name: OpenTelemetry
+        label: OpenTelemetry
+        description: >-
+          An open-source observability framework providing vendor-neutral APIs, SDKs, and tools
+          for instrumenting, generating, and exporting telemetry data (metrics, logs, traces).
+
+  - name: Alerting
+    description: Mechanisms for detecting anomalies and notifying teams of issues.
+    terms:
+      - name: Alert Rule
+        label: Alert Rule
+        description: A configured condition that triggers a notification when thresholds are breached.
+      - name: Downtime Schedule
+        label: Downtime Schedule
+        description: A scheduled maintenance window during which alerts are suppressed.
+      - name: Notification Channel
+        label: Notification Channel
+        description: A destination for alert notifications (Slack, PagerDuty, email, webhook, etc.).
+      - name: Route Policy
+        label: Route Policy
+        description: Rules defining how alerts are routed to specific notification channels.
+      - name: Severity
+        label: Severity
+        description: >-
+          The urgency level of an alert: info (informational), warning (degraded), critical (service impact).
+
+  - name: Data Collection
+    description: Mechanisms for receiving and processing telemetry data.
+    terms:
+      - name: Ingestion Key
+        label: Ingestion Key
+        description: API key used to authenticate telemetry data sent to SigNoz.
+      - name: Signal Type
+        label: Signal Type
+        description: Category of telemetry data: logs, traces, or metrics.
+      - name: Span
+        label: Span
+        description: A single unit of work within a distributed trace, representing an operation.
+      - name: Trace
+        label: Trace
+        description: A complete record of a request's journey through distributed services, composed of spans.
+      - name: Log
+        label: Log
+        description: A timestamped record of an event that occurred in an application or system.
+      - name: Metric
+        label: Metric
+        description: A time-series measurement of a system characteristic (counter, gauge, histogram, summary).
+
+  - name: Visualization
+    description: Tools for displaying and exploring telemetry data.
+    terms:
+      - name: Dashboard
+        label: Dashboard
+        description: A collection of visualization panels displaying metrics, logs, and trace data.
+      - name: Widget
+        label: Widget
+        description: An individual visualization panel within a dashboard.
+      - name: Panel Type
+        label: Panel Type
+        description: >-
+          The visualization style of a dashboard widget: graph, table, value, bar, pie, histogram, list.
+      - name: Query Builder
+        label: Query Builder
+        description: A visual interface for constructing queries against telemetry data.
+      - name: Flame Graph
+        label: Flame Graph
+        description: A hierarchical visualization of trace spans showing time spent in each operation.
+
+  - name: Access Control
+    description: Authentication, authorization, and user management capabilities.
+    terms:
+      - name: Service Account
+        label: Service Account
+        description: A non-human account used by automated systems to authenticate with the SigNoz API.
+      - name: RBAC
+        label: Role-Based Access Control
+        description: Controlling API access based on roles assigned to users or service accounts.
+      - name: Organization
+        label: Organization
+        description: The top-level tenant entity in SigNoz that groups users and resources.
+      - name: SSO
+        label: Single Sign-On
+        description: Authentication via external identity providers using SAML or OIDC.
+
+integrations:
+  - name: Kubernetes
+    description: Native Kubernetes infrastructure monitoring support.
+  - name: AWS
+    description: AWS cloud integration for metrics and logs collection.
+  - name: GCP
+    description: Google Cloud Platform integration for telemetry collection.
+  - name: Azure
+    description: Microsoft Azure cloud integration.
+  - name: Prometheus
+    description: Import Prometheus metrics into SigNoz.
+  - name: Grafana
+    description: Compatible dashboards and data sources.
+  - name: PagerDuty
+    description: Alert notification integration.
+  - name: Slack
+    description: Team notification channel integration.
+  - name: OpsGenie
+    description: Incident management integration.

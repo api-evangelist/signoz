@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/json-schema/signoz-dashboard-schema.json",
+  "title": "SigNoz Dashboard",
+  "description": "Schema representing a monitoring dashboard in the SigNoz observability platform.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the dashboard."
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title of the dashboard."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the dashboard's purpose and contents."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags for organizing and filtering dashboards.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "widgets": {
+      "type": "array",
+      "description": "List of panel widgets displayed on the dashboard.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique widget identifier."
+          },
+          "title": {
+            "type": "string",
+            "description": "Widget panel title."
+          },
+          "description": {
+            "type": "string",
+            "description": "Widget panel description."
+          },
+          "panelType": {
+            "type": "string",
+            "description": "Type of visualization panel.",
+            "enum": ["graph", "table", "value", "bar", "pie", "histogram", "list", "trace", "logs"]
+          },
+          "query": {
+            "type": "object",
+            "description": "Query configuration for the widget data source."
+          }
+        }
+      }
+    },
+    "isPublic": {
+      "type": "boolean",
+      "description": "Whether the dashboard is publicly accessible without authentication."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the dashboard was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the dashboard was last updated."
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "User who created the dashboard."
+    }
+  },
+  "required": ["title"]
+}

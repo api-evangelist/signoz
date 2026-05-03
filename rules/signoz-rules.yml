@@ -1,0 +1,80 @@
+extends: "spectral:oas"
+rules:
+  signoz-operation-summary-title-case:
+    description: Operation summaries must use Title Case.
+    message: "Summary '{{value}}' must be in Title Case."
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9]*([ ][A-Z][a-zA-Z0-9]*)*$"
+
+  signoz-operation-id-kebab-case:
+    description: OperationIds must use kebab-case naming.
+    message: "OperationId '{{value}}' must use kebab-case."
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-z0-9]*(-[a-z0-9]+)*$"
+
+  signoz-api-key-header:
+    description: API key authentication must use SigNoz-Api-Key header.
+    message: "API key authentication should use SigNoz-Api-Key header name."
+    severity: warn
+    given: "$.components.securitySchemes[?(@.type=='apiKey')].name"
+    then:
+      function: enumeration
+      functionOptions:
+        values:
+          - SigNoz-Api-Key
+
+  signoz-paths-use-api-prefix:
+    description: All paths must begin with /api/v prefix.
+    message: "Path '{{property}}' must start with /api/v."
+    severity: warn
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/api/v[0-9]+"
+
+  signoz-response-json:
+    description: All responses should return application/json content type.
+    message: "Response should include application/json content type."
+    severity: info
+    given: "$.paths[*][*].responses[*].content"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required:
+            - "application/json"
+
+  signoz-tags-defined:
+    description: Operations should reference tags defined at the top level.
+    message: "Operation tags should match top-level tag definitions."
+    severity: warn
+    given: "$.paths[*][*].tags[*]"
+    then:
+      function: truthy
+
+  signoz-error-response-schema:
+    description: Error responses (4xx/5xx) should have a consistent schema.
+    message: "Error response should have a defined schema."
+    severity: warn
+    given: "$.paths[*][*].responses[?(@property >= '400')].content['application/json'].schema"
+    then:
+      function: truthy
+
+  signoz-parameters-described:
+    description: All parameters must have a description.
+    message: "Parameter '{{property}}' is missing a description."
+    severity: info
+    given: "$.paths[*][*].parameters[?(@.in=='query' || @.in=='path')]"
+    then:
+      field: description
+      function: truthy

@@ -1,0 +1,24 @@
+{
+  "name": "SigNoz Alert",
+  "description": "Structure of an alert rule in SigNoz observability platform.",
+  "fields": [
+    { "name": "id", "type": "integer", "description": "Unique alert rule identifier" },
+    { "name": "name", "type": "string", "description": "Alert rule name", "required": true },
+    { "name": "description", "type": "string", "description": "Alert rule description" },
+    { "name": "condition", "type": "object", "description": "Alert condition with query and thresholds", "required": true },
+    { "name": "condition.compositeQuery", "type": "object", "description": "Query definition for evaluating the alert" },
+    { "name": "condition.op", "type": "string", "description": "Comparison operator (>, <, >=, <=, =, !=)" },
+    { "name": "condition.target", "type": "number", "description": "Threshold value" },
+    { "name": "evalWindow", "type": "string", "description": "Evaluation window (e.g., 5m, 15m, 1h)" },
+    { "name": "frequency", "type": "string", "description": "Evaluation frequency" },
+    { "name": "labels", "type": "object", "description": "Key-value label pairs" },
+    { "name": "annotations", "type": "object", "description": "Key-value annotation pairs" },
+    { "name": "severity", "type": "string", "description": "Severity level: info, warning, critical" },
+    { "name": "state", "type": "string", "description": "Current state: normal, pending, firing, no_data, muted" },
+    { "name": "alertType", "type": "string", "description": "Alert type: METRIC_BASED_ALERT, LOG_BASED_ALERT, TRACES_BASED_ALERT", "required": true },
+    { "name": "channels", "type": "array", "description": "Notification channel IDs" },
+    { "name": "createdAt", "type": "string", "format": "date-time", "description": "Creation timestamp" },
+    { "name": "updatedAt", "type": "string", "format": "date-time", "description": "Last modification timestamp" },
+    { "name": "createdBy", "type": "string", "description": "Creator user identifier" }
+  ]
+}

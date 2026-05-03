@@ -1,0 +1,73 @@
+{
+  "example": "Create a metric-based alert for high error rate",
+  "request": {
+    "method": "POST",
+    "path": "/api/v2/rules",
+    "headers": {
+      "SigNoz-Api-Key": "your-api-key",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "High Error Rate Alert",
+      "description": "Alert when HTTP error rate exceeds 5% over 5 minutes",
+      "severity": "critical",
+      "alertType": "METRIC_BASED_ALERT",
+      "evalWindow": "5m",
+      "frequency": "1m",
+      "condition": {
+        "op": ">",
+        "target": 5,
+        "compositeQuery": {
+          "queryType": "builder",
+          "builderQueries": {
+            "A": {
+              "queryName": "A",
+              "stepInterval": 60,
+              "dataSource": "metrics",
+              "aggregateOperator": "rate",
+              "aggregateAttribute": {
+                "key": "http_server_requests_total",
+                "dataType": "float64"
+              },
+              "filters": {
+                "items": [
+                  {
+                    "key": { "key": "http_status_code", "type": "tag" },
+                    "op": ">=",
+                    "value": "500"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "labels": {
+        "team": "backend",
+        "environment": "production"
+      },
+      "annotations": {
+        "summary": "High error rate detected on {{ $labels.service }}",
+        "description": "Error rate is {{ $value }}% on service {{ $labels.service }}"
+      },
+      "channels": ["channel-id-123"]
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "id": 42,
+        "name": "High Error Rate Alert",
+        "description": "Alert when HTTP error rate exceeds 5% over 5 minutes",
+        "severity": "critical",
+        "alertType": "METRIC_BASED_ALERT",
+        "state": "normal",
+        "evalWindow": "5m",
+        "frequency": "1m",
+        "createdAt": "2026-05-02T10:00:00Z",
+        "updatedAt": "2026-05-02T10:00:00Z"
+      }
+    }
+  }
+}

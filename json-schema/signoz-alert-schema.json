@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/json-schema/signoz-alert-schema.json",
+  "title": "SigNoz Alert",
+  "description": "Schema representing an alert rule in the SigNoz observability platform.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the alert rule."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the alert rule."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of what the alert monitors."
+    },
+    "condition": {
+      "type": "object",
+      "description": "Alert condition definition including thresholds and query.",
+      "properties": {
+        "compositeQuery": {
+          "type": "object",
+          "description": "Composite query definition for evaluating the alert condition."
+        },
+        "op": {
+          "type": "string",
+          "description": "Comparison operator (e.g., > < >= <= = !=).",
+          "enum": [">", "<", ">=", "<=", "=", "!="]
+        },
+        "target": {
+          "type": "number",
+          "description": "Threshold value for the alert condition."
+        }
+      }
+    },
+    "evalWindow": {
+      "type": "string",
+      "description": "Evaluation window duration (e.g., 5m, 15m, 1h)."
+    },
+    "frequency": {
+      "type": "string",
+      "description": "How often the alert condition is evaluated."
+    },
+    "labels": {
+      "type": "object",
+      "description": "Key-value label pairs attached to the alert.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "annotations": {
+      "type": "object",
+      "description": "Key-value annotation pairs for the alert.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "severity": {
+      "type": "string",
+      "description": "Alert severity level.",
+      "enum": ["info", "warning", "critical"]
+    },
+    "state": {
+      "type": "string",
+      "description": "Current state of the alert.",
+      "enum": ["normal", "pending", "firing", "no_data", "muted"]
+    },
+    "alertType": {
+      "type": "string",
+      "description": "Type of alert (METRIC_BASED_ALERT, LOG_BASED_ALERT, TRACES_BASED_ALERT).",
+      "enum": ["METRIC_BASED_ALERT", "LOG_BASED_ALERT", "TRACES_BASED_ALERT", "ANOMALY_DETECTION_ALERT"]
+    },
+    "channels": {
+      "type": "array",
+      "description": "Notification channel IDs where alerts are sent.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the alert was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the alert was last updated."
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "User who created the alert."
+    }
+  },
+  "required": ["name", "condition", "alertType"]
+}

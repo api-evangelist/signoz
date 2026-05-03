@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "signoz": "https://signoz.io/vocab/",
+    "otel": "https://opentelemetry.io/docs/concepts/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Alert": "signoz:Alert",
+    "Dashboard": "signoz:Dashboard",
+    "Widget": "signoz:Widget",
+    "IngestionKey": "signoz:IngestionKey",
+    "ServiceAccount": "signoz:ServiceAccount",
+    "NotificationChannel": "signoz:NotificationChannel",
+    "DowntimeSchedule": "signoz:DowntimeSchedule",
+    "InfraHost": "signoz:InfraHost",
+    "MetricRule": "signoz:MetricRule",
+
+    "id": "@id",
+    "name": "schema:name",
+    "description": "schema:description",
+    "title": "schema:name",
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "createdBy": "schema:author",
+
+    "severity": "signoz:severity",
+    "alertType": "signoz:alertType",
+    "condition": "signoz:condition",
+    "evalWindow": "signoz:evaluationWindow",
+    "frequency": "signoz:evaluationFrequency",
+    "state": "signoz:alertState",
+    "channels": "signoz:notificationChannels",
+    "labels": "signoz:labels",
+    "annotations": "signoz:annotations",
+
+    "widgets": "signoz:widgets",
+    "panelType": "signoz:panelType",
+    "query": "signoz:query",
+    "isPublic": "signoz:isPublic",
+    "tags": "schema:keywords",
+
+    "orgId": "signoz:organizationId",
+    "limits": "signoz:ingestionLimits",
+    "signalTypes": "otel:SignalType",
+
+    "metricName": "otel:metricName",
+    "traceId": "otel:traceId",
+    "spanId": "otel:spanId",
+    "serviceName": "schema:name",
+    "timestamp": {
+      "@id": "schema:DateTime",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

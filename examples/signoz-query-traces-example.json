@@ -1,0 +1,73 @@
+{
+  "example": "Query trace data using the SigNoz query range API",
+  "request": {
+    "method": "POST",
+    "path": "/api/v5/query_range",
+    "headers": {
+      "SigNoz-Api-Key": "your-api-key",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "start": 1746172800000000000,
+      "end": 1746176400000000000,
+      "step": 60,
+      "compositeQuery": {
+        "queryType": "builder",
+        "panelType": "graph",
+        "builderQueries": {
+          "A": {
+            "queryName": "A",
+            "stepInterval": 60,
+            "dataSource": "traces",
+            "aggregateOperator": "count",
+            "aggregateAttribute": {
+              "key": "durationNano",
+              "dataType": "float64"
+            },
+            "filters": {
+              "items": [
+                {
+                  "key": { "key": "serviceName", "type": "tag" },
+                  "op": "=",
+                  "value": "payment-service"
+                }
+              ],
+              "op": "AND"
+            },
+            "groupBy": [
+              { "key": "statusCode", "type": "tag" }
+            ],
+            "limit": 100,
+            "offset": 0
+          }
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "result": [
+          {
+            "metric": { "statusCode": "200" },
+            "values": [
+              [1746172800, "142"],
+              [1746172860, "156"],
+              [1746172920, "134"]
+            ]
+          },
+          {
+            "metric": { "statusCode": "500" },
+            "values": [
+              [1746172800, "3"],
+              [1746172860, "5"],
+              [1746172920, "2"]
+            ]
+          }
+        ],
+        "resultType": "matrix"
+      }
+    }
+  }
+}

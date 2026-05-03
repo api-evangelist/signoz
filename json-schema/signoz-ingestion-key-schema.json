@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/json-schema/signoz-ingestion-key-schema.json",
+  "title": "SigNoz Ingestion Key",
+  "description": "Schema representing an ingestion key used to authenticate telemetry data sent to SigNoz.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the ingestion key."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the ingestion key."
+    },
+    "value": {
+      "type": "string",
+      "description": "The actual API key value used for authentication."
+    },
+    "orgId": {
+      "type": "string",
+      "description": "Organization identifier this key belongs to."
+    },
+    "limits": {
+      "type": "object",
+      "description": "Rate limiting configuration for this ingestion key.",
+      "properties": {
+        "signalTypes": {
+          "type": "object",
+          "description": "Per-signal type limits.",
+          "properties": {
+            "logs": {
+              "type": "object",
+              "properties": {
+                "bytesPerSecond": {
+                  "type": "integer",
+                  "description": "Bytes per second limit for log ingestion."
+                }
+              }
+            },
+            "traces": {
+              "type": "object",
+              "properties": {
+                "bytesPerSecond": {
+                  "type": "integer",
+                  "description": "Bytes per second limit for trace ingestion."
+                }
+              }
+            },
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "bytesPerSecond": {
+                  "type": "integer",
+                  "description": "Bytes per second limit for metric ingestion."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the ingestion key was created."
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the ingestion key was last updated."
+    }
+  },
+  "required": ["name"]
+}
