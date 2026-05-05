@@ -1,0 +1,13 @@
+{
+  "repo": "signoz",
+  "feeds": [
+    {
+      "source": "https://signoz.io/blog/",
+      "feed_url": "https://signoz.io/feed.xml",
+      "saved": 10,
+      "title": "SigNoz"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:36:22Z"
+}
