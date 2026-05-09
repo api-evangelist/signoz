@@ -3,11 +3,11 @@
   "feeds": [
     {
       "source": "https://signoz.io/blog/",
-      "feed_url": "https://signoz.io/feed.xml",
-      "saved": 10,
-      "title": "SigNoz"
+      "feed_url": "https://signoz.io/rss/",
+      "title": "SigNoz",
+      "saved": 50
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-05-03T23:36:22Z"
+  "post_count": 60,
+  "fetched": "2026-05-09T20:17:51Z"
 }
