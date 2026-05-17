@@ -49,17 +49,17 @@ apis:
     properties:
       - type: Documentation
         url: https://signoz.io/docs/
-      - type: API Reference
+      - type: APIReference
         url: https://signoz.io/api-reference/
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/openapi/signoz-openapi.yml
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/SigNoz/signoz
       - type: Pricing
         url: https://signoz.io/pricing/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://signoz.io/docs/introduction/
-      - type: Changelog
+      - type: ChangeLog
         url: https://signoz.io/changelog/
       - type: Rules
         url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
@@ -70,9 +70,9 @@ common:
     url: https://signoz.io
   - type: Documentation
     url: https://signoz.io/docs/
-  - type: API Reference
+  - type: APIReference
     url: https://signoz.io/api-reference/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/SigNoz
   - type: Blog
     url: https://signoz.io/blog/
@@ -84,9 +84,9 @@ common:
     url: https://signoz.io/slack/
   - type: Enterprise
     url: https://signoz.io/enterprise/
-  - type: Changelog
+  - type: ChangeLog
     url: https://signoz.io/changelog/
-  - type: Status
+  - type: StatusPage
     url: https://status.signoz.io/
 maintainers:
   - FN: Kin Lane
