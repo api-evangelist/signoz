@@ -24,7 +24,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/apis.yml
 created: '2026-03-25'
-modified: '2026-05-02'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
   - aid: signoz:signoz
@@ -88,6 +88,12 @@ common:
     url: https://signoz.io/changelog/
   - type: StatusPage
     url: https://status.signoz.io/
+  - name: MCP Server
+    url: https://github.com/SigNoz/signoz-mcp-server
+    type: MCPServer
+  - name: Agent Skills
+    url: https://github.com/SigNoz/agent-skills
+    type: AgentSkill
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
