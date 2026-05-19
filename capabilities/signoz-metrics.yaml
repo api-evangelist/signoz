@@ -1,0 +1,512 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — metrics
+  description: 'SigNoz — metrics. 11 operations. Lead operation: List metric names. Self-contained Naftiko capability covering
+    one Signoz business surface.'
+  tags:
+  - Signoz
+  - metrics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-metrics
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — metrics business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-metrics
+      path: /api/v2/metrics
+      operations:
+      - name: listmetrics
+        method: GET
+        description: List metric names
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start
+          in: query
+          type: integer
+        - name: end
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+        - name: searchText
+          in: query
+          type: string
+        - name: source
+          in: query
+          type: string
+    - name: api-v2-metrics-inspect
+      path: /api/v2/metrics/inspect
+      operations:
+      - name: inspectmetrics
+        method: POST
+        description: Inspect raw metric data points
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-metrics-onboarding
+      path: /api/v2/metrics/onboarding
+      operations:
+      - name: getmetricsonboardingstatus
+        method: GET
+        description: Check if non-SigNoz metrics have been received
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v2-metrics-stats
+      path: /api/v2/metrics/stats
+      operations:
+      - name: getmetricsstats
+        method: POST
+        description: Get metrics statistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-metrics-treemap
+      path: /api/v2/metrics/treemap
+      operations:
+      - name: getmetricstreemap
+        method: POST
+        description: Get metrics treemap
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-metrics-metric_name-alerts
+      path: /api/v2/metrics/{metric_name}/alerts
+      operations:
+      - name: getmetricalerts
+        method: GET
+        description: Get metric alerts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: metric_name
+          in: path
+          type: string
+          required: true
+    - name: api-v2-metrics-metric_name-attributes
+      path: /api/v2/metrics/{metric_name}/attributes
+      operations:
+      - name: getmetricattributes
+        method: GET
+        description: Get metric attributes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start
+          in: query
+          type: integer
+        - name: end
+          in: query
+          type: integer
+        - name: metric_name
+          in: path
+          type: string
+          required: true
+    - name: api-v2-metrics-metric_name-dashboards
+      path: /api/v2/metrics/{metric_name}/dashboards
+      operations:
+      - name: getmetricdashboards
+        method: GET
+        description: Get metric dashboards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: metric_name
+          in: path
+          type: string
+          required: true
+    - name: api-v2-metrics-metric_name-highlights
+      path: /api/v2/metrics/{metric_name}/highlights
+      operations:
+      - name: getmetrichighlights
+        method: GET
+        description: Get metric highlights
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: metric_name
+          in: path
+          type: string
+          required: true
+    - name: api-v2-metrics-metric_name-metadata
+      path: /api/v2/metrics/{metric_name}/metadata
+      operations:
+      - name: getmetricmetadata
+        method: GET
+        description: Get metric metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: metric_name
+          in: path
+          type: string
+          required: true
+      - name: updatemetricmetadata
+        method: POST
+        description: Update metric metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: metric_name
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-metrics-rest
+    port: 8080
+    description: REST adapter for SigNoz — metrics. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/v2/metrics
+      name: api-v2-metrics
+      description: REST surface for api-v2-metrics.
+      operations:
+      - method: GET
+        name: listmetrics
+        description: List metric names
+        call: signoz-metrics.listmetrics
+        with:
+          start: rest.start
+          end: rest.end
+          limit: rest.limit
+          searchText: rest.searchText
+          source: rest.source
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/metrics/inspect
+      name: api-v2-metrics-inspect
+      description: REST surface for api-v2-metrics-inspect.
+      operations:
+      - method: POST
+        name: inspectmetrics
+        description: Inspect raw metric data points
+        call: signoz-metrics.inspectmetrics
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/metrics/onboarding
+      name: api-v2-metrics-onboarding
+      description: REST surface for api-v2-metrics-onboarding.
+      operations:
+      - method: GET
+        name: getmetricsonboardingstatus
+        description: Check if non-SigNoz metrics have been received
+        call: signoz-metrics.getmetricsonboardingstatus
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/metrics/stats
+      name: api-v2-metrics-stats
+      description: REST surface for api-v2-metrics-stats.
+      operations:
+      - method: POST
+        name: getmetricsstats
+        description: Get metrics statistics
+        call: signoz-metrics.getmetricsstats
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/metrics/treemap
+      name: api-v2-metrics-treemap
+      description: REST surface for api-v2-metrics-treemap.
+      operations:
+      - method: POST
+        name: getmetricstreemap
+        description: Get metrics treemap
+        call: signoz-metrics.getmetricstreemap
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/metrics/{metric-name}/alerts
+      name: api-v2-metrics-metric-name-alerts
+      description: REST surface for api-v2-metrics-metric_name-alerts.
+      operations:
+      - method: GET
+        name: getmetricalerts
+        description: Get metric alerts
+        call: signoz-metrics.getmetricalerts
+        with:
+          metric_name: rest.metric_name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/metrics/{metric-name}/attributes
+      name: api-v2-metrics-metric-name-attributes
+      description: REST surface for api-v2-metrics-metric_name-attributes.
+      operations:
+      - method: GET
+        name: getmetricattributes
+        description: Get metric attributes
+        call: signoz-metrics.getmetricattributes
+        with:
+          start: rest.start
+          end: rest.end
+          metric_name: rest.metric_name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/metrics/{metric-name}/dashboards
+      name: api-v2-metrics-metric-name-dashboards
+      description: REST surface for api-v2-metrics-metric_name-dashboards.
+      operations:
+      - method: GET
+        name: getmetricdashboards
+        description: Get metric dashboards
+        call: signoz-metrics.getmetricdashboards
+        with:
+          metric_name: rest.metric_name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/metrics/{metric-name}/highlights
+      name: api-v2-metrics-metric-name-highlights
+      description: REST surface for api-v2-metrics-metric_name-highlights.
+      operations:
+      - method: GET
+        name: getmetrichighlights
+        description: Get metric highlights
+        call: signoz-metrics.getmetrichighlights
+        with:
+          metric_name: rest.metric_name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/metrics/{metric-name}/metadata
+      name: api-v2-metrics-metric-name-metadata
+      description: REST surface for api-v2-metrics-metric_name-metadata.
+      operations:
+      - method: GET
+        name: getmetricmetadata
+        description: Get metric metadata
+        call: signoz-metrics.getmetricmetadata
+        with:
+          metric_name: rest.metric_name
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: updatemetricmetadata
+        description: Update metric metadata
+        call: signoz-metrics.updatemetricmetadata
+        with:
+          metric_name: rest.metric_name
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-metrics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — metrics. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-metric-names
+      description: List metric names
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-metrics.listmetrics
+      with:
+        start: tools.start
+        end: tools.end
+        limit: tools.limit
+        searchText: tools.searchText
+        source: tools.source
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: inspect-raw-metric-data-points
+      description: Inspect raw metric data points
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-metrics.inspectmetrics
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-if-non-signoz-metrics
+      description: Check if non-SigNoz metrics have been received
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-metrics.getmetricsonboardingstatus
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-metrics-statistics
+      description: Get metrics statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: signoz-metrics.getmetricsstats
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-metrics-treemap
+      description: Get metrics treemap
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: signoz-metrics.getmetricstreemap
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-metric-alerts
+      description: Get metric alerts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-metrics.getmetricalerts
+      with:
+        metric_name: tools.metric_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-metric-attributes
+      description: Get metric attributes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-metrics.getmetricattributes
+      with:
+        start: tools.start
+        end: tools.end
+        metric_name: tools.metric_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-metric-dashboards
+      description: Get metric dashboards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-metrics.getmetricdashboards
+      with:
+        metric_name: tools.metric_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-metric-highlights
+      description: Get metric highlights
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-metrics.getmetrichighlights
+      with:
+        metric_name: tools.metric_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-metric-metadata
+      description: Get metric metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-metrics.getmetricmetadata
+      with:
+        metric_name: tools.metric_name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-metric-metadata
+      description: Update metric metadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-metrics.updatemetricmetadata
+      with:
+        metric_name: tools.metric_name
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

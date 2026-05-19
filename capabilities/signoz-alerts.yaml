@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — alerts
+  description: 'SigNoz — alerts. 1 operations. Lead operation: Get alerts. Self-contained Naftiko capability covering one
+    Signoz business surface.'
+  tags:
+  - Signoz
+  - alerts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-alerts
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — alerts business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-alerts
+      path: /api/v1/alerts
+      operations:
+      - name: getalerts
+        method: GET
+        description: Get alerts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-alerts-rest
+    port: 8080
+    description: REST adapter for SigNoz — alerts. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/alerts
+      name: api-v1-alerts
+      description: REST surface for api-v1-alerts.
+      operations:
+      - method: GET
+        name: getalerts
+        description: Get alerts
+        call: signoz-alerts.getalerts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-alerts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — alerts. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-alerts
+      description: Get alerts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-alerts.getalerts
+      outputParameters:
+      - type: object
+        mapping: $.

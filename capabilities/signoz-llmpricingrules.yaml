@@ -1,0 +1,193 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — llmpricingrules
+  description: 'SigNoz — llmpricingrules. 4 operations. Lead operation: List pricing rules. Self-contained Naftiko capability
+    covering one Signoz business surface.'
+  tags:
+  - Signoz
+  - llmpricingrules
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-llmpricingrules
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — llmpricingrules business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-llm_pricing_rules
+      path: /api/v1/llm_pricing_rules
+      operations:
+      - name: listllmpricingrules
+        method: GET
+        description: List pricing rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: offset
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+      - name: createorupdatellmpricingrules
+        method: PUT
+        description: Create or update pricing rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-llm_pricing_rules-id
+      path: /api/v1/llm_pricing_rules/{id}
+      operations:
+      - name: deletellmpricingrule
+        method: DELETE
+        description: Delete a pricing rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: getllmpricingrule
+        method: GET
+        description: Get a pricing rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-llmpricingrules-rest
+    port: 8080
+    description: REST adapter for SigNoz — llmpricingrules. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v1/llm-pricing-rules
+      name: api-v1-llm-pricing-rules
+      description: REST surface for api-v1-llm_pricing_rules.
+      operations:
+      - method: GET
+        name: listllmpricingrules
+        description: List pricing rules
+        call: signoz-llmpricingrules.listllmpricingrules
+        with:
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: createorupdatellmpricingrules
+        description: Create or update pricing rules
+        call: signoz-llmpricingrules.createorupdatellmpricingrules
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/llm-pricing-rules/{id}
+      name: api-v1-llm-pricing-rules-id
+      description: REST surface for api-v1-llm_pricing_rules-id.
+      operations:
+      - method: DELETE
+        name: deletellmpricingrule
+        description: Delete a pricing rule
+        call: signoz-llmpricingrules.deletellmpricingrule
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getllmpricingrule
+        description: Get a pricing rule
+        call: signoz-llmpricingrules.getllmpricingrule
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-llmpricingrules-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — llmpricingrules. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-pricing-rules
+      description: List pricing rules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-llmpricingrules.listllmpricingrules
+      with:
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-update-pricing-rules
+      description: Create or update pricing rules
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-llmpricingrules.createorupdatellmpricingrules
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-pricing-rule
+      description: Delete a pricing rule
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: signoz-llmpricingrules.deletellmpricingrule
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-pricing-rule
+      description: Get a pricing rule
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-llmpricingrules.getllmpricingrule
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

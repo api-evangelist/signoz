@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — features
+  description: 'SigNoz — features. 1 operations. Lead operation: Get features. Self-contained Naftiko capability covering
+    one Signoz business surface.'
+  tags:
+  - Signoz
+  - features
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-features
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — features business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-features
+      path: /api/v2/features
+      operations:
+      - name: getfeatures
+        method: GET
+        description: Get features
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-features-rest
+    port: 8080
+    description: REST adapter for SigNoz — features. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/api/v2/features
+      name: api-v2-features
+      description: REST surface for api-v2-features.
+      operations:
+      - method: GET
+        name: getfeatures
+        description: Get features
+        call: signoz-features.getfeatures
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-features-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — features. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-features
+      description: Get features
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-features.getfeatures
+      outputParameters:
+      - type: object
+        mapping: $.

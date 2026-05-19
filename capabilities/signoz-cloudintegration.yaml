@@ -1,0 +1,549 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — cloudintegration
+  description: 'SigNoz — cloudintegration. 11 operations. Lead operation: Agent check-in. Self-contained Naftiko capability
+    covering one Signoz business surface.'
+  tags:
+  - Signoz
+  - cloudintegration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-cloudintegration
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — cloudintegration business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-cloud-integrations-cloud_provider-agent-check-in
+      path: /api/v1/cloud-integrations/{cloud_provider}/agent-check-in
+      operations:
+      - name: agentcheckindeprecated
+        method: POST
+        description: Agent check-in
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-cloud_integrations-cloud_provider-accounts
+      path: /api/v1/cloud_integrations/{cloud_provider}/accounts
+      operations:
+      - name: listaccounts
+        method: GET
+        description: List accounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+      - name: createaccount
+        method: POST
+        description: Create account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-cloud_integrations-cloud_provider-accounts-check_in
+      path: /api/v1/cloud_integrations/{cloud_provider}/accounts/check_in
+      operations:
+      - name: agentcheckin
+        method: POST
+        description: Agent check-in
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-cloud_integrations-cloud_provider-accounts-id
+      path: /api/v1/cloud_integrations/{cloud_provider}/accounts/{id}
+      operations:
+      - name: disconnectaccount
+        method: DELETE
+        description: Disconnect account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: getaccount
+        method: GET
+        description: Get account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: updateaccount
+        method: PUT
+        description: Update account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-cloud_integrations-cloud_provider-accounts-id-services-service_id
+      path: /api/v1/cloud_integrations/{cloud_provider}/accounts/{id}/services/{service_id}
+      operations:
+      - name: updateservice
+        method: PUT
+        description: Update service
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: service_id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-cloud_integrations-cloud_provider-credentials
+      path: /api/v1/cloud_integrations/{cloud_provider}/credentials
+      operations:
+      - name: getconnectioncredentials
+        method: GET
+        description: Get connection credentials
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+    - name: api-v1-cloud_integrations-cloud_provider-services
+      path: /api/v1/cloud_integrations/{cloud_provider}/services
+      operations:
+      - name: listservicesmetadata
+        method: GET
+        description: List services metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_integration_id
+          in: query
+          type: string
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+    - name: api-v1-cloud_integrations-cloud_provider-services-service_id
+      path: /api/v1/cloud_integrations/{cloud_provider}/services/{service_id}
+      operations:
+      - name: getservice
+        method: GET
+        description: Get service
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: cloud_integration_id
+          in: query
+          type: string
+        - name: cloud_provider
+          in: path
+          type: string
+          required: true
+        - name: service_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-cloudintegration-rest
+    port: 8080
+    description: REST adapter for SigNoz — cloudintegration. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v1/cloud-integrations/{cloud-provider}/agent-check-in
+      name: api-v1-cloud-integrations-cloud-provider-agent-check-in
+      description: REST surface for api-v1-cloud-integrations-cloud_provider-agent-check-in.
+      operations:
+      - method: POST
+        name: agentcheckindeprecated
+        description: Agent check-in
+        call: signoz-cloudintegration.agentcheckindeprecated
+        with:
+          cloud_provider: rest.cloud_provider
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cloud-integrations/{cloud-provider}/accounts
+      name: api-v1-cloud-integrations-cloud-provider-accounts
+      description: REST surface for api-v1-cloud_integrations-cloud_provider-accounts.
+      operations:
+      - method: GET
+        name: listaccounts
+        description: List accounts
+        call: signoz-cloudintegration.listaccounts
+        with:
+          cloud_provider: rest.cloud_provider
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createaccount
+        description: Create account
+        call: signoz-cloudintegration.createaccount
+        with:
+          cloud_provider: rest.cloud_provider
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cloud-integrations/{cloud-provider}/accounts/check-in
+      name: api-v1-cloud-integrations-cloud-provider-accounts-check-in
+      description: REST surface for api-v1-cloud_integrations-cloud_provider-accounts-check_in.
+      operations:
+      - method: POST
+        name: agentcheckin
+        description: Agent check-in
+        call: signoz-cloudintegration.agentcheckin
+        with:
+          cloud_provider: rest.cloud_provider
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cloud-integrations/{cloud-provider}/accounts/{id}
+      name: api-v1-cloud-integrations-cloud-provider-accounts-id
+      description: REST surface for api-v1-cloud_integrations-cloud_provider-accounts-id.
+      operations:
+      - method: DELETE
+        name: disconnectaccount
+        description: Disconnect account
+        call: signoz-cloudintegration.disconnectaccount
+        with:
+          cloud_provider: rest.cloud_provider
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getaccount
+        description: Get account
+        call: signoz-cloudintegration.getaccount
+        with:
+          cloud_provider: rest.cloud_provider
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateaccount
+        description: Update account
+        call: signoz-cloudintegration.updateaccount
+        with:
+          cloud_provider: rest.cloud_provider
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cloud-integrations/{cloud-provider}/accounts/{id}/services/{service-id}
+      name: api-v1-cloud-integrations-cloud-provider-accounts-id-services-service-id
+      description: REST surface for api-v1-cloud_integrations-cloud_provider-accounts-id-services-service_id.
+      operations:
+      - method: PUT
+        name: updateservice
+        description: Update service
+        call: signoz-cloudintegration.updateservice
+        with:
+          cloud_provider: rest.cloud_provider
+          id: rest.id
+          service_id: rest.service_id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cloud-integrations/{cloud-provider}/credentials
+      name: api-v1-cloud-integrations-cloud-provider-credentials
+      description: REST surface for api-v1-cloud_integrations-cloud_provider-credentials.
+      operations:
+      - method: GET
+        name: getconnectioncredentials
+        description: Get connection credentials
+        call: signoz-cloudintegration.getconnectioncredentials
+        with:
+          cloud_provider: rest.cloud_provider
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cloud-integrations/{cloud-provider}/services
+      name: api-v1-cloud-integrations-cloud-provider-services
+      description: REST surface for api-v1-cloud_integrations-cloud_provider-services.
+      operations:
+      - method: GET
+        name: listservicesmetadata
+        description: List services metadata
+        call: signoz-cloudintegration.listservicesmetadata
+        with:
+          cloud_integration_id: rest.cloud_integration_id
+          cloud_provider: rest.cloud_provider
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/cloud-integrations/{cloud-provider}/services/{service-id}
+      name: api-v1-cloud-integrations-cloud-provider-services-service-id
+      description: REST surface for api-v1-cloud_integrations-cloud_provider-services-service_id.
+      operations:
+      - method: GET
+        name: getservice
+        description: Get service
+        call: signoz-cloudintegration.getservice
+        with:
+          cloud_integration_id: rest.cloud_integration_id
+          cloud_provider: rest.cloud_provider
+          service_id: rest.service_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-cloudintegration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — cloudintegration. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: agent-check
+      description: Agent check-in
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-cloudintegration.agentcheckindeprecated
+      with:
+        cloud_provider: tools.cloud_provider
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-accounts
+      description: List accounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-cloudintegration.listaccounts
+      with:
+        cloud_provider: tools.cloud_provider
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-account
+      description: Create account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-cloudintegration.createaccount
+      with:
+        cloud_provider: tools.cloud_provider
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: agent-check-2
+      description: Agent check-in
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-cloudintegration.agentcheckin
+      with:
+        cloud_provider: tools.cloud_provider
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: disconnect-account
+      description: Disconnect account
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: signoz-cloudintegration.disconnectaccount
+      with:
+        cloud_provider: tools.cloud_provider
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account
+      description: Get account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-cloudintegration.getaccount
+      with:
+        cloud_provider: tools.cloud_provider
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-account
+      description: Update account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-cloudintegration.updateaccount
+      with:
+        cloud_provider: tools.cloud_provider
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-service
+      description: Update service
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-cloudintegration.updateservice
+      with:
+        cloud_provider: tools.cloud_provider
+        id: tools.id
+        service_id: tools.service_id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-connection-credentials
+      description: Get connection credentials
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-cloudintegration.getconnectioncredentials
+      with:
+        cloud_provider: tools.cloud_provider
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-services-metadata
+      description: List services metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-cloudintegration.listservicesmetadata
+      with:
+        cloud_integration_id: tools.cloud_integration_id
+        cloud_provider: tools.cloud_provider
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-service
+      description: Get service
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-cloudintegration.getservice
+      with:
+        cloud_integration_id: tools.cloud_integration_id
+        cloud_provider: tools.cloud_provider
+        service_id: tools.service_id
+      outputParameters:
+      - type: object
+        mapping: $.

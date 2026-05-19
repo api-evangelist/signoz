@@ -1,0 +1,122 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — inframonitoring
+  description: 'SigNoz — inframonitoring. 2 operations. Lead operation: List Hosts for Infra Monitoring. Self-contained Naftiko
+    capability covering one Signoz business surface.'
+  tags:
+  - Signoz
+  - inframonitoring
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-inframonitoring
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — inframonitoring business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-infra_monitoring-hosts
+      path: /api/v2/infra_monitoring/hosts
+      operations:
+      - name: listhosts
+        method: POST
+        description: List Hosts for Infra Monitoring
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-infra_monitoring-pods
+      path: /api/v2/infra_monitoring/pods
+      operations:
+      - name: listpods
+        method: POST
+        description: List Pods for Infra Monitoring
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-inframonitoring-rest
+    port: 8080
+    description: REST adapter for SigNoz — inframonitoring. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/v2/infra-monitoring/hosts
+      name: api-v2-infra-monitoring-hosts
+      description: REST surface for api-v2-infra_monitoring-hosts.
+      operations:
+      - method: POST
+        name: listhosts
+        description: List Hosts for Infra Monitoring
+        call: signoz-inframonitoring.listhosts
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/infra-monitoring/pods
+      name: api-v2-infra-monitoring-pods
+      description: REST surface for api-v2-infra_monitoring-pods.
+      operations:
+      - method: POST
+        name: listpods
+        description: List Pods for Infra Monitoring
+        call: signoz-inframonitoring.listpods
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-inframonitoring-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — inframonitoring. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-hosts-infra-monitoring
+      description: List Hosts for Infra Monitoring
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: signoz-inframonitoring.listhosts
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-pods-infra-monitoring
+      description: List Pods for Infra Monitoring
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: signoz-inframonitoring.listpods
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

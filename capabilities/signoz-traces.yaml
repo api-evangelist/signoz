@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — traces
+  description: 'SigNoz — traces. 1 operations. Lead operation: Export raw data. Self-contained Naftiko capability covering
+    one Signoz business surface.'
+  tags:
+  - Signoz
+  - traces
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-traces
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — traces business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-export_raw_data
+      path: /api/v1/export_raw_data
+      operations:
+      - name: handleexportrawdatapost
+        method: POST
+        description: Export raw data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: query
+          type: string
+          description: The output format for the export.
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-traces-rest
+    port: 8080
+    description: REST adapter for SigNoz — traces. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/export-raw-data
+      name: api-v1-export-raw-data
+      description: REST surface for api-v1-export_raw_data.
+      operations:
+      - method: POST
+        name: handleexportrawdatapost
+        description: Export raw data
+        call: signoz-traces.handleexportrawdatapost
+        with:
+          format: rest.format
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-traces-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — traces. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: export-raw-data
+      description: Export raw data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-traces.handleexportrawdatapost
+      with:
+        format: tools.format
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,69 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — global
+  description: 'SigNoz — global. 1 operations. Lead operation: Get global config. Self-contained Naftiko capability covering
+    one Signoz business surface.'
+  tags:
+  - Signoz
+  - global
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-global
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — global business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-global-config
+      path: /api/v1/global/config
+      operations:
+      - name: getglobalconfig
+        method: GET
+        description: Get global config
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-global-rest
+    port: 8080
+    description: REST adapter for SigNoz — global. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/global/config
+      name: api-v1-global-config
+      description: REST surface for api-v1-global-config.
+      operations:
+      - method: GET
+        name: getglobalconfig
+        description: Get global config
+        call: signoz-global.getglobalconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-global-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — global. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-global-config
+      description: Get global config
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-global.getglobalconfig
+      outputParameters:
+      - type: object
+        mapping: $.

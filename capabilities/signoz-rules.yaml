@@ -1,0 +1,732 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — rules
+  description: 'SigNoz — rules. 13 operations. Lead operation: List alert rules. Self-contained Naftiko capability covering
+    one Signoz business surface.'
+  tags:
+  - Signoz
+  - rules
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-rules
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — rules business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-rules
+      path: /api/v2/rules
+      operations:
+      - name: listrules
+        method: GET
+        description: List alert rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createrule
+        method: POST
+        description: Create alert rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-rules-test
+      path: /api/v2/rules/test
+      operations:
+      - name: testrule
+        method: POST
+        description: Test alert rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-rules-id
+      path: /api/v2/rules/{id}
+      operations:
+      - name: deleterulebyid
+        method: DELETE
+        description: Delete alert rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: getrulebyid
+        method: GET
+        description: Get alert rule by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: patchrulebyid
+        method: PATCH
+        description: Patch alert rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: updaterulebyid
+        method: PUT
+        description: Update alert rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-rules-id-history-filter_keys
+      path: /api/v2/rules/{id}/history/filter_keys
+      operations:
+      - name: getrulehistoryfilterkeys
+        method: GET
+        description: Get rule history filter keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: signal
+          in: query
+          type: string
+        - name: source
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+        - name: startUnixMilli
+          in: query
+          type: integer
+        - name: endUnixMilli
+          in: query
+          type: integer
+        - name: fieldContext
+          in: query
+          type: string
+        - name: fieldDataType
+          in: query
+          type: string
+        - name: metricName
+          in: query
+          type: string
+        - name: metricNamespace
+          in: query
+          type: string
+        - name: searchText
+          in: query
+          type: string
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-rules-id-history-filter_values
+      path: /api/v2/rules/{id}/history/filter_values
+      operations:
+      - name: getrulehistoryfiltervalues
+        method: GET
+        description: Get rule history filter values
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: signal
+          in: query
+          type: string
+        - name: source
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+        - name: startUnixMilli
+          in: query
+          type: integer
+        - name: endUnixMilli
+          in: query
+          type: integer
+        - name: fieldContext
+          in: query
+          type: string
+        - name: fieldDataType
+          in: query
+          type: string
+        - name: metricName
+          in: query
+          type: string
+        - name: metricNamespace
+          in: query
+          type: string
+        - name: searchText
+          in: query
+          type: string
+        - name: name
+          in: query
+          type: string
+        - name: existingQuery
+          in: query
+          type: string
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-rules-id-history-overall_status
+      path: /api/v2/rules/{id}/history/overall_status
+      operations:
+      - name: getrulehistoryoverallstatus
+        method: GET
+        description: Get rule overall status timeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start
+          in: query
+          type: integer
+          required: true
+        - name: end
+          in: query
+          type: integer
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-rules-id-history-stats
+      path: /api/v2/rules/{id}/history/stats
+      operations:
+      - name: getrulehistorystats
+        method: GET
+        description: Get rule history stats
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start
+          in: query
+          type: integer
+          required: true
+        - name: end
+          in: query
+          type: integer
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-rules-id-history-timeline
+      path: /api/v2/rules/{id}/history/timeline
+      operations:
+      - name: getrulehistorytimeline
+        method: GET
+        description: Get rule history timeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start
+          in: query
+          type: integer
+          required: true
+        - name: end
+          in: query
+          type: integer
+          required: true
+        - name: state
+          in: query
+          type: string
+        - name: filterExpression
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+        - name: order
+          in: query
+          type: string
+        - name: cursor
+          in: query
+          type: string
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-rules-id-history-top_contributors
+      path: /api/v2/rules/{id}/history/top_contributors
+      operations:
+      - name: getrulehistorytopcontributors
+        method: GET
+        description: Get top contributors to rule firing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start
+          in: query
+          type: integer
+          required: true
+        - name: end
+          in: query
+          type: integer
+          required: true
+        - name: id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-rules-rest
+    port: 8080
+    description: REST adapter for SigNoz — rules. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/v2/rules
+      name: api-v2-rules
+      description: REST surface for api-v2-rules.
+      operations:
+      - method: GET
+        name: listrules
+        description: List alert rules
+        call: signoz-rules.listrules
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createrule
+        description: Create alert rule
+        call: signoz-rules.createrule
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/rules/test
+      name: api-v2-rules-test
+      description: REST surface for api-v2-rules-test.
+      operations:
+      - method: POST
+        name: testrule
+        description: Test alert rule
+        call: signoz-rules.testrule
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/rules/{id}
+      name: api-v2-rules-id
+      description: REST surface for api-v2-rules-id.
+      operations:
+      - method: DELETE
+        name: deleterulebyid
+        description: Delete alert rule
+        call: signoz-rules.deleterulebyid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getrulebyid
+        description: Get alert rule by ID
+        call: signoz-rules.getrulebyid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchrulebyid
+        description: Patch alert rule
+        call: signoz-rules.patchrulebyid
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updaterulebyid
+        description: Update alert rule
+        call: signoz-rules.updaterulebyid
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/rules/{id}/history/filter-keys
+      name: api-v2-rules-id-history-filter-keys
+      description: REST surface for api-v2-rules-id-history-filter_keys.
+      operations:
+      - method: GET
+        name: getrulehistoryfilterkeys
+        description: Get rule history filter keys
+        call: signoz-rules.getrulehistoryfilterkeys
+        with:
+          signal: rest.signal
+          source: rest.source
+          limit: rest.limit
+          startUnixMilli: rest.startUnixMilli
+          endUnixMilli: rest.endUnixMilli
+          fieldContext: rest.fieldContext
+          fieldDataType: rest.fieldDataType
+          metricName: rest.metricName
+          metricNamespace: rest.metricNamespace
+          searchText: rest.searchText
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/rules/{id}/history/filter-values
+      name: api-v2-rules-id-history-filter-values
+      description: REST surface for api-v2-rules-id-history-filter_values.
+      operations:
+      - method: GET
+        name: getrulehistoryfiltervalues
+        description: Get rule history filter values
+        call: signoz-rules.getrulehistoryfiltervalues
+        with:
+          signal: rest.signal
+          source: rest.source
+          limit: rest.limit
+          startUnixMilli: rest.startUnixMilli
+          endUnixMilli: rest.endUnixMilli
+          fieldContext: rest.fieldContext
+          fieldDataType: rest.fieldDataType
+          metricName: rest.metricName
+          metricNamespace: rest.metricNamespace
+          searchText: rest.searchText
+          name: rest.name
+          existingQuery: rest.existingQuery
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/rules/{id}/history/overall-status
+      name: api-v2-rules-id-history-overall-status
+      description: REST surface for api-v2-rules-id-history-overall_status.
+      operations:
+      - method: GET
+        name: getrulehistoryoverallstatus
+        description: Get rule overall status timeline
+        call: signoz-rules.getrulehistoryoverallstatus
+        with:
+          start: rest.start
+          end: rest.end
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/rules/{id}/history/stats
+      name: api-v2-rules-id-history-stats
+      description: REST surface for api-v2-rules-id-history-stats.
+      operations:
+      - method: GET
+        name: getrulehistorystats
+        description: Get rule history stats
+        call: signoz-rules.getrulehistorystats
+        with:
+          start: rest.start
+          end: rest.end
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/rules/{id}/history/timeline
+      name: api-v2-rules-id-history-timeline
+      description: REST surface for api-v2-rules-id-history-timeline.
+      operations:
+      - method: GET
+        name: getrulehistorytimeline
+        description: Get rule history timeline
+        call: signoz-rules.getrulehistorytimeline
+        with:
+          start: rest.start
+          end: rest.end
+          state: rest.state
+          filterExpression: rest.filterExpression
+          limit: rest.limit
+          order: rest.order
+          cursor: rest.cursor
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/rules/{id}/history/top-contributors
+      name: api-v2-rules-id-history-top-contributors
+      description: REST surface for api-v2-rules-id-history-top_contributors.
+      operations:
+      - method: GET
+        name: getrulehistorytopcontributors
+        description: Get top contributors to rule firing
+        call: signoz-rules.getrulehistorytopcontributors
+        with:
+          start: rest.start
+          end: rest.end
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-rules-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — rules. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-alert-rules
+      description: List alert rules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-rules.listrules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-alert-rule
+      description: Create alert rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-rules.createrule
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: test-alert-rule
+      description: Test alert rule
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: signoz-rules.testrule
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-alert-rule
+      description: Delete alert rule
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: signoz-rules.deleterulebyid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-alert-rule-id
+      description: Get alert rule by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-rules.getrulebyid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patch-alert-rule
+      description: Patch alert rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-rules.patchrulebyid
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-alert-rule
+      description: Update alert rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-rules.updaterulebyid
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-rule-history-filter-keys
+      description: Get rule history filter keys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-rules.getrulehistoryfilterkeys
+      with:
+        signal: tools.signal
+        source: tools.source
+        limit: tools.limit
+        startUnixMilli: tools.startUnixMilli
+        endUnixMilli: tools.endUnixMilli
+        fieldContext: tools.fieldContext
+        fieldDataType: tools.fieldDataType
+        metricName: tools.metricName
+        metricNamespace: tools.metricNamespace
+        searchText: tools.searchText
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-rule-history-filter-values
+      description: Get rule history filter values
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-rules.getrulehistoryfiltervalues
+      with:
+        signal: tools.signal
+        source: tools.source
+        limit: tools.limit
+        startUnixMilli: tools.startUnixMilli
+        endUnixMilli: tools.endUnixMilli
+        fieldContext: tools.fieldContext
+        fieldDataType: tools.fieldDataType
+        metricName: tools.metricName
+        metricNamespace: tools.metricNamespace
+        searchText: tools.searchText
+        name: tools.name
+        existingQuery: tools.existingQuery
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-rule-overall-status-timeline
+      description: Get rule overall status timeline
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-rules.getrulehistoryoverallstatus
+      with:
+        start: tools.start
+        end: tools.end
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-rule-history-stats
+      description: Get rule history stats
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-rules.getrulehistorystats
+      with:
+        start: tools.start
+        end: tools.end
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-rule-history-timeline
+      description: Get rule history timeline
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-rules.getrulehistorytimeline
+      with:
+        start: tools.start
+        end: tools.end
+        state: tools.state
+        filterExpression: tools.filterExpression
+        limit: tools.limit
+        order: tools.order
+        cursor: tools.cursor
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-top-contributors-rule-firing
+      description: Get top contributors to rule firing
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-rules.getrulehistorytopcontributors
+      with:
+        start: tools.start
+        end: tools.end
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,152 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — logs
+  description: 'SigNoz — logs. 3 operations. Lead operation: Export raw data. Self-contained Naftiko capability covering one
+    Signoz business surface.'
+  tags:
+  - Signoz
+  - logs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-logs
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — logs business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-export_raw_data
+      path: /api/v1/export_raw_data
+      operations:
+      - name: handleexportrawdatapost
+        method: POST
+        description: Export raw data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: query
+          type: string
+          description: The output format for the export.
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-logs-promote_paths
+      path: /api/v1/logs/promote_paths
+      operations:
+      - name: listpromotedandindexedpaths
+        method: GET
+        description: Promote and index paths
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: handlepromoteandindexpaths
+        method: POST
+        description: Promote and index paths
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-logs-rest
+    port: 8080
+    description: REST adapter for SigNoz — logs. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/export-raw-data
+      name: api-v1-export-raw-data
+      description: REST surface for api-v1-export_raw_data.
+      operations:
+      - method: POST
+        name: handleexportrawdatapost
+        description: Export raw data
+        call: signoz-logs.handleexportrawdatapost
+        with:
+          format: rest.format
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/logs/promote-paths
+      name: api-v1-logs-promote-paths
+      description: REST surface for api-v1-logs-promote_paths.
+      operations:
+      - method: GET
+        name: listpromotedandindexedpaths
+        description: Promote and index paths
+        call: signoz-logs.listpromotedandindexedpaths
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: handlepromoteandindexpaths
+        description: Promote and index paths
+        call: signoz-logs.handlepromoteandindexpaths
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-logs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — logs. One tool per consumed operation, routed inline through this capability's consumes
+      block.
+    tools:
+    - name: export-raw-data
+      description: Export raw data
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-logs.handleexportrawdatapost
+      with:
+        format: tools.format
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: promote-and-index-paths
+      description: Promote and index paths
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-logs.listpromotedandindexedpaths
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: promote-and-index-paths-2
+      description: Promote and index paths
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-logs.handlepromoteandindexpaths
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

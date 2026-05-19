@@ -1,0 +1,146 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — zeus
+  description: 'SigNoz — zeus. 3 operations. Lead operation: Get host info from Zeus.. Self-contained Naftiko capability covering
+    one Signoz business surface.'
+  tags:
+  - Signoz
+  - zeus
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-zeus
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — zeus business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v2-zeus-hosts
+      path: /api/v2/zeus/hosts
+      operations:
+      - name: gethosts
+        method: GET
+        description: Get host info from Zeus.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: puthost
+        method: PUT
+        description: Put host in Zeus for a deployment.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-zeus-profiles
+      path: /api/v2/zeus/profiles
+      operations:
+      - name: putprofile
+        method: PUT
+        description: Put profile in Zeus for a deployment.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-zeus-rest
+    port: 8080
+    description: REST adapter for SigNoz — zeus. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/v2/zeus/hosts
+      name: api-v2-zeus-hosts
+      description: REST surface for api-v2-zeus-hosts.
+      operations:
+      - method: GET
+        name: gethosts
+        description: Get host info from Zeus.
+        call: signoz-zeus.gethosts
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: puthost
+        description: Put host in Zeus for a deployment.
+        call: signoz-zeus.puthost
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/zeus/profiles
+      name: api-v2-zeus-profiles
+      description: REST surface for api-v2-zeus-profiles.
+      operations:
+      - method: PUT
+        name: putprofile
+        description: Put profile in Zeus for a deployment.
+        call: signoz-zeus.putprofile
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-zeus-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — zeus. One tool per consumed operation, routed inline through this capability's consumes
+      block.
+    tools:
+    - name: get-host-info-zeus
+      description: Get host info from Zeus.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-zeus.gethosts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: put-host-zeus-deployment
+      description: Put host in Zeus for a deployment.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-zeus.puthost
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: put-profile-zeus-deployment
+      description: Put profile in Zeus for a deployment.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-zeus.putprofile
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,99 +1,153 @@
 aid: signoz
 name: SigNoz
-description: >-
-  SigNoz is an open source observability platform with logs, traces, and metrics
-  in a single pane, built natively on OpenTelemetry. It is a full-stack
-  open-source APM and observability tool that serves as an open-source alternative
-  to DataDog, NewRelic, and other proprietary monitoring solutions. SigNoz provides
-  distributed tracing, log management, infrastructure monitoring, and alerting
-  capabilities unified under a single interface.
+description: SigNoz is an open source observability platform with logs, traces, and metrics in a single pane, built natively
+  on OpenTelemetry. It is a full-stack open-source APM and observability tool that serves as an open-source alternative to
+  DataDog, NewRelic, and other proprietary monitoring solutions. SigNoz provides distributed tracing, log management, infrastructure
+  monitoring, and alerting capabilities unified under a single interface.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - APM
-  - Alerting
-  - Cloud Monitoring
-  - Dashboards
-  - Distributed Tracing
-  - Infrastructure Monitoring
-  - Logs
-  - Metrics
-  - Observability
-  - OpenTelemetry
-  - Open Source
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/apis.yml
+- APM
+- Alerting
+- Cloud Monitoring
+- Dashboards
+- Distributed Tracing
+- Infrastructure Monitoring
+- Logs
+- Metrics
+- Observability
+- OpenTelemetry
+- Open Source
+url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/apis.yml
 created: '2026-03-25'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: signoz:signoz
-    name: SigNoz
-    description: >-
-      The SigNoz REST API provides programmatic access to the SigNoz observability
-      platform. The API enables management of alerts, dashboards, notification channels,
-      cloud integrations, users, organizations, service accounts, and ingestion keys.
-      It also exposes query endpoints for traces, logs, metrics, and infrastructure
-      monitoring data. The API uses API key authentication via the SigNoz-Api-Key header.
-    humanURL: https://signoz.io
-    baseURL: https://{host}:{port}
-    tags:
-      - APM
-      - Alerting
-      - Dashboards
-      - Distributed Tracing
-      - Logs
-      - Metrics
-      - Observability
-      - OpenTelemetry
-    properties:
-      - type: Documentation
-        url: https://signoz.io/docs/
-      - type: APIReference
-        url: https://signoz.io/api-reference/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/openapi/signoz-openapi.yml
-      - type: GitHubRepository
-        url: https://github.com/SigNoz/signoz
-      - type: Pricing
-        url: https://signoz.io/pricing/
-      - type: GettingStarted
-        url: https://signoz.io/docs/introduction/
-      - type: ChangeLog
-        url: https://signoz.io/changelog/
-      - type: Rules
-        url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
-      - type: Vocabulary
-        url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
-common:
-  - type: Website
-    url: https://signoz.io
+- aid: signoz:signoz
+  name: SigNoz
+  description: The SigNoz REST API provides programmatic access to the SigNoz observability platform. The API enables management
+    of alerts, dashboards, notification channels, cloud integrations, users, organizations, service accounts, and ingestion
+    keys. It also exposes query endpoints for traces, logs, metrics, and infrastructure monitoring data. The API uses API
+    key authentication via the SigNoz-Api-Key header.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - APM
+  - Alerting
+  - Dashboards
+  - Distributed Tracing
+  - Logs
+  - Metrics
+  - Observability
+  - OpenTelemetry
+  properties:
   - type: Documentation
     url: https://signoz.io/docs/
   - type: APIReference
     url: https://signoz.io/api-reference/
-  - type: GitHubOrganization
-    url: https://github.com/SigNoz
-  - type: Blog
-    url: https://signoz.io/blog/
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/openapi/signoz-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
   - type: Pricing
     url: https://signoz.io/pricing/
-  - type: Support
-    url: https://signoz.io/support/
-  - type: Community
-    url: https://signoz.io/slack/
-  - type: Enterprise
-    url: https://signoz.io/enterprise/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
   - type: ChangeLog
     url: https://signoz.io/changelog/
-  - type: StatusPage
-    url: https://status.signoz.io/
-  - name: MCP Server
-    url: https://github.com/SigNoz/signoz-mcp-server
-    type: MCPServer
-  - name: Agent Skills
-    url: https://github.com/SigNoz/agent-skills
-    type: AgentSkill
+  - type: Rules
+    url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+  - type: NaftikoCapability
+    url: capabilities/signoz-alerts.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-authdomains.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-authz.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-channels.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-cloudintegration.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-dashboard.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-downtimeschedules.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-features.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-fields.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-gateway.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-global.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-health.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-inframonitoring.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-llmpricingrules.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-logs.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-metrics.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-orgs.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-preferences.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-querier.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-role.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-routepolicies.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-rules.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-serviceaccount.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-sessions.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-spanmapper.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-tracedetail.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-traces.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-users.yaml
+  - type: NaftikoCapability
+    url: capabilities/signoz-zeus.yaml
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/signozio
+- type: Website
+  url: https://signoz.io
+- type: Documentation
+  url: https://signoz.io/docs/
+- type: APIReference
+  url: https://signoz.io/api-reference/
+- type: GitHubOrganization
+  url: https://github.com/SigNoz
+- type: Blog
+  url: https://signoz.io/blog/
+- type: Pricing
+  url: https://signoz.io/pricing/
+- type: Support
+  url: https://signoz.io/support/
+- type: Community
+  url: https://signoz.io/slack/
+- type: Enterprise
+  url: https://signoz.io/enterprise/
+- type: ChangeLog
+  url: https://signoz.io/changelog/
+- type: StatusPage
+  url: https://status.signoz.io/
+- name: MCP Server
+  url: https://github.com/SigNoz/signoz-mcp-server
+  type: MCPServer
+- name: Agent Skills
+  url: https://github.com/SigNoz/agent-skills
+  type: AgentSkill
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

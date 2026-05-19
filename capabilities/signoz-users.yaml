@@ -1,0 +1,894 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SigNoz — users
+  description: 'SigNoz — users. 22 operations. Lead operation: Get reset password token. Self-contained Naftiko capability
+    covering one Signoz business surface.'
+  tags:
+  - Signoz
+  - users
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SIGNOZ_API_KEY: SIGNOZ_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: signoz-users
+    baseUri: https://{host}:{port}{base_path}
+    description: SigNoz — users business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-getResetPasswordToken-id
+      path: /api/v1/getResetPasswordToken/{id}
+      operations:
+      - name: getresetpasswordtokendeprecated
+        method: GET
+        description: Get reset password token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: api-v1-invite
+      path: /api/v1/invite
+      operations:
+      - name: createinvite
+        method: POST
+        description: Create invite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-invite-bulk
+      path: /api/v1/invite/bulk
+      operations:
+      - name: createbulkinvite
+        method: POST
+        description: Create bulk invite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-resetPassword
+      path: /api/v1/resetPassword
+      operations:
+      - name: resetpassword
+        method: POST
+        description: Reset password
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-user
+      path: /api/v1/user
+      operations:
+      - name: listusersdeprecated
+        method: GET
+        description: List users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-user-me
+      path: /api/v1/user/me
+      operations:
+      - name: getmyuserdeprecated
+        method: GET
+        description: Get my user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-user-id
+      path: /api/v1/user/{id}
+      operations:
+      - name: deleteuser
+        method: DELETE
+        description: Delete user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: getuserdeprecated
+        method: GET
+        description: Get user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: updateuserdeprecated
+        method: PUT
+        description: Update user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-factor_password-forgot
+      path: /api/v2/factor_password/forgot
+      operations:
+      - name: forgotpassword
+        method: POST
+        description: Forgot password
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-roles-id-users
+      path: /api/v2/roles/{id}/users
+      operations:
+      - name: getusersbyroleid
+        method: GET
+        description: Get users by role id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-users
+      path: /api/v2/users
+      operations:
+      - name: listusers
+        method: GET
+        description: List users v2
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v2-users-me
+      path: /api/v2/users/me
+      operations:
+      - name: getmyuser
+        method: GET
+        description: Get my user v2
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatemyuserv2
+        method: PUT
+        description: Update my user v2
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-users-me-factor_password
+      path: /api/v2/users/me/factor_password
+      operations:
+      - name: updatemypassword
+        method: PUT
+        description: Updates my password
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-users-id
+      path: /api/v2/users/{id}
+      operations:
+      - name: getuser
+        method: GET
+        description: Get user by user id
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: updateuser
+        method: PUT
+        description: Update user v2
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-users-id-reset_password_tokens
+      path: /api/v2/users/{id}/reset_password_tokens
+      operations:
+      - name: getresetpasswordtoken
+        method: GET
+        description: Get reset password token for a user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: createresetpasswordtoken
+        method: PUT
+        description: Create or regenerate reset password token for a user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+    - name: api-v2-users-id-roles
+      path: /api/v2/users/{id}/roles
+      operations:
+      - name: getrolesbyuserid
+        method: GET
+        description: Get user roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: setrolebyuserid
+        method: POST
+        description: Set user roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v2-users-id-roles-roleId
+      path: /api/v2/users/{id}/roles/{roleId}
+      operations:
+      - name: removeuserrolebyuseridandroleid
+        method: DELETE
+        description: Remove a role from user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: roleId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.SIGNOZ_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: signoz-users-rest
+    port: 8080
+    description: REST adapter for SigNoz — users. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/getresetpasswordtoken/{id}
+      name: api-v1-getresetpasswordtoken-id
+      description: REST surface for api-v1-getResetPasswordToken-id.
+      operations:
+      - method: GET
+        name: getresetpasswordtokendeprecated
+        description: Get reset password token
+        call: signoz-users.getresetpasswordtokendeprecated
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/invite
+      name: api-v1-invite
+      description: REST surface for api-v1-invite.
+      operations:
+      - method: POST
+        name: createinvite
+        description: Create invite
+        call: signoz-users.createinvite
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/invite/bulk
+      name: api-v1-invite-bulk
+      description: REST surface for api-v1-invite-bulk.
+      operations:
+      - method: POST
+        name: createbulkinvite
+        description: Create bulk invite
+        call: signoz-users.createbulkinvite
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/resetpassword
+      name: api-v1-resetpassword
+      description: REST surface for api-v1-resetPassword.
+      operations:
+      - method: POST
+        name: resetpassword
+        description: Reset password
+        call: signoz-users.resetpassword
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/user
+      name: api-v1-user
+      description: REST surface for api-v1-user.
+      operations:
+      - method: GET
+        name: listusersdeprecated
+        description: List users
+        call: signoz-users.listusersdeprecated
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/user/me
+      name: api-v1-user-me
+      description: REST surface for api-v1-user-me.
+      operations:
+      - method: GET
+        name: getmyuserdeprecated
+        description: Get my user
+        call: signoz-users.getmyuserdeprecated
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/user/{id}
+      name: api-v1-user-id
+      description: REST surface for api-v1-user-id.
+      operations:
+      - method: DELETE
+        name: deleteuser
+        description: Delete user
+        call: signoz-users.deleteuser
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getuserdeprecated
+        description: Get user
+        call: signoz-users.getuserdeprecated
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateuserdeprecated
+        description: Update user
+        call: signoz-users.updateuserdeprecated
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/factor-password/forgot
+      name: api-v2-factor-password-forgot
+      description: REST surface for api-v2-factor_password-forgot.
+      operations:
+      - method: POST
+        name: forgotpassword
+        description: Forgot password
+        call: signoz-users.forgotpassword
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/roles/{id}/users
+      name: api-v2-roles-id-users
+      description: REST surface for api-v2-roles-id-users.
+      operations:
+      - method: GET
+        name: getusersbyroleid
+        description: Get users by role id
+        call: signoz-users.getusersbyroleid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/users
+      name: api-v2-users
+      description: REST surface for api-v2-users.
+      operations:
+      - method: GET
+        name: listusers
+        description: List users v2
+        call: signoz-users.listusers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/users/me
+      name: api-v2-users-me
+      description: REST surface for api-v2-users-me.
+      operations:
+      - method: GET
+        name: getmyuser
+        description: Get my user v2
+        call: signoz-users.getmyuser
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatemyuserv2
+        description: Update my user v2
+        call: signoz-users.updatemyuserv2
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/users/me/factor-password
+      name: api-v2-users-me-factor-password
+      description: REST surface for api-v2-users-me-factor_password.
+      operations:
+      - method: PUT
+        name: updatemypassword
+        description: Updates my password
+        call: signoz-users.updatemypassword
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/users/{id}
+      name: api-v2-users-id
+      description: REST surface for api-v2-users-id.
+      operations:
+      - method: GET
+        name: getuser
+        description: Get user by user id
+        call: signoz-users.getuser
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateuser
+        description: Update user v2
+        call: signoz-users.updateuser
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/users/{id}/reset-password-tokens
+      name: api-v2-users-id-reset-password-tokens
+      description: REST surface for api-v2-users-id-reset_password_tokens.
+      operations:
+      - method: GET
+        name: getresetpasswordtoken
+        description: Get reset password token for a user
+        call: signoz-users.getresetpasswordtoken
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: createresetpasswordtoken
+        description: Create or regenerate reset password token for a user
+        call: signoz-users.createresetpasswordtoken
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/users/{id}/roles
+      name: api-v2-users-id-roles
+      description: REST surface for api-v2-users-id-roles.
+      operations:
+      - method: GET
+        name: getrolesbyuserid
+        description: Get user roles
+        call: signoz-users.getrolesbyuserid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: setrolebyuserid
+        description: Set user roles
+        call: signoz-users.setrolebyuserid
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v2/users/{id}/roles/{roleid}
+      name: api-v2-users-id-roles-roleid
+      description: REST surface for api-v2-users-id-roles-roleId.
+      operations:
+      - method: DELETE
+        name: removeuserrolebyuseridandroleid
+        description: Remove a role from user
+        call: signoz-users.removeuserrolebyuseridandroleid
+        with:
+          id: rest.id
+          roleId: rest.roleId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: signoz-users-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SigNoz — users. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-reset-password-token
+      description: Get reset password token
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.getresetpasswordtokendeprecated
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-invite
+      description: Create invite
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-users.createinvite
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-bulk-invite
+      description: Create bulk invite
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-users.createbulkinvite
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: reset-password
+      description: Reset password
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-users.resetpassword
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-users
+      description: List users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.listusersdeprecated
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-my-user
+      description: Get my user
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.getmyuserdeprecated
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-user
+      description: Delete user
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: signoz-users.deleteuser
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-user
+      description: Get user
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.getuserdeprecated
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-user
+      description: Update user
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-users.updateuserdeprecated
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: forgot-password
+      description: Forgot password
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-users.forgotpassword
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-users-role-id
+      description: Get users by role id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.getusersbyroleid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-users-v2
+      description: List users v2
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.listusers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-my-user-v2
+      description: Get my user v2
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.getmyuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-my-user-v2
+      description: Update my user v2
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-users.updatemyuserv2
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-my-password
+      description: Updates my password
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-users.updatemypassword
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-user-user-id
+      description: Get user by user id
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.getuser
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-user-v2
+      description: Update user v2
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-users.updateuser
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-reset-password-token-user
+      description: Get reset password token for a user
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.getresetpasswordtoken
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-regenerate-reset-password-token
+      description: Create or regenerate reset password token for a user
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: signoz-users.createresetpasswordtoken
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-user-roles
+      description: Get user roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: signoz-users.getrolesbyuserid
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: set-user-roles
+      description: Set user roles
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: signoz-users.setrolebyuserid
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-role-user
+      description: Remove a role from user
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: signoz-users.removeuserrolebyuseridandroleid
+      with:
+        id: tools.id
+        roleId: tools.roleId
+      outputParameters:
+      - type: object
+        mapping: $.
