@@ -1,0 +1,8 @@
+---
+title: "Routing Policies"
+url: "https://signoz.io/docs/alerts-management/routing-policy"
+date: "Tue, 12 May 2026 00:00:00 GMT"
+author: "hello@signoz.io (SigNoz Inc)"
+feed_url: "https://signoz.io/rss/"
+---
+Configure routing policies in SigNoz to dynamically route alerts to different notification channels based on alert labels.
