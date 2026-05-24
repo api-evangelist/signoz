@@ -148,6 +148,8 @@ common:
 - name: Agent Skills
   url: https://github.com/SigNoz/agent-skills
   type: AgentSkill
+- type: LLMsTxt
+  url: https://signoz.io/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
