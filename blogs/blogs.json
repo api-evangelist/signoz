@@ -2,12 +2,20 @@
   "repo": "signoz",
   "feeds": [
     {
-      "source": "https://signoz.io/blog/",
+      "source": "https://signoz.io/rss/",
       "feed_url": "https://signoz.io/rss/",
-      "title": "SigNoz",
-      "saved": 48
+      "title": "",
+      "saved": 10,
+      "method": "feed"
+    },
+    {
+      "source": "https://github.com/SigNoz",
+      "feed_url": "https://github.com/SigNoz",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 108,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 167,
+  "fetched": "2026-06-01T23:35:02Z"
 }
