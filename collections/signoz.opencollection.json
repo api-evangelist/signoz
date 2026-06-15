@@ -1,0 +1,4254 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SigNoz"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/alerts",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns alerts for the organization"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "authz",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/authz/check",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Checks if the authenticated user has permissions for given transactions"
+        },
+        {
+          "info": {
+            "name": "Get resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/authz/resources"
+          },
+          "docs": "Gets all the available resources"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "channels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notification channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all notification channels for the organization"
+        },
+        {
+          "info": {
+            "name": "Create notification channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a notification channel"
+        },
+        {
+          "info": {
+            "name": "Get notification channel by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns a notification channel by ID"
+        },
+        {
+          "info": {
+            "name": "Update notification channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates a notification channel by ID"
+        },
+        {
+          "info": {
+            "name": "Delete notification channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes a notification channel by ID"
+        },
+        {
+          "info": {
+            "name": "Test notification channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels/test",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint tests a notification channel by sending a test notification"
+        },
+        {
+          "info": {
+            "name": "Test notification channel (deprecated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/testChannel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Deprecated: use /api/v1/channels/test instead"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "cloudintegration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent check-in",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud-integrations/:cloud_provider/agent-check-in",
+            "params": [
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "[Deprecated] This endpoint is called by the deployed agent to check in"
+        },
+        {
+          "info": {
+            "name": "List accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/accounts",
+            "params": [
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists the accounts for the specified cloud provider"
+        },
+        {
+          "info": {
+            "name": "Create account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/accounts",
+            "params": [
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a new cloud integration account for the specified cloud provider"
+        },
+        {
+          "info": {
+            "name": "Get account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/accounts/:id",
+            "params": [
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint gets an account for the specified cloud provider"
+        },
+        {
+          "info": {
+            "name": "Update account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/accounts/:id",
+            "params": [
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates an account for the specified cloud provider"
+        },
+        {
+          "info": {
+            "name": "Disconnect account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/accounts/:id",
+            "params": [
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint disconnects an account for the specified cloud provider"
+        },
+        {
+          "info": {
+            "name": "Update service",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/accounts/:id/services/:service_id",
+            "params": [
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates a service for the specified cloud provider"
+        },
+        {
+          "info": {
+            "name": "Agent check-in",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/accounts/check_in",
+            "params": [
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint is called by the deployed agent to check in"
+        },
+        {
+          "info": {
+            "name": "Get connection credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/credentials",
+            "params": [
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint retrieves the connection credentials required for integration"
+        },
+        {
+          "info": {
+            "name": "List services metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/services",
+            "params": [
+              {
+                "name": "cloud_integration_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists the services metadata for the specified cloud provider"
+        },
+        {
+          "info": {
+            "name": "Get service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/cloud_integrations/:cloud_provider/services/:service_id",
+            "params": [
+              {
+                "name": "cloud_integration_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cloud_provider",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint gets a service for the specified cloud provider"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create session by google callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/complete/google"
+          },
+          "docs": "This endpoint creates a session for a user using google callback"
+        },
+        {
+          "info": {
+            "name": "Create session by oidc callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/complete/oidc"
+          },
+          "docs": "This endpoint creates a session for a user using oidc callback"
+        },
+        {
+          "info": {
+            "name": "Create session by saml callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/complete/saml",
+            "params": [
+              {
+                "name": "RelayState",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "SAMLResponse",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "RelayState",
+                  "value": ""
+                },
+                {
+                  "name": "SAMLResponse",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint creates a session for a user using saml callback"
+        },
+        {
+          "info": {
+            "name": "Delete session",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v2/sessions",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint deletes the session"
+        },
+        {
+          "info": {
+            "name": "Get session context",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/sessions/context"
+          },
+          "docs": "This endpoint returns the context for the session"
+        },
+        {
+          "info": {
+            "name": "Create session by email and password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/sessions/email_password",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint creates a session for a user using email and password."
+        },
+        {
+          "info": {
+            "name": "Rotate session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/sessions/rotate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint rotates the session"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "dashboard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get public dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/dashboards/:id/public",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns public sharing config for a dashboard"
+        },
+        {
+          "info": {
+            "name": "Create public dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/dashboards/:id/public",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates public sharing config and enables public sharing of the dashboard"
+        },
+        {
+          "info": {
+            "name": "Update public dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/dashboards/:id/public",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the public sharing config for a dashboard"
+        },
+        {
+          "info": {
+            "name": "Delete public dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/dashboards/:id/public",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes the public sharing config and disables the public sharing of a dashboard"
+        },
+        {
+          "info": {
+            "name": "Get public dashboard data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/public/dashboards/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This endpoint returns the sanitized dashboard data for public access"
+        },
+        {
+          "info": {
+            "name": "Get query range result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/public/dashboards/:id/widgets/:idx/query_range",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "idx",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This endpoint return query range results for a widget of public dashboard"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "authdomains",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all auth domains",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/domains",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all auth domains"
+        },
+        {
+          "info": {
+            "name": "Create auth domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/domains",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates an auth domain"
+        },
+        {
+          "info": {
+            "name": "Update auth domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/domains/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates an auth domain"
+        },
+        {
+          "info": {
+            "name": "Delete auth domain",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/domains/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes an auth domain"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "downtimeschedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List downtime schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/downtime_schedules",
+            "params": [
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "recurring",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all planned maintenance / downtime schedules"
+        },
+        {
+          "info": {
+            "name": "Create downtime schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/downtime_schedules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a new planned maintenance / downtime schedule"
+        },
+        {
+          "info": {
+            "name": "Get downtime schedule by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/downtime_schedules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns a downtime schedule by ID"
+        },
+        {
+          "info": {
+            "name": "Update downtime schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/downtime_schedules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates a downtime schedule by ID"
+        },
+        {
+          "info": {
+            "name": "Delete downtime schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/downtime_schedules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes a downtime schedule by ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "logs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Export raw data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/export_raw_data",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "The output format for the export."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoints allows complex query exporting raw data for traces and logs"
+        },
+        {
+          "info": {
+            "name": "Promote and index paths",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/logs/promote_paths",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoints promotes and indexes paths"
+        },
+        {
+          "info": {
+            "name": "Promote and index paths",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/logs/promote_paths",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoints promotes and indexes paths"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get field keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/fields/keys",
+            "params": [
+              {
+                "name": "signal",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldContext",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldDataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricNamespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns field keys"
+        },
+        {
+          "info": {
+            "name": "Get field values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/fields/values",
+            "params": [
+              {
+                "name": "signal",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldContext",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldDataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricNamespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "existingQuery",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns field values"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get reset password token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/getResetPasswordToken/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the reset password token by id"
+        },
+        {
+          "info": {
+            "name": "Create invite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates an invite for a user"
+        },
+        {
+          "info": {
+            "name": "Create bulk invite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/invite/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a bulk invite for a user"
+        },
+        {
+          "info": {
+            "name": "Reset password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/resetPassword",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint resets the password by token"
+        },
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/user",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all users"
+        },
+        {
+          "info": {
+            "name": "Get user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the user by id"
+        },
+        {
+          "info": {
+            "name": "Update user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the user by id"
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes the user by id"
+        },
+        {
+          "info": {
+            "name": "Get my user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/me",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns the user I belong to"
+        },
+        {
+          "info": {
+            "name": "Forgot password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/factor_password/forgot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint initiates the forgot password flow by sending a reset password email"
+        },
+        {
+          "info": {
+            "name": "Get users by role id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/roles/:id/users",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the users having the role by role id"
+        },
+        {
+          "info": {
+            "name": "List users v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all users for the organization"
+        },
+        {
+          "info": {
+            "name": "Get user by user id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the user by id"
+        },
+        {
+          "info": {
+            "name": "Update user v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the user by id"
+        },
+        {
+          "info": {
+            "name": "Get reset password token for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/reset_password_tokens",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the existing reset password token for a user."
+        },
+        {
+          "info": {
+            "name": "Create or regenerate reset password token for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/reset_password_tokens",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates or regenerates a reset password token for a user. If a valid token exists, it is returned. If expired, a new one is created."
+        },
+        {
+          "info": {
+            "name": "Get user roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/roles",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the user roles by user id"
+        },
+        {
+          "info": {
+            "name": "Set user roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/roles",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint assigns the role to the user roles by user id"
+        },
+        {
+          "info": {
+            "name": "Remove a role from user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/roles/:roleId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint removes a role from the user by user id and role id"
+        },
+        {
+          "info": {
+            "name": "Get my user v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/me",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns the user I belong to"
+        },
+        {
+          "info": {
+            "name": "Update my user v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint updates the user I belong to"
+        },
+        {
+          "info": {
+            "name": "Updates my password",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/me/factor_password",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the password of the user I belong to"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "global",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get global config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/global/config"
+          },
+          "docs": "This endpoint returns global config"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "llmpricingrules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pricing rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/llm_pricing_rules",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns all LLM pricing rules for the authenticated org, with pagination."
+        },
+        {
+          "info": {
+            "name": "Create or update pricing rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/llm_pricing_rules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Single write endpoint used by both the user and the Zeus sync job. Per-rule match is by id, then sourceId, then insert. Override rows (is_override=true) are fully preserved when the request does not provide isOverride; only synced_at is stamped."
+        },
+        {
+          "info": {
+            "name": "Get a pricing rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/llm_pricing_rules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a single LLM pricing rule by ID."
+        },
+        {
+          "info": {
+            "name": "Delete a pricing rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/llm_pricing_rules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Hard-deletes a pricing rule. If auto-synced, it will be recreated on the next sync cycle."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "preferences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List org preferences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/org/preferences",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all org preferences"
+        },
+        {
+          "info": {
+            "name": "Get org preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/org/preferences/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the org preference by name"
+        },
+        {
+          "info": {
+            "name": "Update org preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/org/preferences/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the org preference by name"
+        },
+        {
+          "info": {
+            "name": "List user preferences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/preferences",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all user preferences"
+        },
+        {
+          "info": {
+            "name": "Get user preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/preferences/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the user preference by name"
+        },
+        {
+          "info": {
+            "name": "Update user preference",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/preferences/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the user preference by name"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "role",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/roles",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all roles"
+        },
+        {
+          "info": {
+            "name": "Create role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/roles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a role"
+        },
+        {
+          "info": {
+            "name": "Get role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/roles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint gets a role"
+        },
+        {
+          "info": {
+            "name": "Patch role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{host}:{port}{base_path}/api/v1/roles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint patches a role"
+        },
+        {
+          "info": {
+            "name": "Delete role",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/roles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes a role"
+        },
+        {
+          "info": {
+            "name": "Get objects for a role by relation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/roles/:id/relations/:relation/objects",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relation",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Gets all objects connected to the specified role via a given relation type"
+        },
+        {
+          "info": {
+            "name": "Patch objects for a role by relation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{host}:{port}{base_path}/api/v1/roles/:id/relations/:relation/objects",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relation",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Patches the objects connected to the specified role via a given relation type"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "routepolicies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List route policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/route_policies",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all route policies for the organization"
+        },
+        {
+          "info": {
+            "name": "Create route policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/route_policies",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a route policy"
+        },
+        {
+          "info": {
+            "name": "Get route policy by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/route_policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns a route policy by ID"
+        },
+        {
+          "info": {
+            "name": "Update route policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/route_policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates a route policy by ID"
+        },
+        {
+          "info": {
+            "name": "Delete route policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/route_policies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes a route policy by ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "serviceaccount",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List service accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists the service accounts for an organisation"
+        },
+        {
+          "info": {
+            "name": "Create service account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a service account"
+        },
+        {
+          "info": {
+            "name": "Gets a service account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint gets an existing service account"
+        },
+        {
+          "info": {
+            "name": "Updates a service account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates an existing service account"
+        },
+        {
+          "info": {
+            "name": "Deletes a service account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes an existing service account"
+        },
+        {
+          "info": {
+            "name": "List service account keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id/keys",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists the service account keys"
+        },
+        {
+          "info": {
+            "name": "Create a service account key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id/keys",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a service account key"
+        },
+        {
+          "info": {
+            "name": "Updates a service account key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id/keys/:fid",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates an existing service account key"
+        },
+        {
+          "info": {
+            "name": "Revoke a service account key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id/keys/:fid",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "fid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint revokes an existing service account key"
+        },
+        {
+          "info": {
+            "name": "Gets service account roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id/roles",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint gets all the roles for the existing service account"
+        },
+        {
+          "info": {
+            "name": "Create service account role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id/roles",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint assigns a role to a service account"
+        },
+        {
+          "info": {
+            "name": "Delete service account role",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/:id/roles/:rid",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint revokes a role from service account"
+        },
+        {
+          "info": {
+            "name": "Gets my service account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/me"
+          },
+          "docs": "This endpoint gets my service account"
+        },
+        {
+          "info": {
+            "name": "Updates my service account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/service_accounts/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint gets my service account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "spanmapper",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List span attribute mapping groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/span_mapper_groups",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "enabled",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns all span attribute mapping groups for the authenticated org."
+        },
+        {
+          "info": {
+            "name": "Create a span attribute mapping group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/span_mapper_groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates a new span attribute mapping group for the org."
+        },
+        {
+          "info": {
+            "name": "Update a span attribute mapping group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{host}:{port}{base_path}/api/v1/span_mapper_groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Partially updates an existing mapping group's name, condition, or enabled state."
+        },
+        {
+          "info": {
+            "name": "Delete a span attribute mapping group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/span_mapper_groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Hard-deletes a mapping group and cascades to all its mappers."
+        },
+        {
+          "info": {
+            "name": "List span mappers for a group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/span_mapper_groups/:groupId/span_mappers",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns all mappers belonging to a mapping group."
+        },
+        {
+          "info": {
+            "name": "Create a span mapper",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/span_mapper_groups/:groupId/span_mappers",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Adds a new mapper to the specified mapping group."
+        },
+        {
+          "info": {
+            "name": "Update a span mapper",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{host}:{port}{base_path}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mapperId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Partially updates an existing mapper's field context, config, or enabled state."
+        },
+        {
+          "info": {
+            "name": "Delete a span mapper",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mapperId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Hard-deletes a mapper from a mapping group."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "features",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get features",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/features",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the supported features and their details"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "gateway",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get ingestion keys for workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/gateway/ingestion_keys",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the ingestion keys for a workspace"
+        },
+        {
+          "info": {
+            "name": "Create ingestion key for workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/gateway/ingestion_keys",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates an ingestion key for the workspace"
+        },
+        {
+          "info": {
+            "name": "Update ingestion key for workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{host}:{port}{base_path}/api/v2/gateway/ingestion_keys/:keyId",
+            "params": [
+              {
+                "name": "keyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates an ingestion key for the workspace"
+        },
+        {
+          "info": {
+            "name": "Delete ingestion key for workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v2/gateway/ingestion_keys/:keyId",
+            "params": [
+              {
+                "name": "keyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes an ingestion key for the workspace"
+        },
+        {
+          "info": {
+            "name": "Create limit for the ingestion key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/gateway/ingestion_keys/:keyId/limits",
+            "params": [
+              {
+                "name": "keyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates an ingestion key limit"
+        },
+        {
+          "info": {
+            "name": "Update limit for the ingestion key",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{host}:{port}{base_path}/api/v2/gateway/ingestion_keys/limits/:limitId",
+            "params": [
+              {
+                "name": "limitId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates an ingestion key limit"
+        },
+        {
+          "info": {
+            "name": "Delete limit for the ingestion key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v2/gateway/ingestion_keys/limits/:limitId",
+            "params": [
+              {
+                "name": "limitId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes an ingestion key limit"
+        },
+        {
+          "info": {
+            "name": "Search ingestion keys for workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/gateway/ingestion_keys/search",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the ingestion keys for a workspace"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/healthz"
+          },
+          "docs": "Health check"
+        },
+        {
+          "info": {
+            "name": "Liveness check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/livez"
+          },
+          "docs": "Liveness check"
+        },
+        {
+          "info": {
+            "name": "Readiness check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/readyz"
+          },
+          "docs": "Readiness check"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "inframonitoring",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Hosts for Infra Monitoring",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/infra_monitoring/hosts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of hosts with key infrastructure metrics: CPU usage (%), memory usage (%), I/O wait (%), disk usage (%), and 15-minute load average. Each host includes its current status (active/inactive based on metrics reported in the last 10 minutes) and metadata attributes (e.g., os.type). Supports filtering via a filter expression, filtering by host status, custom groupBy to aggregate hosts by any attribute, ordering by any of the five metrics, and pagination via offset/limit. The "
+        },
+        {
+          "info": {
+            "name": "List Pods for Infra Monitoring",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/infra_monitoring/pods",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns a paginated list of Kubernetes pods with key metrics: CPU usage, CPU request/limit utilization, memory working set, memory request/limit utilization, current pod phase (pending/running/succeeded/failed/unknown), and pod age (ms since start time). Each pod includes metadata attributes (namespace, node, workload owner such as deployment/statefulset/daemonset/job/cronjob, cluster). Supports filtering via a filter expression, custom groupBy to aggregate pods by any attribute, ordering by any"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List metric names",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns a list of distinct metric names within the specified time range"
+        },
+        {
+          "info": {
+            "name": "Get metric alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/:metric_name/alerts",
+            "params": [
+              {
+                "name": "metric_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns associated alerts for a specified metric"
+        },
+        {
+          "info": {
+            "name": "Get metric attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/:metric_name/attributes",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metric_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns attribute keys and their unique values for a specified metric"
+        },
+        {
+          "info": {
+            "name": "Get metric dashboards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/:metric_name/dashboards",
+            "params": [
+              {
+                "name": "metric_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns associated dashboards for a specified metric"
+        },
+        {
+          "info": {
+            "name": "Get metric highlights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/:metric_name/highlights",
+            "params": [
+              {
+                "name": "metric_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns highlights like number of datapoints, totaltimeseries, active time series, last received time for a specified metric"
+        },
+        {
+          "info": {
+            "name": "Get metric metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/:metric_name/metadata",
+            "params": [
+              {
+                "name": "metric_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns metadata information like metric description, unit, type, temporality, monotonicity for a specified metric"
+        },
+        {
+          "info": {
+            "name": "Update metric metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/:metric_name/metadata",
+            "params": [
+              {
+                "name": "metric_name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint helps to update metadata information like metric description, unit, type, temporality, monotonicity for a specified metric"
+        },
+        {
+          "info": {
+            "name": "Inspect raw metric data points",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/inspect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns raw time series data points for a metric within a time range (max 30 minutes). Each series includes labels and timestamp/value pairs."
+        },
+        {
+          "info": {
+            "name": "Check if non-SigNoz metrics have been received",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/onboarding",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Lightweight endpoint that checks if any non-SigNoz metrics have been ingested, used for onboarding status detection"
+        },
+        {
+          "info": {
+            "name": "Get metrics statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/stats",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint provides list of metrics with their number of samples and timeseries for the given time range"
+        },
+        {
+          "info": {
+            "name": "Get metrics treemap",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/metrics/treemap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns a treemap visualization showing the proportional distribution of metrics by sample count or time series count"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "orgs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get my organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/orgs/me",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the organization I belong to"
+        },
+        {
+          "info": {
+            "name": "Update my organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/orgs/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the organization I belong to"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List alert rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all alert rules with their current evaluation state"
+        },
+        {
+          "info": {
+            "name": "Create alert rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a new alert rule"
+        },
+        {
+          "info": {
+            "name": "Get alert rule by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns an alert rule by ID"
+        },
+        {
+          "info": {
+            "name": "Update alert rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates an alert rule by ID"
+        },
+        {
+          "info": {
+            "name": "Patch alert rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint applies a partial update to an alert rule by ID"
+        },
+        {
+          "info": {
+            "name": "Delete alert rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes an alert rule by ID"
+        },
+        {
+          "info": {
+            "name": "Get rule history filter keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id/history/filter_keys",
+            "params": [
+              {
+                "name": "signal",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldContext",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldDataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricNamespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns distinct label keys from rule history entries for the selected range."
+        },
+        {
+          "info": {
+            "name": "Get rule history filter values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id/history/filter_values",
+            "params": [
+              {
+                "name": "signal",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldContext",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldDataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricNamespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "existingQuery",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns distinct label values for a given key from rule history entries."
+        },
+        {
+          "info": {
+            "name": "Get rule overall status timeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id/history/overall_status",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns overall firing/inactive intervals for a rule in the selected time range."
+        },
+        {
+          "info": {
+            "name": "Get rule history stats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id/history/stats",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns trigger and resolution statistics for a rule in the selected time range."
+        },
+        {
+          "info": {
+            "name": "Get rule history timeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id/history/timeline",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filterExpression",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns paginated timeline entries for rule state transitions."
+        },
+        {
+          "info": {
+            "name": "Get top contributors to rule firing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/:id/history/top_contributors",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns top label combinations contributing to rule firing in the selected time range."
+        },
+        {
+          "info": {
+            "name": "Test alert rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/rules/test",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint fires a test notification for the given rule definition"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "zeus",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get host info from Zeus.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/zeus/hosts",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint gets the host info from zeus."
+        },
+        {
+          "info": {
+            "name": "Put host in Zeus for a deployment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/zeus/hosts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint saves the host of a deployment to zeus."
+        },
+        {
+          "info": {
+            "name": "Put profile in Zeus for a deployment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/zeus/profiles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint saves the profile of a deployment to zeus."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "tracedetail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get waterfall view for a trace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v3/traces/:traceID/waterfall",
+            "params": [
+              {
+                "name": "traceID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the waterfall view of spans for a given trace ID with tree structure, metadata, and windowed pagination"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "querier",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query range",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v5/query_range",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Execute a composite query over a time range. Supports builder queries (traces, logs, metrics), formulas, trace operators, PromQL, and ClickHouse SQL."
+        },
+        {
+          "info": {
+            "name": "Replace variables",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v5/substitute_vars",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Replace variables in a query"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
