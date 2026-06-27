@@ -91,8 +91,8 @@ common:
     type: MCPServer
   - name: Agent Skills
     url: https://github.com/SigNoz/agent-skills
-    type: AgentSkill
-  - type: LLMsTxt
+    type: AgentSkills
+  - type: LlmsText
     url: https://signoz.io/llms.txt
 maintainers:
   - FN: Kin Lane
