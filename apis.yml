@@ -62,6 +62,10 @@ apis:
       - type: Vocabulary
         url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 common:
+  - type: DomainSecurity
+    url: security/signoz-domain-security.yml
+  - type: Authentication
+    url: authentication/signoz-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/signozio
   - type: Website
