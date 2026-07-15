@@ -62,6 +62,8 @@ apis:
       - type: Vocabulary
         url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/signoz-agentic-access.yml
   - type: DomainSecurity
     url: security/signoz-domain-security.yml
   - type: Authentication
