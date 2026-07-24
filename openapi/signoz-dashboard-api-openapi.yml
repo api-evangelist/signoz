@@ -1,0 +1,697 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: support@signoz.io
+    name: SigNoz Support
+    url: https://signoz.io
+  description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
+  termsOfService: https://signoz.io/terms-of-service/
+  title: SigNoz alerts dashboard API
+  version: ''
+servers:
+- description: The fully qualified URL to the SigNoz APIServer.
+  url: https://{host}:{port}{base_path}
+  variables:
+    base_path:
+      default: /
+      description: The base path of the SigNoz APIServer
+    host:
+      default: localhost
+      description: The host of the SigNoz APIServer
+    port:
+      default: '8080'
+      description: The port of the SigNoz APIServer
+tags:
+- name: dashboard
+paths:
+  /api/v1/dashboards/{id}/public:
+    delete:
+      deprecated: false
+      description: This endpoint deletes the public sharing config and disables the public sharing of a dashboard
+      operationId: DeletePublicDashboard
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: No Content
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      security:
+      - api_key:
+        - ADMIN
+      - tokenizer:
+        - ADMIN
+      summary: Delete public dashboard
+      tags:
+      - dashboard
+    get:
+      deprecated: false
+      description: This endpoint returns public sharing config for a dashboard
+      operationId: GetPublicDashboard
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DashboardtypesGettablePublicDasbhboard'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: OK
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      security:
+      - api_key:
+        - ADMIN
+      - tokenizer:
+        - ADMIN
+      summary: Get public dashboard
+      tags:
+      - dashboard
+    post:
+      deprecated: false
+      description: This endpoint creates public sharing config and enables public sharing of the dashboard
+      operationId: CreatePublicDashboard
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashboardtypesPostablePublicDashboard'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/TypesIdentifiable'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: Created
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      security:
+      - api_key:
+        - ADMIN
+      - tokenizer:
+        - ADMIN
+      summary: Create public dashboard
+      tags:
+      - dashboard
+    put:
+      deprecated: false
+      description: This endpoint updates the public sharing config for a dashboard
+      operationId: UpdatePublicDashboard
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashboardtypesUpdatablePublicDashboard'
+      responses:
+        '204':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: No Content
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      security:
+      - api_key:
+        - ADMIN
+      - tokenizer:
+        - ADMIN
+      summary: Update public dashboard
+      tags:
+      - dashboard
+  /api/v1/public/dashboards/{id}:
+    get:
+      deprecated: false
+      description: This endpoint returns the sanitized dashboard data for public access
+      operationId: GetPublicDashboardData
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/DashboardtypesGettablePublicDashboardData'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: OK
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      security:
+      - anonymous:
+        - public-dashboard:read
+      summary: Get public dashboard data
+      tags:
+      - dashboard
+  /api/v1/public/dashboards/{id}/widgets/{idx}/query_range:
+    get:
+      deprecated: false
+      description: This endpoint return query range results for a widget of public dashboard
+      operationId: GetPublicDashboardWidgetQueryRange
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: idx
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Querybuildertypesv5QueryRangeResponse'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: OK
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      security:
+      - anonymous:
+        - public-dashboard:read
+      summary: Get query range result
+      tags:
+      - dashboard
+components:
+  schemas:
+    Querybuildertypesv5RequestType:
+      enum:
+      - scalar
+      - time_series
+      - raw
+      - raw_stream
+      - trace
+      type: string
+    Querybuildertypesv5ColumnDescriptor:
+      properties:
+        aggregationIndex:
+          format: int64
+          type: integer
+        columnType:
+          $ref: '#/components/schemas/Querybuildertypesv5ColumnType'
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        meta:
+          properties:
+            unit:
+              type: string
+          type: object
+        name:
+          type: string
+        queryName:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
+      type: object
+    Querybuildertypesv5Label:
+      properties:
+        key:
+          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+        value: {}
+      type: object
+    TelemetrytypesSignal:
+      enum:
+      - traces
+      - logs
+      - metrics
+      type: string
+    Querybuildertypesv5RawData:
+      properties:
+        nextCursor:
+          type: string
+        queryName:
+          type: string
+        rows:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5RawRow'
+          nullable: true
+          type: array
+      type: object
+    TypesIdentifiable:
+      properties:
+        id:
+          type: string
+      required:
+      - id
+      type: object
+    Querybuildertypesv5QueryData:
+      oneOf:
+      - $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesData'
+      - $ref: '#/components/schemas/Querybuildertypesv5ScalarData'
+      - $ref: '#/components/schemas/Querybuildertypesv5RawData'
+      properties:
+        results:
+          items: {}
+          nullable: true
+          type: array
+      type: object
+    Querybuildertypesv5ColumnType:
+      enum:
+      - group
+      - aggregation
+      type: string
+    DashboardtypesUpdatablePublicDashboard:
+      properties:
+        defaultTimeRange:
+          type: string
+        timeRangeEnabled:
+          type: boolean
+      type: object
+    Querybuildertypesv5QueryRangeResponse:
+      description: 'Response from the v5 query range endpoint. The data.results array contains typed results depending on the requestType: TimeSeriesData for time_series, ScalarData for scalar, or RawData for raw requests.'
+      properties:
+        data:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryData'
+        meta:
+          $ref: '#/components/schemas/Querybuildertypesv5ExecStats'
+        type:
+          $ref: '#/components/schemas/Querybuildertypesv5RequestType'
+        warning:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryWarnData'
+      type: object
+    Querybuildertypesv5RawRow:
+      properties:
+        data:
+          additionalProperties: {}
+          nullable: true
+          type: object
+        timestamp:
+          format: date-time
+          type: string
+      type: object
+    Querybuildertypesv5ScalarData:
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5ColumnDescriptor'
+          nullable: true
+          type: array
+        data:
+          items:
+            items: {}
+            type: array
+          nullable: true
+          type: array
+        queryName:
+          type: string
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    Querybuildertypesv5ExecStats:
+      description: Execution statistics for the query, including rows scanned, bytes scanned, and duration.
+      properties:
+        bytesScanned:
+          minimum: 0
+          type: integer
+        durationMs:
+          minimum: 0
+          type: integer
+        rowsScanned:
+          minimum: 0
+          type: integer
+        stepIntervals:
+          additionalProperties:
+            minimum: 0
+            type: integer
+          type: object
+      type: object
+    Querybuildertypesv5AggregationBucket:
+      properties:
+        alias:
+          type: string
+        anomalyScores:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+          type: array
+        index:
+          type: integer
+        lowerBoundSeries:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+          type: array
+        meta:
+          properties:
+            unit:
+              type: string
+          type: object
+        predictedSeries:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+          type: array
+        series:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+          nullable: true
+          type: array
+        upperBoundSeries:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+          type: array
+      type: object
+    Querybuildertypesv5QueryWarnData:
+      properties:
+        message:
+          type: string
+        url:
+          type: string
+        warnings:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5QueryWarnDataAdditional'
+          type: array
+      type: object
+    DashboardtypesStorableDashboardData:
+      additionalProperties: {}
+      type: object
+    TelemetrytypesFieldDataType:
+      enum:
+      - string
+      - bool
+      - float64
+      - int64
+      - number
+      type: string
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    TelemetrytypesTelemetryFieldKey:
+      properties:
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        name:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
+      type: object
+    DashboardtypesGettablePublicDashboardData:
+      properties:
+        dashboard:
+          $ref: '#/components/schemas/DashboardtypesDashboard'
+        publicDashboard:
+          $ref: '#/components/schemas/DashboardtypesGettablePublicDasbhboard'
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    Querybuildertypesv5TimeSeriesData:
+      properties:
+        aggregations:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5AggregationBucket'
+          nullable: true
+          type: array
+        queryName:
+          type: string
+      type: object
+    Querybuildertypesv5QueryWarnDataAdditional:
+      properties:
+        message:
+          type: string
+      type: object
+    Querybuildertypesv5TimeSeriesValue:
+      properties:
+        bucket:
+          $ref: '#/components/schemas/Querybuildertypesv5Bucket'
+        partial:
+          type: boolean
+        timestamp:
+          format: int64
+          type: integer
+        value:
+          format: double
+          type: number
+        values:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    DashboardtypesGettablePublicDasbhboard:
+      properties:
+        defaultTimeRange:
+          type: string
+        publicPath:
+          type: string
+        timeRangeEnabled:
+          type: boolean
+      type: object
+    DashboardtypesPostablePublicDashboard:
+      properties:
+        defaultTimeRange:
+          type: string
+        timeRangeEnabled:
+          type: boolean
+      type: object
+    TelemetrytypesFieldContext:
+      enum:
+      - metric
+      - log
+      - span
+      - resource
+      - attribute
+      - body
+      type: string
+    Querybuildertypesv5Bucket:
+      properties:
+        step:
+          format: double
+          type: number
+      type: object
+    Querybuildertypesv5TimeSeries:
+      properties:
+        labels:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5Label'
+          type: array
+        values:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesValue'
+          nullable: true
+          type: array
+      type: object
+    DashboardtypesDashboard:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        createdBy:
+          type: string
+        data:
+          $ref: '#/components/schemas/DashboardtypesStorableDashboardData'
+        id:
+          type: string
+        locked:
+          type: boolean
+        org_id:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+        updatedBy:
+          type: string
+      type: object
+  securitySchemes:
+    api_key:
+      description: API Keys
+      in: header
+      name: SigNoz-Api-Key
+      type: apiKey
+    tokenizer:
+      bearerFormat: Tokenizer
+      description: Tokens generated by the tokenizer
+      scheme: bearer
+      type: http

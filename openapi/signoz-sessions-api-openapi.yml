@@ -1,0 +1,453 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: support@signoz.io
+    name: SigNoz Support
+    url: https://signoz.io
+  description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
+  termsOfService: https://signoz.io/terms-of-service/
+  title: SigNoz alerts sessions API
+  version: ''
+servers:
+- description: The fully qualified URL to the SigNoz APIServer.
+  url: https://{host}:{port}{base_path}
+  variables:
+    base_path:
+      default: /
+      description: The base path of the SigNoz APIServer
+    host:
+      default: localhost
+      description: The host of the SigNoz APIServer
+    port:
+      default: '8080'
+      description: The port of the SigNoz APIServer
+tags:
+- name: sessions
+paths:
+  /api/v1/complete/google:
+    get:
+      deprecated: false
+      description: This endpoint creates a session for a user using google callback
+      operationId: CreateSessionByGoogleCallback
+      responses:
+        '303':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AuthtypesGettableToken'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: See Other
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Bad Request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Not Found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      summary: Create session by google callback
+      tags:
+      - sessions
+  /api/v1/complete/oidc:
+    get:
+      deprecated: false
+      description: This endpoint creates a session for a user using oidc callback
+      operationId: CreateSessionByOIDCCallback
+      responses:
+        '303':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AuthtypesGettableToken'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: See Other
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Bad Request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Not Found
+        '451':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Unavailable For Legal Reasons
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      summary: Create session by oidc callback
+      tags:
+      - sessions
+  /api/v1/complete/saml:
+    post:
+      deprecated: false
+      description: This endpoint creates a session for a user using saml callback
+      operationId: CreateSessionBySAMLCallback
+      parameters:
+      - in: query
+        name: RelayState
+        schema:
+          type: string
+      - in: query
+        name: SAMLResponse
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                RelayState:
+                  type: string
+                SAMLResponse:
+                  type: string
+              type: object
+      responses:
+        '303':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AuthtypesGettableToken'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: See Other
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Bad Request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Not Found
+        '451':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Unavailable For Legal Reasons
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      summary: Create session by saml callback
+      tags:
+      - sessions
+  /api/v2/sessions:
+    delete:
+      deprecated: false
+      description: This endpoint deletes the session
+      operationId: DeleteSession
+      responses:
+        '204':
+          description: No Content
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Forbidden
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      security:
+      - tokenizer: []
+      summary: Delete session
+      tags:
+      - sessions
+  /api/v2/sessions/context:
+    get:
+      deprecated: false
+      description: This endpoint returns the context for the session
+      operationId: GetSessionContext
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AuthtypesSessionContext'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      summary: Get session context
+      tags:
+      - sessions
+  /api/v2/sessions/email_password:
+    post:
+      deprecated: false
+      description: This endpoint creates a session for a user using email and password.
+      operationId: CreateSessionByEmailPassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthtypesPostableEmailPasswordSession'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AuthtypesGettableToken'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Bad Request
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Not Found
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      summary: Create session by email and password
+      tags:
+      - sessions
+  /api/v2/sessions/rotate:
+    post:
+      deprecated: false
+      description: This endpoint rotates the session
+      operationId: RotateSession
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthtypesPostableRotateToken'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/AuthtypesGettableToken'
+                  status:
+                    type: string
+                required:
+                - status
+                - data
+                type: object
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenderErrorResponse'
+          description: Internal Server Error
+      summary: Rotate session
+      tags:
+      - sessions
+components:
+  schemas:
+    AuthtypesGettableToken:
+      properties:
+        accessToken:
+          type: string
+        expiresIn:
+          type: integer
+        refreshToken:
+          type: string
+        tokenType:
+          type: string
+      type: object
+    AuthtypesOrgSessionContext:
+      properties:
+        authNSupport:
+          $ref: '#/components/schemas/AuthtypesAuthNSupport'
+        id:
+          type: string
+        name:
+          type: string
+        warning:
+          $ref: '#/components/schemas/ErrorsJSON'
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    AuthtypesCallbackAuthNSupport:
+      properties:
+        provider:
+          type: string
+        url:
+          type: string
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    AuthtypesAuthNSupport:
+      properties:
+        callback:
+          items:
+            $ref: '#/components/schemas/AuthtypesCallbackAuthNSupport'
+          nullable: true
+          type: array
+        password:
+          items:
+            $ref: '#/components/schemas/AuthtypesPasswordAuthNSupport'
+          nullable: true
+          type: array
+      type: object
+    AuthtypesPostableEmailPasswordSession:
+      properties:
+        email:
+          type: string
+        orgId:
+          type: string
+        password:
+          type: string
+      type: object
+    AuthtypesSessionContext:
+      properties:
+        exists:
+          type: boolean
+        orgs:
+          items:
+            $ref: '#/components/schemas/AuthtypesOrgSessionContext'
+          nullable: true
+          type: array
+      type: object
+    AuthtypesPostableRotateToken:
+      properties:
+        refreshToken:
+          type: string
+      type: object
+    AuthtypesPasswordAuthNSupport:
+      properties:
+        provider:
+          type: string
+      type: object
+  securitySchemes:
+    api_key:
+      description: API Keys
+      in: header
+      name: SigNoz-Api-Key
+      type: apiKey
+    tokenizer:
+      bearerFormat: Tokenizer
+      description: Tokens generated by the tokenizer
+      scheme: bearer
+      type: http
