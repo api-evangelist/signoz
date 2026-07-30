@@ -6,7 +6,20 @@ description: >-
   DataDog, NewRelic, and other proprietary monitoring solutions. SigNoz provides distributed tracing, log management,
   infrastructure monitoring, and alerting capabilities unified under a single interface.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/signoz.png
 tags:
   - APM
   - Alerting
@@ -24,44 +37,821 @@ created: '2026-03-25'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: signoz:signoz
-    name: SigNoz
-    description: >-
-      The SigNoz REST API provides programmatic access to the SigNoz observability platform. The API enables management
-      of alerts, dashboards, notification channels, cloud integrations, users, organizations, service accounts, and
-      ingestion keys. It also exposes query endpoints for traces, logs, metrics, and infrastructure monitoring data. The
-      API uses API key authentication via the SigNoz-Api-Key header.
-    humanURL: https://signoz.io
-    baseURL: https://{host}:{port}
-    tags:
-      - APM
-      - Alerting
-      - Dashboards
-      - Distributed Tracing
-      - Logs
-      - Metrics
-      - Observability
-      - OpenTelemetry
-    properties:
-      - type: Documentation
-        url: https://signoz.io/docs/
-      - type: APIReference
-        url: https://signoz.io/api-reference/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/openapi/signoz-openapi.yml
-      - type: GitHubRepository
-        url: https://github.com/SigNoz/signoz
-      - type: Pricing
-        url: https://signoz.io/pricing/
-      - type: GettingStarted
-        url: https://signoz.io/docs/introduction/
-      - type: ChangeLog
-        url: https://signoz.io/changelog/
-      - type: Rules
-        url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
-      - type: Vocabulary
-        url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-alerts-api
+  name: SigNoz alerts API
+  description: The alerts API from SigNoz — 1 operation(s) for alerts.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-alerts-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-authdomains-api
+  name: SigNoz authdomains API
+  description: The authdomains API from SigNoz — 2 operation(s) for authdomains.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - authdomains
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-authdomains-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-authz-api
+  name: SigNoz authz API
+  description: The authz API from SigNoz — 2 operation(s) for authz.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - authz
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-authz-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-channels-api
+  name: SigNoz channels API
+  description: The channels API from SigNoz — 4 operation(s) for channels.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - channels
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-channels-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-cloudintegration-api
+  name: SigNoz cloudintegration API
+  description: The cloudintegration API from SigNoz — 8 operation(s) for cloudintegration.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - cloudintegration
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-cloudintegration-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-dashboard-api
+  name: SigNoz dashboard API
+  description: The dashboard API from SigNoz — 3 operation(s) for dashboard.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - dashboard
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-dashboard-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-downtimeschedules-api
+  name: SigNoz downtimeschedules API
+  description: The downtimeschedules API from SigNoz — 2 operation(s) for downtimeschedules.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - downtimeschedules
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-downtimeschedules-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-features-api
+  name: SigNoz features API
+  description: The features API from SigNoz — 1 operation(s) for features.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - features
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-features-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-fields-api
+  name: SigNoz fields API
+  description: The fields API from SigNoz — 2 operation(s) for fields.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - fields
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-fields-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-gateway-api
+  name: SigNoz gateway API
+  description: The gateway API from SigNoz — 5 operation(s) for gateway.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - gateway
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-gateway-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-global-api
+  name: SigNoz global API
+  description: The global API from SigNoz — 1 operation(s) for global.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - global
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-global-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-health-api
+  name: SigNoz health API
+  description: The health API from SigNoz — 3 operation(s) for health.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - health
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-health-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-inframonitoring-api
+  name: SigNoz inframonitoring API
+  description: The inframonitoring API from SigNoz — 2 operation(s) for inframonitoring.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - inframonitoring
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-inframonitoring-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-llmpricingrules-api
+  name: SigNoz llmpricingrules API
+  description: The llmpricingrules API from SigNoz — 2 operation(s) for llmpricingrules.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - llmpricingrules
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-llmpricingrules-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-logs-api
+  name: SigNoz logs API
+  description: The logs API from SigNoz — 2 operation(s) for logs.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - logs
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-logs-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-metrics-api
+  name: SigNoz metrics API
+  description: The metrics API from SigNoz — 10 operation(s) for metrics.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-orgs-api
+  name: SigNoz orgs API
+  description: The orgs API from SigNoz — 1 operation(s) for orgs.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - orgs
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-orgs-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-preferences-api
+  name: SigNoz preferences API
+  description: The preferences API from SigNoz — 4 operation(s) for preferences.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - preferences
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-preferences-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-querier-api
+  name: SigNoz querier API
+  description: The querier API from SigNoz — 2 operation(s) for querier.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - querier
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-querier-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-role-api
+  name: SigNoz role API
+  description: The role API from SigNoz — 3 operation(s) for role.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - role
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-role-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-routepolicies-api
+  name: SigNoz routepolicies API
+  description: The routepolicies API from SigNoz — 2 operation(s) for routepolicies.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - routepolicies
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-routepolicies-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-rules-api
+  name: SigNoz rules API
+  description: The rules API from SigNoz — 9 operation(s) for rules.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - rules
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-rules-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-serviceaccount-api
+  name: SigNoz serviceaccount API
+  description: The serviceaccount API from SigNoz — 7 operation(s) for serviceaccount.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - serviceaccount
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-serviceaccount-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-sessions-api
+  name: SigNoz sessions API
+  description: The sessions API from SigNoz — 7 operation(s) for sessions.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-spanmapper-api
+  name: SigNoz spanmapper API
+  description: The spanmapper API from SigNoz — 4 operation(s) for spanmapper.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - spanmapper
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-spanmapper-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-tracedetail-api
+  name: SigNoz tracedetail API
+  description: The tracedetail API from SigNoz — 1 operation(s) for tracedetail.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - tracedetail
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-tracedetail-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-traces-api
+  name: SigNoz traces API
+  description: The traces API from SigNoz — 1 operation(s) for traces.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - traces
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-traces-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-users-api
+  name: SigNoz users API
+  description: The users API from SigNoz — 16 operation(s) for users.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-users-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-zeus-api
+  name: SigNoz zeus API
+  description: The zeus API from SigNoz — 2 operation(s) for zeus.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - zeus
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-zeus-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/signoz/overview
   - type: AgenticAccess
     url: agentic-access/signoz-agentic-access.yml
   - type: DomainSecurity
