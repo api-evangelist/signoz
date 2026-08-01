@@ -1,0 +1,347 @@
+{
+  "info": {
+    "_postman_id": "d159a775-7da8-4746-a0d5-eaded7e2ce5d",
+    "name": "SigNoz alerts authz API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:21.000Z",
+    "updatedAt": "2026-07-28T11:02:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d159a775-7da8-4746-a0d5-eaded7e2ce5d"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "authz",
+              "item": [
+                {
+                  "name": "check",
+                  "item": [
+                    {
+                      "name": "Check permissions",
+                      "id": "be222c1b-2428-4be4-8810-c90fc022e655",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  {\n    \"relation\": \"<string>\",\n    \"object\": {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selector\": \"<string>\"\n    }\n  },\n  {\n    \"relation\": \"<string>\",\n    \"object\": {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selector\": \"<string>\"\n    }\n  }\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/authz/check",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "authz",
+                            "check"
+                          ]
+                        },
+                        "description": "Checks if the authenticated user has permissions for given transactions"
+                      },
+                      "response": [
+                        {
+                          "id": "e6705c53-6e61-4ee0-8020-251853d97791",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[\n  {\n    \"relation\": \"<string>\",\n    \"object\": {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selector\": \"<string>\"\n    }\n  },\n  {\n    \"relation\": \"<string>\",\n    \"object\": {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selector\": \"<string>\"\n    }\n  }\n]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/authz/check",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "authz",
+                                "check"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": [\n    {\n      \"relation\": \"<string>\",\n      \"object\": {\n        \"resource\": {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        \"selector\": \"<string>\"\n      },\n      \"authorized\": \"<boolean>\"\n    },\n    {\n      \"relation\": \"<string>\",\n      \"object\": {\n        \"resource\": {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        \"selector\": \"<string>\"\n      },\n      \"authorized\": \"<boolean>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T11:02:21.000Z",
+                          "updatedAt": "2026-07-28T11:02:21.000Z",
+                          "uid": "35240-e6705c53-6e61-4ee0-8020-251853d97791"
+                        },
+                        {
+                          "id": "f10318aa-0b64-4a61-ba17-38808d2c85ba",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[\n  {\n    \"relation\": \"<string>\",\n    \"object\": {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selector\": \"<string>\"\n    }\n  },\n  {\n    \"relation\": \"<string>\",\n    \"object\": {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selector\": \"<string>\"\n    }\n  }\n]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/authz/check",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "authz",
+                                "check"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:21.000Z",
+                          "updatedAt": "2026-07-28T11:02:21.000Z",
+                          "uid": "35240-f10318aa-0b64-4a61-ba17-38808d2c85ba"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:21.000Z",
+                      "updatedAt": "2026-07-28T11:02:21.000Z",
+                      "uid": "35240-be222c1b-2428-4be4-8810-c90fc022e655"
+                    }
+                  ],
+                  "id": "16fff0b5-ffc9-4d7f-9942-bb929898e872",
+                  "createdAt": "2026-07-28T11:02:21.000Z",
+                  "updatedAt": "2026-07-28T11:02:21.000Z",
+                  "uid": "35240-16fff0b5-ffc9-4d7f-9942-bb929898e872"
+                },
+                {
+                  "name": "resources",
+                  "item": [
+                    {
+                      "name": "Get resources",
+                      "id": "b6c11b45-0a54-4c58-acbb-ca0730cda3fb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/authz/resources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "authz",
+                            "resources"
+                          ]
+                        },
+                        "description": "Gets all the available resources"
+                      },
+                      "response": [
+                        {
+                          "id": "ca1e50b9-7a46-43f8-b00d-b5e7719ac4b3",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/authz/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "authz",
+                                "resources"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"resources\": [\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"relations\": {\n      \"occaecat_87\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:21.000Z",
+                          "updatedAt": "2026-07-28T11:02:21.000Z",
+                          "uid": "35240-ca1e50b9-7a46-43f8-b00d-b5e7719ac4b3"
+                        },
+                        {
+                          "id": "fb7c4c9d-1232-4afd-a7d1-ae13c51bd4a8",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/authz/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "authz",
+                                "resources"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:21.000Z",
+                          "updatedAt": "2026-07-28T11:02:21.000Z",
+                          "uid": "35240-fb7c4c9d-1232-4afd-a7d1-ae13c51bd4a8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:21.000Z",
+                      "updatedAt": "2026-07-28T11:02:21.000Z",
+                      "uid": "35240-b6c11b45-0a54-4c58-acbb-ca0730cda3fb"
+                    }
+                  ],
+                  "id": "41606bf9-a06c-4656-b123-ea2b8b6b67c3",
+                  "createdAt": "2026-07-28T11:02:21.000Z",
+                  "updatedAt": "2026-07-28T11:02:21.000Z",
+                  "uid": "35240-41606bf9-a06c-4656-b123-ea2b8b6b67c3"
+                }
+              ],
+              "id": "c7d070be-40b7-4856-90cb-c09e6d4a2cea",
+              "createdAt": "2026-07-28T11:02:21.000Z",
+              "updatedAt": "2026-07-28T11:02:21.000Z",
+              "uid": "35240-c7d070be-40b7-4856-90cb-c09e6d4a2cea"
+            }
+          ],
+          "id": "70879259-048a-4ccd-96f3-e12c203acd65",
+          "createdAt": "2026-07-28T11:02:21.000Z",
+          "updatedAt": "2026-07-28T11:02:21.000Z",
+          "uid": "35240-70879259-048a-4ccd-96f3-e12c203acd65"
+        }
+      ],
+      "id": "36083aff-fff6-444d-bbea-5ed2537619bb",
+      "createdAt": "2026-07-28T11:02:21.000Z",
+      "updatedAt": "2026-07-28T11:02:21.000Z",
+      "uid": "35240-36083aff-fff6-444d-bbea-5ed2537619bb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

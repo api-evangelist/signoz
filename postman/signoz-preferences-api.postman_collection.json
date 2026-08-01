@@ -1,0 +1,2175 @@
+{
+  "info": {
+    "_postman_id": "c6b24db5-e549-4eb2-b455-abb32eaa82b7",
+    "name": "SigNoz alerts preferences API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:44.000Z",
+    "updatedAt": "2026-07-28T11:02:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c6b24db5-e549-4eb2-b455-abb32eaa82b7"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "org",
+              "item": [
+                {
+                  "name": "preferences",
+                  "item": [
+                    {
+                      "name": "{name}",
+                      "item": [
+                        {
+                          "name": "Get org preference",
+                          "id": "e657f3f9-b9be-4690-91fc-7999c350cf54",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "org",
+                                "preferences",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "03e1fc8e-b0ff-40c4-9929-b246c75ad353",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This endpoint returns the org preference by name"
+                          },
+                          "response": [
+                            {
+                              "id": "5e07b4e4-6121-41a8-b555-1543dc515595",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"allowedScopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"allowedValues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"defaultValue\": {},\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"value\": {},\n    \"valueType\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-5e07b4e4-6121-41a8-b555-1543dc515595"
+                            },
+                            {
+                              "id": "7c7a5426-9ca1-40f3-92c0-103cf3be0b82",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-7c7a5426-9ca1-40f3-92c0-103cf3be0b82"
+                            },
+                            {
+                              "id": "5e9a62c1-237f-48e9-98d8-b25bd4aebb85",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-5e9a62c1-237f-48e9-98d8-b25bd4aebb85"
+                            },
+                            {
+                              "id": "d66c20c7-ff4b-47f7-a1de-928ea523ccd0",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-d66c20c7-ff4b-47f7-a1de-928ea523ccd0"
+                            },
+                            {
+                              "id": "137e519d-b536-4269-a2f0-f69d33f15c13",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-137e519d-b536-4269-a2f0-f69d33f15c13"
+                            },
+                            {
+                              "id": "90f38b60-3271-4c52-8f78-db6c6b526788",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-90f38b60-3271-4c52-8f78-db6c6b526788"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-e657f3f9-b9be-4690-91fc-7999c350cf54"
+                        },
+                        {
+                          "name": "Update org preference",
+                          "id": "cf2cfc71-ea57-47f9-9a35-1b5be81e3021",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "org",
+                                "preferences",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a2efb85d-dec6-444f-a9f6-96dedbbaeb5b",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This endpoint updates the org preference by name"
+                          },
+                          "response": [
+                            {
+                              "id": "bda18433-ebdd-48a2-871e-8ab7bf7b5429",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-bda18433-ebdd-48a2-871e-8ab7bf7b5429"
+                            },
+                            {
+                              "id": "02fcfd03-6c53-46f4-b74f-1dfe9c755e1c",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-02fcfd03-6c53-46f4-b74f-1dfe9c755e1c"
+                            },
+                            {
+                              "id": "f52e4c7a-2e40-4009-87d3-08e1cd2dc51b",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-f52e4c7a-2e40-4009-87d3-08e1cd2dc51b"
+                            },
+                            {
+                              "id": "03cd9406-5cb0-46b8-83ab-5aab63a39b5c",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-03cd9406-5cb0-46b8-83ab-5aab63a39b5c"
+                            },
+                            {
+                              "id": "5985731a-bd94-4888-bed6-38cca618b5d9",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-5985731a-bd94-4888-bed6-38cca618b5d9"
+                            },
+                            {
+                              "id": "4b4ae454-d35a-4d5d-a0f8-6d58d12cb67e",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/org/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "org",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-4b4ae454-d35a-4d5d-a0f8-6d58d12cb67e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-cf2cfc71-ea57-47f9-9a35-1b5be81e3021"
+                        }
+                      ],
+                      "id": "4813d892-a0b2-4e1d-9016-486b3a5b4d78",
+                      "createdAt": "2026-07-28T11:02:45.000Z",
+                      "updatedAt": "2026-07-28T11:02:45.000Z",
+                      "uid": "35240-4813d892-a0b2-4e1d-9016-486b3a5b4d78"
+                    },
+                    {
+                      "name": "List org preferences",
+                      "id": "b77820f9-ee32-49e9-a022-f92dc893fcfb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/org/preferences",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "org",
+                            "preferences"
+                          ]
+                        },
+                        "description": "This endpoint lists all org preferences"
+                      },
+                      "response": [
+                        {
+                          "id": "512b0a7a-8bb9-446a-838e-1cef7b5594b8",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/org/preferences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "org",
+                                "preferences"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": [\n    {\n      \"allowedScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowedValues\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"defaultValue\": {},\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"value\": {},\n      \"valueType\": \"<string>\"\n    },\n    {\n      \"allowedScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowedValues\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"defaultValue\": {},\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"value\": {},\n      \"valueType\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-512b0a7a-8bb9-446a-838e-1cef7b5594b8"
+                        },
+                        {
+                          "id": "37ade0eb-7dfa-4a21-ab45-0560b50b9260",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/org/preferences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "org",
+                                "preferences"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-37ade0eb-7dfa-4a21-ab45-0560b50b9260"
+                        },
+                        {
+                          "id": "577bbf15-6622-447f-ad29-5b1b1c2ab313",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/org/preferences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "org",
+                                "preferences"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-577bbf15-6622-447f-ad29-5b1b1c2ab313"
+                        },
+                        {
+                          "id": "cbd1f816-dbab-481c-b33a-5452d4fbe3b0",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/org/preferences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "org",
+                                "preferences"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-cbd1f816-dbab-481c-b33a-5452d4fbe3b0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:45.000Z",
+                      "updatedAt": "2026-07-28T11:02:45.000Z",
+                      "uid": "35240-b77820f9-ee32-49e9-a022-f92dc893fcfb"
+                    }
+                  ],
+                  "id": "629c0e4f-c194-4b7f-a481-f142c864400a",
+                  "createdAt": "2026-07-28T11:02:45.000Z",
+                  "updatedAt": "2026-07-28T11:02:45.000Z",
+                  "uid": "35240-629c0e4f-c194-4b7f-a481-f142c864400a"
+                }
+              ],
+              "id": "fff5ed65-224e-448d-ac3d-82c47aeb5216",
+              "createdAt": "2026-07-28T11:02:45.000Z",
+              "updatedAt": "2026-07-28T11:02:45.000Z",
+              "uid": "35240-fff5ed65-224e-448d-ac3d-82c47aeb5216"
+            },
+            {
+              "name": "user",
+              "item": [
+                {
+                  "name": "preferences",
+                  "item": [
+                    {
+                      "name": "{name}",
+                      "item": [
+                        {
+                          "name": "Get user preference",
+                          "id": "f25df32e-e912-468d-8442-d7423dfd86d7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "user",
+                                "preferences",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8c2e01ed-81d1-49d9-9181-d6fa113af25e",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This endpoint returns the user preference by name"
+                          },
+                          "response": [
+                            {
+                              "id": "760bf64e-aa45-4ddf-bc3f-ac651b5ee007",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"allowedScopes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"allowedValues\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"defaultValue\": {},\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"value\": {},\n    \"valueType\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-760bf64e-aa45-4ddf-bc3f-ac651b5ee007"
+                            },
+                            {
+                              "id": "9a2db75a-1450-4875-a4bb-8d8ce99f71e4",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-9a2db75a-1450-4875-a4bb-8d8ce99f71e4"
+                            },
+                            {
+                              "id": "014f7b37-c93c-48f9-9bb3-0edce240647c",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-014f7b37-c93c-48f9-9bb3-0edce240647c"
+                            },
+                            {
+                              "id": "288bba41-0445-433e-94a3-74b0d764a0b2",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-288bba41-0445-433e-94a3-74b0d764a0b2"
+                            },
+                            {
+                              "id": "59c56e65-061c-4c0d-8ec0-57a703de3b27",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-59c56e65-061c-4c0d-8ec0-57a703de3b27"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-f25df32e-e912-468d-8442-d7423dfd86d7"
+                        },
+                        {
+                          "name": "Update user preference",
+                          "id": "f33acffa-b4c9-4624-a9bb-d759328fe90d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "user",
+                                "preferences",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "971a5eec-8503-43c8-b27e-72bd3178daa1",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This endpoint updates the user preference by name"
+                          },
+                          "response": [
+                            {
+                              "id": "e89514eb-3e1d-4189-9ab8-99f7060468c1",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-e89514eb-3e1d-4189-9ab8-99f7060468c1"
+                            },
+                            {
+                              "id": "a1006dd5-934e-4062-b7d4-c43d58d114a6",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-a1006dd5-934e-4062-b7d4-c43d58d114a6"
+                            },
+                            {
+                              "id": "ca3b4292-37a4-4792-be48-59ccf5d88074",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-ca3b4292-37a4-4792-be48-59ccf5d88074"
+                            },
+                            {
+                              "id": "924150a4-540f-41a3-9492-d77ba4a5c4c4",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-924150a4-540f-41a3-9492-d77ba4a5c4c4"
+                            },
+                            {
+                              "id": "714db3f1-9141-42dd-b278-794098385766",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-714db3f1-9141-42dd-b278-794098385766"
+                            },
+                            {
+                              "id": "5ca323d0-ac1f-4f5a-ad06-961c8e158548",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"value\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/user/preferences/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "user",
+                                    "preferences",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:45.000Z",
+                              "updatedAt": "2026-07-28T11:02:45.000Z",
+                              "uid": "35240-5ca323d0-ac1f-4f5a-ad06-961c8e158548"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-f33acffa-b4c9-4624-a9bb-d759328fe90d"
+                        }
+                      ],
+                      "id": "e384a627-078d-47a4-ba08-d54a59cfc7d7",
+                      "createdAt": "2026-07-28T11:02:45.000Z",
+                      "updatedAt": "2026-07-28T11:02:45.000Z",
+                      "uid": "35240-e384a627-078d-47a4-ba08-d54a59cfc7d7"
+                    },
+                    {
+                      "name": "List user preferences",
+                      "id": "92d88bd9-a4ae-4368-89ba-69db35a4e691",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/user/preferences",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "user",
+                            "preferences"
+                          ]
+                        },
+                        "description": "This endpoint lists all user preferences"
+                      },
+                      "response": [
+                        {
+                          "id": "d14f6fd9-a53e-442f-a68c-e83086c75254",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/user/preferences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "user",
+                                "preferences"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": [\n    {\n      \"allowedScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowedValues\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"defaultValue\": {},\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"value\": {},\n      \"valueType\": \"<string>\"\n    },\n    {\n      \"allowedScopes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"allowedValues\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"defaultValue\": {},\n      \"description\": \"<string>\",\n      \"name\": \"<string>\",\n      \"value\": {},\n      \"valueType\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-d14f6fd9-a53e-442f-a68c-e83086c75254"
+                        },
+                        {
+                          "id": "a8744eab-5e15-4053-9f82-2153f7270f5e",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/user/preferences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "user",
+                                "preferences"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-a8744eab-5e15-4053-9f82-2153f7270f5e"
+                        },
+                        {
+                          "id": "61ae9b0e-db9a-41c3-80f8-7916680de57d",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/user/preferences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "user",
+                                "preferences"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-61ae9b0e-db9a-41c3-80f8-7916680de57d"
+                        },
+                        {
+                          "id": "c85af729-0dba-4eea-85a3-7f5558f2b5fe",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/user/preferences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "user",
+                                "preferences"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:45.000Z",
+                          "updatedAt": "2026-07-28T11:02:45.000Z",
+                          "uid": "35240-c85af729-0dba-4eea-85a3-7f5558f2b5fe"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:45.000Z",
+                      "updatedAt": "2026-07-28T11:02:45.000Z",
+                      "uid": "35240-92d88bd9-a4ae-4368-89ba-69db35a4e691"
+                    }
+                  ],
+                  "id": "8d94a9cb-433e-459d-bc3e-b783ecc2fe76",
+                  "createdAt": "2026-07-28T11:02:45.000Z",
+                  "updatedAt": "2026-07-28T11:02:45.000Z",
+                  "uid": "35240-8d94a9cb-433e-459d-bc3e-b783ecc2fe76"
+                }
+              ],
+              "id": "59980fb9-6081-4d48-a913-fbe996f5b519",
+              "createdAt": "2026-07-28T11:02:45.000Z",
+              "updatedAt": "2026-07-28T11:02:45.000Z",
+              "uid": "35240-59980fb9-6081-4d48-a913-fbe996f5b519"
+            }
+          ],
+          "id": "bedd7887-f3e3-4e4f-8cd7-9ab85be849d7",
+          "createdAt": "2026-07-28T11:02:45.000Z",
+          "updatedAt": "2026-07-28T11:02:45.000Z",
+          "uid": "35240-bedd7887-f3e3-4e4f-8cd7-9ab85be849d7"
+        }
+      ],
+      "id": "14cd11d0-c381-416e-8e22-db458397f1fb",
+      "createdAt": "2026-07-28T11:02:45.000Z",
+      "updatedAt": "2026-07-28T11:02:45.000Z",
+      "uid": "35240-14cd11d0-c381-416e-8e22-db458397f1fb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

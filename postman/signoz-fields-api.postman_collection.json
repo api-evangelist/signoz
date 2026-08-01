@@ -1,0 +1,1005 @@
+{
+  "info": {
+    "_postman_id": "8897d74e-1e2b-40ac-887f-8702eb12c2e0",
+    "name": "SigNoz alerts fields API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:30.000Z",
+    "updatedAt": "2026-07-28T11:02:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8897d74e-1e2b-40ac-887f-8702eb12c2e0"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "fields",
+              "item": [
+                {
+                  "name": "keys",
+                  "item": [
+                    {
+                      "name": "Get field keys",
+                      "id": "b20e4a32-0a95-42aa-ad66-521f616a2338",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/fields/keys?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "fields",
+                            "keys"
+                          ],
+                          "query": [
+                            {
+                              "key": "signal",
+                              "value": "traces"
+                            },
+                            {
+                              "key": "source",
+                              "value": "meter"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "startUnixMilli",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "endUnixMilli",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "fieldContext",
+                              "value": "span"
+                            },
+                            {
+                              "key": "fieldDataType",
+                              "value": "number"
+                            },
+                            {
+                              "key": "metricName",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "metricNamespace",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "searchText",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "This endpoint returns field keys"
+                      },
+                      "response": [
+                        {
+                          "id": "8e90a226-0641-474e-884c-6939a29b6a4c",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fields/keys?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fields",
+                                "keys"
+                              ],
+                              "query": [
+                                {
+                                  "key": "signal",
+                                  "value": "traces"
+                                },
+                                {
+                                  "key": "source",
+                                  "value": "meter"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "endUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "fieldContext",
+                                  "value": "span"
+                                },
+                                {
+                                  "key": "fieldDataType",
+                                  "value": "number"
+                                },
+                                {
+                                  "key": "metricName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "metricNamespace",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "searchText",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"keys\": {\n      \"commodo_e\": [\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"fieldContext\": \"span\",\n          \"fieldDataType\": \"bool\",\n          \"signal\": \"traces\",\n          \"unit\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"fieldContext\": \"resource\",\n          \"fieldDataType\": \"float64\",\n          \"signal\": \"traces\",\n          \"unit\": \"<string>\"\n        }\n      ]\n    },\n    \"complete\": \"<boolean>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:30.000Z",
+                          "updatedAt": "2026-07-28T11:02:30.000Z",
+                          "uid": "35240-8e90a226-0641-474e-884c-6939a29b6a4c"
+                        },
+                        {
+                          "id": "0966b429-d3d4-433d-99be-710b119a8f68",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fields/keys?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fields",
+                                "keys"
+                              ],
+                              "query": [
+                                {
+                                  "key": "signal",
+                                  "value": "traces"
+                                },
+                                {
+                                  "key": "source",
+                                  "value": "meter"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "endUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "fieldContext",
+                                  "value": "span"
+                                },
+                                {
+                                  "key": "fieldDataType",
+                                  "value": "number"
+                                },
+                                {
+                                  "key": "metricName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "metricNamespace",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "searchText",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:30.000Z",
+                          "updatedAt": "2026-07-28T11:02:30.000Z",
+                          "uid": "35240-0966b429-d3d4-433d-99be-710b119a8f68"
+                        },
+                        {
+                          "id": "3291204c-c0d5-4980-b81c-5c429bb8ea80",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fields/keys?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fields",
+                                "keys"
+                              ],
+                              "query": [
+                                {
+                                  "key": "signal",
+                                  "value": "traces"
+                                },
+                                {
+                                  "key": "source",
+                                  "value": "meter"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "endUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "fieldContext",
+                                  "value": "span"
+                                },
+                                {
+                                  "key": "fieldDataType",
+                                  "value": "number"
+                                },
+                                {
+                                  "key": "metricName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "metricNamespace",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "searchText",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:30.000Z",
+                          "updatedAt": "2026-07-28T11:02:30.000Z",
+                          "uid": "35240-3291204c-c0d5-4980-b81c-5c429bb8ea80"
+                        },
+                        {
+                          "id": "c3e28942-a3eb-491f-8e13-c0176bd6d076",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fields/keys?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fields",
+                                "keys"
+                              ],
+                              "query": [
+                                {
+                                  "key": "signal",
+                                  "value": "traces"
+                                },
+                                {
+                                  "key": "source",
+                                  "value": "meter"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "endUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "fieldContext",
+                                  "value": "span"
+                                },
+                                {
+                                  "key": "fieldDataType",
+                                  "value": "number"
+                                },
+                                {
+                                  "key": "metricName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "metricNamespace",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "searchText",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:30.000Z",
+                          "updatedAt": "2026-07-28T11:02:30.000Z",
+                          "uid": "35240-c3e28942-a3eb-491f-8e13-c0176bd6d076"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:30.000Z",
+                      "updatedAt": "2026-07-28T11:02:30.000Z",
+                      "uid": "35240-b20e4a32-0a95-42aa-ad66-521f616a2338"
+                    }
+                  ],
+                  "id": "3237c7c4-8c7b-4959-b234-bec2a74d9a0a",
+                  "createdAt": "2026-07-28T11:02:30.000Z",
+                  "updatedAt": "2026-07-28T11:02:30.000Z",
+                  "uid": "35240-3237c7c4-8c7b-4959-b234-bec2a74d9a0a"
+                },
+                {
+                  "name": "values",
+                  "item": [
+                    {
+                      "name": "Get field values",
+                      "id": "f3ce9166-b96e-4331-a659-06928b3b1d5d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/fields/values?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>&name=<string>&existingQuery=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "fields",
+                            "values"
+                          ],
+                          "query": [
+                            {
+                              "key": "signal",
+                              "value": "traces"
+                            },
+                            {
+                              "key": "source",
+                              "value": "meter"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "startUnixMilli",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "endUnixMilli",
+                              "value": "<long>"
+                            },
+                            {
+                              "key": "fieldContext",
+                              "value": "span"
+                            },
+                            {
+                              "key": "fieldDataType",
+                              "value": "number"
+                            },
+                            {
+                              "key": "metricName",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "metricNamespace",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "searchText",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "name",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "existingQuery",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "This endpoint returns field values"
+                      },
+                      "response": [
+                        {
+                          "id": "70c502b9-4ce9-47af-9aa6-3d8da3dde6a5",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fields/values?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>&name=<string>&existingQuery=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fields",
+                                "values"
+                              ],
+                              "query": [
+                                {
+                                  "key": "signal",
+                                  "value": "traces"
+                                },
+                                {
+                                  "key": "source",
+                                  "value": "meter"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "endUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "fieldContext",
+                                  "value": "span"
+                                },
+                                {
+                                  "key": "fieldDataType",
+                                  "value": "number"
+                                },
+                                {
+                                  "key": "metricName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "metricNamespace",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "searchText",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "name",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "existingQuery",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"values\": {\n      \"boolValues\": [\n        \"<boolean>\",\n        \"<boolean>\"\n      ],\n      \"numberValues\": [\n        \"<double>\",\n        \"<double>\"\n      ],\n      \"relatedValues\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"stringValues\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"complete\": \"<boolean>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:30.000Z",
+                          "updatedAt": "2026-07-28T11:02:30.000Z",
+                          "uid": "35240-70c502b9-4ce9-47af-9aa6-3d8da3dde6a5"
+                        },
+                        {
+                          "id": "21e37a6b-b48d-45c8-ae0c-b9412f972593",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fields/values?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>&name=<string>&existingQuery=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fields",
+                                "values"
+                              ],
+                              "query": [
+                                {
+                                  "key": "signal",
+                                  "value": "traces"
+                                },
+                                {
+                                  "key": "source",
+                                  "value": "meter"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "endUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "fieldContext",
+                                  "value": "span"
+                                },
+                                {
+                                  "key": "fieldDataType",
+                                  "value": "number"
+                                },
+                                {
+                                  "key": "metricName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "metricNamespace",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "searchText",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "name",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "existingQuery",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:30.000Z",
+                          "updatedAt": "2026-07-28T11:02:30.000Z",
+                          "uid": "35240-21e37a6b-b48d-45c8-ae0c-b9412f972593"
+                        },
+                        {
+                          "id": "95dfbcc4-2405-435a-a81f-690065319078",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fields/values?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>&name=<string>&existingQuery=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fields",
+                                "values"
+                              ],
+                              "query": [
+                                {
+                                  "key": "signal",
+                                  "value": "traces"
+                                },
+                                {
+                                  "key": "source",
+                                  "value": "meter"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "endUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "fieldContext",
+                                  "value": "span"
+                                },
+                                {
+                                  "key": "fieldDataType",
+                                  "value": "number"
+                                },
+                                {
+                                  "key": "metricName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "metricNamespace",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "searchText",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "name",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "existingQuery",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:30.000Z",
+                          "updatedAt": "2026-07-28T11:02:30.000Z",
+                          "uid": "35240-95dfbcc4-2405-435a-a81f-690065319078"
+                        },
+                        {
+                          "id": "acbcf8f9-eb4e-418f-8b78-878aecdfc241",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/fields/values?signal=traces&source=meter&limit=<integer>&startUnixMilli=<long>&endUnixMilli=<long>&fieldContext=span&fieldDataType=number&metricName=<string>&metricNamespace=<string>&searchText=<string>&name=<string>&existingQuery=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "fields",
+                                "values"
+                              ],
+                              "query": [
+                                {
+                                  "key": "signal",
+                                  "value": "traces"
+                                },
+                                {
+                                  "key": "source",
+                                  "value": "meter"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "startUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "endUnixMilli",
+                                  "value": "<long>"
+                                },
+                                {
+                                  "key": "fieldContext",
+                                  "value": "span"
+                                },
+                                {
+                                  "key": "fieldDataType",
+                                  "value": "number"
+                                },
+                                {
+                                  "key": "metricName",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "metricNamespace",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "searchText",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "name",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "existingQuery",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:30.000Z",
+                          "updatedAt": "2026-07-28T11:02:30.000Z",
+                          "uid": "35240-acbcf8f9-eb4e-418f-8b78-878aecdfc241"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:30.000Z",
+                      "updatedAt": "2026-07-28T11:02:30.000Z",
+                      "uid": "35240-f3ce9166-b96e-4331-a659-06928b3b1d5d"
+                    }
+                  ],
+                  "id": "a0723741-bfd7-4081-8075-83cf951b7530",
+                  "createdAt": "2026-07-28T11:02:30.000Z",
+                  "updatedAt": "2026-07-28T11:02:30.000Z",
+                  "uid": "35240-a0723741-bfd7-4081-8075-83cf951b7530"
+                }
+              ],
+              "id": "c7c89323-e2e5-47fa-897b-c2c0631f6183",
+              "createdAt": "2026-07-28T11:02:30.000Z",
+              "updatedAt": "2026-07-28T11:02:30.000Z",
+              "uid": "35240-c7c89323-e2e5-47fa-897b-c2c0631f6183"
+            }
+          ],
+          "id": "650e8329-efd9-4f1f-bf6c-2c0002094c77",
+          "createdAt": "2026-07-28T11:02:30.000Z",
+          "updatedAt": "2026-07-28T11:02:30.000Z",
+          "uid": "35240-650e8329-efd9-4f1f-bf6c-2c0002094c77"
+        }
+      ],
+      "id": "718e73ee-11be-4294-949f-9ff9bb434dd4",
+      "createdAt": "2026-07-28T11:02:30.000Z",
+      "updatedAt": "2026-07-28T11:02:30.000Z",
+      "uid": "35240-718e73ee-11be-4294-949f-9ff9bb434dd4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

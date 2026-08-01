@@ -1,0 +1,3151 @@
+{
+  "info": {
+    "_postman_id": "11448dfd-b0ee-434b-9c80-289f4838755f",
+    "name": "SigNoz alerts role API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:51.000Z",
+    "updatedAt": "2026-07-28T11:02:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-11448dfd-b0ee-434b-9c80-289f4838755f"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "roles",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "relations",
+                      "item": [
+                        {
+                          "name": "{relation}",
+                          "item": [
+                            {
+                              "name": "objects",
+                              "item": [
+                                {
+                                  "name": "Get objects for a role by relation",
+                                  "id": "8532f1dc-7416-4227-844f-2968b079c31b",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "apikey",
+                                      "apikey": [
+                                        {
+                                          "key": "key",
+                                          "value": "SigNoz-Api-Key",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "value",
+                                          "value": "{{apiKey}}",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "in",
+                                          "value": "header",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "roles",
+                                        ":id",
+                                        "relations",
+                                        ":relation",
+                                        "objects"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "0c9f5800-4e36-47d1-afe1-dd150de8626d",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "0faf01ed-cab0-47e9-ace8-25e4e6707484",
+                                          "key": "relation",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Gets all objects connected to the specified role via a given relation type"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "33a196f2-3907-4caf-9097-559e038542a2",
+                                      "name": "OK",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-33a196f2-3907-4caf-9097-559e038542a2"
+                                    },
+                                    {
+                                      "id": "c9adb6d0-d22e-480c-b01f-b17002842e96",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-c9adb6d0-d22e-480c-b01f-b17002842e96"
+                                    },
+                                    {
+                                      "id": "efaf2fc6-b31f-4aed-9a32-07837270d43b",
+                                      "name": "Forbidden",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-efaf2fc6-b31f-4aed-9a32-07837270d43b"
+                                    },
+                                    {
+                                      "id": "69d601f1-a3e4-430d-95d2-81bc8067617b",
+                                      "name": "Not Found",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-69d601f1-a3e4-430d-95d2-81bc8067617b"
+                                    },
+                                    {
+                                      "id": "8501f656-f1fb-4774-bd72-68f95ce30e1d",
+                                      "name": "Unavailable For Legal Reasons",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-8501f656-f1fb-4774-bd72-68f95ce30e1d"
+                                    },
+                                    {
+                                      "id": "fe0bdde3-203d-41aa-adcb-bfeec3a33b83",
+                                      "name": "Internal Server Error",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-fe0bdde3-203d-41aa-adcb-bfeec3a33b83"
+                                    },
+                                    {
+                                      "id": "369f0f05-8229-4371-b280-5a4868fb19d1",
+                                      "name": "Not Implemented",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Implemented",
+                                      "code": 501,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-369f0f05-8229-4371-b280-5a4868fb19d1"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T11:02:52.000Z",
+                                  "updatedAt": "2026-07-28T11:02:52.000Z",
+                                  "uid": "35240-8532f1dc-7416-4227-844f-2968b079c31b"
+                                },
+                                {
+                                  "name": "Patch objects for a role by relation",
+                                  "id": "32a1947f-d3cd-4c58-a262-a8d92e6100e0",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "apikey",
+                                      "apikey": [
+                                        {
+                                          "key": "key",
+                                          "value": "SigNoz-Api-Key",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "value",
+                                          "value": "{{apiKey}}",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "key": "in",
+                                          "value": "header",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"additions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"deletions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "roles",
+                                        ":id",
+                                        "relations",
+                                        ":relation",
+                                        "objects"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "3f288d2b-9f6b-44dd-88c4-8c7765c5d25f",
+                                          "key": "id",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "1d9f3bf0-72dd-4a3a-9769-72e1c4483989",
+                                          "key": "relation",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Patches the objects connected to the specified role via a given relation type"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "3ddcf3e9-d8e2-4ebf-adfb-2ccbc9f92695",
+                                      "name": "No Content",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"additions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"deletions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "No Content",
+                                      "code": 204,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "<string>",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-3ddcf3e9-d8e2-4ebf-adfb-2ccbc9f92695"
+                                    },
+                                    {
+                                      "id": "50279418-d6d4-46ca-93ad-689ef36e3b00",
+                                      "name": "Bad Request",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"additions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"deletions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-50279418-d6d4-46ca-93ad-689ef36e3b00"
+                                    },
+                                    {
+                                      "id": "2c219aad-f8a1-4fb2-b4ef-36ccf491cb80",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"additions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"deletions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-2c219aad-f8a1-4fb2-b4ef-36ccf491cb80"
+                                    },
+                                    {
+                                      "id": "1507a287-1db4-4d0b-ada4-caf7d965c7fb",
+                                      "name": "Forbidden",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"additions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"deletions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-1507a287-1db4-4d0b-ada4-caf7d965c7fb"
+                                    },
+                                    {
+                                      "id": "c4525065-72bd-4958-8aa8-129b89b12f80",
+                                      "name": "Not Found",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"additions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"deletions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-c4525065-72bd-4958-8aa8-129b89b12f80"
+                                    },
+                                    {
+                                      "id": "0a935b15-05e8-425f-aee9-ad141c2a9b76",
+                                      "name": "Unavailable For Legal Reasons",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"additions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"deletions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-0a935b15-05e8-425f-aee9-ad141c2a9b76"
+                                    },
+                                    {
+                                      "id": "9c5a7ff8-a981-4bde-9a18-8768d8eb1ade",
+                                      "name": "Internal Server Error",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"additions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"deletions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-9c5a7ff8-a981-4bde-9a18-8768d8eb1ade"
+                                    },
+                                    {
+                                      "id": "37fe5efd-3559-4aef-bea9-d4c6ca2c3909",
+                                      "name": "Not Implemented",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "SigNoz-Api-Key",
+                                            "value": "<API Key>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"additions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"deletions\": [\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"resource\": {\n        \"name\": \"<string>\",\n        \"type\": \"<string>\"\n      },\n      \"selectors\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/roles/:id/relations/:relation/objects",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "roles",
+                                            ":id",
+                                            "relations",
+                                            ":relation",
+                                            "objects"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "id"
+                                            },
+                                            {
+                                              "key": "relation"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Implemented",
+                                      "code": 501,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T11:02:52.000Z",
+                                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                                      "uid": "35240-37fe5efd-3559-4aef-bea9-d4c6ca2c3909"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T11:02:52.000Z",
+                                  "updatedAt": "2026-07-28T11:02:52.000Z",
+                                  "uid": "35240-32a1947f-d3cd-4c58-a262-a8d92e6100e0"
+                                }
+                              ],
+                              "id": "355c36ff-5354-4e90-beed-f0e063939a06",
+                              "createdAt": "2026-07-28T11:02:52.000Z",
+                              "updatedAt": "2026-07-28T11:02:52.000Z",
+                              "uid": "35240-355c36ff-5354-4e90-beed-f0e063939a06"
+                            }
+                          ],
+                          "id": "6e333625-77d6-455a-a51a-d7ea53438634",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-6e333625-77d6-455a-a51a-d7ea53438634"
+                        }
+                      ],
+                      "id": "c890f9e0-f1c2-4710-9c1e-f91cdf7e8acd",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-c890f9e0-f1c2-4710-9c1e-f91cdf7e8acd"
+                    },
+                    {
+                      "name": "Delete role",
+                      "id": "cdbd4718-ea2e-4eb4-944b-cd69ae673fcc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d185dd01-bbba-43a0-b4d5-5b5730c7e9f2",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This endpoint deletes a role"
+                      },
+                      "response": [
+                        {
+                          "id": "359c5375-7a04-4f36-923d-9fce41a54354",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<string>",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-359c5375-7a04-4f36-923d-9fce41a54354"
+                        },
+                        {
+                          "id": "5c89f771-2601-4a61-9381-23b32007a992",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-5c89f771-2601-4a61-9381-23b32007a992"
+                        },
+                        {
+                          "id": "0f78601c-8c63-4189-9f3c-5236f3147455",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-0f78601c-8c63-4189-9f3c-5236f3147455"
+                        },
+                        {
+                          "id": "b254d165-6e97-4996-bf06-c20d6ee06cf3",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-b254d165-6e97-4996-bf06-c20d6ee06cf3"
+                        },
+                        {
+                          "id": "db8769b1-21be-451d-be15-a9f3ad1618d0",
+                          "name": "Unavailable For Legal Reasons",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-db8769b1-21be-451d-be15-a9f3ad1618d0"
+                        },
+                        {
+                          "id": "1873dfab-569b-4a99-b905-c0c3b8f8f166",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-1873dfab-569b-4a99-b905-c0c3b8f8f166"
+                        },
+                        {
+                          "id": "fa942a2e-6e61-4b2f-9a84-ff5df5964ed0",
+                          "name": "Not Implemented",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Implemented",
+                          "code": 501,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-fa942a2e-6e61-4b2f-9a84-ff5df5964ed0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-cdbd4718-ea2e-4eb4-944b-cd69ae673fcc"
+                    },
+                    {
+                      "name": "Get role",
+                      "id": "be3efb96-88c4-4ced-8818-f0cf822712e1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "11361a30-72c8-4a6e-aa46-f155a6b24492",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This endpoint gets a role"
+                      },
+                      "response": [
+                        {
+                          "id": "8fe82f38-284f-4b6a-b122-4295b9b50177",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"type\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-8fe82f38-284f-4b6a-b122-4295b9b50177"
+                        },
+                        {
+                          "id": "f48622af-7cd7-4efb-b113-daf06fba4cce",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-f48622af-7cd7-4efb-b113-daf06fba4cce"
+                        },
+                        {
+                          "id": "febb065e-898c-48b1-a9e4-2cf73cc23fdb",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-febb065e-898c-48b1-a9e4-2cf73cc23fdb"
+                        },
+                        {
+                          "id": "b2725c77-c04a-46f4-97b8-8cfdd35814c3",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-b2725c77-c04a-46f4-97b8-8cfdd35814c3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-be3efb96-88c4-4ced-8818-f0cf822712e1"
+                    },
+                    {
+                      "name": "Patch role",
+                      "id": "c46eed7e-914e-42d4-9b19-a07a2f61d85e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4265fac6-6b60-46e3-8be4-b907f31ee2e5",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This endpoint patches a role"
+                      },
+                      "response": [
+                        {
+                          "id": "ace89af0-e659-4749-8e6e-8412bdb9663b",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<string>",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-ace89af0-e659-4749-8e6e-8412bdb9663b"
+                        },
+                        {
+                          "id": "577108e6-bcb4-4b26-9544-bb56e9af8955",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-577108e6-bcb4-4b26-9544-bb56e9af8955"
+                        },
+                        {
+                          "id": "f6bdd72d-c45b-4ced-aa24-ace4f38fbe9c",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-f6bdd72d-c45b-4ced-aa24-ace4f38fbe9c"
+                        },
+                        {
+                          "id": "818f212e-972b-4c31-a6e4-b81853351d7b",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-818f212e-972b-4c31-a6e4-b81853351d7b"
+                        },
+                        {
+                          "id": "773ac51e-3e86-4b55-aeca-ee32161bf23a",
+                          "name": "Unavailable For Legal Reasons",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-773ac51e-3e86-4b55-aeca-ee32161bf23a"
+                        },
+                        {
+                          "id": "06336b8f-a128-4fb2-9de2-f811d63de5c2",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-06336b8f-a128-4fb2-9de2-f811d63de5c2"
+                        },
+                        {
+                          "id": "581266e0-ff4d-4355-b474-cd65b7b2bd3f",
+                          "name": "Not Implemented",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/roles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "roles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Implemented",
+                          "code": 501,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:52.000Z",
+                          "updatedAt": "2026-07-28T11:02:52.000Z",
+                          "uid": "35240-581266e0-ff4d-4355-b474-cd65b7b2bd3f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-c46eed7e-914e-42d4-9b19-a07a2f61d85e"
+                    }
+                  ],
+                  "id": "33e04691-271d-44ce-93de-46c8944e617d",
+                  "createdAt": "2026-07-28T11:02:52.000Z",
+                  "updatedAt": "2026-07-28T11:02:52.000Z",
+                  "uid": "35240-33e04691-271d-44ce-93de-46c8944e617d"
+                },
+                {
+                  "name": "List roles",
+                  "id": "28bbcb63-e8fd-42aa-8fd4-e9f333781a36",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/roles",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "roles"
+                      ]
+                    },
+                    "description": "This endpoint lists all roles"
+                  },
+                  "response": [
+                    {
+                      "id": "f2345719-e6ba-4b87-b375-7cc28d86f095",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"type\": \"<string>\",\n      \"orgId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"type\": \"<string>\",\n      \"orgId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-f2345719-e6ba-4b87-b375-7cc28d86f095"
+                    },
+                    {
+                      "id": "8863278c-3fc1-4507-8d20-be899fe2693b",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-8863278c-3fc1-4507-8d20-be899fe2693b"
+                    },
+                    {
+                      "id": "97bae37d-1bf9-4fbf-994f-cb2eb31642d1",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-97bae37d-1bf9-4fbf-994f-cb2eb31642d1"
+                    },
+                    {
+                      "id": "cb8450f5-6d07-45a7-92cb-6616b66a8fdf",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-cb8450f5-6d07-45a7-92cb-6616b66a8fdf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:52.000Z",
+                  "updatedAt": "2026-07-28T11:02:52.000Z",
+                  "uid": "35240-28bbcb63-e8fd-42aa-8fd4-e9f333781a36"
+                },
+                {
+                  "name": "Create role",
+                  "id": "93e3f2fc-7360-4abe-ad72-79dca0f4df8c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/roles",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "roles"
+                      ]
+                    },
+                    "description": "This endpoint creates a role"
+                  },
+                  "response": [
+                    {
+                      "id": "07c77b4e-98fb-407f-be7d-6f1ed2122c49",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-07c77b4e-98fb-407f-be7d-6f1ed2122c49"
+                    },
+                    {
+                      "id": "ad606103-88aa-47ee-aa95-608bf252c664",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-ad606103-88aa-47ee-aa95-608bf252c664"
+                    },
+                    {
+                      "id": "1623d11d-2429-42bc-9714-e68432ca2e99",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-1623d11d-2429-42bc-9714-e68432ca2e99"
+                    },
+                    {
+                      "id": "cde21b8c-e834-4b1d-aadb-e39484612cf3",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-cde21b8c-e834-4b1d-aadb-e39484612cf3"
+                    },
+                    {
+                      "id": "b75e77a0-751d-4a45-88b9-ba0e3dec8f1b",
+                      "name": "Conflict",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-b75e77a0-751d-4a45-88b9-ba0e3dec8f1b"
+                    },
+                    {
+                      "id": "0cb006f7-a083-4883-9939-8457477a48d0",
+                      "name": "Unavailable For Legal Reasons",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-0cb006f7-a083-4883-9939-8457477a48d0"
+                    },
+                    {
+                      "id": "3313ae0f-31b3-4c8c-b4d5-a011b13c81fa",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-3313ae0f-31b3-4c8c-b4d5-a011b13c81fa"
+                    },
+                    {
+                      "id": "98f8c1e8-570a-43b9-b640-a649a213a6ff",
+                      "name": "Not Implemented",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/roles",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "roles"
+                          ]
+                        }
+                      },
+                      "status": "Not Implemented",
+                      "code": 501,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:52.000Z",
+                      "updatedAt": "2026-07-28T11:02:52.000Z",
+                      "uid": "35240-98f8c1e8-570a-43b9-b640-a649a213a6ff"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:52.000Z",
+                  "updatedAt": "2026-07-28T11:02:52.000Z",
+                  "uid": "35240-93e3f2fc-7360-4abe-ad72-79dca0f4df8c"
+                }
+              ],
+              "id": "47e3029b-fec3-49e7-bcf3-fd878f407e9a",
+              "createdAt": "2026-07-28T11:02:52.000Z",
+              "updatedAt": "2026-07-28T11:02:52.000Z",
+              "uid": "35240-47e3029b-fec3-49e7-bcf3-fd878f407e9a"
+            }
+          ],
+          "id": "92d15918-bd40-4dac-bc30-fa69975632b7",
+          "createdAt": "2026-07-28T11:02:52.000Z",
+          "updatedAt": "2026-07-28T11:02:52.000Z",
+          "uid": "35240-92d15918-bd40-4dac-bc30-fa69975632b7"
+        }
+      ],
+      "id": "280d53d5-d7ab-42fc-8809-f144b402edd7",
+      "createdAt": "2026-07-28T11:02:52.000Z",
+      "updatedAt": "2026-07-28T11:02:52.000Z",
+      "uid": "35240-280d53d5-d7ab-42fc-8809-f144b402edd7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

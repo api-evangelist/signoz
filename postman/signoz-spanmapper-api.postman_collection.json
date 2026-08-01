@@ -1,0 +1,3290 @@
+{
+  "info": {
+    "_postman_id": "cb1bd2cb-cd0c-4873-b16d-9e39dc77ab3d",
+    "name": "SigNoz alerts spanmapper API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:03:00.000Z",
+    "updatedAt": "2026-07-28T11:03:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cb1bd2cb-cd0c-4873-b16d-9e39dc77ab3d"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "span_mapper_groups",
+              "item": [
+                {
+                  "name": "{groupId}",
+                  "item": [
+                    {
+                      "name": "span_mappers",
+                      "item": [
+                        {
+                          "name": "{mapperId}",
+                          "item": [
+                            {
+                              "name": "Delete a span mapper",
+                              "id": "dcf15331-4b72-4153-bb27-6872c5bafa85",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "apikey",
+                                  "apikey": [
+                                    {
+                                      "key": "key",
+                                      "value": "SigNoz-Api-Key",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "value",
+                                      "value": "{{apiKey}}",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "in",
+                                      "value": "header",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers",
+                                    ":mapperId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "cfe49b86-2fb6-486d-989e-65b589e89f67",
+                                      "key": "groupId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "33cd4433-3f1a-427c-a332-bb2abc14ed97",
+                                      "key": "mapperId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Hard-deletes a mapper from a mapping group."
+                              },
+                              "response": [
+                                {
+                                  "id": "1ac23a5d-c90d-4792-9854-ff9ef239155b",
+                                  "name": "No Content",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-1ac23a5d-c90d-4792-9854-ff9ef239155b"
+                                },
+                                {
+                                  "id": "90a3d063-4f8d-4069-aa71-481b30907a42",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-90a3d063-4f8d-4069-aa71-481b30907a42"
+                                },
+                                {
+                                  "id": "afa241a6-e650-42c4-a9ad-e52525c483e7",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-afa241a6-e650-42c4-a9ad-e52525c483e7"
+                                },
+                                {
+                                  "id": "e664fb9e-9030-4f3e-928d-38455cde08bd",
+                                  "name": "Not Found",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-e664fb9e-9030-4f3e-928d-38455cde08bd"
+                                },
+                                {
+                                  "id": "b64e5a52-91e6-4b45-8f06-1fdfaac2c87a",
+                                  "name": "Internal Server Error",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-b64e5a52-91e6-4b45-8f06-1fdfaac2c87a"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-dcf15331-4b72-4153-bb27-6872c5bafa85"
+                            },
+                            {
+                              "name": "Update a span mapper",
+                              "id": "4b5600f5-f043-458e-a937-a06b13cd61d7",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "apikey",
+                                  "apikey": [
+                                    {
+                                      "key": "key",
+                                      "value": "SigNoz-Api-Key",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "value",
+                                      "value": "{{apiKey}}",
+                                      "type": "string"
+                                    },
+                                    {
+                                      "key": "in",
+                                      "value": "header",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"field_context\": \"attribute\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers",
+                                    ":mapperId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "6b8dd4ba-21b3-4880-bafc-156ce3599af2",
+                                      "key": "groupId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "21cfe70d-d6a4-43e4-8b86-c3fda7477f6c",
+                                      "key": "mapperId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Partially updates an existing mapper's field context, config, or enabled state."
+                              },
+                              "response": [
+                                {
+                                  "id": "eac82170-62d6-449b-a7c0-8a882f6833be",
+                                  "name": "No Content",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"field_context\": \"attribute\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-eac82170-62d6-449b-a7c0-8a882f6833be"
+                                },
+                                {
+                                  "id": "0eeecb68-d6ed-4681-993f-8a5d907bedd0",
+                                  "name": "Bad Request",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"field_context\": \"attribute\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-0eeecb68-d6ed-4681-993f-8a5d907bedd0"
+                                },
+                                {
+                                  "id": "ce7d02f5-69c0-45a9-bb57-321308562203",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"field_context\": \"attribute\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-ce7d02f5-69c0-45a9-bb57-321308562203"
+                                },
+                                {
+                                  "id": "2d4f5cc4-b6a7-4f10-8e11-1e6823012447",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"field_context\": \"attribute\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-2d4f5cc4-b6a7-4f10-8e11-1e6823012447"
+                                },
+                                {
+                                  "id": "a50c68a8-f6fe-445e-a11f-f44ccb635ac2",
+                                  "name": "Not Found",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"field_context\": \"attribute\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-a50c68a8-f6fe-445e-a11f-f44ccb635ac2"
+                                },
+                                {
+                                  "id": "ad8022e0-1581-4206-9ee7-a9ca04015a9d",
+                                  "name": "Internal Server Error",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "SigNoz-Api-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"field_context\": \"attribute\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers/:mapperId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "span_mapper_groups",
+                                        ":groupId",
+                                        "span_mappers",
+                                        ":mapperId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "groupId"
+                                        },
+                                        {
+                                          "key": "mapperId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T11:03:00.000Z",
+                                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                                  "uid": "35240-ad8022e0-1581-4206-9ee7-a9ca04015a9d"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-4b5600f5-f043-458e-a937-a06b13cd61d7"
+                            }
+                          ],
+                          "id": "6d2baf58-bc8a-4d9d-8152-58c71f78e202",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-6d2baf58-bc8a-4d9d-8152-58c71f78e202"
+                        },
+                        {
+                          "name": "List span mappers for a group",
+                          "id": "d7c0a408-ba0c-46d6-8f8e-dd550329b828",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId",
+                                "span_mappers"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0d29ce10-54bf-458a-9397-b32dca001690",
+                                  "key": "groupId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns all mappers belonging to a mapping group."
+                          },
+                          "response": [
+                            {
+                              "id": "c1c1c452-4fdc-4159-9d58-9f474cd1f31b",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"items\": [\n      {\n        \"id\": \"<string>\",\n        \"orgId\": \"<string>\",\n        \"name\": \"<string>\",\n        \"category\": {},\n        \"condition\": {\n          \"attributes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"resource\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"enabled\": \"<boolean>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<string>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"updatedBy\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"orgId\": \"<string>\",\n        \"name\": \"<string>\",\n        \"category\": {},\n        \"condition\": {\n          \"attributes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"resource\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"enabled\": \"<boolean>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<string>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"updatedBy\": \"<string>\"\n      }\n    ]\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-c1c1c452-4fdc-4159-9d58-9f474cd1f31b"
+                            },
+                            {
+                              "id": "938b8d66-edaa-4006-9d33-65e77e167257",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-938b8d66-edaa-4006-9d33-65e77e167257"
+                            },
+                            {
+                              "id": "a506f964-5f2f-4a57-a3de-9f99bdd13147",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-a506f964-5f2f-4a57-a3de-9f99bdd13147"
+                            },
+                            {
+                              "id": "5e48904f-58e2-4aff-81c9-915f5645fe40",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-5e48904f-58e2-4aff-81c9-915f5645fe40"
+                            },
+                            {
+                              "id": "5601e981-9f6d-48da-953b-4797f53f1ff8",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-5601e981-9f6d-48da-953b-4797f53f1ff8"
+                            },
+                            {
+                              "id": "d5486dfa-488f-430e-8250-2dbd8353da97",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-d5486dfa-488f-430e-8250-2dbd8353da97"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-d7c0a408-ba0c-46d6-8f8e-dd550329b828"
+                        },
+                        {
+                          "name": "Create a span mapper",
+                          "id": "dab57b63-d111-4c7b-b7c5-ca3001cd44d8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"field_context\": \"resource\",\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"resource\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId",
+                                "span_mappers"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a82da019-df29-40c1-8c2b-40fb4526537f",
+                                  "key": "groupId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Adds a new mapper to the specified mapping group."
+                          },
+                          "response": [
+                            {
+                              "id": "b803648f-0540-4af6-90f3-71a03ba0c37b",
+                              "name": "Created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"field_context\": \"resource\",\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"resource\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\",\n    \"group_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"field_context\": \"resource\",\n    \"config\": {\n      \"sources\": [\n        {\n          \"key\": \"<string>\",\n          \"context\": \"resource\",\n          \"operation\": \"copy\",\n          \"priority\": \"<integer>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"context\": \"attribute\",\n          \"operation\": \"copy\",\n          \"priority\": \"<integer>\"\n        }\n      ]\n    },\n    \"enabled\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"createdBy\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"updatedBy\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-b803648f-0540-4af6-90f3-71a03ba0c37b"
+                            },
+                            {
+                              "id": "59c10c1a-ef5f-43e2-b21d-d437aed21134",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"field_context\": \"resource\",\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"resource\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-59c10c1a-ef5f-43e2-b21d-d437aed21134"
+                            },
+                            {
+                              "id": "c40ff889-b02a-410a-b189-7a8d07a4e714",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"field_context\": \"resource\",\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"resource\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-c40ff889-b02a-410a-b189-7a8d07a4e714"
+                            },
+                            {
+                              "id": "9dcedc2e-5372-4ce3-ab79-fabab11a10c6",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"field_context\": \"resource\",\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"resource\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-9dcedc2e-5372-4ce3-ab79-fabab11a10c6"
+                            },
+                            {
+                              "id": "7f74d56d-9854-4a1c-bfa3-4d3984ddf91f",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"field_context\": \"resource\",\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"resource\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-7f74d56d-9854-4a1c-bfa3-4d3984ddf91f"
+                            },
+                            {
+                              "id": "97b55bcf-f3a4-4daf-b4c2-43c56238cc9f",
+                              "name": "Conflict",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"field_context\": \"resource\",\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"resource\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-97b55bcf-f3a4-4daf-b4c2-43c56238cc9f"
+                            },
+                            {
+                              "id": "7b79fd04-bb0d-4815-bbea-93463cc8a832",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"field_context\": \"resource\",\n  \"config\": {\n    \"sources\": [\n      {\n        \"key\": \"<string>\",\n        \"context\": \"attribute\",\n        \"operation\": \"move\",\n        \"priority\": \"<integer>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"context\": \"resource\",\n        \"operation\": \"copy\",\n        \"priority\": \"<integer>\"\n      }\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId/span_mappers",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "span_mapper_groups",
+                                    ":groupId",
+                                    "span_mappers"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "groupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:03:00.000Z",
+                              "updatedAt": "2026-07-28T11:03:00.000Z",
+                              "uid": "35240-7b79fd04-bb0d-4815-bbea-93463cc8a832"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-dab57b63-d111-4c7b-b7c5-ca3001cd44d8"
+                        }
+                      ],
+                      "id": "26b3bcf1-a094-477c-8157-01f5bc98b775",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-26b3bcf1-a094-477c-8157-01f5bc98b775"
+                    },
+                    {
+                      "name": "Delete a span attribute mapping group",
+                      "id": "0b4e2645-1114-4da1-a796-0cda14c45f17",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups",
+                            ":groupId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d8ec851d-85bd-4020-9fc4-c721f744facb",
+                              "key": "groupId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Hard-deletes a mapping group and cascades to all its mappers."
+                      },
+                      "response": [
+                        {
+                          "id": "188418da-3eb8-4c2c-9dbd-bee9c6630fe2",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-188418da-3eb8-4c2c-9dbd-bee9c6630fe2"
+                        },
+                        {
+                          "id": "ac412f46-6038-40aa-a736-3f6f29b20107",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-ac412f46-6038-40aa-a736-3f6f29b20107"
+                        },
+                        {
+                          "id": "81f78519-71c2-4586-a117-f02bb778ac51",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-81f78519-71c2-4586-a117-f02bb778ac51"
+                        },
+                        {
+                          "id": "ab1260d0-ef4c-4a59-823f-1e14314ff09d",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-ab1260d0-ef4c-4a59-823f-1e14314ff09d"
+                        },
+                        {
+                          "id": "0d58b56a-6eff-4873-a0d8-90f3f5e35fbb",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-0d58b56a-6eff-4873-a0d8-90f3f5e35fbb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-0b4e2645-1114-4da1-a796-0cda14c45f17"
+                    },
+                    {
+                      "name": "Update a span attribute mapping group",
+                      "id": "339bfbb5-5f8c-4397-9f0e-28bdc57d7d8c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups",
+                            ":groupId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a2804803-5ac9-4667-b74b-1a4db78f3a09",
+                              "key": "groupId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Partially updates an existing mapping group's name, condition, or enabled state."
+                      },
+                      "response": [
+                        {
+                          "id": "ddcb1e37-90eb-49e8-96d2-001ae38e961f",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-ddcb1e37-90eb-49e8-96d2-001ae38e961f"
+                        },
+                        {
+                          "id": "fe26ee81-13c8-4093-a9e1-8c241b174221",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-fe26ee81-13c8-4093-a9e1-8c241b174221"
+                        },
+                        {
+                          "id": "f4c37b1d-7b80-47c4-a292-b0ad614bee0b",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-f4c37b1d-7b80-47c4-a292-b0ad614bee0b"
+                        },
+                        {
+                          "id": "f178d022-caa7-4eb6-8fab-559ae7aa158c",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-f178d022-caa7-4eb6-8fab-559ae7aa158c"
+                        },
+                        {
+                          "id": "4d592a4d-27e5-42db-842b-0e3672a9d3ee",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-4d592a4d-27e5-42db-842b-0e3672a9d3ee"
+                        },
+                        {
+                          "id": "44d681ff-1647-4e59-a4c5-9dac97d13be1",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/span_mapper_groups/:groupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "span_mapper_groups",
+                                ":groupId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:03:00.000Z",
+                          "updatedAt": "2026-07-28T11:03:00.000Z",
+                          "uid": "35240-44d681ff-1647-4e59-a4c5-9dac97d13be1"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-339bfbb5-5f8c-4397-9f0e-28bdc57d7d8c"
+                    }
+                  ],
+                  "id": "269da466-45af-42c6-b11e-b8c54ee03ce1",
+                  "createdAt": "2026-07-28T11:03:00.000Z",
+                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                  "uid": "35240-269da466-45af-42c6-b11e-b8c54ee03ce1"
+                },
+                {
+                  "name": "List span attribute mapping groups",
+                  "id": "e7c71589-02c2-43bc-9978-4020891539c1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups?enabled=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "span_mapper_groups"
+                      ],
+                      "query": [
+                        {
+                          "key": "enabled",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "description": "Returns all span attribute mapping groups for the authenticated org."
+                  },
+                  "response": [
+                    {
+                      "id": "67fb37ad-8dee-43fd-aae5-84c043ebcb82",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups?enabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "enabled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"items\": [\n      {\n        \"id\": \"<string>\",\n        \"orgId\": \"<string>\",\n        \"name\": \"<string>\",\n        \"category\": {},\n        \"condition\": {\n          \"attributes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"resource\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"enabled\": \"<boolean>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<string>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"updatedBy\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"orgId\": \"<string>\",\n        \"name\": \"<string>\",\n        \"category\": {},\n        \"condition\": {\n          \"attributes\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"resource\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        \"enabled\": \"<boolean>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<string>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"updatedBy\": \"<string>\"\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-67fb37ad-8dee-43fd-aae5-84c043ebcb82"
+                    },
+                    {
+                      "id": "76b70d27-1269-4e31-a8fd-ac326eb723d4",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups?enabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "enabled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-76b70d27-1269-4e31-a8fd-ac326eb723d4"
+                    },
+                    {
+                      "id": "f2d10e5f-f2b4-45dc-9a24-51da3bf82496",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups?enabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "enabled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-f2d10e5f-f2b4-45dc-9a24-51da3bf82496"
+                    },
+                    {
+                      "id": "eb41aa8d-69c8-43ac-b98c-39b037f93953",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups?enabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "enabled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-eb41aa8d-69c8-43ac-b98c-39b037f93953"
+                    },
+                    {
+                      "id": "03f6c057-8923-4668-a5fe-35a18cb7c184",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups?enabled=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "enabled",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-03f6c057-8923-4668-a5fe-35a18cb7c184"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:03:00.000Z",
+                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                  "uid": "35240-e7c71589-02c2-43bc-9978-4020891539c1"
+                },
+                {
+                  "name": "Create a span attribute mapping group",
+                  "id": "0a4d4cba-ad58-4a41-a8a2-ca48052bae75",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"category\": {},\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/span_mapper_groups",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "span_mapper_groups"
+                      ]
+                    },
+                    "description": "Creates a new span attribute mapping group for the org."
+                  },
+                  "response": [
+                    {
+                      "id": "78323790-a683-41dd-85d9-9dedc7338b1d",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"category\": {},\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"category\": {},\n    \"condition\": {\n      \"attributes\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"resource\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"enabled\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"createdBy\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"updatedBy\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-78323790-a683-41dd-85d9-9dedc7338b1d"
+                    },
+                    {
+                      "id": "8e93f69d-55ed-473e-ba31-4a05b6f7f406",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"category\": {},\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-8e93f69d-55ed-473e-ba31-4a05b6f7f406"
+                    },
+                    {
+                      "id": "ad58dcec-1230-4afa-aa18-ef25ec2d3fc0",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"category\": {},\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-ad58dcec-1230-4afa-aa18-ef25ec2d3fc0"
+                    },
+                    {
+                      "id": "5a256432-9c6a-423f-8cd5-6befd7e49d37",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"category\": {},\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-5a256432-9c6a-423f-8cd5-6befd7e49d37"
+                    },
+                    {
+                      "id": "b30c72ef-4713-49ac-98d2-a7f1c7c75c36",
+                      "name": "Conflict",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"category\": {},\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-b30c72ef-4713-49ac-98d2-a7f1c7c75c36"
+                    },
+                    {
+                      "id": "ee9d013c-738c-4582-b877-7867a306a168",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"category\": {},\n  \"condition\": {\n    \"attributes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"resource\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/span_mapper_groups",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "span_mapper_groups"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:03:00.000Z",
+                      "updatedAt": "2026-07-28T11:03:00.000Z",
+                      "uid": "35240-ee9d013c-738c-4582-b877-7867a306a168"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:03:00.000Z",
+                  "updatedAt": "2026-07-28T11:03:00.000Z",
+                  "uid": "35240-0a4d4cba-ad58-4a41-a8a2-ca48052bae75"
+                }
+              ],
+              "id": "1005dfda-b111-485c-97e3-6ffea2e277e5",
+              "createdAt": "2026-07-28T11:03:00.000Z",
+              "updatedAt": "2026-07-28T11:03:00.000Z",
+              "uid": "35240-1005dfda-b111-485c-97e3-6ffea2e277e5"
+            }
+          ],
+          "id": "5b42f805-f181-4647-867b-b5d4dacef96c",
+          "createdAt": "2026-07-28T11:03:00.000Z",
+          "updatedAt": "2026-07-28T11:03:00.000Z",
+          "uid": "35240-5b42f805-f181-4647-867b-b5d4dacef96c"
+        }
+      ],
+      "id": "5c94c1f8-6dde-4399-a2e3-e4ca2d05eee1",
+      "createdAt": "2026-07-28T11:03:00.000Z",
+      "updatedAt": "2026-07-28T11:03:00.000Z",
+      "uid": "35240-5c94c1f8-6dde-4399-a2e3-e4ca2d05eee1"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

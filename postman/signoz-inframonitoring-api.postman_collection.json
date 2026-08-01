@@ -1,0 +1,803 @@
+{
+  "info": {
+    "_postman_id": "9f6bef74-1dc0-4f3b-84e3-bf4184ea479a",
+    "name": "SigNoz alerts inframonitoring API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:37.000Z",
+    "updatedAt": "2026-07-28T11:02:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9f6bef74-1dc0-4f3b-84e3-bf4184ea479a"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "infra_monitoring",
+              "item": [
+                {
+                  "name": "hosts",
+                  "item": [
+                    {
+                      "name": "List Hosts for Infra Monitoring",
+                      "id": "5b9fae37-749e-4367-8b1e-b52ae1516f16",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"active\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"span\",\n      \"fieldDataType\": \"number\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"string\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/infra_monitoring/hosts",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "infra_monitoring",
+                            "hosts"
+                          ]
+                        },
+                        "description": "Returns a paginated list of hosts with key infrastructure metrics: CPU usage (%), memory usage (%), I/O wait (%), disk usage (%), and 15-minute load average. Each host includes its current status (active/inactive based on metrics reported in the last 10 minutes) and metadata attributes (e.g., os.type). Supports filtering via a filter expression, filtering by host status, custom groupBy to aggregate hosts by any attribute, ordering by any of the five metrics, and pagination via offset/limit. The response type is 'list' for the default host.name grouping or 'grouped_list' for custom groupBy keys. Also reports missing required metrics and whether the requested time range falls before the data retention boundary. Numeric metric fields (cpu, memory, wait, load15, diskUsage) return -1 as a sentinel when no data is available for that field."
+                      },
+                      "response": [
+                        {
+                          "id": "03a0308d-39a6-43aa-b5fa-59901584ac22",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"active\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"span\",\n      \"fieldDataType\": \"number\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"string\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/hosts",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "hosts"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"type\": \"grouped_list\",\n    \"records\": [\n      {\n        \"hostName\": \"<string>\",\n        \"status\": \"\",\n        \"activeHostCount\": \"<integer>\",\n        \"inactiveHostCount\": \"<integer>\",\n        \"cpu\": \"<double>\",\n        \"memory\": \"<double>\",\n        \"wait\": \"<double>\",\n        \"load15\": \"<double>\",\n        \"diskUsage\": \"<double>\",\n        \"meta\": {\n          \"voluptate_3_8\": {},\n          \"dolore31\": {}\n        }\n      },\n      {\n        \"hostName\": \"<string>\",\n        \"status\": \"\",\n        \"activeHostCount\": \"<integer>\",\n        \"inactiveHostCount\": \"<integer>\",\n        \"cpu\": \"<double>\",\n        \"memory\": \"<double>\",\n        \"wait\": \"<double>\",\n        \"load15\": \"<double>\",\n        \"diskUsage\": \"<double>\",\n        \"meta\": {\n          \"elit1\": {}\n        }\n      }\n    ],\n    \"total\": \"<integer>\",\n    \"requiredMetricsCheck\": {\n      \"missingMetrics\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"endTimeBeforeRetention\": \"<boolean>\",\n    \"warning\": {\n      \"message\": \"<string>\",\n      \"url\": \"<string>\",\n      \"warnings\": [\n        {\n          \"message\": \"<string>\"\n        },\n        {\n          \"message\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-03a0308d-39a6-43aa-b5fa-59901584ac22"
+                        },
+                        {
+                          "id": "b33a4596-d0f1-4a9b-ae00-d7749cce0d12",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"active\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"span\",\n      \"fieldDataType\": \"number\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"string\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/hosts",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "hosts"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-b33a4596-d0f1-4a9b-ae00-d7749cce0d12"
+                        },
+                        {
+                          "id": "7167fc6c-cd0b-42a3-b42e-a1192c26916e",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"active\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"span\",\n      \"fieldDataType\": \"number\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"string\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/hosts",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "hosts"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-7167fc6c-cd0b-42a3-b42e-a1192c26916e"
+                        },
+                        {
+                          "id": "1ae1ff06-7a64-45c9-a0cd-d7cc85667ddc",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"active\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"span\",\n      \"fieldDataType\": \"number\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"string\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/hosts",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "hosts"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-1ae1ff06-7a64-45c9-a0cd-d7cc85667ddc"
+                        },
+                        {
+                          "id": "120ef2bd-f7a6-4254-8782-dc72fd420cf5",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"active\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"span\",\n      \"fieldDataType\": \"number\",\n      \"signal\": \"metrics\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"string\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/hosts",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "hosts"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-120ef2bd-f7a6-4254-8782-dc72fd420cf5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:38.000Z",
+                      "updatedAt": "2026-07-28T11:02:38.000Z",
+                      "uid": "35240-5b9fae37-749e-4367-8b1e-b52ae1516f16"
+                    }
+                  ],
+                  "id": "d56c8edc-7ae0-41a7-a284-90d73dd22fa5",
+                  "createdAt": "2026-07-28T11:02:38.000Z",
+                  "updatedAt": "2026-07-28T11:02:38.000Z",
+                  "uid": "35240-d56c8edc-7ae0-41a7-a284-90d73dd22fa5"
+                },
+                {
+                  "name": "pods",
+                  "item": [
+                    {
+                      "name": "List Pods for Infra Monitoring",
+                      "id": "7e6034e2-73bc-40ca-83bd-2d71b3c5eb34",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"float64\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"resource\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/infra_monitoring/pods",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "infra_monitoring",
+                            "pods"
+                          ]
+                        },
+                        "description": "Returns a paginated list of Kubernetes pods with key metrics: CPU usage, CPU request/limit utilization, memory working set, memory request/limit utilization, current pod phase (pending/running/succeeded/failed/unknown), and pod age (ms since start time). Each pod includes metadata attributes (namespace, node, workload owner such as deployment/statefulset/daemonset/job/cronjob, cluster). Supports filtering via a filter expression, custom groupBy to aggregate pods by any attribute, ordering by any of the six metrics (cpu, cpu_request, cpu_limit, memory, memory_request, memory_limit), and pagination via offset/limit. The response type is 'list' for the default k8s.pod.uid grouping (each row is one pod with its current phase) or 'grouped_list' for custom groupBy keys (each row aggregates pods in the group with per-phase counts: pendingPodCount, runningPodCount, succeededPodCount, failedPodCount, unknownPodCount derived from each pod's latest phase in the window). Also reports missing required metrics and whether the requested time range falls before the data retention boundary. Numeric metric fields (podCPU, podCPURequest, podCPULimit, podMemory, podMemoryRequest, podMemoryLimit, podAge) return -1 as a sentinel when no data is available for that field."
+                      },
+                      "response": [
+                        {
+                          "id": "76aedd89-db35-4e5c-9392-bf56a8ff8e65",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"float64\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"resource\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/pods",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "pods"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"type\": \"grouped_list\",\n    \"records\": [\n      {\n        \"podUID\": \"<string>\",\n        \"podCPU\": \"<double>\",\n        \"podCPURequest\": \"<double>\",\n        \"podCPULimit\": \"<double>\",\n        \"podMemory\": \"<double>\",\n        \"podMemoryRequest\": \"<double>\",\n        \"podMemoryLimit\": \"<double>\",\n        \"podPhase\": \"running\",\n        \"pendingPodCount\": \"<integer>\",\n        \"runningPodCount\": \"<integer>\",\n        \"succeededPodCount\": \"<integer>\",\n        \"failedPodCount\": \"<integer>\",\n        \"unknownPodCount\": \"<integer>\",\n        \"podAge\": \"<long>\",\n        \"meta\": {\n          \"occaecatb1\": {},\n          \"commodo_05a\": {}\n        }\n      },\n      {\n        \"podUID\": \"<string>\",\n        \"podCPU\": \"<double>\",\n        \"podCPURequest\": \"<double>\",\n        \"podCPULimit\": \"<double>\",\n        \"podMemory\": \"<double>\",\n        \"podMemoryRequest\": \"<double>\",\n        \"podMemoryLimit\": \"<double>\",\n        \"podPhase\": \"failed\",\n        \"pendingPodCount\": \"<integer>\",\n        \"runningPodCount\": \"<integer>\",\n        \"succeededPodCount\": \"<integer>\",\n        \"failedPodCount\": \"<integer>\",\n        \"unknownPodCount\": \"<integer>\",\n        \"podAge\": \"<long>\",\n        \"meta\": {\n          \"deseruntde2\": {},\n          \"ipsum8\": {}\n        }\n      }\n    ],\n    \"total\": \"<integer>\",\n    \"requiredMetricsCheck\": {\n      \"missingMetrics\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"endTimeBeforeRetention\": \"<boolean>\",\n    \"warning\": {\n      \"message\": \"<string>\",\n      \"url\": \"<string>\",\n      \"warnings\": [\n        {\n          \"message\": \"<string>\"\n        },\n        {\n          \"message\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-76aedd89-db35-4e5c-9392-bf56a8ff8e65"
+                        },
+                        {
+                          "id": "a5db9420-07f5-4971-bf8f-d843fe47479e",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"float64\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"resource\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/pods",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "pods"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-a5db9420-07f5-4971-bf8f-d843fe47479e"
+                        },
+                        {
+                          "id": "ded860d6-1c32-45f9-b35f-0c1063a811f5",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"float64\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"resource\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/pods",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "pods"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-ded860d6-1c32-45f9-b35f-0c1063a811f5"
+                        },
+                        {
+                          "id": "af7699af-c9e5-4de0-8f89-de6664212289",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"float64\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"resource\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/pods",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "pods"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-af7699af-c9e5-4de0-8f89-de6664212289"
+                        },
+                        {
+                          "id": "3fefc0f8-d0ed-4041-b008-8434a5f65cf4",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"metric\",\n      \"fieldDataType\": \"float64\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"resource\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"traces\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"asc\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"log\",\n      \"fieldDataType\": \"bool\",\n      \"signal\": \"logs\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v2/infra_monitoring/pods",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v2",
+                                "infra_monitoring",
+                                "pods"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:38.000Z",
+                          "updatedAt": "2026-07-28T11:02:38.000Z",
+                          "uid": "35240-3fefc0f8-d0ed-4041-b008-8434a5f65cf4"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:38.000Z",
+                      "updatedAt": "2026-07-28T11:02:38.000Z",
+                      "uid": "35240-7e6034e2-73bc-40ca-83bd-2d71b3c5eb34"
+                    }
+                  ],
+                  "id": "be24fbb5-1bdf-48b4-b67d-ae45bae6903e",
+                  "createdAt": "2026-07-28T11:02:38.000Z",
+                  "updatedAt": "2026-07-28T11:02:38.000Z",
+                  "uid": "35240-be24fbb5-1bdf-48b4-b67d-ae45bae6903e"
+                }
+              ],
+              "id": "7a546c74-0d65-490f-bd15-52b98acf152d",
+              "createdAt": "2026-07-28T11:02:38.000Z",
+              "updatedAt": "2026-07-28T11:02:38.000Z",
+              "uid": "35240-7a546c74-0d65-490f-bd15-52b98acf152d"
+            }
+          ],
+          "id": "6e0b5ba2-9997-4a58-ad75-695c320f9d94",
+          "createdAt": "2026-07-28T11:02:38.000Z",
+          "updatedAt": "2026-07-28T11:02:38.000Z",
+          "uid": "35240-6e0b5ba2-9997-4a58-ad75-695c320f9d94"
+        }
+      ],
+      "id": "8ac66493-7978-49c4-976e-2b9896460f69",
+      "createdAt": "2026-07-28T11:02:38.000Z",
+      "updatedAt": "2026-07-28T11:02:38.000Z",
+      "uid": "35240-8ac66493-7978-49c4-976e-2b9896460f69"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "info": {
+    "_postman_id": "3c14473d-5c2e-48ed-9b68-1ba6c470f05f",
+    "name": "SigNoz alerts global API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:32.000Z",
+    "updatedAt": "2026-07-28T11:02:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3c14473d-5c2e-48ed-9b68-1ba6c470f05f"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "global",
+              "item": [
+                {
+                  "name": "config",
+                  "item": [
+                    {
+                      "name": "Get global config",
+                      "id": "9f8cc244-5c88-474b-86a0-291245ddaa22",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/global/config",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "global",
+                            "config"
+                          ]
+                        },
+                        "description": "This endpoint returns global config"
+                      },
+                      "response": [
+                        {
+                          "id": "db3e7ce0-ef94-45cb-ba04-704e2b94aaae",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/global/config",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "global",
+                                "config"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"external_url\": \"<string>\",\n    \"ingestion_url\": \"<string>\",\n    \"mcp_url\": \"<string>\",\n    \"identN\": {\n      \"apikey\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"impersonation\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"tokenizer\": {\n        \"enabled\": \"<boolean>\"\n      }\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:33.000Z",
+                          "updatedAt": "2026-07-28T11:02:33.000Z",
+                          "uid": "35240-db3e7ce0-ef94-45cb-ba04-704e2b94aaae"
+                        },
+                        {
+                          "id": "a98c8a39-47f1-47af-a978-465b60cd9897",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/global/config",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "global",
+                                "config"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:33.000Z",
+                          "updatedAt": "2026-07-28T11:02:33.000Z",
+                          "uid": "35240-a98c8a39-47f1-47af-a978-465b60cd9897"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:33.000Z",
+                      "updatedAt": "2026-07-28T11:02:33.000Z",
+                      "uid": "35240-9f8cc244-5c88-474b-86a0-291245ddaa22"
+                    }
+                  ],
+                  "id": "7fe2c678-7021-48d7-9a98-98de5bd760d4",
+                  "createdAt": "2026-07-28T11:02:33.000Z",
+                  "updatedAt": "2026-07-28T11:02:33.000Z",
+                  "uid": "35240-7fe2c678-7021-48d7-9a98-98de5bd760d4"
+                }
+              ],
+              "id": "74a03814-65fd-4068-9efb-c7923da375ce",
+              "createdAt": "2026-07-28T11:02:33.000Z",
+              "updatedAt": "2026-07-28T11:02:33.000Z",
+              "uid": "35240-74a03814-65fd-4068-9efb-c7923da375ce"
+            }
+          ],
+          "id": "afe42918-c309-4323-bb90-449c4d4d221c",
+          "createdAt": "2026-07-28T11:02:33.000Z",
+          "updatedAt": "2026-07-28T11:02:33.000Z",
+          "uid": "35240-afe42918-c309-4323-bb90-449c4d4d221c"
+        }
+      ],
+      "id": "eb6cbc07-1762-4ae4-b41e-096750e217a5",
+      "createdAt": "2026-07-28T11:02:33.000Z",
+      "updatedAt": "2026-07-28T11:02:33.000Z",
+      "uid": "35240-eb6cbc07-1762-4ae4-b41e-096750e217a5"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

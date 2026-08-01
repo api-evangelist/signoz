@@ -1,0 +1,1364 @@
+{
+  "info": {
+    "_postman_id": "e718316d-77bc-427a-96a6-1aa2e5c2e232",
+    "name": "SigNoz alerts llmpricingrules API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:38.000Z",
+    "updatedAt": "2026-07-28T11:02:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e718316d-77bc-427a-96a6-1aa2e5c2e232"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "llm_pricing_rules",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Delete a pricing rule",
+                      "id": "601f2af4-7f14-41f1-b7a3-fcf6ba93d199",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5c9414b2-6e2a-406e-a253-072a3807ccb8",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Hard-deletes a pricing rule. If auto-synced, it will be recreated on the next sync cycle."
+                      },
+                      "response": [
+                        {
+                          "id": "de55cfd8-775a-47b8-b9c8-c0d8c1e24c6e",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-de55cfd8-775a-47b8-b9c8-c0d8c1e24c6e"
+                        },
+                        {
+                          "id": "d923ecfd-8e0c-469d-b241-91f66149b975",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-d923ecfd-8e0c-469d-b241-91f66149b975"
+                        },
+                        {
+                          "id": "cdeadeba-713d-41b2-acad-791edbadfaa7",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-cdeadeba-713d-41b2-acad-791edbadfaa7"
+                        },
+                        {
+                          "id": "722f9f68-13b3-44e1-9797-727d3ac6a31e",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-722f9f68-13b3-44e1-9797-727d3ac6a31e"
+                        },
+                        {
+                          "id": "f03aa7bc-e3e8-489e-b607-e32a222eef01",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-f03aa7bc-e3e8-489e-b607-e32a222eef01"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-601f2af4-7f14-41f1-b7a3-fcf6ba93d199"
+                    },
+                    {
+                      "name": "Get a pricing rule",
+                      "id": "54f9cb2d-bfa8-47a3-b978-e4433e2f2414",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "839f6a42-9e9e-4c82-8604-2ceba1e34694",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Returns a single LLM pricing rule by ID."
+                      },
+                      "response": [
+                        {
+                          "id": "5cbe2223-2bbe-4651-b925-b90431d960e2",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\",\n    \"orgId\": \"<string>\",\n    \"modelName\": \"<string>\",\n    \"provider\": \"<string>\",\n    \"modelPattern\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"unit\": \"per_million_tokens\",\n    \"pricing\": {\n      \"input\": \"<double>\",\n      \"output\": \"<double>\",\n      \"cache\": {\n        \"mode\": \"unknown\",\n        \"read\": \"<double>\",\n        \"write\": \"<double>\"\n      }\n    },\n    \"isOverride\": \"<boolean>\",\n    \"enabled\": \"<boolean>\",\n    \"createdAt\": \"<dateTime>\",\n    \"createdBy\": \"<string>\",\n    \"sourceId\": \"<string>\",\n    \"syncedAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"updatedBy\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-5cbe2223-2bbe-4651-b925-b90431d960e2"
+                        },
+                        {
+                          "id": "80a6e505-34be-45ab-8c6a-9b728120d7ed",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-80a6e505-34be-45ab-8c6a-9b728120d7ed"
+                        },
+                        {
+                          "id": "66957122-6287-4017-8531-d9267b534af1",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-66957122-6287-4017-8531-d9267b534af1"
+                        },
+                        {
+                          "id": "02c5ff01-a2d3-4636-b458-ec45b6054993",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-02c5ff01-a2d3-4636-b458-ec45b6054993"
+                        },
+                        {
+                          "id": "506c25be-3c4f-4521-921c-16c19c74af6d",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/llm_pricing_rules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "llm_pricing_rules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:39.000Z",
+                          "updatedAt": "2026-07-28T11:02:39.000Z",
+                          "uid": "35240-506c25be-3c4f-4521-921c-16c19c74af6d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-54f9cb2d-bfa8-47a3-b978-e4433e2f2414"
+                    }
+                  ],
+                  "id": "437df79f-0175-4f01-a231-5fffe53706b2",
+                  "createdAt": "2026-07-28T11:02:39.000Z",
+                  "updatedAt": "2026-07-28T11:02:39.000Z",
+                  "uid": "35240-437df79f-0175-4f01-a231-5fffe53706b2"
+                },
+                {
+                  "name": "List pricing rules",
+                  "id": "7d853c29-d475-4da3-840f-67c434c226fc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/llm_pricing_rules?offset=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "llm_pricing_rules"
+                      ],
+                      "query": [
+                        {
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Returns all LLM pricing rules for the authenticated org, with pagination."
+                  },
+                  "response": [
+                    {
+                      "id": "e2268b1a-88fd-4c2c-98bc-0fca30bada22",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules?offset=<integer>&limit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ],
+                          "query": [
+                            {
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"items\": [\n      {\n        \"id\": \"<string>\",\n        \"orgId\": \"<string>\",\n        \"modelName\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"modelPattern\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"unit\": \"per_million_tokens\",\n        \"pricing\": {\n          \"input\": \"<double>\",\n          \"output\": \"<double>\",\n          \"cache\": {\n            \"mode\": \"unknown\",\n            \"read\": \"<double>\",\n            \"write\": \"<double>\"\n          }\n        },\n        \"isOverride\": \"<boolean>\",\n        \"enabled\": \"<boolean>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"syncedAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"updatedBy\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"orgId\": \"<string>\",\n        \"modelName\": \"<string>\",\n        \"provider\": \"<string>\",\n        \"modelPattern\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"unit\": \"per_million_tokens\",\n        \"pricing\": {\n          \"input\": \"<double>\",\n          \"output\": \"<double>\",\n          \"cache\": {\n            \"mode\": \"subtract\",\n            \"read\": \"<double>\",\n            \"write\": \"<double>\"\n          }\n        },\n        \"isOverride\": \"<boolean>\",\n        \"enabled\": \"<boolean>\",\n        \"createdAt\": \"<dateTime>\",\n        \"createdBy\": \"<string>\",\n        \"sourceId\": \"<string>\",\n        \"syncedAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"updatedBy\": \"<string>\"\n      }\n    ],\n    \"total\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"limit\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-e2268b1a-88fd-4c2c-98bc-0fca30bada22"
+                    },
+                    {
+                      "id": "4f585ba8-e38a-4d30-909e-22f5754e8383",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules?offset=<integer>&limit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ],
+                          "query": [
+                            {
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-4f585ba8-e38a-4d30-909e-22f5754e8383"
+                    },
+                    {
+                      "id": "a71fd6fa-d918-4cc7-b335-91c9f43e4fda",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules?offset=<integer>&limit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ],
+                          "query": [
+                            {
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-a71fd6fa-d918-4cc7-b335-91c9f43e4fda"
+                    },
+                    {
+                      "id": "7344929b-c0d1-4989-b8b9-94899dddcc4e",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules?offset=<integer>&limit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ],
+                          "query": [
+                            {
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-7344929b-c0d1-4989-b8b9-94899dddcc4e"
+                    },
+                    {
+                      "id": "ad742637-1dda-4dc8-8a72-32af6ae60c43",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules?offset=<integer>&limit=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ],
+                          "query": [
+                            {
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-ad742637-1dda-4dc8-8a72-32af6ae60c43"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:39.000Z",
+                  "updatedAt": "2026-07-28T11:02:39.000Z",
+                  "uid": "35240-7d853c29-d475-4da3-840f-67c434c226fc"
+                },
+                {
+                  "name": "Create or update pricing rules",
+                  "id": "3f8a7472-efc0-4564-8716-c337b72110e8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"rules\": [\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"additive\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    },\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"unknown\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/llm_pricing_rules",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "llm_pricing_rules"
+                      ]
+                    },
+                    "description": "Single write endpoint used by both the user and the Zeus sync job. Per-rule match is by id, then sourceId, then insert. Override rows (is_override=true) are fully preserved when the request does not provide isOverride; only synced_at is stamped."
+                  },
+                  "response": [
+                    {
+                      "id": "8574f690-ed08-43bd-8317-118def916dd6",
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"rules\": [\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"additive\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    },\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"unknown\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-8574f690-ed08-43bd-8317-118def916dd6"
+                    },
+                    {
+                      "id": "da20e906-d953-434f-a6ae-aefcefbacae7",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"rules\": [\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"additive\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    },\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"unknown\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-da20e906-d953-434f-a6ae-aefcefbacae7"
+                    },
+                    {
+                      "id": "673feb60-fe96-4eab-81c8-f5154713f7e3",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"rules\": [\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"additive\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    },\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"unknown\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-673feb60-fe96-4eab-81c8-f5154713f7e3"
+                    },
+                    {
+                      "id": "e453f23f-db07-4e97-a7c1-093f04624418",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"rules\": [\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"additive\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    },\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"unknown\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-e453f23f-db07-4e97-a7c1-093f04624418"
+                    },
+                    {
+                      "id": "5fd6197e-a27d-454d-9193-9b2ddf37a90f",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"rules\": [\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"additive\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    },\n    {\n      \"modelName\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"modelPattern\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"unit\": \"per_million_tokens\",\n      \"pricing\": {\n        \"input\": \"<double>\",\n        \"output\": \"<double>\",\n        \"cache\": {\n          \"mode\": \"unknown\",\n          \"read\": \"<double>\",\n          \"write\": \"<double>\"\n        }\n      },\n      \"enabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"isOverride\": \"<boolean>\",\n      \"sourceId\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/llm_pricing_rules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "llm_pricing_rules"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:39.000Z",
+                      "updatedAt": "2026-07-28T11:02:39.000Z",
+                      "uid": "35240-5fd6197e-a27d-454d-9193-9b2ddf37a90f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:39.000Z",
+                  "updatedAt": "2026-07-28T11:02:39.000Z",
+                  "uid": "35240-3f8a7472-efc0-4564-8716-c337b72110e8"
+                }
+              ],
+              "id": "e1031e0e-be50-4fce-9801-d9ded9cb3d30",
+              "createdAt": "2026-07-28T11:02:39.000Z",
+              "updatedAt": "2026-07-28T11:02:39.000Z",
+              "uid": "35240-e1031e0e-be50-4fce-9801-d9ded9cb3d30"
+            }
+          ],
+          "id": "07b5f282-1c5a-4074-bab8-e039f00a0083",
+          "createdAt": "2026-07-28T11:02:39.000Z",
+          "updatedAt": "2026-07-28T11:02:39.000Z",
+          "uid": "35240-07b5f282-1c5a-4074-bab8-e039f00a0083"
+        }
+      ],
+      "id": "600ad424-2231-4a49-8883-39ee17ce2ca7",
+      "createdAt": "2026-07-28T11:02:39.000Z",
+      "updatedAt": "2026-07-28T11:02:39.000Z",
+      "uid": "35240-600ad424-2231-4a49-8883-39ee17ce2ca7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

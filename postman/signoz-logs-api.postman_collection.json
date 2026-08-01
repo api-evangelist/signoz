@@ -1,0 +1,1109 @@
+{
+  "info": {
+    "_postman_id": "91d277e5-7f49-4715-adca-8273b43e8ea7",
+    "name": "SigNoz alerts logs API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:39.000Z",
+    "updatedAt": "2026-07-28T11:02:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-91d277e5-7f49-4715-adca-8273b43e8ea7"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "export_raw_data",
+              "item": [
+                {
+                  "name": "Export raw data",
+                  "id": "5a026bd5-6d71-4395-bee4-3ee46e1d6e23",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"compositeQuery\": {\n    \"queries\": [\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"fillzero\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"median7\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"float64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"int64\",\n                \"signal\": \"metrics\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"asc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"resource\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"bool\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"int64\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"traces\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"attribute\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"int64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"builder_trace_operator\"\n      },\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"anomaly\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"clampmax\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"log\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"traces\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"number\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"logs\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"span\",\n                \"fieldDataType\": \"bool\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"log\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"span\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"float64\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"clickhouse_sql\"\n      }\n    ]\n  },\n  \"end\": \"<integer>\",\n  \"formatOptions\": {\n    \"fillGaps\": \"<boolean>\",\n    \"formatTableResultForUI\": \"<boolean>\"\n  },\n  \"noCache\": \"<boolean>\",\n  \"requestType\": \"time_series\",\n  \"schemaVersion\": \"<string>\",\n  \"start\": \"<integer>\",\n  \"variables\": {\n    \"dolored7\": {\n      \"type\": \"query\",\n      \"value\": {}\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/export_raw_data?format=csv",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "export_raw_data"
+                      ],
+                      "query": [
+                        {
+                          "description": "The output format for the export.",
+                          "key": "format",
+                          "value": "csv"
+                        }
+                      ]
+                    },
+                    "description": "This endpoints allows complex query exporting raw data for traces and logs"
+                  },
+                  "response": [
+                    {
+                      "id": "e6375265-126c-4fd0-aa48-e3f6482aa3a4",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"compositeQuery\": {\n    \"queries\": [\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"fillzero\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"median7\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"float64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"int64\",\n                \"signal\": \"metrics\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"asc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"resource\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"bool\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"int64\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"traces\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"attribute\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"int64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"builder_trace_operator\"\n      },\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"anomaly\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"clampmax\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"log\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"traces\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"number\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"logs\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"span\",\n                \"fieldDataType\": \"bool\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"log\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"span\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"float64\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"clickhouse_sql\"\n      }\n    ]\n  },\n  \"end\": \"<integer>\",\n  \"formatOptions\": {\n    \"fillGaps\": \"<boolean>\",\n    \"formatTableResultForUI\": \"<boolean>\"\n  },\n  \"noCache\": \"<boolean>\",\n  \"requestType\": \"time_series\",\n  \"schemaVersion\": \"<string>\",\n  \"start\": \"<integer>\",\n  \"variables\": {\n    \"dolored7\": {\n      \"type\": \"query\",\n      \"value\": {}\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/export_raw_data?format=csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "export_raw_data"
+                          ],
+                          "query": [
+                            {
+                              "description": "The output format for the export.",
+                              "key": "format",
+                              "value": "csv"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<string>",
+                      "createdAt": "2026-07-28T11:02:40.000Z",
+                      "updatedAt": "2026-07-28T11:02:40.000Z",
+                      "uid": "35240-e6375265-126c-4fd0-aa48-e3f6482aa3a4"
+                    },
+                    {
+                      "id": "52085cee-1b04-4ba5-b530-e2844de5c4a1",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"compositeQuery\": {\n    \"queries\": [\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"fillzero\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"median7\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"float64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"int64\",\n                \"signal\": \"metrics\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"asc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"resource\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"bool\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"int64\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"traces\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"attribute\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"int64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"builder_trace_operator\"\n      },\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"anomaly\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"clampmax\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"log\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"traces\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"number\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"logs\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"span\",\n                \"fieldDataType\": \"bool\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"log\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"span\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"float64\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"clickhouse_sql\"\n      }\n    ]\n  },\n  \"end\": \"<integer>\",\n  \"formatOptions\": {\n    \"fillGaps\": \"<boolean>\",\n    \"formatTableResultForUI\": \"<boolean>\"\n  },\n  \"noCache\": \"<boolean>\",\n  \"requestType\": \"time_series\",\n  \"schemaVersion\": \"<string>\",\n  \"start\": \"<integer>\",\n  \"variables\": {\n    \"dolored7\": {\n      \"type\": \"query\",\n      \"value\": {}\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/export_raw_data?format=csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "export_raw_data"
+                          ],
+                          "query": [
+                            {
+                              "description": "The output format for the export.",
+                              "key": "format",
+                              "value": "csv"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:40.000Z",
+                      "updatedAt": "2026-07-28T11:02:40.000Z",
+                      "uid": "35240-52085cee-1b04-4ba5-b530-e2844de5c4a1"
+                    },
+                    {
+                      "id": "e2ce16df-d92f-4006-9a57-701a499c2d9a",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"compositeQuery\": {\n    \"queries\": [\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"fillzero\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"median7\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"float64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"int64\",\n                \"signal\": \"metrics\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"asc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"resource\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"bool\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"int64\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"traces\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"attribute\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"int64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"builder_trace_operator\"\n      },\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"anomaly\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"clampmax\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"log\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"traces\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"number\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"logs\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"span\",\n                \"fieldDataType\": \"bool\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"log\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"span\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"float64\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"clickhouse_sql\"\n      }\n    ]\n  },\n  \"end\": \"<integer>\",\n  \"formatOptions\": {\n    \"fillGaps\": \"<boolean>\",\n    \"formatTableResultForUI\": \"<boolean>\"\n  },\n  \"noCache\": \"<boolean>\",\n  \"requestType\": \"time_series\",\n  \"schemaVersion\": \"<string>\",\n  \"start\": \"<integer>\",\n  \"variables\": {\n    \"dolored7\": {\n      \"type\": \"query\",\n      \"value\": {}\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/export_raw_data?format=csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "export_raw_data"
+                          ],
+                          "query": [
+                            {
+                              "description": "The output format for the export.",
+                              "key": "format",
+                              "value": "csv"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:40.000Z",
+                      "updatedAt": "2026-07-28T11:02:40.000Z",
+                      "uid": "35240-e2ce16df-d92f-4006-9a57-701a499c2d9a"
+                    },
+                    {
+                      "id": "69106cf0-30b5-4db4-a230-e80be48b030e",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"compositeQuery\": {\n    \"queries\": [\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"fillzero\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"median7\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"float64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"int64\",\n                \"signal\": \"metrics\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"asc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"resource\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"bool\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"int64\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"traces\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"attribute\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"int64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"builder_trace_operator\"\n      },\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"anomaly\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"clampmax\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"log\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"traces\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"number\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"logs\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"span\",\n                \"fieldDataType\": \"bool\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"log\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"span\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"float64\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"clickhouse_sql\"\n      }\n    ]\n  },\n  \"end\": \"<integer>\",\n  \"formatOptions\": {\n    \"fillGaps\": \"<boolean>\",\n    \"formatTableResultForUI\": \"<boolean>\"\n  },\n  \"noCache\": \"<boolean>\",\n  \"requestType\": \"time_series\",\n  \"schemaVersion\": \"<string>\",\n  \"start\": \"<integer>\",\n  \"variables\": {\n    \"dolored7\": {\n      \"type\": \"query\",\n      \"value\": {}\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/export_raw_data?format=csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "export_raw_data"
+                          ],
+                          "query": [
+                            {
+                              "description": "The output format for the export.",
+                              "key": "format",
+                              "value": "csv"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:40.000Z",
+                      "updatedAt": "2026-07-28T11:02:40.000Z",
+                      "uid": "35240-69106cf0-30b5-4db4-a230-e80be48b030e"
+                    },
+                    {
+                      "id": "1c1da15b-ac6e-414e-925d-7f820d242b9c",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"compositeQuery\": {\n    \"queries\": [\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"fillzero\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"median7\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"float64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"int64\",\n                \"signal\": \"metrics\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"asc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"resource\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"bool\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"resource\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"int64\",\n                  \"signal\": \"logs\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"traces\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"attribute\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"int64\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"builder_trace_operator\"\n      },\n      {\n        \"spec\": {\n          \"aggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\"\n            }\n          ],\n          \"cursor\": \"<string>\",\n          \"disabled\": \"<boolean>\",\n          \"filter\": {\n            \"expression\": \"<string>\"\n          },\n          \"functions\": [\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"anomaly\"\n            },\n            {\n              \"args\": [\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"value\": {}\n                }\n              ],\n              \"name\": \"clampmax\"\n            }\n          ],\n          \"groupBy\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"log\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"traces\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"span\",\n              \"fieldDataType\": \"number\",\n              \"signal\": \"metrics\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"having\": {\n            \"expression\": \"<string>\"\n          },\n          \"legend\": \"<string>\",\n          \"limit\": \"<integer>\",\n          \"limitBy\": {\n            \"keys\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"value\": \"<string>\"\n          },\n          \"name\": \"<string>\",\n          \"offset\": \"<integer>\",\n          \"order\": [\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"attribute\",\n                \"fieldDataType\": \"float64\",\n                \"signal\": \"logs\",\n                \"unit\": \"<string>\"\n              }\n            },\n            {\n              \"direction\": \"desc\",\n              \"key\": {\n                \"name\": \"<string>\",\n                \"description\": \"<string>\",\n                \"fieldContext\": \"span\",\n                \"fieldDataType\": \"bool\",\n                \"signal\": \"traces\",\n                \"unit\": \"<string>\"\n              }\n            }\n          ],\n          \"secondaryAggregations\": [\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"log\",\n                  \"fieldDataType\": \"string\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"span\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"desc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            },\n            {\n              \"alias\": \"<string>\",\n              \"expression\": \"<string>\",\n              \"groupBy\": [\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"attribute\",\n                  \"fieldDataType\": \"float64\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"description\": \"<string>\",\n                  \"fieldContext\": \"metric\",\n                  \"fieldDataType\": \"number\",\n                  \"signal\": \"metrics\",\n                  \"unit\": \"<string>\"\n                }\n              ],\n              \"limit\": \"<integer>\",\n              \"limitBy\": {\n                \"keys\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"value\": \"<string>\"\n              },\n              \"order\": [\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  }\n                },\n                {\n                  \"direction\": \"asc\",\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  }\n                }\n              ],\n              \"stepInterval\": \"<string>\"\n            }\n          ],\n          \"selectFields\": [\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"metric\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"description\": \"<string>\",\n              \"fieldContext\": \"resource\",\n              \"fieldDataType\": \"bool\",\n              \"signal\": \"logs\",\n              \"unit\": \"<string>\"\n            }\n          ],\n          \"signal\": \"logs\",\n          \"source\": \"meter\",\n          \"stepInterval\": \"<string>\"\n        },\n        \"type\": \"clickhouse_sql\"\n      }\n    ]\n  },\n  \"end\": \"<integer>\",\n  \"formatOptions\": {\n    \"fillGaps\": \"<boolean>\",\n    \"formatTableResultForUI\": \"<boolean>\"\n  },\n  \"noCache\": \"<boolean>\",\n  \"requestType\": \"time_series\",\n  \"schemaVersion\": \"<string>\",\n  \"start\": \"<integer>\",\n  \"variables\": {\n    \"dolored7\": {\n      \"type\": \"query\",\n      \"value\": {}\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/export_raw_data?format=csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "export_raw_data"
+                          ],
+                          "query": [
+                            {
+                              "description": "The output format for the export.",
+                              "key": "format",
+                              "value": "csv"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:40.000Z",
+                      "updatedAt": "2026-07-28T11:02:40.000Z",
+                      "uid": "35240-1c1da15b-ac6e-414e-925d-7f820d242b9c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:40.000Z",
+                  "updatedAt": "2026-07-28T11:02:40.000Z",
+                  "uid": "35240-5a026bd5-6d71-4395-bee4-3ee46e1d6e23"
+                }
+              ],
+              "id": "7019a9b6-70e7-4c0b-8817-ae2d8dc809f0",
+              "createdAt": "2026-07-28T11:02:40.000Z",
+              "updatedAt": "2026-07-28T11:02:40.000Z",
+              "uid": "35240-7019a9b6-70e7-4c0b-8817-ae2d8dc809f0"
+            },
+            {
+              "name": "logs",
+              "item": [
+                {
+                  "name": "promote_paths",
+                  "item": [
+                    {
+                      "name": "Promote and index paths",
+                      "id": "bdd9a70d-d44b-4f16-b8bd-6a3d8751bd5a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "logs",
+                            "promote_paths"
+                          ]
+                        },
+                        "description": "This endpoints promotes and indexes paths"
+                      },
+                      "response": [
+                        {
+                          "id": "0c4b7404-65c3-411c-a007-d40d7ff6f3de",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": [\n    {\n      \"indexes\": [\n        {\n          \"fieldDataType\": \"int64\",\n          \"granularity\": \"<integer>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"fieldDataType\": \"int64\",\n          \"granularity\": \"<integer>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"path\": \"<string>\",\n      \"promote\": \"<boolean>\"\n    },\n    {\n      \"indexes\": [\n        {\n          \"fieldDataType\": \"bool\",\n          \"granularity\": \"<integer>\",\n          \"type\": \"<string>\"\n        },\n        {\n          \"fieldDataType\": \"bool\",\n          \"granularity\": \"<integer>\",\n          \"type\": \"<string>\"\n        }\n      ],\n      \"path\": \"<string>\",\n      \"promote\": \"<boolean>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-0c4b7404-65c3-411c-a007-d40d7ff6f3de"
+                        },
+                        {
+                          "id": "e7adba28-2a7b-4a6c-87fd-ced080261170",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-e7adba28-2a7b-4a6c-87fd-ced080261170"
+                        },
+                        {
+                          "id": "d2c37478-38b8-4b8b-a146-a97078c2d705",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-d2c37478-38b8-4b8b-a146-a97078c2d705"
+                        },
+                        {
+                          "id": "672489b1-f81a-43bf-b94a-3b749ea925f5",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-672489b1-f81a-43bf-b94a-3b749ea925f5"
+                        },
+                        {
+                          "id": "0393ea11-1431-4a09-9fd9-dcbf8bb105fa",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-0393ea11-1431-4a09-9fd9-dcbf8bb105fa"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:40.000Z",
+                      "updatedAt": "2026-07-28T11:02:40.000Z",
+                      "uid": "35240-bdd9a70d-d44b-4f16-b8bd-6a3d8751bd5a"
+                    },
+                    {
+                      "name": "Promote and index paths",
+                      "id": "ef16d0dc-3dff-49a1-bc1b-03acb04f3845",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"number\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  },\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"float64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  }\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "logs",
+                            "promote_paths"
+                          ]
+                        },
+                        "description": "This endpoints promotes and indexes paths"
+                      },
+                      "response": [
+                        {
+                          "id": "d5a41ffd-778e-42d0-aa6b-42645c959fa9",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"number\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  },\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"float64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  }\n]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-d5a41ffd-778e-42d0-aa6b-42645c959fa9"
+                        },
+                        {
+                          "id": "0cfcb8ac-e703-4945-a2bf-0b4c4815e090",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"number\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  },\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"float64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  }\n]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-0cfcb8ac-e703-4945-a2bf-0b4c4815e090"
+                        },
+                        {
+                          "id": "ebcdf303-ccaa-4e7d-84b5-e1dd78950225",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"number\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  },\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"float64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  }\n]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-ebcdf303-ccaa-4e7d-84b5-e1dd78950225"
+                        },
+                        {
+                          "id": "fb67d2e1-301c-44be-9eaa-6e82286474d5",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"number\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  },\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"float64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  }\n]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-fb67d2e1-301c-44be-9eaa-6e82286474d5"
+                        },
+                        {
+                          "id": "5828565f-e1a7-45df-97d7-7af3f952ddb5",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"number\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  },\n  {\n    \"indexes\": [\n      {\n        \"fieldDataType\": \"float64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"fieldDataType\": \"int64\",\n        \"granularity\": \"<integer>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"path\": \"<string>\",\n    \"promote\": \"<boolean>\"\n  }\n]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/logs/promote_paths",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "logs",
+                                "promote_paths"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:40.000Z",
+                          "updatedAt": "2026-07-28T11:02:40.000Z",
+                          "uid": "35240-5828565f-e1a7-45df-97d7-7af3f952ddb5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:40.000Z",
+                      "updatedAt": "2026-07-28T11:02:40.000Z",
+                      "uid": "35240-ef16d0dc-3dff-49a1-bc1b-03acb04f3845"
+                    }
+                  ],
+                  "id": "8594181b-ccf3-4802-8ce8-63d40ae3eeba",
+                  "createdAt": "2026-07-28T11:02:40.000Z",
+                  "updatedAt": "2026-07-28T11:02:40.000Z",
+                  "uid": "35240-8594181b-ccf3-4802-8ce8-63d40ae3eeba"
+                }
+              ],
+              "id": "be3b470a-cd33-499d-be2d-ba034028810e",
+              "createdAt": "2026-07-28T11:02:40.000Z",
+              "updatedAt": "2026-07-28T11:02:40.000Z",
+              "uid": "35240-be3b470a-cd33-499d-be2d-ba034028810e"
+            }
+          ],
+          "id": "8ad674fc-406e-4cf3-b614-c09e2227bb1a",
+          "createdAt": "2026-07-28T11:02:40.000Z",
+          "updatedAt": "2026-07-28T11:02:40.000Z",
+          "uid": "35240-8ad674fc-406e-4cf3-b614-c09e2227bb1a"
+        }
+      ],
+      "id": "5c8bf08e-cdb1-4cb8-bda9-00103b338b71",
+      "createdAt": "2026-07-28T11:02:40.000Z",
+      "updatedAt": "2026-07-28T11:02:40.000Z",
+      "uid": "35240-5c8bf08e-cdb1-4cb8-bda9-00103b338b71"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

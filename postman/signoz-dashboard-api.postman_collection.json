@@ -1,0 +1,1826 @@
+{
+  "info": {
+    "_postman_id": "d7d8e1a3-4440-4dff-97a2-460d202b9e8d",
+    "name": "SigNoz alerts dashboard API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:26.000Z",
+    "updatedAt": "2026-07-28T11:02:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d7d8e1a3-4440-4dff-97a2-460d202b9e8d"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "dashboards",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "public",
+                      "item": [
+                        {
+                          "name": "Delete public dashboard",
+                          "id": "75b25ec2-6492-4545-ab8a-399de50b0008",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "dashboards",
+                                ":id",
+                                "public"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "527eec22-5f6b-47e0-9c1b-1f58297e3651",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This endpoint deletes the public sharing config and disables the public sharing of a dashboard"
+                          },
+                          "response": [
+                            {
+                              "id": "ae626315-939e-44b2-a1a1-0585975449c3",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-ae626315-939e-44b2-a1a1-0585975449c3"
+                            },
+                            {
+                              "id": "970acdf2-2ffa-4020-a45b-98eb8813cc2f",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-970acdf2-2ffa-4020-a45b-98eb8813cc2f"
+                            },
+                            {
+                              "id": "18fed1ae-a9a6-4a78-8d75-411d0b9c17e5",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-18fed1ae-a9a6-4a78-8d75-411d0b9c17e5"
+                            },
+                            {
+                              "id": "1b9dc5a5-380d-4867-980e-5a15d2985d1a",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-1b9dc5a5-380d-4867-980e-5a15d2985d1a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:02:27.000Z",
+                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                          "uid": "35240-75b25ec2-6492-4545-ab8a-399de50b0008"
+                        },
+                        {
+                          "name": "Get public dashboard",
+                          "id": "5d46c2f0-f646-4cb9-9c52-02d60031cc68",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "dashboards",
+                                ":id",
+                                "public"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "572cc22b-55c1-495c-b512-e152e76f1322",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This endpoint returns public sharing config for a dashboard"
+                          },
+                          "response": [
+                            {
+                              "id": "e90b15d8-f64d-4ea9-b543-940f88e5c3a2",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"defaultTimeRange\": \"<string>\",\n    \"publicPath\": \"<string>\",\n    \"timeRangeEnabled\": \"<boolean>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-e90b15d8-f64d-4ea9-b543-940f88e5c3a2"
+                            },
+                            {
+                              "id": "5503f97e-0a8d-478e-b0aa-b2caefc0273f",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-5503f97e-0a8d-478e-b0aa-b2caefc0273f"
+                            },
+                            {
+                              "id": "69841600-c553-48d1-b392-a121d371bc58",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-69841600-c553-48d1-b392-a121d371bc58"
+                            },
+                            {
+                              "id": "d9387445-5000-48f3-9a5f-a79592302343",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-d9387445-5000-48f3-9a5f-a79592302343"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:02:27.000Z",
+                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                          "uid": "35240-5d46c2f0-f646-4cb9-9c52-02d60031cc68"
+                        },
+                        {
+                          "name": "Create public dashboard",
+                          "id": "b37bed4f-d2dd-45b1-965b-0960f863cb6c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "dashboards",
+                                ":id",
+                                "public"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b54cac98-2671-40ec-aca0-b8e8b3c8b2ae",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This endpoint creates public sharing config and enables public sharing of the dashboard"
+                          },
+                          "response": [
+                            {
+                              "id": "0642cc4f-67de-4e51-8392-3394a1598b19",
+                              "name": "Created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-0642cc4f-67de-4e51-8392-3394a1598b19"
+                            },
+                            {
+                              "id": "b592d5f5-6d3c-40a3-8adb-3c57f404eb69",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-b592d5f5-6d3c-40a3-8adb-3c57f404eb69"
+                            },
+                            {
+                              "id": "6cb70bdf-0ec2-42e8-ae3e-2a9d14f5c555",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-6cb70bdf-0ec2-42e8-ae3e-2a9d14f5c555"
+                            },
+                            {
+                              "id": "75a2308e-7293-42d8-83f2-15a2b84ddff5",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-75a2308e-7293-42d8-83f2-15a2b84ddff5"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:02:27.000Z",
+                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                          "uid": "35240-b37bed4f-d2dd-45b1-965b-0960f863cb6c"
+                        },
+                        {
+                          "name": "Update public dashboard",
+                          "id": "6f7200a4-1d22-4487-a023-b252f7d53c6d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "apikey",
+                              "apikey": [
+                                {
+                                  "key": "key",
+                                  "value": "SigNoz-Api-Key",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "value",
+                                  "value": "{{apiKey}}",
+                                  "type": "string"
+                                },
+                                {
+                                  "key": "in",
+                                  "value": "header",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "dashboards",
+                                ":id",
+                                "public"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "47deba87-c2f3-465c-8b60-5da1727b0ff5",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This endpoint updates the public sharing config for a dashboard"
+                          },
+                          "response": [
+                            {
+                              "id": "52bc8a9d-9405-42f4-8e12-16f6f00b8dd3",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-52bc8a9d-9405-42f4-8e12-16f6f00b8dd3"
+                            },
+                            {
+                              "id": "3be4e4a0-eecc-4776-b699-a2c7b26da516",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-3be4e4a0-eecc-4776-b699-a2c7b26da516"
+                            },
+                            {
+                              "id": "604313bb-7d44-422c-b547-1a59c83e94e2",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-604313bb-7d44-422c-b547-1a59c83e94e2"
+                            },
+                            {
+                              "id": "3ef00da2-d1c2-4108-a21f-956e9bdecf29",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "SigNoz-Api-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"defaultTimeRange\": \"<string>\",\n  \"timeRangeEnabled\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/dashboards/:id/public",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "dashboards",
+                                    ":id",
+                                    "public"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-3ef00da2-d1c2-4108-a21f-956e9bdecf29"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:02:27.000Z",
+                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                          "uid": "35240-6f7200a4-1d22-4487-a023-b252f7d53c6d"
+                        }
+                      ],
+                      "id": "da9461d0-06d7-4f5f-a8ec-e8b018dd7bb3",
+                      "createdAt": "2026-07-28T11:02:27.000Z",
+                      "updatedAt": "2026-07-28T11:02:27.000Z",
+                      "uid": "35240-da9461d0-06d7-4f5f-a8ec-e8b018dd7bb3"
+                    }
+                  ],
+                  "id": "91a2fd0d-eaaa-4d22-99c8-f9eb217e7008",
+                  "createdAt": "2026-07-28T11:02:27.000Z",
+                  "updatedAt": "2026-07-28T11:02:27.000Z",
+                  "uid": "35240-91a2fd0d-eaaa-4d22-99c8-f9eb217e7008"
+                }
+              ],
+              "id": "612fb17e-5f26-4c61-be26-5d3789e219e0",
+              "createdAt": "2026-07-28T11:02:27.000Z",
+              "updatedAt": "2026-07-28T11:02:27.000Z",
+              "uid": "35240-612fb17e-5f26-4c61-be26-5d3789e219e0"
+            },
+            {
+              "name": "public",
+              "item": [
+                {
+                  "name": "dashboards",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "widgets",
+                          "item": [
+                            {
+                              "name": "{idx}",
+                              "item": [
+                                {
+                                  "name": "query_range",
+                                  "item": [
+                                    {
+                                      "name": "Get query range result",
+                                      "id": "fd6ade3c-a669-47cc-b1b7-7f4c7056da29",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/public/dashboards/:id/widgets/:idx/query_range",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "public",
+                                            "dashboards",
+                                            ":id",
+                                            "widgets",
+                                            ":idx",
+                                            "query_range"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "e28318cb-8fc6-46b6-ae22-71aa6a3b89a4",
+                                              "key": "id",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "e52c0051-5f4a-4676-a6f9-712f3132714d",
+                                              "key": "idx",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "This endpoint return query range results for a widget of public dashboard"
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "66869fce-6427-44e4-a553-0c3c133c8c2b",
+                                          "name": "OK",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/public/dashboards/:id/widgets/:idx/query_range",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "public",
+                                                "dashboards",
+                                                ":id",
+                                                "widgets",
+                                                ":idx",
+                                                "query_range"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "id"
+                                                },
+                                                {
+                                                  "key": "idx"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"data\": {\n      \"aggregations\": [\n        {\n          \"alias\": \"<string>\",\n          \"anomalyScores\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"attribute\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"attribute\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ],\n          \"index\": \"<integer>\",\n          \"lowerBoundSeries\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"attribute\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ],\n          \"meta\": {\n            \"unit\": \"<string>\"\n          },\n          \"predictedSeries\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"span\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"attribute\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ],\n          \"series\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ],\n          \"upperBoundSeries\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"span\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"span\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ]\n        },\n        {\n          \"alias\": \"<string>\",\n          \"anomalyScores\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"attribute\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ],\n          \"index\": \"<integer>\",\n          \"lowerBoundSeries\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"attribute\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"number\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"attribute\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ],\n          \"meta\": {\n            \"unit\": \"<string>\"\n          },\n          \"predictedSeries\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"span\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"string\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ],\n          \"series\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"body\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"metrics\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"span\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ],\n          \"upperBoundSeries\": [\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"resource\",\n                    \"fieldDataType\": \"int64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"log\",\n                    \"fieldDataType\": \"float64\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            },\n            {\n              \"labels\": [\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"logs\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                },\n                {\n                  \"key\": {\n                    \"name\": \"<string>\",\n                    \"description\": \"<string>\",\n                    \"fieldContext\": \"metric\",\n                    \"fieldDataType\": \"bool\",\n                    \"signal\": \"traces\",\n                    \"unit\": \"<string>\"\n                  },\n                  \"value\": {}\n                }\n              ],\n              \"values\": [\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                },\n                {\n                  \"bucket\": {\n                    \"step\": \"<double>\"\n                  },\n                  \"partial\": \"<boolean>\",\n                  \"timestamp\": \"<long>\",\n                  \"value\": \"<double>\",\n                  \"values\": [\n                    \"<double>\",\n                    \"<double>\"\n                  ]\n                }\n              ]\n            }\n          ]\n        }\n      ],\n      \"queryName\": \"<string>\"\n    },\n    \"meta\": {\n      \"bytesScanned\": \"<integer>\",\n      \"durationMs\": \"<integer>\",\n      \"rowsScanned\": \"<integer>\",\n      \"stepIntervals\": {\n        \"laborum72\": \"<integer>\"\n      }\n    },\n    \"type\": \"raw_stream\",\n    \"warning\": {\n      \"message\": \"<string>\",\n      \"url\": \"<string>\",\n      \"warnings\": [\n        {\n          \"message\": \"<string>\"\n        },\n        {\n          \"message\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+                                          "createdAt": "2026-07-28T11:02:27.000Z",
+                                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                                          "uid": "35240-66869fce-6427-44e4-a553-0c3c133c8c2b"
+                                        },
+                                        {
+                                          "id": "12d846ef-e7ae-4553-b132-4d0cf95bdb2e",
+                                          "name": "Unauthorized",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/public/dashboards/:id/widgets/:idx/query_range",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "public",
+                                                "dashboards",
+                                                ":id",
+                                                "widgets",
+                                                ":idx",
+                                                "query_range"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "id"
+                                                },
+                                                {
+                                                  "key": "idx"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Unauthorized",
+                                          "code": 401,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T11:02:27.000Z",
+                                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                                          "uid": "35240-12d846ef-e7ae-4553-b132-4d0cf95bdb2e"
+                                        },
+                                        {
+                                          "id": "299b1962-aba2-4b1e-9737-f3b4b33d464e",
+                                          "name": "Forbidden",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/public/dashboards/:id/widgets/:idx/query_range",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "public",
+                                                "dashboards",
+                                                ":id",
+                                                "widgets",
+                                                ":idx",
+                                                "query_range"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "id"
+                                                },
+                                                {
+                                                  "key": "idx"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Forbidden",
+                                          "code": 403,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T11:02:27.000Z",
+                                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                                          "uid": "35240-299b1962-aba2-4b1e-9737-f3b4b33d464e"
+                                        },
+                                        {
+                                          "id": "b08b4720-acb1-4b3f-a8b7-2b17a2492dd0",
+                                          "name": "Internal Server Error",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/public/dashboards/:id/widgets/:idx/query_range",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "public",
+                                                "dashboards",
+                                                ":id",
+                                                "widgets",
+                                                ":idx",
+                                                "query_range"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "id"
+                                                },
+                                                {
+                                                  "key": "idx"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T11:02:27.000Z",
+                                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                                          "uid": "35240-b08b4720-acb1-4b3f-a8b7-2b17a2492dd0"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T11:02:27.000Z",
+                                      "updatedAt": "2026-07-28T11:02:27.000Z",
+                                      "uid": "35240-fd6ade3c-a669-47cc-b1b7-7f4c7056da29"
+                                    }
+                                  ],
+                                  "id": "13682bf1-4f9d-443a-93e6-c83419fb178c",
+                                  "createdAt": "2026-07-28T11:02:27.000Z",
+                                  "updatedAt": "2026-07-28T11:02:27.000Z",
+                                  "uid": "35240-13682bf1-4f9d-443a-93e6-c83419fb178c"
+                                }
+                              ],
+                              "id": "9112fc73-2330-48c0-9ccd-1e9b6a776d73",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-9112fc73-2330-48c0-9ccd-1e9b6a776d73"
+                            }
+                          ],
+                          "id": "71ed29eb-7d5e-453e-9ea8-6e3af891df8c",
+                          "createdAt": "2026-07-28T11:02:27.000Z",
+                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                          "uid": "35240-71ed29eb-7d5e-453e-9ea8-6e3af891df8c"
+                        },
+                        {
+                          "name": "Get public dashboard data",
+                          "id": "649bd79f-d9d5-4287-9d55-873c939b10f1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/public/dashboards/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "public",
+                                "dashboards",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c3965910-0847-4cfd-8a24-4be5bd9fadbc",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "This endpoint returns the sanitized dashboard data for public access"
+                          },
+                          "response": [
+                            {
+                              "id": "ec920247-dd16-4b70-8e8e-1fb4d8e5633e",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/public/dashboards/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "public",
+                                    "dashboards",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"dashboard\": {\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<string>\",\n      \"data\": {\n        \"sunt_274\": {},\n        \"deserunt3\": {}\n      },\n      \"id\": \"<string>\",\n      \"locked\": \"<boolean>\",\n      \"org_id\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"updatedBy\": \"<string>\"\n    },\n    \"publicDashboard\": {\n      \"defaultTimeRange\": \"<string>\",\n      \"publicPath\": \"<string>\",\n      \"timeRangeEnabled\": \"<boolean>\"\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-ec920247-dd16-4b70-8e8e-1fb4d8e5633e"
+                            },
+                            {
+                              "id": "043bcc45-466e-4fe3-8b83-0e5d355355dd",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/public/dashboards/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "public",
+                                    "dashboards",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-043bcc45-466e-4fe3-8b83-0e5d355355dd"
+                            },
+                            {
+                              "id": "f45755d7-65bb-410c-a45a-5fb84b0e6a7f",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/public/dashboards/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "public",
+                                    "dashboards",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-f45755d7-65bb-410c-a45a-5fb84b0e6a7f"
+                            },
+                            {
+                              "id": "805325ea-c522-4b97-8c5d-9c1b0f86d5ae",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/public/dashboards/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "public",
+                                    "dashboards",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T11:02:27.000Z",
+                              "updatedAt": "2026-07-28T11:02:27.000Z",
+                              "uid": "35240-805325ea-c522-4b97-8c5d-9c1b0f86d5ae"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T11:02:27.000Z",
+                          "updatedAt": "2026-07-28T11:02:27.000Z",
+                          "uid": "35240-649bd79f-d9d5-4287-9d55-873c939b10f1"
+                        }
+                      ],
+                      "id": "63dc3d44-a946-4f4e-bb93-d4aa0b783e56",
+                      "createdAt": "2026-07-28T11:02:27.000Z",
+                      "updatedAt": "2026-07-28T11:02:27.000Z",
+                      "uid": "35240-63dc3d44-a946-4f4e-bb93-d4aa0b783e56"
+                    }
+                  ],
+                  "id": "8c8f388a-93e3-4f5f-b0ad-84406dd079cc",
+                  "createdAt": "2026-07-28T11:02:27.000Z",
+                  "updatedAt": "2026-07-28T11:02:27.000Z",
+                  "uid": "35240-8c8f388a-93e3-4f5f-b0ad-84406dd079cc"
+                }
+              ],
+              "id": "29c74ef3-a833-4679-b1ef-64979e1c4eeb",
+              "createdAt": "2026-07-28T11:02:27.000Z",
+              "updatedAt": "2026-07-28T11:02:27.000Z",
+              "uid": "35240-29c74ef3-a833-4679-b1ef-64979e1c4eeb"
+            }
+          ],
+          "id": "f5274939-f6cc-4016-8291-d3a3d28ffd1c",
+          "createdAt": "2026-07-28T11:02:27.000Z",
+          "updatedAt": "2026-07-28T11:02:27.000Z",
+          "uid": "35240-f5274939-f6cc-4016-8291-d3a3d28ffd1c"
+        }
+      ],
+      "id": "8e1ae8c3-4439-461f-a5bf-2cc33651332a",
+      "createdAt": "2026-07-28T11:02:27.000Z",
+      "updatedAt": "2026-07-28T11:02:27.000Z",
+      "uid": "35240-8e1ae8c3-4439-461f-a5bf-2cc33651332a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

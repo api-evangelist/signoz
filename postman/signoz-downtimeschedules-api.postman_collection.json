@@ -1,0 +1,1770 @@
+{
+  "info": {
+    "_postman_id": "3e275bcd-fc70-4a2e-bed2-29bce92f0c06",
+    "name": "SigNoz alerts downtimeschedules API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:28.000Z",
+    "updatedAt": "2026-07-28T11:02:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3e275bcd-fc70-4a2e-bed2-29bce92f0c06"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "downtime_schedules",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Delete downtime schedule",
+                      "id": "b82aba4f-99de-44e4-9fd0-520aec74615a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b10cba8f-b3de-41a3-b640-bc323ff16601",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This endpoint deletes a downtime schedule by ID"
+                      },
+                      "response": [
+                        {
+                          "id": "5404418f-9c8b-4756-a9ca-ff09541b651d",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-5404418f-9c8b-4756-a9ca-ff09541b651d"
+                        },
+                        {
+                          "id": "9e470525-32e3-4450-b140-30c948db8b3c",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-9e470525-32e3-4450-b140-30c948db8b3c"
+                        },
+                        {
+                          "id": "6fe49c39-9388-4bdb-9f87-76bde59a1590",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-6fe49c39-9388-4bdb-9f87-76bde59a1590"
+                        },
+                        {
+                          "id": "0daf3409-c371-4bed-9ae8-726109a56846",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-0daf3409-c371-4bed-9ae8-726109a56846"
+                        },
+                        {
+                          "id": "8a4bd7e6-0f66-455b-9766-a2d4a8cc6633",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-8a4bd7e6-0f66-455b-9766-a2d4a8cc6633"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-b82aba4f-99de-44e4-9fd0-520aec74615a"
+                    },
+                    {
+                      "name": "Get downtime schedule by ID",
+                      "id": "ab915f24-8981-4ca1-b2c8-ea0d636b659c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "cd764712-cb55-456e-85c7-72d3865a5fcd",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This endpoint returns a downtime schedule by ID"
+                      },
+                      "response": [
+                        {
+                          "id": "1d3b6372-d83f-4682-8d03-426384de5a38",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"schedule\": {\n      \"timezone\": \"<string>\",\n      \"endTime\": \"<dateTime>\",\n      \"recurrence\": {\n        \"startTime\": \"<dateTime>\",\n        \"duration\": \"<string>\",\n        \"repeatType\": \"daily\",\n        \"endTime\": \"<dateTime>\",\n        \"repeatOn\": [\n          \"monday\",\n          \"thursday\"\n        ]\n      },\n      \"startTime\": \"<dateTime>\"\n    },\n    \"status\": \"upcoming\",\n    \"kind\": \"recurring\",\n    \"alertIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": \"<dateTime>\",\n    \"createdBy\": \"<string>\",\n    \"description\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"updatedBy\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-1d3b6372-d83f-4682-8d03-426384de5a38"
+                        },
+                        {
+                          "id": "0a5c8be5-b664-46bc-9450-15347e172d6c",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-0a5c8be5-b664-46bc-9450-15347e172d6c"
+                        },
+                        {
+                          "id": "bb95ecbc-88c4-42db-9bc3-ac390a1656b9",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-bb95ecbc-88c4-42db-9bc3-ac390a1656b9"
+                        },
+                        {
+                          "id": "b9651a74-c843-4269-a060-bed24bdeb617",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-b9651a74-c843-4269-a060-bed24bdeb617"
+                        },
+                        {
+                          "id": "16a110dd-fe87-4bce-8a00-bc0fea4c482d",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-16a110dd-fe87-4bce-8a00-bc0fea4c482d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-ab915f24-8981-4ca1-b2c8-ea0d636b659c"
+                    },
+                    {
+                      "name": "Update downtime schedule",
+                      "id": "548c0e34-f91e-48fb-aa84-f0072f733d39",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "338b1f21-f43f-4d52-b4e2-12e86cc9fb40",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This endpoint updates a downtime schedule by ID"
+                      },
+                      "response": [
+                        {
+                          "id": "57abb9ac-fee0-4878-bfe5-813c85f5d1a5",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-57abb9ac-fee0-4878-bfe5-813c85f5d1a5"
+                        },
+                        {
+                          "id": "3e06639d-d02c-496d-9d0e-8164336a47e5",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-3e06639d-d02c-496d-9d0e-8164336a47e5"
+                        },
+                        {
+                          "id": "cf647445-de83-4133-9e7f-608ba404697f",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-cf647445-de83-4133-9e7f-608ba404697f"
+                        },
+                        {
+                          "id": "7d5ca0aa-b8d9-48e0-a789-fa7d805f618f",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-7d5ca0aa-b8d9-48e0-a789-fa7d805f618f"
+                        },
+                        {
+                          "id": "52426d0d-330c-43f2-a2b0-be11aed39817",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-52426d0d-330c-43f2-a2b0-be11aed39817"
+                        },
+                        {
+                          "id": "3ab27d6d-2b5d-4e8c-9124-ec113087bba5",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/downtime_schedules/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "downtime_schedules",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:28.000Z",
+                          "updatedAt": "2026-07-28T11:02:28.000Z",
+                          "uid": "35240-3ab27d6d-2b5d-4e8c-9124-ec113087bba5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-548c0e34-f91e-48fb-aa84-f0072f733d39"
+                    }
+                  ],
+                  "id": "4b133a88-b34f-424f-b8b8-74cc6776975f",
+                  "createdAt": "2026-07-28T11:02:28.000Z",
+                  "updatedAt": "2026-07-28T11:02:28.000Z",
+                  "uid": "35240-4b133a88-b34f-424f-b8b8-74cc6776975f"
+                },
+                {
+                  "name": "List downtime schedules",
+                  "id": "4bc29320-cc90-4864-9911-3c7c75ab88e8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/downtime_schedules?active=<boolean>&recurring=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "downtime_schedules"
+                      ],
+                      "query": [
+                        {
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "recurring",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint lists all planned maintenance / downtime schedules"
+                  },
+                  "response": [
+                    {
+                      "id": "b29a62f7-c5c3-4a50-973d-85c056208d07",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules?active=<boolean>&recurring=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules"
+                          ],
+                          "query": [
+                            {
+                              "key": "active",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "recurring",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"schedule\": {\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<dateTime>\",\n        \"recurrence\": {\n          \"startTime\": \"<dateTime>\",\n          \"duration\": \"<string>\",\n          \"repeatType\": \"daily\",\n          \"endTime\": \"<dateTime>\",\n          \"repeatOn\": [\n            \"thursday\",\n            \"saturday\"\n          ]\n        },\n        \"startTime\": \"<dateTime>\"\n      },\n      \"status\": \"upcoming\",\n      \"kind\": \"fixed\",\n      \"alertIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<string>\",\n      \"description\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"updatedBy\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"schedule\": {\n        \"timezone\": \"<string>\",\n        \"endTime\": \"<dateTime>\",\n        \"recurrence\": {\n          \"startTime\": \"<dateTime>\",\n          \"duration\": \"<string>\",\n          \"repeatType\": \"daily\",\n          \"endTime\": \"<dateTime>\",\n          \"repeatOn\": [\n            \"wednesday\",\n            \"sunday\"\n          ]\n        },\n        \"startTime\": \"<dateTime>\"\n      },\n      \"status\": \"expired\",\n      \"kind\": \"fixed\",\n      \"alertIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"createdBy\": \"<string>\",\n      \"description\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"updatedBy\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-b29a62f7-c5c3-4a50-973d-85c056208d07"
+                    },
+                    {
+                      "id": "485b4565-3ea0-4e38-8eae-02133b407c83",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules?active=<boolean>&recurring=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules"
+                          ],
+                          "query": [
+                            {
+                              "key": "active",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "recurring",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-485b4565-3ea0-4e38-8eae-02133b407c83"
+                    },
+                    {
+                      "id": "5b69bdd2-f9c7-4ef4-9f11-f74e1ace0df4",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules?active=<boolean>&recurring=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules"
+                          ],
+                          "query": [
+                            {
+                              "key": "active",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "recurring",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-5b69bdd2-f9c7-4ef4-9f11-f74e1ace0df4"
+                    },
+                    {
+                      "id": "daf14397-4f96-4462-b261-aaff3e80bf95",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules?active=<boolean>&recurring=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules"
+                          ],
+                          "query": [
+                            {
+                              "key": "active",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "recurring",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-daf14397-4f96-4462-b261-aaff3e80bf95"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:28.000Z",
+                  "updatedAt": "2026-07-28T11:02:28.000Z",
+                  "uid": "35240-4bc29320-cc90-4864-9911-3c7c75ab88e8"
+                },
+                {
+                  "name": "Create downtime schedule",
+                  "id": "034685d6-6418-4fb1-997d-1be9899bca4f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/downtime_schedules",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "downtime_schedules"
+                      ]
+                    },
+                    "description": "This endpoint creates a new planned maintenance / downtime schedule"
+                  },
+                  "response": [
+                    {
+                      "id": "c07f5197-5bb8-49d8-8a04-ed976687f8e8",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"schedule\": {\n      \"timezone\": \"<string>\",\n      \"endTime\": \"<dateTime>\",\n      \"recurrence\": {\n        \"startTime\": \"<dateTime>\",\n        \"duration\": \"<string>\",\n        \"repeatType\": \"daily\",\n        \"endTime\": \"<dateTime>\",\n        \"repeatOn\": [\n          \"monday\",\n          \"thursday\"\n        ]\n      },\n      \"startTime\": \"<dateTime>\"\n    },\n    \"status\": \"upcoming\",\n    \"kind\": \"recurring\",\n    \"alertIds\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": \"<dateTime>\",\n    \"createdBy\": \"<string>\",\n    \"description\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"updatedBy\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-c07f5197-5bb8-49d8-8a04-ed976687f8e8"
+                    },
+                    {
+                      "id": "245e30e5-0ade-4912-831b-7bac3f595c3f",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-245e30e5-0ade-4912-831b-7bac3f595c3f"
+                    },
+                    {
+                      "id": "d22cd929-c619-491b-aea9-d7e620d7437f",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-d22cd929-c619-491b-aea9-d7e620d7437f"
+                    },
+                    {
+                      "id": "fb346b45-36d8-43ba-a858-8ca14bc378ec",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-fb346b45-36d8-43ba-a858-8ca14bc378ec"
+                    },
+                    {
+                      "id": "928b72a3-f9b7-4bce-82eb-a0a20430dc47",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"schedule\": {\n    \"timezone\": \"<string>\",\n    \"endTime\": \"<dateTime>\",\n    \"recurrence\": {\n      \"startTime\": \"<dateTime>\",\n      \"duration\": \"<string>\",\n      \"repeatType\": \"weekly\",\n      \"endTime\": \"<dateTime>\",\n      \"repeatOn\": [\n        \"saturday\",\n        \"saturday\"\n      ]\n    },\n    \"startTime\": \"<dateTime>\"\n  },\n  \"alertIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/downtime_schedules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "downtime_schedules"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:28.000Z",
+                      "updatedAt": "2026-07-28T11:02:28.000Z",
+                      "uid": "35240-928b72a3-f9b7-4bce-82eb-a0a20430dc47"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:28.000Z",
+                  "updatedAt": "2026-07-28T11:02:28.000Z",
+                  "uid": "35240-034685d6-6418-4fb1-997d-1be9899bca4f"
+                }
+              ],
+              "id": "0eec5e87-9450-462c-acf9-d955bcb12e55",
+              "createdAt": "2026-07-28T11:02:28.000Z",
+              "updatedAt": "2026-07-28T11:02:28.000Z",
+              "uid": "35240-0eec5e87-9450-462c-acf9-d955bcb12e55"
+            }
+          ],
+          "id": "45370363-dcae-4fe9-93ef-ef1117e9be42",
+          "createdAt": "2026-07-28T11:02:28.000Z",
+          "updatedAt": "2026-07-28T11:02:28.000Z",
+          "uid": "35240-45370363-dcae-4fe9-93ef-ef1117e9be42"
+        }
+      ],
+      "id": "d061606a-19f9-4d0f-9101-317ba00b182a",
+      "createdAt": "2026-07-28T11:02:28.000Z",
+      "updatedAt": "2026-07-28T11:02:28.000Z",
+      "uid": "35240-d061606a-19f9-4d0f-9101-317ba00b182a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

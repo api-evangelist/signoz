@@ -1,0 +1,1466 @@
+{
+  "info": {
+    "_postman_id": "427cf179-27a8-4aeb-ab26-e6ac334c2cab",
+    "name": "SigNoz alerts authdomains API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:18.000Z",
+    "updatedAt": "2026-07-28T11:02:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-427cf179-27a8-4aeb-ab26-e6ac334c2cab"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "domains",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Delete auth domain",
+                      "id": "cc18ff74-f26b-4374-b6d4-51ef689d2479",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0e6b1c71-d810-4353-897c-de34e846ed2a",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This endpoint deletes an auth domain"
+                      },
+                      "response": [
+                        {
+                          "id": "b152fc94-639d-4c59-9d43-2a4d6e5d9592",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-b152fc94-639d-4c59-9d43-2a4d6e5d9592"
+                        },
+                        {
+                          "id": "9b91b912-eb89-46d5-a254-13a657d0e599",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-9b91b912-eb89-46d5-a254-13a657d0e599"
+                        },
+                        {
+                          "id": "938190d2-cad4-4aad-ba78-1d1b6fc70558",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-938190d2-cad4-4aad-ba78-1d1b6fc70558"
+                        },
+                        {
+                          "id": "abec39f0-a29a-4597-833f-b282a9cc4aad",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-abec39f0-a29a-4597-833f-b282a9cc4aad"
+                        },
+                        {
+                          "id": "7b9883ee-7b9e-4351-8876-ecb432ad1226",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-7b9883ee-7b9e-4351-8876-ecb432ad1226"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-cc18ff74-f26b-4374-b6d4-51ef689d2479"
+                    },
+                    {
+                      "name": "Update auth domain",
+                      "id": "3812b00f-dd42-4967-84eb-39ec0c5a7cb2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "apikey",
+                          "apikey": [
+                            {
+                              "key": "key",
+                              "value": "SigNoz-Api-Key",
+                              "type": "string"
+                            },
+                            {
+                              "key": "value",
+                              "value": "{{apiKey}}",
+                              "type": "string"
+                            },
+                            {
+                              "key": "in",
+                              "value": "header",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"adipisicingd\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"dolore_e3_\": \"<string>\",\n        \"ad_\": \"<string>\",\n        \"do5b4\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "cbf4f58a-9e54-427e-b7c5-f64f61a33ef5",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "This endpoint updates an auth domain"
+                      },
+                      "response": [
+                        {
+                          "id": "e7f945df-753c-4e2e-bcac-8fd8009fd0f5",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"adipisicingd\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"dolore_e3_\": \"<string>\",\n        \"ad_\": \"<string>\",\n        \"do5b4\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-e7f945df-753c-4e2e-bcac-8fd8009fd0f5"
+                        },
+                        {
+                          "id": "9930c8cd-9283-41e1-a739-6bb7b5ab197c",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"adipisicingd\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"dolore_e3_\": \"<string>\",\n        \"ad_\": \"<string>\",\n        \"do5b4\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-9930c8cd-9283-41e1-a739-6bb7b5ab197c"
+                        },
+                        {
+                          "id": "32077ef8-0c47-4a51-93ee-cb37e6195b99",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"adipisicingd\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"dolore_e3_\": \"<string>\",\n        \"ad_\": \"<string>\",\n        \"do5b4\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-32077ef8-0c47-4a51-93ee-cb37e6195b99"
+                        },
+                        {
+                          "id": "fe88c6de-8f68-4710-8e7e-c16a26ece3cd",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"adipisicingd\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"dolore_e3_\": \"<string>\",\n        \"ad_\": \"<string>\",\n        \"do5b4\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-fe88c6de-8f68-4710-8e7e-c16a26ece3cd"
+                        },
+                        {
+                          "id": "f7915d39-9895-4aa9-99c2-781206383fb7",
+                          "name": "Conflict",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"adipisicingd\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"dolore_e3_\": \"<string>\",\n        \"ad_\": \"<string>\",\n        \"do5b4\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-f7915d39-9895-4aa9-99c2-781206383fb7"
+                        },
+                        {
+                          "id": "dfc60e98-086e-4816-9728-00b35c2fec29",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "SigNoz-Api-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"adipisicingd\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"dolore_e3_\": \"<string>\",\n        \"ad_\": \"<string>\",\n        \"do5b4\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/domains/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "domains",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T11:02:18.000Z",
+                          "updatedAt": "2026-07-28T11:02:18.000Z",
+                          "uid": "35240-dfc60e98-086e-4816-9728-00b35c2fec29"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-3812b00f-dd42-4967-84eb-39ec0c5a7cb2"
+                    }
+                  ],
+                  "id": "528bc2b2-1d94-4f34-a4a8-32702c64abbd",
+                  "createdAt": "2026-07-28T11:02:18.000Z",
+                  "updatedAt": "2026-07-28T11:02:18.000Z",
+                  "uid": "35240-528bc2b2-1d94-4f34-a4a8-32702c64abbd"
+                },
+                {
+                  "name": "List all auth domains",
+                  "id": "fa2bb487-27b5-4b6a-a637-2d98462ed96f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/domains",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "domains"
+                      ]
+                    },
+                    "description": "This endpoint lists all auth domains"
+                  },
+                  "response": [
+                    {
+                      "id": "e2b9d033-9b77-4bb5-95f9-1471e447cb9c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"authNProviderInfo\": {\n        \"relayStatePath\": \"<string>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"googleAuthConfig\": {\n        \"allowedGroups\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"clientId\": \"<string>\",\n        \"clientSecret\": \"<string>\",\n        \"domainToAdminEmail\": {\n          \"in__8\": \"<string>\"\n        },\n        \"fetchGroups\": \"<boolean>\",\n        \"fetchTransitiveGroupMembership\": \"<boolean>\",\n        \"insecureSkipEmailVerified\": \"<boolean>\",\n        \"redirectURI\": \"<string>\",\n        \"serviceAccountJson\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"oidcConfig\": {\n        \"claimMapping\": {\n          \"email\": \"<string>\",\n          \"groups\": \"<string>\",\n          \"name\": \"<string>\",\n          \"role\": \"<string>\"\n        },\n        \"clientId\": \"<string>\",\n        \"clientSecret\": \"<string>\",\n        \"getUserInfo\": \"<boolean>\",\n        \"insecureSkipEmailVerified\": \"<boolean>\",\n        \"issuer\": \"<string>\",\n        \"issuerAlias\": \"<string>\"\n      },\n      \"orgId\": \"<string>\",\n      \"roleMapping\": {\n        \"defaultRole\": \"<string>\",\n        \"groupMappings\": {\n          \"proident_4\": \"<string>\",\n          \"ipsum7\": \"<string>\",\n          \"irure37c\": \"<string>\",\n          \"eu30f\": \"<string>\",\n          \"eiusmod2\": \"<string>\"\n        },\n        \"useRoleAttribute\": \"<boolean>\"\n      },\n      \"samlConfig\": {\n        \"attributeMapping\": {\n          \"email\": \"<string>\",\n          \"groups\": \"<string>\",\n          \"name\": \"<string>\",\n          \"role\": \"<string>\"\n        },\n        \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n        \"samlCert\": \"<string>\",\n        \"samlEntity\": \"<string>\",\n        \"samlIdp\": \"<string>\"\n      },\n      \"ssoEnabled\": \"<boolean>\",\n      \"ssoType\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"authNProviderInfo\": {\n        \"relayStatePath\": \"<string>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"googleAuthConfig\": {\n        \"allowedGroups\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"clientId\": \"<string>\",\n        \"clientSecret\": \"<string>\",\n        \"domainToAdminEmail\": {\n          \"sed4a\": \"<string>\",\n          \"Duis69\": \"<string>\"\n        },\n        \"fetchGroups\": \"<boolean>\",\n        \"fetchTransitiveGroupMembership\": \"<boolean>\",\n        \"insecureSkipEmailVerified\": \"<boolean>\",\n        \"redirectURI\": \"<string>\",\n        \"serviceAccountJson\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"oidcConfig\": {\n        \"claimMapping\": {\n          \"email\": \"<string>\",\n          \"groups\": \"<string>\",\n          \"name\": \"<string>\",\n          \"role\": \"<string>\"\n        },\n        \"clientId\": \"<string>\",\n        \"clientSecret\": \"<string>\",\n        \"getUserInfo\": \"<boolean>\",\n        \"insecureSkipEmailVerified\": \"<boolean>\",\n        \"issuer\": \"<string>\",\n        \"issuerAlias\": \"<string>\"\n      },\n      \"orgId\": \"<string>\",\n      \"roleMapping\": {\n        \"defaultRole\": \"<string>\",\n        \"groupMappings\": {\n          \"fugiat_286\": \"<string>\",\n          \"officia8b\": \"<string>\"\n        },\n        \"useRoleAttribute\": \"<boolean>\"\n      },\n      \"samlConfig\": {\n        \"attributeMapping\": {\n          \"email\": \"<string>\",\n          \"groups\": \"<string>\",\n          \"name\": \"<string>\",\n          \"role\": \"<string>\"\n        },\n        \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n        \"samlCert\": \"<string>\",\n        \"samlEntity\": \"<string>\",\n        \"samlIdp\": \"<string>\"\n      },\n      \"ssoEnabled\": \"<boolean>\",\n      \"ssoType\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-e2b9d033-9b77-4bb5-95f9-1471e447cb9c"
+                    },
+                    {
+                      "id": "d283b8ef-e63a-4aa0-ab32-e503e61cb470",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-d283b8ef-e63a-4aa0-ab32-e503e61cb470"
+                    },
+                    {
+                      "id": "006a77b6-20b2-4bd8-82a1-6296bfc481ef",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-006a77b6-20b2-4bd8-82a1-6296bfc481ef"
+                    },
+                    {
+                      "id": "5c3d9b5c-dddd-4a48-8c7d-bbab5d32ab8c",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-5c3d9b5c-dddd-4a48-8c7d-bbab5d32ab8c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:18.000Z",
+                  "updatedAt": "2026-07-28T11:02:18.000Z",
+                  "uid": "35240-fa2bb487-27b5-4b6a-a637-2d98462ed96f"
+                },
+                {
+                  "name": "Create auth domain",
+                  "id": "d7e17642-13cb-4277-85f3-82d34a6599bb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "SigNoz-Api-Key",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"in_dbe\": \"<string>\",\n        \"cupidatat_5\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"proident_50\": \"<string>\",\n        \"Ute3b\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/domains",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "domains"
+                      ]
+                    },
+                    "description": "This endpoint creates an auth domain"
+                  },
+                  "response": [
+                    {
+                      "id": "c766fdf1-2daa-47a6-b054-e89e8f788914",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"in_dbe\": \"<string>\",\n        \"cupidatat_5\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"proident_50\": \"<string>\",\n        \"Ute3b\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\",\n    \"authNProviderInfo\": {\n      \"relayStatePath\": \"<string>\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"aute_b\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"name\": \"<string>\",\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"orgId\": \"<string>\",\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"seda\": \"<string>\",\n        \"dolore_6af\": \"<string>\",\n        \"aliquipb1\": \"<string>\",\n        \"sint9\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-c766fdf1-2daa-47a6-b054-e89e8f788914"
+                    },
+                    {
+                      "id": "666c96c4-bb21-42dc-98b7-f337281b1839",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"in_dbe\": \"<string>\",\n        \"cupidatat_5\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"proident_50\": \"<string>\",\n        \"Ute3b\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-666c96c4-bb21-42dc-98b7-f337281b1839"
+                    },
+                    {
+                      "id": "be9327d0-f22e-4e7a-a467-71765bdb4599",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"in_dbe\": \"<string>\",\n        \"cupidatat_5\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"proident_50\": \"<string>\",\n        \"Ute3b\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-be9327d0-f22e-4e7a-a467-71765bdb4599"
+                    },
+                    {
+                      "id": "2512acc5-1de1-4190-8367-f17cee40b4bc",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"in_dbe\": \"<string>\",\n        \"cupidatat_5\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"proident_50\": \"<string>\",\n        \"Ute3b\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-2512acc5-1de1-4190-8367-f17cee40b4bc"
+                    },
+                    {
+                      "id": "37ffa232-d215-4a79-a5cb-96856d866a97",
+                      "name": "Conflict",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"in_dbe\": \"<string>\",\n        \"cupidatat_5\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"proident_50\": \"<string>\",\n        \"Ute3b\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-37ffa232-d215-4a79-a5cb-96856d866a97"
+                    },
+                    {
+                      "id": "43bb79c1-ba4f-45a5-9171-60b2421f6570",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "SigNoz-Api-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"config\": {\n    \"googleAuthConfig\": {\n      \"allowedGroups\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"domainToAdminEmail\": {\n        \"in_dbe\": \"<string>\",\n        \"cupidatat_5\": \"<string>\"\n      },\n      \"fetchGroups\": \"<boolean>\",\n      \"fetchTransitiveGroupMembership\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"redirectURI\": \"<string>\",\n      \"serviceAccountJson\": \"<string>\"\n    },\n    \"oidcConfig\": {\n      \"claimMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"getUserInfo\": \"<boolean>\",\n      \"insecureSkipEmailVerified\": \"<boolean>\",\n      \"issuer\": \"<string>\",\n      \"issuerAlias\": \"<string>\"\n    },\n    \"roleMapping\": {\n      \"defaultRole\": \"<string>\",\n      \"groupMappings\": {\n        \"proident_50\": \"<string>\",\n        \"Ute3b\": \"<string>\"\n      },\n      \"useRoleAttribute\": \"<boolean>\"\n    },\n    \"samlConfig\": {\n      \"attributeMapping\": {\n        \"email\": \"<string>\",\n        \"groups\": \"<string>\",\n        \"name\": \"<string>\",\n        \"role\": \"<string>\"\n      },\n      \"insecureSkipAuthNRequestsSigned\": \"<boolean>\",\n      \"samlCert\": \"<string>\",\n      \"samlEntity\": \"<string>\",\n      \"samlIdp\": \"<string>\"\n    },\n    \"ssoEnabled\": \"<boolean>\",\n    \"ssoType\": \"<string>\"\n  },\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "domains"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:18.000Z",
+                      "updatedAt": "2026-07-28T11:02:18.000Z",
+                      "uid": "35240-43bb79c1-ba4f-45a5-9171-60b2421f6570"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:18.000Z",
+                  "updatedAt": "2026-07-28T11:02:18.000Z",
+                  "uid": "35240-d7e17642-13cb-4277-85f3-82d34a6599bb"
+                }
+              ],
+              "id": "3a3d7a17-a37e-4daa-9680-05439da0e171",
+              "createdAt": "2026-07-28T11:02:18.000Z",
+              "updatedAt": "2026-07-28T11:02:18.000Z",
+              "uid": "35240-3a3d7a17-a37e-4daa-9680-05439da0e171"
+            }
+          ],
+          "id": "80506acc-4bde-452a-aec0-f85492cd8b4b",
+          "createdAt": "2026-07-28T11:02:18.000Z",
+          "updatedAt": "2026-07-28T11:02:18.000Z",
+          "uid": "35240-80506acc-4bde-452a-aec0-f85492cd8b4b"
+        }
+      ],
+      "id": "550bcb89-0d57-4008-877a-7016c37d48d3",
+      "createdAt": "2026-07-28T11:02:18.000Z",
+      "updatedAt": "2026-07-28T11:02:18.000Z",
+      "uid": "35240-550bcb89-0d57-4008-877a-7016c37d48d3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}

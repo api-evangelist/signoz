@@ -1,0 +1,407 @@
+{
+  "info": {
+    "_postman_id": "a3729e96-bf2b-459f-9467-10b264559409",
+    "name": "SigNoz alerts health API",
+    "description": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:02:36.000Z",
+    "updatedAt": "2026-07-28T11:02:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a3729e96-bf2b-459f-9467-10b264559409"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "healthz",
+              "item": [
+                {
+                  "name": "Health check",
+                  "id": "ae1247ab-acd7-4b5d-9eb1-782c4780af8a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v2/healthz",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v2",
+                        "healthz"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6fd908e9-9aa8-4831-ab0b-b1163f6f4a4a",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/healthz",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "healthz"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"healthy\": \"<boolean>\",\n    \"services\": {\n      \"aliquipa\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"elit_da6\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:37.000Z",
+                      "updatedAt": "2026-07-28T11:02:37.000Z",
+                      "uid": "35240-6fd908e9-9aa8-4831-ab0b-b1163f6f4a4a"
+                    },
+                    {
+                      "id": "7c1e67a7-7585-4bd2-baf1-4df9557469a9",
+                      "name": "Service Unavailable",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/healthz",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "healthz"
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"healthy\": \"<boolean>\",\n    \"services\": {\n      \"aliquipa\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"elit_da6\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:37.000Z",
+                      "updatedAt": "2026-07-28T11:02:37.000Z",
+                      "uid": "35240-7c1e67a7-7585-4bd2-baf1-4df9557469a9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:37.000Z",
+                  "updatedAt": "2026-07-28T11:02:37.000Z",
+                  "uid": "35240-ae1247ab-acd7-4b5d-9eb1-782c4780af8a"
+                }
+              ],
+              "id": "7960539f-b883-4c54-9958-a01a7c710c5a",
+              "createdAt": "2026-07-28T11:02:37.000Z",
+              "updatedAt": "2026-07-28T11:02:37.000Z",
+              "uid": "35240-7960539f-b883-4c54-9958-a01a7c710c5a"
+            },
+            {
+              "name": "livez",
+              "item": [
+                {
+                  "name": "Liveness check",
+                  "id": "fdc75e63-10e1-4b04-aac8-a67d7f4fa62f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v2/livez",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v2",
+                        "livez"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "5b21db37-15a9-464e-8963-9fd7d16eb2d6",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/livez",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "livez"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"healthy\": \"<boolean>\",\n    \"services\": {\n      \"aliquipa\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"elit_da6\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:37.000Z",
+                      "updatedAt": "2026-07-28T11:02:37.000Z",
+                      "uid": "35240-5b21db37-15a9-464e-8963-9fd7d16eb2d6"
+                    },
+                    {
+                      "id": "4c86e408-098e-4754-904a-27f89a036cbd",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/livez",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "livez"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"errors\": [\n      {\n        \"message\": \"<string>\"\n      },\n      {\n        \"message\": \"<string>\"\n      }\n    ],\n    \"url\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:37.000Z",
+                      "updatedAt": "2026-07-28T11:02:37.000Z",
+                      "uid": "35240-4c86e408-098e-4754-904a-27f89a036cbd"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:37.000Z",
+                  "updatedAt": "2026-07-28T11:02:37.000Z",
+                  "uid": "35240-fdc75e63-10e1-4b04-aac8-a67d7f4fa62f"
+                }
+              ],
+              "id": "6ab5ac91-0009-44ad-8f7b-61c19444f293",
+              "createdAt": "2026-07-28T11:02:37.000Z",
+              "updatedAt": "2026-07-28T11:02:37.000Z",
+              "uid": "35240-6ab5ac91-0009-44ad-8f7b-61c19444f293"
+            },
+            {
+              "name": "readyz",
+              "item": [
+                {
+                  "name": "Readiness check",
+                  "id": "f64ac606-808b-4410-9ba8-e4eb9c3243d0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v2/readyz",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v2",
+                        "readyz"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "9e0c5b0a-0911-4eb0-afcf-9f99f3e5c5b5",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/readyz",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "readyz"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"healthy\": \"<boolean>\",\n    \"services\": {\n      \"aliquipa\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"elit_da6\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:37.000Z",
+                      "updatedAt": "2026-07-28T11:02:37.000Z",
+                      "uid": "35240-9e0c5b0a-0911-4eb0-afcf-9f99f3e5c5b5"
+                    },
+                    {
+                      "id": "b633dd0d-a300-45df-a370-3372adbe53b8",
+                      "name": "Service Unavailable",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/readyz",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "readyz"
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<string>\",\n  \"data\": {\n    \"healthy\": \"<boolean>\",\n    \"services\": {\n      \"aliquipa\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"elit_da6\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T11:02:37.000Z",
+                      "updatedAt": "2026-07-28T11:02:37.000Z",
+                      "uid": "35240-b633dd0d-a300-45df-a370-3372adbe53b8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:02:37.000Z",
+                  "updatedAt": "2026-07-28T11:02:37.000Z",
+                  "uid": "35240-f64ac606-808b-4410-9ba8-e4eb9c3243d0"
+                }
+              ],
+              "id": "eaf8e1a8-8cf2-425d-b650-977722d26aa0",
+              "createdAt": "2026-07-28T11:02:37.000Z",
+              "updatedAt": "2026-07-28T11:02:37.000Z",
+              "uid": "35240-eaf8e1a8-8cf2-425d-b650-977722d26aa0"
+            }
+          ],
+          "id": "53031536-121b-4859-bb9a-30e769a69390",
+          "createdAt": "2026-07-28T11:02:37.000Z",
+          "updatedAt": "2026-07-28T11:02:37.000Z",
+          "uid": "35240-53031536-121b-4859-bb9a-30e769a69390"
+        }
+      ],
+      "id": "0e92ec05-60ad-4274-ba85-fb68260d0486",
+      "createdAt": "2026-07-28T11:02:37.000Z",
+      "updatedAt": "2026-07-28T11:02:37.000Z",
+      "uid": "35240-0e92ec05-60ad-4274-ba85-fb68260d0486"
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "/"
+    },
+    {
+      "key": "host",
+      "value": "localhost"
+    },
+    {
+      "key": "port",
+      "value": "8080"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{host}}:{{port}}{{base_path}}"
+    }
+  ]
+}
