@@ -61,7 +61,7 @@ domains:
         description: API key used to authenticate telemetry data sent to SigNoz.
       - name: Signal Type
         label: Signal Type
-        description: Category of telemetry data: logs, traces, or metrics.
+        description: "Category of telemetry data: logs, traces, or metrics."
       - name: Span
         label: Span
         description: A single unit of work within a distributed trace, representing an operation.
