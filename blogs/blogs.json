@@ -5,7 +5,7 @@
       "source": "https://signoz.io/rss/",
       "feed_url": "https://signoz.io/rss/",
       "title": "",
-      "saved": 9,
+      "saved": 34,
       "method": "feed"
     },
     {
@@ -13,9 +13,10 @@
       "feed_url": "https://github.com/SigNoz",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "none",
+      "error": "parse_failed"
     }
   ],
-  "post_count": 444,
-  "fetched": "2026-08-06T14:08:46Z"
+  "post_count": 478,
+  "fetched": "2026-08-15T12:11:08Z"
 }
