@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SigNoz alerts channels API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "channels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notification channels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all notification channels for the organization"
+        },
+        {
+          "info": {
+            "name": "Create notification channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a notification channel"
+        },
+        {
+          "info": {
+            "name": "Get notification channel by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns a notification channel by ID"
+        },
+        {
+          "info": {
+            "name": "Update notification channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates a notification channel by ID"
+        },
+        {
+          "info": {
+            "name": "Delete notification channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes a notification channel by ID"
+        },
+        {
+          "info": {
+            "name": "Test notification channel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/channels/test",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint tests a notification channel by sending a test notification"
+        },
+        {
+          "info": {
+            "name": "Test notification channel (deprecated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/testChannel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Deprecated: use /api/v1/channels/test instead"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

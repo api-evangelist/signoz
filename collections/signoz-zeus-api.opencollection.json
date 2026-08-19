@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SigNoz alerts zeus API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "zeus",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get host info from Zeus.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/zeus/hosts",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint gets the host info from zeus."
+        },
+        {
+          "info": {
+            "name": "Put host in Zeus for a deployment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/zeus/hosts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint saves the host of a deployment to zeus."
+        },
+        {
+          "info": {
+            "name": "Put profile in Zeus for a deployment.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/zeus/profiles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint saves the profile of a deployment to zeus."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,639 @@
+{
+  "item": [
+    {
+      "id": "29f1fcf1-51d3-433f-889e-5d6811e00f1e",
+      "name": "tracedetail",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6519d04-9f5a-48f4-a13e-9ecce58549dc",
+          "name": "Get waterfall view for a trace",
+          "request": {
+            "name": "Get waterfall view for a trace",
+            "description": {
+              "content": "Returns the waterfall view of spans for a given trace ID with tree structure, metadata, and windowed pagination",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "traces",
+                ":traceID",
+                "waterfall"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "traceID",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "The base path of the SigNoz APIServer",
+                  "type": "any",
+                  "value": "{{base_path}}",
+                  "key": "base_path"
+                },
+                {
+                  "description": "The host of the SigNoz APIServer",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "The port of the SigNoz APIServer",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "SigNoz-Api-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aggregations\": [\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"selectedSpanId\": \"<string>\",\n  \"uncollapsedSpans\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6a62778-aa32-4973-a834-481bbcc6a93d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces",
+                    ":traceID",
+                    "waterfall"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "traceID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregations\": [\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"selectedSpanId\": \"<string>\",\n  \"uncollapsedSpans\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"data\": {\n    \"aggregations\": [\n      {\n        \"aggregation\": \"<string>\",\n        \"field\": {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"fieldContext\": \"<string>\",\n          \"fieldDataType\": \"<string>\",\n          \"signal\": \"<string>\",\n          \"unit\": \"<string>\"\n        },\n        \"value\": {\n          \"key_0\": 9686,\n          \"key_1\": 485,\n          \"key_2\": 1276\n        }\n      },\n      {\n        \"aggregation\": \"<string>\",\n        \"field\": {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"fieldContext\": \"<string>\",\n          \"fieldDataType\": \"<string>\",\n          \"signal\": \"<string>\",\n          \"unit\": \"<string>\"\n        },\n        \"value\": {\n          \"key_0\": 9129\n        }\n      }\n    ],\n    \"endTimestampMillis\": 4335,\n    \"hasMissingSpans\": false,\n    \"hasMore\": true,\n    \"rootServiceEntryPoint\": \"string\",\n    \"rootServiceName\": \"string\",\n    \"serviceNameToTotalDurationMap\": {\n      \"key_0\": 5575\n    },\n    \"spans\": [\n      {\n        \"attributes\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {},\n          \"key_3\": {},\n          \"key_4\": {}\n        },\n        \"db_name\": \"string\",\n        \"db_operation\": \"string\",\n        \"duration_nano\": 1839,\n        \"events\": [\n          {\n            \"attributeMap\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"isError\": true,\n            \"name\": \"string\",\n            \"timeUnixNano\": 8691\n          },\n          {\n            \"attributeMap\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"isError\": false,\n            \"name\": \"string\",\n            \"timeUnixNano\": 9965\n          }\n        ],\n        \"external_http_method\": \"string\",\n        \"external_http_url\": \"string\",\n        \"flags\": 6975,\n        \"has_children\": false,\n        \"has_error\": true,\n        \"http_host\": \"string\",\n        \"http_method\": \"string\",\n        \"http_url\": \"string\",\n        \"is_remote\": \"string\",\n        \"kind_string\": \"string\",\n        \"level\": 5111,\n        \"name\": \"string\",\n        \"parent_span_id\": \"string\",\n        \"resource\": {\n          \"key_0\": \"string\"\n        },\n        \"response_status_code\": \"string\",\n        \"span_id\": \"string\",\n        \"status_code\": 6502,\n        \"status_code_string\": \"string\",\n        \"status_message\": \"string\",\n        \"sub_tree_node_count\": 5553,\n        \"trace_id\": \"string\",\n        \"trace_state\": \"string\"\n      },\n      {\n        \"attributes\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        },\n        \"db_name\": \"string\",\n        \"db_operation\": \"string\",\n        \"duration_nano\": 6596,\n        \"events\": [\n          {\n            \"attributeMap\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"isError\": false,\n            \"name\": \"string\",\n            \"timeUnixNano\": 3172\n          },\n          {\n            \"attributeMap\": {\n              \"key_0\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_1\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"key_2\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"isError\": false,\n            \"name\": \"string\",\n            \"timeUnixNano\": 8425\n          }\n        ],\n        \"external_http_method\": \"string\",\n        \"external_http_url\": \"string\",\n        \"flags\": 7557,\n        \"has_children\": false,\n        \"has_error\": true,\n        \"http_host\": \"string\",\n        \"http_method\": \"string\",\n        \"http_url\": \"string\",\n        \"is_remote\": \"string\",\n        \"kind_string\": \"string\",\n        \"level\": 5771,\n        \"name\": \"string\",\n        \"parent_span_id\": \"string\",\n        \"resource\": {\n          \"key_0\": \"string\"\n        },\n        \"response_status_code\": \"string\",\n        \"span_id\": \"string\",\n        \"status_code\": 2974,\n        \"status_code_string\": \"string\",\n        \"status_message\": \"string\",\n        \"sub_tree_node_count\": 8664,\n        \"trace_id\": \"string\",\n        \"trace_state\": \"string\"\n      }\n    ],\n    \"startTimestampMillis\": 5562,\n    \"totalErrorSpansCount\": 304,\n    \"totalSpansCount\": 4326,\n    \"uncollapsedSpans\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a4c3e42-c02e-4960-88c3-a3c341aa0575",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces",
+                    ":traceID",
+                    "waterfall"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "traceID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregations\": [\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"selectedSpanId\": \"<string>\",\n  \"uncollapsedSpans\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f360c8b9-e1a2-4f67-a314-7da375bfa5f2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces",
+                    ":traceID",
+                    "waterfall"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "traceID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregations\": [\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"selectedSpanId\": \"<string>\",\n  \"uncollapsedSpans\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b27a4eb-4c8d-4963-811c-1008cb116541",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces",
+                    ":traceID",
+                    "waterfall"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "traceID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregations\": [\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"selectedSpanId\": \"<string>\",\n  \"uncollapsedSpans\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd22dbe9-e041-40e4-9306-c1e5038df588",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces",
+                    ":traceID",
+                    "waterfall"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "traceID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregations\": [\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"selectedSpanId\": \"<string>\",\n  \"uncollapsedSpans\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2ce677ca-cade-4dc0-aba1-c29192391d7f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces",
+                    ":traceID",
+                    "waterfall"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "traceID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aggregations\": [\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"aggregation\": \"<string>\",\n      \"field\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"fieldContext\": \"<string>\",\n        \"fieldDataType\": \"<string>\",\n        \"signal\": \"<string>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"selectedSpanId\": \"<string>\",\n  \"uncollapsedSpans\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The base path of the SigNoz APIServer",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "/",
+      "key": "base_path"
+    },
+    {
+      "description": {
+        "content": "The host of the SigNoz APIServer",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "description": {
+        "content": "The port of the SigNoz APIServer",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "8080",
+      "key": "port"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}:{{port}}{{base_path}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ae3ef6ad-63b2-4509-93ae-b75db93bd77f",
+    "name": "SigNoz alerts tracedetail API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+      "type": "text/plain"
+    }
+  }
+}

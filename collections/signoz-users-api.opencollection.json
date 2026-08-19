@@ -1,0 +1,499 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SigNoz alerts users API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get reset password token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/getResetPasswordToken/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the reset password token by id"
+        },
+        {
+          "info": {
+            "name": "Create invite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates an invite for a user"
+        },
+        {
+          "info": {
+            "name": "Create bulk invite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/invite/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates a bulk invite for a user"
+        },
+        {
+          "info": {
+            "name": "Reset password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/resetPassword",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint resets the password by token"
+        },
+        {
+          "info": {
+            "name": "List users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/user",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all users"
+        },
+        {
+          "info": {
+            "name": "Get user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the user by id"
+        },
+        {
+          "info": {
+            "name": "Update user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the user by id"
+        },
+        {
+          "info": {
+            "name": "Delete user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint deletes the user by id"
+        },
+        {
+          "info": {
+            "name": "Get my user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/user/me",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns the user I belong to"
+        },
+        {
+          "info": {
+            "name": "Forgot password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/factor_password/forgot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint initiates the forgot password flow by sending a reset password email"
+        },
+        {
+          "info": {
+            "name": "Get users by role id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/roles/:id/users",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the users having the role by role id"
+        },
+        {
+          "info": {
+            "name": "List users v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint lists all users for the organization"
+        },
+        {
+          "info": {
+            "name": "Get user by user id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the user by id"
+        },
+        {
+          "info": {
+            "name": "Update user v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the user by id"
+        },
+        {
+          "info": {
+            "name": "Get reset password token for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/reset_password_tokens",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the existing reset password token for a user."
+        },
+        {
+          "info": {
+            "name": "Create or regenerate reset password token for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/reset_password_tokens",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint creates or regenerates a reset password token for a user. If a valid token exists, it is returned. If expired, a new one is created."
+        },
+        {
+          "info": {
+            "name": "Get user roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/roles",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the user roles by user id"
+        },
+        {
+          "info": {
+            "name": "Set user roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/roles",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint assigns the role to the user roles by user id"
+        },
+        {
+          "info": {
+            "name": "Remove a role from user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/:id/roles/:roleId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "roleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint removes a role from the user by user id and role id"
+        },
+        {
+          "info": {
+            "name": "Get my user v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/me",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns the user I belong to"
+        },
+        {
+          "info": {
+            "name": "Update my user v2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint updates the user I belong to"
+        },
+        {
+          "info": {
+            "name": "Updates my password",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/users/me/factor_password",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the password of the user I belong to"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

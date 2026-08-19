@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SigNoz alerts orgs API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "orgs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get my organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/orgs/me",
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns the organization I belong to"
+        },
+        {
+          "info": {
+            "name": "Update my organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{host}:{port}{base_path}/api/v2/orgs/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint updates the organization I belong to"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

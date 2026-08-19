@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SigNoz alerts sessions API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create session by google callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/complete/google"
+          },
+          "docs": "This endpoint creates a session for a user using google callback"
+        },
+        {
+          "info": {
+            "name": "Create session by oidc callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/complete/oidc"
+          },
+          "docs": "This endpoint creates a session for a user using oidc callback"
+        },
+        {
+          "info": {
+            "name": "Create session by saml callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/complete/saml",
+            "params": [
+              {
+                "name": "RelayState",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "SAMLResponse",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "RelayState",
+                  "value": ""
+                },
+                {
+                  "name": "SAMLResponse",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "This endpoint creates a session for a user using saml callback"
+        },
+        {
+          "info": {
+            "name": "Delete session",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}:{port}{base_path}/api/v2/sessions",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint deletes the session"
+        },
+        {
+          "info": {
+            "name": "Get session context",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v2/sessions/context"
+          },
+          "docs": "This endpoint returns the context for the session"
+        },
+        {
+          "info": {
+            "name": "Create session by email and password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/sessions/email_password",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint creates a session for a user using email and password."
+        },
+        {
+          "info": {
+            "name": "Rotate session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v2/sessions/rotate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint rotates the session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

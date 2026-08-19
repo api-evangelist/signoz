@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SigNoz alerts tracedetail API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tracedetail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get waterfall view for a trace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v3/traces/:traceID/waterfall",
+            "params": [
+              {
+                "name": "traceID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the waterfall view of spans for a given trace ID with tree structure, metadata, and windowed pagination"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

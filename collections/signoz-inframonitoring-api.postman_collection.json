@@ -1,0 +1,961 @@
+{
+  "item": [
+    {
+      "id": "89014430-31ef-4133-843e-d5c18bf3ce81",
+      "name": "inframonitoring",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9522f741-e88d-4db0-9704-a55b6d08b8d6",
+          "name": "List Hosts for Infra Monitoring",
+          "request": {
+            "name": "List Hosts for Infra Monitoring",
+            "description": {
+              "content": "Returns a paginated list of hosts with key infrastructure metrics: CPU usage (%), memory usage (%), I/O wait (%), disk usage (%), and 15-minute load average. Each host includes its current status (active/inactive based on metrics reported in the last 10 minutes) and metadata attributes (e.g., os.type). Supports filtering via a filter expression, filtering by host status, custom groupBy to aggregate hosts by any attribute, ordering by any of the five metrics, and pagination via offset/limit. The response type is 'list' for the default host.name grouping or 'grouped_list' for custom groupBy keys. Also reports missing required metrics and whether the requested time range falls before the data retention boundary. Numeric metric fields (cpu, memory, wait, load15, diskUsage) return -1 as a sentinel when no data is available for that field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "infra_monitoring",
+                "hosts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The base path of the SigNoz APIServer",
+                  "type": "any",
+                  "value": "{{base_path}}",
+                  "key": "base_path"
+                },
+                {
+                  "description": "The host of the SigNoz APIServer",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "The port of the SigNoz APIServer",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "SigNoz-Api-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "27d92e29-a045-41cc-b602-f306faa8b964",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "hosts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"data\": {\n    \"type\": \"list\",\n    \"records\": [\n      {\n        \"hostName\": \"string\",\n        \"status\": \"<string>\",\n        \"activeHostCount\": 9209,\n        \"inactiveHostCount\": 1932,\n        \"cpu\": 1461.3643684341594,\n        \"memory\": 7656.029680980868,\n        \"wait\": 7541.537622375849,\n        \"load15\": 722.8630127994295,\n        \"diskUsage\": 6906.932418955436,\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      },\n      {\n        \"hostName\": \"string\",\n        \"status\": \"<string>\",\n        \"activeHostCount\": 655,\n        \"inactiveHostCount\": 5320,\n        \"cpu\": 7836.370952197108,\n        \"memory\": 8750.053884973328,\n        \"wait\": 4096.874885012469,\n        \"load15\": 7835.0882699540125,\n        \"diskUsage\": 2530.9366839397653,\n        \"meta\": {\n          \"key_0\": {}\n        }\n      }\n    ],\n    \"total\": 4650,\n    \"requiredMetricsCheck\": {\n      \"missingMetrics\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"endTimeBeforeRetention\": true,\n    \"warning\": {\n      \"message\": \"string\",\n      \"url\": \"string\",\n      \"warnings\": [\n        {\n          \"message\": \"string\"\n        },\n        {\n          \"message\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db8f279c-085b-48a0-bfb2-61860f7a43b7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "hosts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6530fa08-f6af-407b-a2da-8aede722e51e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "hosts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4cf1b1e-f56d-46e9-ba81-6203479f2bdd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "hosts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8ccb533-df01-45b0-8bc8-8fa0958599e3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "hosts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\",\n    \"filterByStatus\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71911852-ad10-4b3b-b4d9-0f2dcf31b16d",
+          "name": "List Pods for Infra Monitoring",
+          "request": {
+            "name": "List Pods for Infra Monitoring",
+            "description": {
+              "content": "Returns a paginated list of Kubernetes pods with key metrics: CPU usage, CPU request/limit utilization, memory working set, memory request/limit utilization, current pod phase (pending/running/succeeded/failed/unknown), and pod age (ms since start time). Each pod includes metadata attributes (namespace, node, workload owner such as deployment/statefulset/daemonset/job/cronjob, cluster). Supports filtering via a filter expression, custom groupBy to aggregate pods by any attribute, ordering by any of the six metrics (cpu, cpu_request, cpu_limit, memory, memory_request, memory_limit), and pagination via offset/limit. The response type is 'list' for the default k8s.pod.uid grouping (each row is one pod with its current phase) or 'grouped_list' for custom groupBy keys (each row aggregates pods in the group with per-phase counts: pendingPodCount, runningPodCount, succeededPodCount, failedPodCount, unknownPodCount derived from each pod's latest phase in the window). Also reports missing required metrics and whether the requested time range falls before the data retention boundary. Numeric metric fields (podCPU, podCPURequest, podCPULimit, podMemory, podMemoryRequest, podMemoryLimit, podAge) return -1 as a sentinel when no data is available for that field.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "infra_monitoring",
+                "pods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "The base path of the SigNoz APIServer",
+                  "type": "any",
+                  "value": "{{base_path}}",
+                  "key": "base_path"
+                },
+                {
+                  "description": "The host of the SigNoz APIServer",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                },
+                {
+                  "description": "The port of the SigNoz APIServer",
+                  "type": "any",
+                  "value": "{{port}}",
+                  "key": "port"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "SigNoz-Api-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "181d001b-2d0b-4c2d-8a3c-00d5b1426453",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "pods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"data\": {\n    \"type\": \"grouped_list\",\n    \"records\": [\n      {\n        \"podUID\": \"string\",\n        \"podCPU\": 2664.412420037926,\n        \"podCPURequest\": 2880.1449654778066,\n        \"podCPULimit\": 9917.67607146801,\n        \"podMemory\": 1749.343501804037,\n        \"podMemoryRequest\": 3382.2552667225823,\n        \"podMemoryLimit\": 1379.0395027537338,\n        \"podPhase\": \"failed\",\n        \"pendingPodCount\": 1212,\n        \"runningPodCount\": 5671,\n        \"succeededPodCount\": 4822,\n        \"failedPodCount\": 3443,\n        \"unknownPodCount\": 6340,\n        \"podAge\": 7984,\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      },\n      {\n        \"podUID\": \"string\",\n        \"podCPU\": 8964.83605040915,\n        \"podCPURequest\": 5634.992531516481,\n        \"podCPULimit\": 9763.986642186883,\n        \"podMemory\": 9926.724336258958,\n        \"podMemoryRequest\": 9181.175112036417,\n        \"podMemoryLimit\": 846.7824171109917,\n        \"podPhase\": \"unknown\",\n        \"pendingPodCount\": 8468,\n        \"runningPodCount\": 8625,\n        \"succeededPodCount\": 2063,\n        \"failedPodCount\": 151,\n        \"unknownPodCount\": 5317,\n        \"podAge\": 2295,\n        \"meta\": {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      }\n    ],\n    \"total\": 8589,\n    \"requiredMetricsCheck\": {\n      \"missingMetrics\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"endTimeBeforeRetention\": false,\n    \"warning\": {\n      \"message\": \"string\",\n      \"url\": \"string\",\n      \"warnings\": [\n        {\n          \"message\": \"string\"\n        },\n        {\n          \"message\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a026d3d1-da92-4b82-9043-f1b236c968b6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "pods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "495a3887-0bee-42e6-af8b-27a178fce049",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "pods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6a19d92-aeac-4710-a513-8ab432520ed0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "pods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "34c44d92-6e22-4922-be5d-5084b9281f3b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "infra_monitoring",
+                    "pods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "The base path of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{base_path}}",
+                      "key": "base_path"
+                    },
+                    {
+                      "description": "The host of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    },
+                    {
+                      "description": "The port of the SigNoz APIServer",
+                      "type": "any",
+                      "value": "{{port}}",
+                      "key": "port"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SigNoz-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"<long>\",\n  \"end\": \"<long>\",\n  \"limit\": \"<integer>\",\n  \"filter\": {\n    \"expression\": \"<string>\"\n  },\n  \"groupBy\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"orderBy\": {\n    \"direction\": \"<string>\",\n    \"key\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"fieldContext\": \"<string>\",\n      \"fieldDataType\": \"<string>\",\n      \"signal\": \"<string>\",\n      \"unit\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"errors\": [\n      {\n        \"message\": \"string\"\n      },\n      {\n        \"message\": \"string\"\n      }\n    ],\n    \"url\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The base path of the SigNoz APIServer",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "/",
+      "key": "base_path"
+    },
+    {
+      "description": {
+        "content": "The host of the SigNoz APIServer",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "localhost",
+      "key": "host"
+    },
+    {
+      "description": {
+        "content": "The port of the SigNoz APIServer",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "8080",
+      "key": "port"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}:{{port}}{{base_path}}",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4373a935-9a8f-4f3c-828c-14c25c44e303",
+    "name": "SigNoz alerts inframonitoring API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OpenTelemetry-Native Logs, Metrics and Traces in a single pane\n\nContact Support:\n Name: SigNoz Support\n Email: support@signoz.io",
+      "type": "text/plain"
+    }
+  }
+}

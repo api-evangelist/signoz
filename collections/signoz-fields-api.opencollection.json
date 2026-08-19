@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SigNoz alerts fields API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get field keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/fields/keys",
+            "params": [
+              {
+                "name": "signal",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldContext",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldDataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricNamespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns field keys"
+        },
+        {
+          "info": {
+            "name": "Get field values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/fields/values",
+            "params": [
+              {
+                "name": "signal",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endUnixMilli",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldContext",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fieldDataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricNamespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "existingQuery",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "SigNoz-Api-Key",
+              "value": "{{SigNoz-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This endpoint returns field values"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

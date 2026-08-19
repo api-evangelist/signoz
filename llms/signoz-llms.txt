@@ -1,0 +1,44 @@
+# SigNoz Documentation for AI Agents
+
+SigNoz is an open-source observability platform for metrics, traces, and logs.
+
+Docs root: https://signoz.io/docs/introduction/
+
+## Fetching docs pages
+- Request https://signoz.io/docs/... with "Accept: text/markdown" to receive markdown page content.
+
+## Agent tooling
+SigNoz ships Agent Skills and an MCP server so agents can read the docs and act on your observability data (query traces/logs/metrics, build dashboards, manage alerts).
+- Agent Skills & plugin: https://signoz.io/docs/ai/agent-skills/
+- MCP server: https://signoz.io/docs/ai/signoz-mcp-server/
+- Install all skills: npx skills add SigNoz/agent-skills
+- AI use cases: https://signoz.io/docs/ai/use-cases/
+
+## Starter docs
+- Get Started: https://signoz.io/docs/introduction/
+- Setup: https://signoz.io/docs/install/
+- SigNoz Cloud: https://signoz.io/docs/cloud/
+- Collection Agents: https://signoz.io/docs/opentelemetry-collection-agents/get-started/
+- LLM Observability: https://signoz.io/docs/llm-observability/
+- Agent Skills & Plugin: https://signoz.io/docs/ai/agent-skills/
+- SigNoz MCP Server: https://signoz.io/docs/ai/signoz-mcp-server/
+- AI Use Cases: https://signoz.io/docs/ai/use-cases/
+- AWS Monitoring: https://signoz.io/docs/aws-monitoring/overview/
+- GCP Monitoring: https://signoz.io/docs/gcp-monitoring/
+- Migrate to SigNoz: https://signoz.io/docs/migration/migrate-to-signoz/
+- From Datadog: https://signoz.io/docs/migration/migrate-from-datadog-to-signoz/
+- From Grafana Stack: https://signoz.io/docs/migration/migrate-from-grafana-to-signoz/
+- From ELK Stack: https://signoz.io/docs/migration/migrate-from-elk-to-signoz/
+- From New Relic: https://signoz.io/docs/migration/migrate-from-newrelic-to-signoz/
+- From Honeycomb: https://signoz.io/docs/migration/migrate-from-honeycomb-to-signoz/
+- From OpenTelemetry: https://signoz.io/docs/migration/migrate-from-opentelemetry-to-signoz/
+- From Self-Hosted to Cloud: https://signoz.io/docs/migration/migrate-from-signoz-self-host-to-signoz-cloud/
+- APM & Distributed Tracing: https://signoz.io/docs/instrumentation/overview/
+- User Guides: https://signoz.io/docs/traces-management/guides/overview/
+- Metrics: https://signoz.io/docs/metrics-management/overview/
+- Logs Management: https://signoz.io/docs/logs-management/overview/
+- Reference: https://signoz.io/docs/alerts-management/reference/
+- Dashboards: https://signoz.io/docs/dashboards/overview/
+
+## Discovery
+- Markdown sitemap: https://signoz.io/docs/sitemap.md

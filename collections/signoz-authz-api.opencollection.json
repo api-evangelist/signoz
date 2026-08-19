@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SigNoz alerts authz API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "authz",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}:{port}{base_path}/api/v1/authz/check",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Checks if the authenticated user has permissions for given transactions"
+        },
+        {
+          "info": {
+            "name": "Get resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}:{port}{base_path}/api/v1/authz/resources"
+          },
+          "docs": "Gets all the available resources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
