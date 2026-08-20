@@ -31,6 +31,18 @@ tags:
   - Metrics
   - Observability
   - OpenTelemetry
+  - Open-Source
+tags_raw:
+  - APM
+  - Alerting
+  - Cloud Monitoring
+  - Dashboards
+  - Distributed Tracing
+  - Infrastructure Monitoring
+  - Logs
+  - Metrics
+  - Observability
+  - OpenTelemetry
   - Open Source
 url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/apis.yml
 created: '2026-03-25'
@@ -43,6 +55,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Alerts
+  tags_raw:
   - alerts
   properties:
   - type: OpenAPI
@@ -127,6 +141,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Channels
+  tags_raw:
   - channels
   properties:
   - type: OpenAPI
@@ -155,6 +171,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Cloud Integration
+  tags_raw:
   - cloudintegration
   properties:
   - type: OpenAPI
@@ -183,6 +201,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Dashboard
+  tags_raw:
   - dashboard
   properties:
   - type: OpenAPI
@@ -239,6 +259,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Features
+  tags_raw:
   - features
   properties:
   - type: OpenAPI
@@ -267,6 +289,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Fields
+  tags_raw:
   - fields
   properties:
   - type: OpenAPI
@@ -295,6 +319,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Gateway
+  tags_raw:
   - gateway
   properties:
   - type: OpenAPI
@@ -323,6 +349,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Global
+  tags_raw:
   - global
   properties:
   - type: OpenAPI
@@ -351,6 +379,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Health
+  tags_raw:
   - health
   properties:
   - type: OpenAPI
@@ -435,6 +465,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Logs
+  tags_raw:
   - logs
   properties:
   - type: OpenAPI
@@ -463,6 +495,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Metrics
+  tags_raw:
   - metrics
   properties:
   - type: OpenAPI
@@ -491,6 +525,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Organization
+  tags_raw:
   - orgs
   properties:
   - type: OpenAPI
@@ -519,6 +555,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Preferences
+  tags_raw:
   - preferences
   properties:
   - type: OpenAPI
@@ -575,6 +613,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Role
+  tags_raw:
   - role
   properties:
   - type: OpenAPI
@@ -631,6 +671,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Rules
+  tags_raw:
   - rules
   properties:
   - type: OpenAPI
@@ -659,6 +701,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - ServiceAccount
+  tags_raw:
   - serviceaccount
   properties:
   - type: OpenAPI
@@ -687,6 +731,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Sessions
+  tags_raw:
   - sessions
   properties:
   - type: OpenAPI
@@ -771,6 +817,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - Traces
+  tags_raw:
   - traces
   properties:
   - type: OpenAPI
@@ -799,6 +847,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
