@@ -6,6 +6,19 @@ description: >-
   DataDog, NewRelic, and other proprietary monitoring solutions. SigNoz provides distributed tracing, log management,
   infrastructure monitoring, and alerting capabilities unified under a single interface.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -900,6 +913,16 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/SigNoz/signoz/issues
+  - type: Releases
+    url: https://github.com/SigNoz/signoz/releases
+  - type: SecurityPolicy
+    url: https://github.com/SigNoz/signoz/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/SigNoz/signoz/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/SigNoz/signoz/blob/main/CONTRIBUTING.md
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/signoz/overview
   - type: AgenticAccess
