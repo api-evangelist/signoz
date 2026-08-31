@@ -5,7 +5,7 @@
       "source": "https://signoz.io/rss/",
       "feed_url": "https://signoz.io/rss/",
       "title": "",
-      "saved": 0,
+      "saved": 7,
       "method": "feed"
     },
     {
@@ -16,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 504,
-  "fetched": "2026-08-22T20:20:02Z"
+  "post_count": 552,
+  "fetched": "2026-08-30T22:33:40Z"
 }

@@ -184,7 +184,7 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
-  - Cloud Integration
+  - cloudintegration
   tags_raw:
   - cloudintegration
   properties:
@@ -538,7 +538,7 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
-  - Organization
+  - orgs
   tags_raw:
   - orgs
   properties:
@@ -568,7 +568,7 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
-  - Preferences
+  - preferences
   tags_raw:
   - preferences
   properties:
@@ -684,7 +684,7 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
-  - Rules
+  - rules
   tags_raw:
   - rules
   properties:
@@ -714,7 +714,7 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
-  - ServiceAccount
+  - serviceaccount
   tags_raw:
   - serviceaccount
   properties:
@@ -830,7 +830,7 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
-  - Traces
+  - traces
   tags_raw:
   - traces
   properties:
