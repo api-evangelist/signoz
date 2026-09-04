@@ -26,11 +26,12 @@ accessModel:
   try_now: true
   public: false
   label: Freemium · Self-serve signup
-  confidence: high
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/signoz.png
 tags:
@@ -913,6 +914,9 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/signoz-capability-edges.yml
+    name: SigNoz Business Capability Map
   - type: IssueTracker
     url: https://github.com/SigNoz/signoz/issues
   - type: Releases
