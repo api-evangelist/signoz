@@ -179,36 +179,6 @@ apis:
   - type: Vocabulary
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
-- aid: signoz:signoz-cloudintegration-api
-  name: SigNoz cloudintegration API
-  description: The cloudintegration API from SigNoz — 8 operation(s) for cloudintegration.
-  humanURL: https://signoz.io
-  baseURL: https://{host}:{port}
-  tags:
-  - Cloud Integration
-  tags_raw:
-  - cloudintegration
-  properties:
-  - type: OpenAPI
-    url: openapi/signoz-cloudintegration-api-openapi.yml
-  - type: Documentation
-    url: https://signoz.io/docs/
-  - type: APIReference
-    url: https://signoz.io/api-reference/
-  - type: GitHubRepository
-    url: https://github.com/SigNoz/signoz
-  - type: Pricing
-    url: https://signoz.io/pricing/
-  - type: GettingStarted
-    url: https://signoz.io/docs/introduction/
-  - type: ChangeLog
-    url: https://signoz.io/changelog/
-  - type: Rules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
-  - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-dashboard-api
   name: SigNoz dashboard API
   description: The dashboard API from SigNoz — 3 operation(s) for dashboard.
@@ -709,36 +679,6 @@ apis:
   - type: Vocabulary
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
-- aid: signoz:signoz-serviceaccount-api
-  name: SigNoz serviceaccount API
-  description: The serviceaccount API from SigNoz — 7 operation(s) for serviceaccount.
-  humanURL: https://signoz.io
-  baseURL: https://{host}:{port}
-  tags:
-  - ServiceAccount
-  tags_raw:
-  - serviceaccount
-  properties:
-  - type: OpenAPI
-    url: openapi/signoz-serviceaccount-api-openapi.yml
-  - type: Documentation
-    url: https://signoz.io/docs/
-  - type: APIReference
-    url: https://signoz.io/api-reference/
-  - type: GitHubRepository
-    url: https://github.com/SigNoz/signoz
-  - type: Pricing
-    url: https://signoz.io/pricing/
-  - type: GettingStarted
-    url: https://signoz.io/docs/introduction/
-  - type: ChangeLog
-    url: https://signoz.io/changelog/
-  - type: Rules
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
-  - type: Vocabulary
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-sessions-api
   name: SigNoz sessions API
   description: The sessions API from SigNoz — 7 operation(s) for sessions.
@@ -895,6 +835,62 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/signoz-zeus-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-cloud-integration-api
+  name: SigNoz Cloud Integration API
+  description: The Cloud Integration API from SigNoz — 8 operation(s) for cloud integration.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - Cloud Integration
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-cloud-integration-api-openapi.yml
+  - type: Documentation
+    url: https://signoz.io/docs/
+  - type: APIReference
+    url: https://signoz.io/api-reference/
+  - type: GitHubRepository
+    url: https://github.com/SigNoz/signoz
+  - type: Pricing
+    url: https://signoz.io/pricing/
+  - type: GettingStarted
+    url: https://signoz.io/docs/introduction/
+  - type: ChangeLog
+    url: https://signoz.io/changelog/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/rules/signoz-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
+- aid: signoz:signoz-service-account-api
+  name: SigNoz Service Account API
+  description: The Service Account API from SigNoz — 7 operation(s) for service account.
+  humanURL: https://signoz.io
+  baseURL: https://{host}:{port}
+  tags:
+  - Service Account
+  properties:
+  - type: OpenAPI
+    url: openapi/signoz-service-account-api-openapi.yml
   - type: Documentation
     url: https://signoz.io/docs/
   - type: APIReference
