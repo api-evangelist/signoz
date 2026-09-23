@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts downtimeschedules API
+  title: SigNoz Downtimeschedules API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -33,13 +33,15 @@ paths:
       - in: query
         name: active
         schema:
-          nullable: true
-          type: boolean
+          type:
+          - boolean
+          - 'null'
       - in: query
         name: recurring
         schema:
-          nullable: true
-          type: boolean
+          type:
+          - boolean
+          - 'null'
       responses:
         '200':
           content:
@@ -300,28 +302,41 @@ paths:
       - downtimeschedules
 components:
   schemas:
-    RuletypesSchedule:
+    RuletypesMaintenanceStatus:
+      enum:
+      - active
+      - upcoming
+      - expired
+      type: string
+    ErrorsJSON:
       properties:
-        endTime:
-          format: date-time
+        code:
           type: string
-        recurrence:
-          $ref: '#/components/schemas/RuletypesRecurrence'
-        startTime:
-          format: date-time
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
           type: string
-        timezone:
+        url:
           type: string
       required:
-      - timezone
+      - code
+      - message
       type: object
+    RuletypesMaintenanceKind:
+      enum:
+      - fixed
+      - recurring
+      type: string
     RuletypesPostablePlannedMaintenance:
       properties:
         alertIds:
           items:
             type: string
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         description:
           type: string
         name:
@@ -342,74 +357,14 @@ components:
       - status
       - error
       type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    RuletypesMaintenanceStatus:
-      enum:
-      - active
-      - upcoming
-      - expired
-      type: string
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    RuletypesRepeatType:
-      enum:
-      - daily
-      - weekly
-      - monthly
-      type: string
-    RuletypesRecurrence:
-      properties:
-        duration:
-          type: string
-        endTime:
-          format: date-time
-          nullable: true
-          type: string
-        repeatOn:
-          items:
-            $ref: '#/components/schemas/RuletypesRepeatOn'
-          nullable: true
-          type: array
-        repeatType:
-          $ref: '#/components/schemas/RuletypesRepeatType'
-        startTime:
-          format: date-time
-          type: string
-      required:
-      - startTime
-      - duration
-      - repeatType
-      type: object
-    RuletypesMaintenanceKind:
-      enum:
-      - fixed
-      - recurring
-      type: string
     RuletypesPlannedMaintenance:
       properties:
         alertIds:
           items:
             type: string
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         createdAt:
           format: date-time
           type: string
@@ -449,6 +404,57 @@ components:
       - friday
       - saturday
       type: string
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    RuletypesSchedule:
+      properties:
+        endTime:
+          format: date-time
+          type: string
+        recurrence:
+          $ref: '#/components/schemas/RuletypesRecurrence'
+        startTime:
+          format: date-time
+          type: string
+        timezone:
+          type: string
+      required:
+      - timezone
+      type: object
+    RuletypesRepeatType:
+      enum:
+      - daily
+      - weekly
+      - monthly
+      type: string
+    RuletypesRecurrence:
+      properties:
+        duration:
+          type: string
+        endTime:
+          format: date-time
+          type:
+          - string
+          - 'null'
+        repeatOn:
+          items:
+            $ref: '#/components/schemas/RuletypesRepeatOn'
+          type:
+          - array
+          - 'null'
+        repeatType:
+          $ref: '#/components/schemas/RuletypesRepeatType'
+        startTime:
+          format: date-time
+          type: string
+      required:
+      - startTime
+      - duration
+      - repeatType
+      type: object
   securitySchemes:
     api_key:
       description: API Keys

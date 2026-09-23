@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts tracedetail API
+  title: SigNoz Tracedetail API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -95,89 +95,26 @@ paths:
       - tracedetail
 components:
   schemas:
-    TracedetailtypesSpanAggregationResult:
+    TracedetailtypesSpanAggregation:
       properties:
         aggregation:
           $ref: '#/components/schemas/TracedetailtypesSpanAggregationType'
         field:
           $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
-        value:
-          additionalProperties:
-            minimum: 0
-            type: integer
-          nullable: true
-          type: object
       type: object
-    TelemetrytypesFieldDataType:
+    TelemetrytypesSignal:
       enum:
-      - string
-      - bool
-      - float64
-      - int64
-      - number
+      - traces
+      - logs
+      - metrics
       type: string
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    TelemetrytypesTelemetryFieldKey:
-      properties:
-        description:
-          type: string
-        fieldContext:
-          $ref: '#/components/schemas/TelemetrytypesFieldContext'
-        fieldDataType:
-          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        name:
-          type: string
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        unit:
-          type: string
-      required:
-      - name
-      type: object
-    TracedetailtypesEvent:
-      properties:
-        attributeMap:
-          additionalProperties: {}
-          type: object
-        isError:
-          type: boolean
-        name:
-          type: string
-        timeUnixNano:
-          minimum: 0
-          type: integer
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
     TracedetailtypesWaterfallSpan:
       properties:
         attributes:
           additionalProperties: {}
-          nullable: true
-          type: object
+          type:
+          - object
+          - 'null'
         db_name:
           type: string
         db_operation:
@@ -188,8 +125,9 @@ components:
         events:
           items:
             $ref: '#/components/schemas/TracedetailtypesEvent'
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         external_http_method:
           type: string
         external_http_url:
@@ -221,8 +159,9 @@ components:
         resource:
           additionalProperties:
             type: string
-          nullable: true
-          type: object
+          type:
+          - object
+          - 'null'
         response_status_code:
           type: string
         span_id:
@@ -241,18 +180,88 @@ components:
         trace_state:
           type: string
       type: object
-    ErrorsResponseerroradditional:
+    TracedetailtypesPostableWaterfall:
       properties:
+        aggregations:
+          items:
+            $ref: '#/components/schemas/TracedetailtypesSpanAggregation'
+          type:
+          - array
+          - 'null'
+        limit:
+          minimum: 0
+          type: integer
+        selectedSpanId:
+          type: string
+        uncollapsedSpans:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
         message:
           type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    TelemetrytypesFieldContext:
+      enum:
+      - metric
+      - log
+      - span
+      - resource
+      - attribute
+      - body
+      type: string
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    TracedetailtypesSpanAggregationType:
+      enum:
+      - span_count
+      - execution_time_percentage
+      - duration
+      type: string
+    TracedetailtypesEvent:
+      properties:
+        attributeMap:
+          additionalProperties: {}
+          type: object
+        isError:
+          type: boolean
+        name:
+          type: string
+        timeUnixNano:
+          minimum: 0
+          type: integer
       type: object
     TracedetailtypesGettableWaterfallTrace:
       properties:
         aggregations:
           items:
             $ref: '#/components/schemas/TracedetailtypesSpanAggregationResult'
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         endTimestampMillis:
           minimum: 0
           type: integer
@@ -268,13 +277,15 @@ components:
           additionalProperties:
             minimum: 0
             type: integer
-          nullable: true
-          type: object
+          type:
+          - object
+          - 'null'
         spans:
           items:
             $ref: '#/components/schemas/TracedetailtypesWaterfallSpan'
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         startTimestampMillis:
           minimum: 0
           type: integer
@@ -287,54 +298,53 @@ components:
         uncollapsedSpans:
           items:
             type: string
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
       type: object
-    TelemetrytypesSignal:
-      enum:
-      - traces
-      - logs
-      - metrics
-      type: string
-    TelemetrytypesFieldContext:
-      enum:
-      - metric
-      - log
-      - span
-      - resource
-      - attribute
-      - body
-      type: string
-    TracedetailtypesPostableWaterfall:
+    TelemetrytypesTelemetryFieldKey:
       properties:
-        aggregations:
-          items:
-            $ref: '#/components/schemas/TracedetailtypesSpanAggregation'
-          nullable: true
-          type: array
-        limit:
-          minimum: 0
-          type: integer
-        selectedSpanId:
+        description:
           type: string
-        uncollapsedSpans:
-          items:
-            type: string
-          nullable: true
-          type: array
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        name:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
       type: object
-    TracedetailtypesSpanAggregationType:
+    TelemetrytypesFieldDataType:
       enum:
-      - span_count
-      - execution_time_percentage
-      - duration
+      - string
+      - bool
+      - float64
+      - int64
+      - number
       type: string
-    TracedetailtypesSpanAggregation:
+    TracedetailtypesSpanAggregationResult:
       properties:
         aggregation:
           $ref: '#/components/schemas/TracedetailtypesSpanAggregationType'
         field:
           $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+        value:
+          additionalProperties:
+            minimum: 0
+            type: integer
+          type:
+          - object
+          - 'null'
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
       type: object
   securitySchemes:
     api_key:

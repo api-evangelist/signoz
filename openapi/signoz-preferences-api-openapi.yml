@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts preferences API
+  title: SigNoz Preferences API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: preferences
+- name: Preferences
 paths:
   /api/v1/org/preferences:
     get:
@@ -71,7 +71,7 @@ paths:
         - ADMIN
       summary: List org preferences
       tags:
-      - preferences
+      - Preferences
   /api/v1/org/preferences/{name}:
     get:
       deprecated: false
@@ -135,7 +135,7 @@ paths:
         - ADMIN
       summary: Get org preference
       tags:
-      - preferences
+      - Preferences
     put:
       deprecated: false
       description: This endpoint updates the org preference by name
@@ -191,7 +191,7 @@ paths:
         - ADMIN
       summary: Update org preference
       tags:
-      - preferences
+      - Preferences
   /api/v1/user/preferences:
     get:
       deprecated: false
@@ -239,7 +239,7 @@ paths:
         - VIEWER
       summary: List user preferences
       tags:
-      - preferences
+      - Preferences
   /api/v1/user/preferences/{name}:
     get:
       deprecated: false
@@ -297,7 +297,7 @@ paths:
         - VIEWER
       summary: Get user preference
       tags:
-      - preferences
+      - Preferences
     put:
       deprecated: false
       description: This endpoint updates the user preference by name
@@ -353,19 +353,9 @@ paths:
         - VIEWER
       summary: Update user preference
       tags:
-      - preferences
+      - Preferences
 components:
   schemas:
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
     ErrorsJSON:
       properties:
         code:
@@ -382,14 +372,15 @@ components:
       - code
       - message
       type: object
-    PreferencetypesUpdatablePreference:
+    RenderErrorResponse:
       properties:
-        value: {}
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
           type: string
+      required:
+      - status
+      - error
       type: object
     PreferencetypesValue:
       type: object
@@ -398,13 +389,15 @@ components:
         allowedScopes:
           items:
             type: string
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         allowedValues:
           items:
             type: string
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         defaultValue:
           $ref: '#/components/schemas/PreferencetypesValue'
         description:
@@ -414,6 +407,15 @@ components:
         value:
           $ref: '#/components/schemas/PreferencetypesValue'
         valueType:
+          type: string
+      type: object
+    PreferencetypesUpdatablePreference:
+      properties:
+        value: {}
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
           type: string
       type: object
   securitySchemes:

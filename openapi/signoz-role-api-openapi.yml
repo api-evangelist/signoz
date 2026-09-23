@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts role API
+  title: SigNoz Role API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: role
+- name: Role
 paths:
   /api/v1/roles:
     get:
@@ -71,7 +71,7 @@ paths:
         - ADMIN
       summary: List roles
       tags:
-      - role
+      - Role
     post:
       deprecated: false
       description: This endpoint creates a role
@@ -145,7 +145,7 @@ paths:
         - ADMIN
       summary: Create role
       tags:
-      - role
+      - Role
   /api/v1/roles/{id}:
     delete:
       deprecated: false
@@ -207,7 +207,7 @@ paths:
         - ADMIN
       summary: Delete role
       tags:
-      - role
+      - Role
     get:
       deprecated: false
       description: This endpoint gets a role
@@ -258,7 +258,7 @@ paths:
         - ADMIN
       summary: Get role
       tags:
-      - role
+      - Role
     patch:
       deprecated: false
       description: This endpoint patches a role
@@ -324,7 +324,7 @@ paths:
         - ADMIN
       summary: Patch role
       tags:
-      - role
+      - Role
   /api/v1/roles/{id}/relations/{relation}/objects:
     get:
       deprecated: false
@@ -401,7 +401,7 @@ paths:
         - ADMIN
       summary: Get objects for a role by relation
       tags:
-      - role
+      - Role
     patch:
       deprecated: false
       description: Patches the objects connected to the specified role via a given relation type
@@ -478,66 +478,9 @@ paths:
         - ADMIN
       summary: Patch objects for a role by relation
       tags:
-      - role
+      - Role
 components:
   schemas:
-    AuthtypesPostableRole:
-      properties:
-        description:
-          type: string
-        name:
-          type: string
-      required:
-      - name
-      type: object
-    AuthtypesGettableObjects:
-      properties:
-        resource:
-          $ref: '#/components/schemas/AuthtypesResource'
-        selectors:
-          items:
-            type: string
-          type: array
-      required:
-      - resource
-      - selectors
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    AuthtypesPatchableObjects:
-      properties:
-        additions:
-          items:
-            $ref: '#/components/schemas/AuthtypesGettableObjects'
-          nullable: true
-          type: array
-        deletions:
-          items:
-            $ref: '#/components/schemas/AuthtypesGettableObjects'
-          nullable: true
-          type: array
-      required:
-      - additions
-      - deletions
-      type: object
-    AuthtypesResource:
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-      required:
-      - name
-      - type
-      type: object
     ErrorsJSON:
       properties:
         code:
@@ -554,17 +497,27 @@ components:
       - code
       - message
       type: object
-    AuthtypesPatchableRole:
+    RenderErrorResponse:
       properties:
-        description:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
           type: string
       required:
-      - description
+      - status
+      - error
       type: object
-    ErrorsResponseerroradditional:
+    AuthtypesGettableObjects:
       properties:
-        message:
-          type: string
+        resource:
+          $ref: '#/components/schemas/AuthtypesResource'
+        selectors:
+          items:
+            type: string
+          type: array
+      required:
+      - resource
+      - selectors
       type: object
     AuthtypesRole:
       properties:
@@ -591,12 +544,61 @@ components:
       - type
       - orgId
       type: object
+    AuthtypesPostableRole:
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+      required:
+      - name
+      type: object
     TypesIdentifiable:
       properties:
         id:
           type: string
       required:
       - id
+      type: object
+    AuthtypesResource:
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - type
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    AuthtypesPatchableRole:
+      properties:
+        description:
+          type: string
+      required:
+      - description
+      type: object
+    AuthtypesPatchableObjects:
+      properties:
+        additions:
+          items:
+            $ref: '#/components/schemas/AuthtypesGettableObjects'
+          type:
+          - array
+          - 'null'
+        deletions:
+          items:
+            $ref: '#/components/schemas/AuthtypesGettableObjects'
+          type:
+          - array
+          - 'null'
+      required:
+      - additions
+      - deletions
       type: object
   securitySchemes:
     api_key:

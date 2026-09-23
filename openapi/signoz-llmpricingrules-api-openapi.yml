@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts llmpricingrules API
+  title: SigNoz Llmpricingrules API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -234,20 +234,6 @@ paths:
       - llmpricingrules
 components:
   schemas:
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    LlmpricingruletypesLLMPricingRuleUnit:
-      enum:
-      - per_million_tokens
-      type: string
     LlmpricingruletypesLLMPricingRuleCacheMode:
       enum:
       - subtract
@@ -269,6 +255,116 @@ components:
       required:
       - code
       - message
+      type: object
+    LlmpricingruletypesUpdatableLLMPricingRules:
+      properties:
+        rules:
+          items:
+            $ref: '#/components/schemas/LlmpricingruletypesUpdatableLLMPricingRule'
+          type:
+          - array
+          - 'null'
+      required:
+      - rules
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    LlmpricingruletypesLLMPricingRuleUnit:
+      enum:
+      - per_million_tokens
+      type: string
+    LlmpricingruletypesUpdatableLLMPricingRule:
+      properties:
+        enabled:
+          type: boolean
+        id:
+          type:
+          - string
+          - 'null'
+        isOverride:
+          type:
+          - boolean
+          - 'null'
+        modelName:
+          type: string
+        modelPattern:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        pricing:
+          $ref: '#/components/schemas/LlmpricingruletypesLLMRulePricing'
+        provider:
+          type: string
+        sourceId:
+          type:
+          - string
+          - 'null'
+        unit:
+          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRuleUnit'
+      required:
+      - modelName
+      - provider
+      - modelPattern
+      - unit
+      - pricing
+      - enabled
+      type: object
+    LlmpricingruletypesLLMRulePricing:
+      properties:
+        cache:
+          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingCacheCosts'
+        input:
+          format: double
+          type: number
+        output:
+          format: double
+          type: number
+      required:
+      - input
+      - output
+      type: object
+    LlmpricingruletypesGettablePricingRules:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRule'
+          type:
+          - array
+          - 'null'
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+      required:
+      - items
+      - total
+      - offset
+      - limit
+      type: object
+    LlmpricingruletypesLLMPricingCacheCosts:
+      properties:
+        mode:
+          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRuleCacheMode'
+        read:
+          format: double
+          type: number
+        write:
+          format: double
+          type: number
+      required:
+      - mode
       type: object
     LlmpricingruletypesLLMPricingRule:
       properties:
@@ -297,8 +393,9 @@ components:
           type: string
         syncedAt:
           format: date-time
-          nullable: true
-          type: string
+          type:
+          - string
+          - 'null'
         unit:
           $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRuleUnit'
         updatedAt:
@@ -317,105 +414,16 @@ components:
       - isOverride
       - enabled
       type: object
+    LlmpricingruletypesStringSlice:
+      items:
+        type: string
+      type:
+      - array
+      - 'null'
     ErrorsResponseerroradditional:
       properties:
         message:
           type: string
-      type: object
-    LlmpricingruletypesGettablePricingRules:
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRule'
-          nullable: true
-          type: array
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
-      required:
-      - items
-      - total
-      - offset
-      - limit
-      type: object
-    LlmpricingruletypesUpdatableLLMPricingRule:
-      properties:
-        enabled:
-          type: boolean
-        id:
-          nullable: true
-          type: string
-        isOverride:
-          nullable: true
-          type: boolean
-        modelName:
-          type: string
-        modelPattern:
-          items:
-            type: string
-          nullable: true
-          type: array
-        pricing:
-          $ref: '#/components/schemas/LlmpricingruletypesLLMRulePricing'
-        provider:
-          type: string
-        sourceId:
-          nullable: true
-          type: string
-        unit:
-          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRuleUnit'
-      required:
-      - modelName
-      - provider
-      - modelPattern
-      - unit
-      - pricing
-      - enabled
-      type: object
-    LlmpricingruletypesUpdatableLLMPricingRules:
-      properties:
-        rules:
-          items:
-            $ref: '#/components/schemas/LlmpricingruletypesUpdatableLLMPricingRule'
-          nullable: true
-          type: array
-      required:
-      - rules
-      type: object
-    LlmpricingruletypesLLMPricingCacheCosts:
-      properties:
-        mode:
-          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRuleCacheMode'
-        read:
-          format: double
-          type: number
-        write:
-          format: double
-          type: number
-      required:
-      - mode
-      type: object
-    LlmpricingruletypesStringSlice:
-      items:
-        type: string
-      nullable: true
-      type: array
-    LlmpricingruletypesLLMRulePricing:
-      properties:
-        cache:
-          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingCacheCosts'
-        input:
-          format: double
-          type: number
-        output:
-          format: double
-          type: number
-      required:
-      - input
-      - output
       type: object
   securitySchemes:
     api_key:

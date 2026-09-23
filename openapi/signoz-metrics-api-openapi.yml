@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts metrics API
+  title: SigNoz Metrics API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: metrics
+- name: Metrics
 paths:
   /api/v2/metrics:
     get:
@@ -33,13 +33,15 @@ paths:
       - in: query
         name: start
         schema:
-          nullable: true
-          type: integer
+          type:
+          - integer
+          - 'null'
       - in: query
         name: end
         schema:
-          nullable: true
-          type: integer
+          type:
+          - integer
+          - 'null'
       - in: query
         name: limit
         schema:
@@ -98,7 +100,7 @@ paths:
         - VIEWER
       summary: List metric names
       tags:
-      - metrics
+      - Metrics
   /api/v2/metrics/{metric_name}/alerts:
     get:
       deprecated: false
@@ -162,7 +164,7 @@ paths:
         - VIEWER
       summary: Get metric alerts
       tags:
-      - metrics
+      - Metrics
   /api/v2/metrics/{metric_name}/attributes:
     get:
       deprecated: false
@@ -172,13 +174,15 @@ paths:
       - in: query
         name: start
         schema:
-          nullable: true
-          type: integer
+          type:
+          - integer
+          - 'null'
       - in: query
         name: end
         schema:
-          nullable: true
-          type: integer
+          type:
+          - integer
+          - 'null'
       - in: path
         name: metric_name
         required: true
@@ -236,7 +240,7 @@ paths:
         - VIEWER
       summary: Get metric attributes
       tags:
-      - metrics
+      - Metrics
   /api/v2/metrics/{metric_name}/dashboards:
     get:
       deprecated: false
@@ -300,7 +304,7 @@ paths:
         - VIEWER
       summary: Get metric dashboards
       tags:
-      - metrics
+      - Metrics
   /api/v2/metrics/{metric_name}/highlights:
     get:
       deprecated: false
@@ -364,7 +368,7 @@ paths:
         - VIEWER
       summary: Get metric highlights
       tags:
-      - metrics
+      - Metrics
   /api/v2/metrics/{metric_name}/metadata:
     get:
       deprecated: false
@@ -428,7 +432,7 @@ paths:
         - VIEWER
       summary: Get metric metadata
       tags:
-      - metrics
+      - Metrics
     post:
       deprecated: false
       description: This endpoint helps to update metadata information like metric description, unit, type, temporality, monotonicity for a specified metric
@@ -482,7 +486,7 @@ paths:
         - EDITOR
       summary: Update metric metadata
       tags:
-      - metrics
+      - Metrics
   /api/v2/metrics/inspect:
     post:
       deprecated: false
@@ -539,7 +543,7 @@ paths:
         - VIEWER
       summary: Inspect raw metric data points
       tags:
-      - metrics
+      - Metrics
   /api/v2/metrics/onboarding:
     get:
       deprecated: false
@@ -585,7 +589,7 @@ paths:
         - VIEWER
       summary: Check if non-SigNoz metrics have been received
       tags:
-      - metrics
+      - Metrics
   /api/v2/metrics/stats:
     post:
       deprecated: false
@@ -642,7 +646,7 @@ paths:
         - VIEWER
       summary: Get metrics statistics
       tags:
-      - metrics
+      - Metrics
   /api/v2/metrics/treemap:
     post:
       deprecated: false
@@ -699,52 +703,9 @@ paths:
         - VIEWER
       summary: Get metrics treemap
       tags:
-      - metrics
+      - Metrics
 components:
   schemas:
-    MetricsexplorertypesTreemapResponse:
-      properties:
-        samples:
-          items:
-            $ref: '#/components/schemas/MetricsexplorertypesTreemapEntry'
-          nullable: true
-          type: array
-        timeseries:
-          items:
-            $ref: '#/components/schemas/MetricsexplorertypesTreemapEntry'
-          nullable: true
-          type: array
-      required:
-      - timeseries
-      - samples
-      type: object
-    MetricsexplorertypesListMetricsResponse:
-      properties:
-        metrics:
-          items:
-            $ref: '#/components/schemas/MetricsexplorertypesListMetric'
-          nullable: true
-          type: array
-      required:
-      - metrics
-      type: object
-    Querybuildertypesv5OrderByKey:
-      properties:
-        description:
-          type: string
-        fieldContext:
-          $ref: '#/components/schemas/TelemetrytypesFieldContext'
-        fieldDataType:
-          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        name:
-          type: string
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        unit:
-          type: string
-      required:
-      - name
-      type: object
     MetricsexplorertypesMetricDashboard:
       properties:
         dashboardId:
@@ -761,155 +722,68 @@ components:
       - widgetId
       - widgetName
       type: object
+    MetricsexplorertypesInspectMetricsRequest:
+      properties:
+        end:
+          format: int64
+          type: integer
+        filter:
+          $ref: '#/components/schemas/Querybuildertypesv5Filter'
+        metricName:
+          type: string
+        start:
+          format: int64
+          type: integer
+      required:
+      - metricName
+      - start
+      - end
+      type: object
+    MetricsexplorertypesTreemapRequest:
+      properties:
+        end:
+          format: int64
+          type: integer
+        filter:
+          $ref: '#/components/schemas/Querybuildertypesv5Filter'
+        limit:
+          type: integer
+        mode:
+          $ref: '#/components/schemas/MetricsexplorertypesTreemapMode'
+        start:
+          format: int64
+          type: integer
+      required:
+      - start
+      - end
+      - limit
+      - mode
+      type: object
+    TelemetrytypesFieldDataType:
+      enum:
+      - string
+      - bool
+      - float64
+      - int64
+      - number
+      type: string
     Querybuildertypesv5Label:
       properties:
         key:
           $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
         value: {}
       type: object
-    TelemetrytypesSignal:
-      enum:
-      - traces
-      - logs
-      - metrics
-      type: string
-    MetricsexplorertypesMetricHighlightsResponse:
+    MetricsexplorertypesMetricAlertsResponse:
       properties:
-        activeTimeSeries:
-          minimum: 0
-          type: integer
-        dataPoints:
-          minimum: 0
-          type: integer
-        lastReceived:
-          minimum: 0
-          type: integer
-        totalTimeSeries:
-          minimum: 0
-          type: integer
-      required:
-      - dataPoints
-      - lastReceived
-      - totalTimeSeries
-      - activeTimeSeries
-      type: object
-    MetricsexplorertypesMetricAttribute:
-      properties:
-        key:
-          type: string
-        valueCount:
-          minimum: 0
-          type: integer
-        values:
+        alerts:
           items:
-            type: string
-          nullable: true
-          type: array
+            $ref: '#/components/schemas/MetricsexplorertypesMetricAlert'
+          type:
+          - array
+          - 'null'
       required:
-      - key
-      - values
-      - valueCount
+      - alerts
       type: object
-    MetricsexplorertypesListMetric:
-      properties:
-        description:
-          type: string
-        isMonotonic:
-          type: boolean
-        metricName:
-          type: string
-        temporality:
-          $ref: '#/components/schemas/MetrictypesTemporality'
-        type:
-          $ref: '#/components/schemas/MetrictypesType'
-        unit:
-          type: string
-      required:
-      - metricName
-      - description
-      - type
-      - unit
-      - temporality
-      - isMonotonic
-      type: object
-    MetrictypesType:
-      enum:
-      - gauge
-      - sum
-      - histogram
-      - summary
-      - exponentialhistogram
-      type: string
-    MetricsexplorertypesStatsResponse:
-      properties:
-        metrics:
-          items:
-            $ref: '#/components/schemas/MetricsexplorertypesStat'
-          nullable: true
-          type: array
-        total:
-          minimum: 0
-          type: integer
-      required:
-      - metrics
-      - total
-      type: object
-    MetricsexplorertypesMetricsOnboardingResponse:
-      properties:
-        hasMetrics:
-          type: boolean
-      required:
-      - hasMetrics
-      type: object
-    Querybuildertypesv5Filter:
-      properties:
-        expression:
-          type: string
-      type: object
-    MetricsexplorertypesStat:
-      properties:
-        description:
-          type: string
-        metricName:
-          type: string
-        samples:
-          minimum: 0
-          type: integer
-        timeseries:
-          minimum: 0
-          type: integer
-        type:
-          $ref: '#/components/schemas/MetrictypesType'
-        unit:
-          type: string
-      required:
-      - metricName
-      - description
-      - type
-      - unit
-      - timeseries
-      - samples
-      type: object
-    MetricsexplorertypesMetricAttributesResponse:
-      properties:
-        attributes:
-          items:
-            $ref: '#/components/schemas/MetricsexplorertypesMetricAttribute'
-          nullable: true
-          type: array
-        totalKeys:
-          format: int64
-          type: integer
-      required:
-      - attributes
-      - totalKeys
-      type: object
-    MetrictypesTemporality:
-      enum:
-      - delta
-      - cumulative
-      - unspecified
-      type: string
     MetricsexplorertypesTreemapEntry:
       properties:
         metricName:
@@ -925,105 +799,13 @@ components:
       - percentage
       - totalValue
       type: object
-    MetricsexplorertypesInspectMetricsResponse:
-      properties:
-        series:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
-          nullable: true
-          type: array
-      required:
-      - series
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    MetricsexplorertypesStatsRequest:
-      properties:
-        end:
-          format: int64
-          type: integer
-        filter:
-          $ref: '#/components/schemas/Querybuildertypesv5Filter'
-        limit:
-          type: integer
-        offset:
-          type: integer
-        orderBy:
-          $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
-        start:
-          format: int64
-          type: integer
-      required:
-      - start
-      - end
-      - limit
-      type: object
-    MetricsexplorertypesUpdateMetricMetadataRequest:
-      properties:
-        description:
-          type: string
-        isMonotonic:
-          type: boolean
-        metricName:
-          type: string
-        temporality:
-          $ref: '#/components/schemas/MetrictypesTemporality'
-        type:
-          $ref: '#/components/schemas/MetrictypesType'
-        unit:
-          type: string
-      required:
-      - metricName
-      - type
-      - description
-      - unit
-      - temporality
-      - isMonotonic
-      type: object
-    TelemetrytypesFieldDataType:
+    TelemetrytypesSignal:
       enum:
-      - string
-      - bool
-      - float64
-      - int64
-      - number
+      - traces
+      - logs
+      - metrics
       type: string
-    Querybuildertypesv5OrderBy:
-      properties:
-        direction:
-          $ref: '#/components/schemas/Querybuildertypesv5OrderDirection'
-        key:
-          $ref: '#/components/schemas/Querybuildertypesv5OrderByKey'
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    MetricsexplorertypesTreemapMode:
-      enum:
-      - timeseries
-      - samples
-      type: string
-    MetricsexplorertypesMetricDashboardsResponse:
-      properties:
-        dashboards:
-          items:
-            $ref: '#/components/schemas/MetricsexplorertypesMetricDashboard'
-          nullable: true
-          type: array
-      required:
-      - dashboards
-      type: object
-    TelemetrytypesTelemetryFieldKey:
+    Querybuildertypesv5OrderByKey:
       properties:
         description:
           type: string
@@ -1056,25 +838,50 @@ components:
       - code
       - message
       type: object
-    MetricsexplorertypesTreemapRequest:
+    MetricsexplorertypesInspectMetricsResponse:
       properties:
-        end:
-          format: int64
-          type: integer
-        filter:
-          $ref: '#/components/schemas/Querybuildertypesv5Filter'
-        limit:
-          type: integer
-        mode:
-          $ref: '#/components/schemas/MetricsexplorertypesTreemapMode'
-        start:
-          format: int64
-          type: integer
+        series:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+          type:
+          - array
+          - 'null'
       required:
-      - start
-      - end
-      - limit
-      - mode
+      - series
+      type: object
+    MetrictypesTemporality:
+      enum:
+      - delta
+      - cumulative
+      - unspecified
+      type: string
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    MetricsexplorertypesMetricAttribute:
+      properties:
+        key:
+          type: string
+        valueCount:
+          minimum: 0
+          type: integer
+        values:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - key
+      - values
+      - valueCount
       type: object
     Querybuildertypesv5TimeSeriesValue:
       properties:
@@ -1093,6 +900,97 @@ components:
             format: double
             type: number
           type: array
+      type: object
+    MetricsexplorertypesMetricAttributesResponse:
+      properties:
+        attributes:
+          items:
+            $ref: '#/components/schemas/MetricsexplorertypesMetricAttribute'
+          type:
+          - array
+          - 'null'
+        totalKeys:
+          format: int64
+          type: integer
+      required:
+      - attributes
+      - totalKeys
+      type: object
+    Querybuildertypesv5OrderBy:
+      properties:
+        direction:
+          $ref: '#/components/schemas/Querybuildertypesv5OrderDirection'
+        key:
+          $ref: '#/components/schemas/Querybuildertypesv5OrderByKey'
+      type: object
+    MetricsexplorertypesMetricAlert:
+      properties:
+        alertId:
+          type: string
+        alertName:
+          type: string
+      required:
+      - alertName
+      - alertId
+      type: object
+    Querybuildertypesv5TimeSeries:
+      properties:
+        labels:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5Label'
+          type: array
+        values:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesValue'
+          type:
+          - array
+          - 'null'
+      type: object
+    Querybuildertypesv5Bucket:
+      properties:
+        step:
+          format: double
+          type: number
+      type: object
+    MetricsexplorertypesTreemapResponse:
+      properties:
+        samples:
+          items:
+            $ref: '#/components/schemas/MetricsexplorertypesTreemapEntry'
+          type:
+          - array
+          - 'null'
+        timeseries:
+          items:
+            $ref: '#/components/schemas/MetricsexplorertypesTreemapEntry'
+          type:
+          - array
+          - 'null'
+      required:
+      - timeseries
+      - samples
+      type: object
+    MetricsexplorertypesListMetricsResponse:
+      properties:
+        metrics:
+          items:
+            $ref: '#/components/schemas/MetricsexplorertypesListMetric'
+          type:
+          - array
+          - 'null'
+      required:
+      - metrics
+      type: object
+    MetricsexplorertypesMetricDashboardsResponse:
+      properties:
+        dashboards:
+          items:
+            $ref: '#/components/schemas/MetricsexplorertypesMetricDashboard'
+          type:
+          - array
+          - 'null'
+      required:
+      - dashboards
       type: object
     MetricsexplorertypesMetricMetadata:
       properties:
@@ -1113,6 +1011,111 @@ components:
       - temporality
       - isMonotonic
       type: object
+    MetricsexplorertypesListMetric:
+      properties:
+        description:
+          type: string
+        isMonotonic:
+          type: boolean
+        metricName:
+          type: string
+        temporality:
+          $ref: '#/components/schemas/MetrictypesTemporality'
+        type:
+          $ref: '#/components/schemas/MetrictypesType'
+        unit:
+          type: string
+      required:
+      - metricName
+      - description
+      - type
+      - unit
+      - temporality
+      - isMonotonic
+      type: object
+    TelemetrytypesTelemetryFieldKey:
+      properties:
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        name:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    MetricsexplorertypesStatsResponse:
+      properties:
+        metrics:
+          items:
+            $ref: '#/components/schemas/MetricsexplorertypesStat'
+          type:
+          - array
+          - 'null'
+        total:
+          minimum: 0
+          type: integer
+      required:
+      - metrics
+      - total
+      type: object
+    MetricsexplorertypesUpdateMetricMetadataRequest:
+      properties:
+        description:
+          type: string
+        isMonotonic:
+          type: boolean
+        metricName:
+          type: string
+        temporality:
+          $ref: '#/components/schemas/MetrictypesTemporality'
+        type:
+          $ref: '#/components/schemas/MetrictypesType'
+        unit:
+          type: string
+      required:
+      - metricName
+      - type
+      - description
+      - unit
+      - temporality
+      - isMonotonic
+      type: object
+    MetricsexplorertypesStat:
+      properties:
+        description:
+          type: string
+        metricName:
+          type: string
+        samples:
+          minimum: 0
+          type: integer
+        timeseries:
+          minimum: 0
+          type: integer
+        type:
+          $ref: '#/components/schemas/MetrictypesType'
+        unit:
+          type: string
+      required:
+      - metricName
+      - description
+      - type
+      - unit
+      - timeseries
+      - samples
+      type: object
     Querybuildertypesv5OrderDirection:
       enum:
       - asc
@@ -1127,60 +1130,71 @@ components:
       - attribute
       - body
       type: string
-    Querybuildertypesv5Bucket:
-      properties:
-        step:
-          format: double
-          type: number
-      type: object
-    MetricsexplorertypesMetricAlert:
-      properties:
-        alertId:
-          type: string
-        alertName:
-          type: string
-      required:
-      - alertName
-      - alertId
-      type: object
-    MetricsexplorertypesInspectMetricsRequest:
+    MetricsexplorertypesStatsRequest:
       properties:
         end:
           format: int64
           type: integer
         filter:
           $ref: '#/components/schemas/Querybuildertypesv5Filter'
-        metricName:
-          type: string
+        limit:
+          type: integer
+        offset:
+          type: integer
+        orderBy:
+          $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
         start:
           format: int64
           type: integer
       required:
-      - metricName
       - start
       - end
+      - limit
       type: object
-    Querybuildertypesv5TimeSeries:
+    MetricsexplorertypesTreemapMode:
+      enum:
+      - timeseries
+      - samples
+      type: string
+    MetricsexplorertypesMetricHighlightsResponse:
       properties:
-        labels:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5Label'
-          type: array
-        values:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesValue'
-          nullable: true
-          type: array
-      type: object
-    MetricsexplorertypesMetricAlertsResponse:
-      properties:
-        alerts:
-          items:
-            $ref: '#/components/schemas/MetricsexplorertypesMetricAlert'
-          nullable: true
-          type: array
+        activeTimeSeries:
+          minimum: 0
+          type: integer
+        dataPoints:
+          minimum: 0
+          type: integer
+        lastReceived:
+          minimum: 0
+          type: integer
+        totalTimeSeries:
+          minimum: 0
+          type: integer
       required:
-      - alerts
+      - dataPoints
+      - lastReceived
+      - totalTimeSeries
+      - activeTimeSeries
+      type: object
+    MetrictypesType:
+      enum:
+      - gauge
+      - sum
+      - histogram
+      - summary
+      - exponentialhistogram
+      type: string
+    MetricsexplorertypesMetricsOnboardingResponse:
+      properties:
+        hasMetrics:
+          type: boolean
+      required:
+      - hasMetrics
+      type: object
+    Querybuildertypesv5Filter:
+      properties:
+        expression:
+          type: string
       type: object
   securitySchemes:
     api_key:

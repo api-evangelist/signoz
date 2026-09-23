@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts rules API
+  title: SigNoz Rules API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: rules
+- name: Rules
 paths:
   /api/v2/rules:
     get:
@@ -71,7 +71,7 @@ paths:
         - VIEWER
       summary: List alert rules
       tags:
-      - rules
+      - Rules
     post:
       deprecated: false
       description: This endpoint creates a new alert rule
@@ -858,7 +858,7 @@ paths:
         - EDITOR
       summary: Create alert rule
       tags:
-      - rules
+      - Rules
   /api/v2/rules/{id}:
     delete:
       deprecated: false
@@ -904,7 +904,7 @@ paths:
         - EDITOR
       summary: Delete alert rule
       tags:
-      - rules
+      - Rules
     get:
       deprecated: false
       description: This endpoint returns an alert rule by ID
@@ -961,7 +961,7 @@ paths:
         - VIEWER
       summary: Get alert rule by ID
       tags:
-      - rules
+      - Rules
     patch:
       deprecated: false
       description: This endpoint applies a partial update to an alert rule by ID
@@ -1760,7 +1760,7 @@ paths:
         - EDITOR
       summary: Patch alert rule
       tags:
-      - rules
+      - Rules
     put:
       deprecated: false
       description: This endpoint updates an alert rule by ID
@@ -2547,7 +2547,7 @@ paths:
         - EDITOR
       summary: Update alert rule
       tags:
-      - rules
+      - Rules
   /api/v2/rules/{id}/history/filter_keys:
     get:
       deprecated: false
@@ -2647,7 +2647,7 @@ paths:
         - VIEWER
       summary: Get rule history filter keys
       tags:
-      - rules
+      - Rules
   /api/v2/rules/{id}/history/filter_values:
     get:
       deprecated: false
@@ -2755,7 +2755,7 @@ paths:
         - VIEWER
       summary: Get rule history filter values
       tags:
-      - rules
+      - Rules
   /api/v2/rules/{id}/history/overall_status:
     get:
       deprecated: false
@@ -2788,8 +2788,9 @@ paths:
                   data:
                     items:
                       $ref: '#/components/schemas/RulestatehistorytypesGettableRuleStateWindow'
-                    nullable: true
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                   status:
                     type: string
                 required:
@@ -2828,7 +2829,7 @@ paths:
         - VIEWER
       summary: Get rule overall status timeline
       tags:
-      - rules
+      - Rules
   /api/v2/rules/{id}/history/stats:
     get:
       deprecated: false
@@ -2898,7 +2899,7 @@ paths:
         - VIEWER
       summary: Get rule history stats
       tags:
-      - rules
+      - Rules
   /api/v2/rules/{id}/history/timeline:
     get:
       deprecated: false
@@ -2989,7 +2990,7 @@ paths:
         - VIEWER
       summary: Get rule history timeline
       tags:
-      - rules
+      - Rules
   /api/v2/rules/{id}/history/top_contributors:
     get:
       deprecated: false
@@ -3022,8 +3023,9 @@ paths:
                   data:
                     items:
                       $ref: '#/components/schemas/RulestatehistorytypesGettableRuleStateHistoryContributor'
-                    nullable: true
-                    type: array
+                    type:
+                    - array
+                    - 'null'
                   status:
                     type: string
                 required:
@@ -3062,7 +3064,7 @@ paths:
         - VIEWER
       summary: Get top contributors to rule firing
       tags:
-      - rules
+      - Rules
   /api/v2/rules/test:
     post:
       deprecated: false
@@ -3850,59 +3852,39 @@ paths:
         - EDITOR
       summary: Test alert rule
       tags:
-      - rules
+      - Rules
 components:
   schemas:
-    Querybuildertypesv5FunctionName:
-      enum:
-      - cutoffmin
-      - cutoffmax
-      - clampmin
-      - clampmax
-      - absolute
-      - runningdiff
-      - log2
-      - log10
-      - cumulativesum
-      - ewma3
-      - ewma5
-      - ewma7
-      - median3
-      - median5
-      - median7
-      - timeshift
-      - anomaly
-      - fillzero
-      type: string
-    MetrictypesSpaceAggregation:
-      enum:
-      - sum
-      - avg
-      - min
-      - max
-      - count
-      - p50
-      - p75
-      - p90
-      - p95
-      - p99
-      type: string
-    Querybuildertypesv5Label:
+    Querybuildertypesv5Function:
       properties:
-        key:
-          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
-        value: {}
+        args:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5FunctionArg'
+          type: array
+        name:
+          $ref: '#/components/schemas/Querybuildertypesv5FunctionName'
       type: object
-    MetrictypesComparisonSpaceAggregationParam:
+    Querybuildertypesv5QueryEnvelopeBuilderMetric:
       properties:
-        operator:
+        spec:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5MetricAggregation'
+        type:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
+      type: object
+    Querybuildertypesv5MetricAggregation:
+      properties:
+        comparisonSpaceAggregationParam:
+          $ref: '#/components/schemas/MetrictypesComparisonSpaceAggregationParam'
+        metricName:
           type: string
-        threshold:
-          format: double
-          type: number
-      required:
-      - operator
-      - threshold
+        reduceTo:
+          $ref: '#/components/schemas/Querybuildertypesv5ReduceTo'
+        spaceAggregation:
+          $ref: '#/components/schemas/MetrictypesSpaceAggregation'
+        temporality:
+          $ref: '#/components/schemas/MetrictypesTemporality'
+        timeAggregation:
+          $ref: '#/components/schemas/MetrictypesTimeAggregation'
       type: object
     Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5TraceAggregation:
       properties:
@@ -3955,31 +3937,27 @@ components:
         stepInterval:
           $ref: '#/components/schemas/Querybuildertypesv5Step'
       type: object
-    RuletypesEvaluationRolling:
+    Querybuildertypesv5Label:
       properties:
-        kind:
-          $ref: '#/components/schemas/RuletypesEvaluationKind'
-        spec:
-          $ref: '#/components/schemas/RuletypesRollingWindow'
+        key:
+          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+        value: {}
       type: object
-    Querybuildertypesv5QueryEnvelopeClickHouseSQL:
+    Querybuildertypesv5PromQuery:
       properties:
-        spec:
-          $ref: '#/components/schemas/Querybuildertypesv5ClickHouseQuery'
-        type:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
+        disabled:
+          type: boolean
+        legend:
+          type: string
+        name:
+          type: string
+        query:
+          type: string
+        stats:
+          type: boolean
+        step:
+          $ref: '#/components/schemas/Querybuildertypesv5Step'
       type: object
-    Querybuildertypesv5QueryEnvelopeFormula:
-      properties:
-        spec:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderFormula'
-        type:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
-      type: object
-    TelemetrytypesSource:
-      enum:
-      - meter
-      type: string
     RuletypesRuleThresholdData:
       oneOf:
       - $ref: '#/components/schemas/RuletypesThresholdBasic'
@@ -3991,17 +3969,209 @@ components:
       - kind
       - spec
       type: object
-    Querybuildertypesv5Filter:
+    ErrorsJSON:
       properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    MetrictypesTemporality:
+      enum:
+      - delta
+      - cumulative
+      - unspecified
+      type: string
+    RulestatehistorytypesGettableRuleStateHistory:
+      properties:
+        fingerprint:
+          minimum: 0
+          type: integer
+        labels:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5Label'
+          type:
+          - array
+          - 'null'
+        overallState:
+          $ref: '#/components/schemas/RuletypesAlertState'
+        overallStateChanged:
+          type: boolean
+        ruleId:
+          type: string
+        ruleName:
+          type: string
+        state:
+          $ref: '#/components/schemas/RuletypesAlertState'
+        stateChanged:
+          type: boolean
+        unixMilli:
+          format: int64
+          type: integer
+        value:
+          format: double
+          type: number
+      required:
+      - ruleId
+      - ruleName
+      - overallState
+      - overallStateChanged
+      - state
+      - stateChanged
+      - unixMilli
+      - labels
+      - fingerprint
+      - value
+      type: object
+    Querybuildertypesv5FunctionArg:
+      properties:
+        name:
+          type: string
+        value: {}
+      type: object
+    TelemetrytypesSource:
+      enum:
+      - meter
+      type: string
+    Querybuildertypesv5TimeSeries:
+      properties:
+        labels:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5Label'
+          type: array
+        values:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesValue'
+          type:
+          - array
+          - 'null'
+      type: object
+    TelemetrytypesTelemetryFieldValues:
+      properties:
+        boolValues:
+          items:
+            type: boolean
+          type: array
+        numberValues:
+          items:
+            format: double
+            type: number
+          type: array
+        relatedValues:
+          items:
+            type: string
+          type: array
+        stringValues:
+          items:
+            type: string
+          type: array
+      type: object
+    TelemetrytypesTelemetryFieldKey:
+      properties:
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        name:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
+      type: object
+    Querybuildertypesv5TraceAggregation:
+      properties:
+        alias:
+          type: string
         expression:
           type: string
       type: object
-    Querybuildertypesv5QueryEnvelopeTraceOperator:
+    TelemetrytypesGettableFieldKeys:
       properties:
-        spec:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderTraceOperator'
+        complete:
+          type: boolean
+        keys:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+            type: array
+          type:
+          - object
+          - 'null'
+      required:
+      - keys
+      - complete
+      type: object
+    Querybuildertypesv5ClickHouseQuery:
+      properties:
+        disabled:
+          type: boolean
+        legend:
+          type: string
+        name:
+          type: string
+        query:
+          type: string
+      type: object
+    RuletypesRenotify:
+      properties:
+        alertStates:
+          items:
+            $ref: '#/components/schemas/RuletypesAlertState'
+          type: array
+        enabled:
+          type: boolean
+        interval:
+          type: string
+      type: object
+    MetrictypesSpaceAggregation:
+      enum:
+      - sum
+      - avg
+      - min
+      - max
+      - count
+      - p50
+      - p75
+      - p90
+      - p95
+      - p99
+      type: string
+    RuletypesCumulativeSchedule:
+      properties:
+        day:
+          type:
+          - integer
+          - 'null'
+        hour:
+          type:
+          - integer
+          - 'null'
+        minute:
+          type:
+          - integer
+          - 'null'
         type:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
+          $ref: '#/components/schemas/RuletypesScheduleType'
+        weekday:
+          type:
+          - integer
+          - 'null'
+      required:
+      - type
       type: object
     RuletypesAlertCompositeQuery:
       properties:
@@ -4010,8 +4180,9 @@ components:
         queries:
           items:
             $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelope'
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         queryType:
           $ref: '#/components/schemas/RuletypesQueryType'
         unit:
@@ -4021,30 +4192,91 @@ components:
       - panelType
       - queryType
       type: object
-    RuletypesCumulativeSchedule:
+    RuletypesPostableRule:
       properties:
-        day:
-          nullable: true
-          type: integer
-        hour:
-          nullable: true
-          type: integer
-        minute:
-          nullable: true
-          type: integer
-        type:
-          $ref: '#/components/schemas/RuletypesScheduleType'
-        weekday:
-          nullable: true
-          type: integer
+        alert:
+          type: string
+        alertType:
+          $ref: '#/components/schemas/RuletypesAlertType'
+        annotations:
+          additionalProperties:
+            type: string
+          type: object
+        condition:
+          $ref: '#/components/schemas/RuletypesRuleCondition'
+        description:
+          type: string
+        disabled:
+          type: boolean
+        evalWindow:
+          type: string
+        evaluation:
+          $ref: '#/components/schemas/RuletypesEvaluationEnvelope'
+        frequency:
+          type: string
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+        notificationSettings:
+          $ref: '#/components/schemas/RuletypesNotificationSettings'
+        preferredChannels:
+          items:
+            type: string
+          type: array
+        ruleType:
+          $ref: '#/components/schemas/RuletypesRuleType'
+        schemaVersion:
+          type: string
+        source:
+          type: string
+        version:
+          type: string
       required:
-      - type
+      - alert
+      - alertType
+      - ruleType
+      - condition
       type: object
-    MetrictypesTemporality:
+    Querybuildertypesv5FunctionName:
       enum:
-      - delta
-      - cumulative
-      - unspecified
+      - cutoffmin
+      - cutoffmax
+      - clampmin
+      - clampmax
+      - absolute
+      - runningdiff
+      - log2
+      - log10
+      - cumulativesum
+      - ewma3
+      - ewma5
+      - ewma7
+      - median3
+      - median5
+      - median7
+      - timeshift
+      - anomaly
+      - fillzero
+      type: string
+    RuletypesThresholdKind:
+      enum:
+      - basic
+      type: string
+    Querybuildertypesv5Having:
+      properties:
+        expression:
+          type: string
+      type: object
+    Querybuildertypesv5ReduceTo:
+      enum:
+      - sum
+      - count
+      - avg
+      - min
+      - max
+      - last
+      - median
       type: string
     RulestatehistorytypesGettableRuleStateHistoryContributor:
       properties:
@@ -4057,8 +4289,9 @@ components:
         labels:
           items:
             $ref: '#/components/schemas/Querybuildertypesv5Label'
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         relatedLogsLink:
           type: string
         relatedTracesLink:
@@ -4067,6 +4300,379 @@ components:
       - fingerprint
       - labels
       - count
+      type: object
+    Querybuildertypesv5TimeSeriesValue:
+      properties:
+        bucket:
+          $ref: '#/components/schemas/Querybuildertypesv5Bucket'
+        partial:
+          type: boolean
+        timestamp:
+          format: int64
+          type: integer
+        value:
+          format: double
+          type: number
+        values:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    RuletypesPanelType:
+      enum:
+      - value
+      - table
+      - graph
+      type: string
+    RulestatehistorytypesGettableRuleStateTimeline:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/RulestatehistorytypesGettableRuleStateHistory'
+          type:
+          - array
+          - 'null'
+        nextCursor:
+          type: string
+        total:
+          minimum: 0
+          type: integer
+      required:
+      - items
+      - total
+      type: object
+    RuletypesGettableTestRule:
+      properties:
+        alertCount:
+          type: integer
+        message:
+          type: string
+      type: object
+    Querybuildertypesv5Bucket:
+      properties:
+        step:
+          format: double
+          type: number
+      type: object
+    Querybuildertypesv5QueryEnvelopeBuilderTrace:
+      properties:
+        spec:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5TraceAggregation'
+        type:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
+      type: object
+    RulestatehistorytypesGettableRuleStateHistoryStats:
+      properties:
+        currentAvgResolutionTime:
+          format: double
+          type: number
+        currentAvgResolutionTimeSeries:
+          $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+        currentTriggersSeries:
+          $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+        pastAvgResolutionTime:
+          format: double
+          type: number
+        pastAvgResolutionTimeSeries:
+          $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+        pastTriggersSeries:
+          $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
+        totalCurrentTriggers:
+          minimum: 0
+          type: integer
+        totalPastTriggers:
+          minimum: 0
+          type: integer
+      required:
+      - totalCurrentTriggers
+      - totalPastTriggers
+      - currentTriggersSeries
+      - pastTriggersSeries
+      - currentAvgResolutionTime
+      - pastAvgResolutionTime
+      - currentAvgResolutionTimeSeries
+      - pastAvgResolutionTimeSeries
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    RuletypesScheduleType:
+      enum:
+      - hourly
+      - daily
+      - weekly
+      - monthly
+      type: string
+    RuletypesAlertState:
+      enum:
+      - inactive
+      - pending
+      - recovering
+      - firing
+      - nodata
+      - disabled
+      type: string
+    Querybuildertypesv5OrderDirection:
+      enum:
+      - asc
+      - desc
+      type: string
+    RuletypesEvaluationCumulative:
+      properties:
+        kind:
+          $ref: '#/components/schemas/RuletypesEvaluationKind'
+        spec:
+          $ref: '#/components/schemas/RuletypesCumulativeWindow'
+      type: object
+    RuletypesBasicRuleThreshold:
+      properties:
+        channels:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        matchType:
+          $ref: '#/components/schemas/RuletypesMatchType'
+        name:
+          type: string
+        op:
+          $ref: '#/components/schemas/RuletypesCompareOperator'
+        recoveryTarget:
+          type:
+          - number
+          - 'null'
+        target:
+          type:
+          - number
+          - 'null'
+        targetUnit:
+          type: string
+      required:
+      - name
+      - target
+      - matchType
+      - op
+      type: object
+    RuletypesRuleType:
+      enum:
+      - threshold_rule
+      - promql_rule
+      - anomaly_rule
+      type: string
+    Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5MetricAggregation:
+      properties:
+        aggregations:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5MetricAggregation'
+          type: array
+        cursor:
+          type: string
+        disabled:
+          type: boolean
+        filter:
+          $ref: '#/components/schemas/Querybuildertypesv5Filter'
+        functions:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5Function'
+          type: array
+        groupBy:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5GroupByKey'
+          type: array
+        having:
+          $ref: '#/components/schemas/Querybuildertypesv5Having'
+        legend:
+          type: string
+        limit:
+          type: integer
+        limitBy:
+          $ref: '#/components/schemas/Querybuildertypesv5LimitBy'
+        name:
+          type: string
+        offset:
+          type: integer
+        order:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
+          type: array
+        secondaryAggregations:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5SecondaryAggregation'
+          type: array
+        selectFields:
+          items:
+            $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+          type: array
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        source:
+          $ref: '#/components/schemas/TelemetrytypesSource'
+        stepInterval:
+          $ref: '#/components/schemas/Querybuildertypesv5Step'
+      type: object
+    MetrictypesTimeAggregation:
+      enum:
+      - latest
+      - sum
+      - avg
+      - min
+      - max
+      - count
+      - count_distinct
+      - rate
+      - increase
+      type: string
+    Querybuildertypesv5QueryEnvelopeClickHouseSQL:
+      properties:
+        spec:
+          $ref: '#/components/schemas/Querybuildertypesv5ClickHouseQuery'
+        type:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
+      type: object
+    Querybuildertypesv5QueryType:
+      enum:
+      - builder_query
+      - builder_formula
+      - builder_trace_operator
+      - clickhouse_sql
+      - promql
+      type: string
+    RulestatehistorytypesGettableRuleStateWindow:
+      properties:
+        end:
+          format: int64
+          type: integer
+        start:
+          format: int64
+          type: integer
+        state:
+          $ref: '#/components/schemas/RuletypesAlertState'
+      required:
+      - state
+      - start
+      - end
+      type: object
+    TelemetrytypesSignal:
+      enum:
+      - traces
+      - logs
+      - metrics
+      type: string
+    Querybuildertypesv5OrderByKey:
+      properties:
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        name:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
+      type: object
+    Querybuildertypesv5QueryEnvelopeBuilderLog:
+      properties:
+        spec:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5LogAggregation'
+        type:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
+      type: object
+    Querybuildertypesv5LimitBy:
+      properties:
+        keys:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        value:
+          type: string
+      type: object
+    Querybuildertypesv5OrderBy:
+      properties:
+        direction:
+          $ref: '#/components/schemas/Querybuildertypesv5OrderDirection'
+        key:
+          $ref: '#/components/schemas/Querybuildertypesv5OrderByKey'
+      type: object
+    RuletypesNotificationSettings:
+      properties:
+        groupBy:
+          items:
+            type: string
+          type: array
+        newGroupEvalDelay:
+          type: string
+        renotify:
+          $ref: '#/components/schemas/RuletypesRenotify'
+        usePolicy:
+          type: boolean
+      type: object
+    RuletypesBasicRuleThresholds:
+      items:
+        $ref: '#/components/schemas/RuletypesBasicRuleThreshold'
+      type:
+      - array
+      - 'null'
+    Querybuildertypesv5Step:
+      description: Step interval. Accepts a Go duration string (e.g., "60s", "1m", "1h") or a number representing seconds (e.g., 60).
+      oneOf:
+      - description: Duration string (e.g., "60s", "5m", "1h").
+        example: 60s
+        type: string
+      - description: Duration in seconds.
+        example: 60
+        type: number
+    RuletypesCompareOperator:
+      enum:
+      - above
+      - below
+      - equal
+      - not_equal
+      - outside_bounds
+      type: string
+    RuletypesRuleCondition:
+      properties:
+        absentFor:
+          minimum: 0
+          type: integer
+        alertOnAbsent:
+          type: boolean
+        algorithm:
+          type: string
+        compositeQuery:
+          $ref: '#/components/schemas/RuletypesAlertCompositeQuery'
+        matchType:
+          $ref: '#/components/schemas/RuletypesMatchType'
+        op:
+          $ref: '#/components/schemas/RuletypesCompareOperator'
+        requireMinPoints:
+          type: boolean
+        requiredNumPoints:
+          type: integer
+        seasonality:
+          $ref: '#/components/schemas/RuletypesSeasonality'
+        selectedQueryName:
+          type: string
+        target:
+          type:
+          - number
+          - 'null'
+        targetUnit:
+          type: string
+        thresholds:
+          $ref: '#/components/schemas/RuletypesRuleThresholdData'
+      required:
+      - compositeQuery
       type: object
     RuletypesRule:
       properties:
@@ -4130,152 +4736,83 @@ components:
       - ruleType
       - condition
       type: object
-    Querybuildertypesv5QueryEnvelopePromQL:
+    RuletypesAlertType:
+      enum:
+      - METRIC_BASED_ALERT
+      - TRACES_BASED_ALERT
+      - LOGS_BASED_ALERT
+      - EXCEPTIONS_BASED_ALERT
+      type: string
+    Querybuildertypesv5QueryEnvelopeTraceOperator:
       properties:
         spec:
-          $ref: '#/components/schemas/Querybuildertypesv5PromQuery'
+          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderTraceOperator'
         type:
           $ref: '#/components/schemas/Querybuildertypesv5QueryType'
       type: object
-    RuletypesEvaluationKind:
-      enum:
-      - rolling
-      - cumulative
-      type: string
-    Querybuildertypesv5QueryBuilderFormula:
+    Querybuildertypesv5QueryEnvelope:
+      oneOf:
+      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeBuilderTrace'
+      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeBuilderLog'
+      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeBuilderMetric'
+      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeFormula'
+      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeTraceOperator'
+      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopePromQL'
+      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeClickHouseSQL'
       properties:
-        disabled:
-          type: boolean
-        expression:
-          type: string
-        functions:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5Function'
-          type: array
-        having:
-          $ref: '#/components/schemas/Querybuildertypesv5Having'
-        legend:
-          type: string
-        limit:
-          type: integer
-        name:
-          type: string
-        order:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
-          type: array
+        spec: {}
+        type:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
       type: object
-    Querybuildertypesv5TraceAggregation:
+    TelemetrytypesGettableFieldValues:
+      properties:
+        complete:
+          type: boolean
+        values:
+          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldValues'
+      required:
+      - values
+      - complete
+      type: object
+    TelemetrytypesFieldContext:
+      enum:
+      - metric
+      - log
+      - span
+      - resource
+      - attribute
+      - body
+      type: string
+    Querybuildertypesv5SecondaryAggregation:
       properties:
         alias:
           type: string
         expression:
           type: string
-      type: object
-    Querybuildertypesv5Bucket:
-      properties:
-        step:
-          format: double
-          type: number
-      type: object
-    RuletypesCumulativeWindow:
-      properties:
-        frequency:
-          type: string
-        schedule:
-          $ref: '#/components/schemas/RuletypesCumulativeSchedule'
-        timezone:
-          type: string
-      required:
-      - schedule
-      - frequency
-      - timezone
-      type: object
-    Querybuildertypesv5QueryBuilderTraceOperator:
-      properties:
-        aggregations:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5TraceAggregation'
-          type: array
-        cursor:
-          type: string
-        disabled:
-          type: boolean
-        expression:
-          type: string
-        filter:
-          $ref: '#/components/schemas/Querybuildertypesv5Filter'
-        functions:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5Function'
-          type: array
         groupBy:
           items:
             $ref: '#/components/schemas/Querybuildertypesv5GroupByKey'
           type: array
-        having:
-          $ref: '#/components/schemas/Querybuildertypesv5Having'
-        legend:
-          type: string
         limit:
           type: integer
-        name:
-          type: string
-        offset:
-          type: integer
+        limitBy:
+          $ref: '#/components/schemas/Querybuildertypesv5LimitBy'
         order:
           items:
             $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
           type: array
-        returnSpansFrom:
-          type: string
-        selectFields:
-          items:
-            $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
-          type: array
         stepInterval:
           $ref: '#/components/schemas/Querybuildertypesv5Step'
       type: object
-    RuletypesThresholdKind:
-      enum:
-      - basic
-      type: string
-    RuletypesCompareOperator:
-      enum:
-      - above
-      - below
-      - equal
-      - not_equal
-      - outside_bounds
-      type: string
-    RuletypesMatchType:
-      enum:
-      - at_least_once
-      - all_the_times
-      - on_average
-      - in_total
-      - last
-      type: string
-    Querybuildertypesv5ReduceTo:
-      enum:
-      - sum
-      - count
-      - avg
-      - min
-      - max
-      - last
-      - median
-      type: string
-    Querybuildertypesv5FunctionArg:
+    RuletypesRollingWindow:
       properties:
-        name:
+        evalWindow:
           type: string
-        value: {}
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
+        frequency:
           type: string
+      required:
+      - evalWindow
+      - frequency
       type: object
     TelemetrytypesFieldDataType:
       enum:
@@ -4291,75 +4828,6 @@ components:
       - daily
       - weekly
       type: string
-    TelemetrytypesTelemetryFieldKey:
-      properties:
-        description:
-          type: string
-        fieldContext:
-          $ref: '#/components/schemas/TelemetrytypesFieldContext'
-        fieldDataType:
-          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        name:
-          type: string
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        unit:
-          type: string
-      required:
-      - name
-      type: object
-    Querybuildertypesv5TimeSeriesValue:
-      properties:
-        bucket:
-          $ref: '#/components/schemas/Querybuildertypesv5Bucket'
-        partial:
-          type: boolean
-        timestamp:
-          format: int64
-          type: integer
-        value:
-          format: double
-          type: number
-        values:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    TelemetrytypesFieldContext:
-      enum:
-      - metric
-      - log
-      - span
-      - resource
-      - attribute
-      - body
-      type: string
-    Querybuildertypesv5TimeSeries:
-      properties:
-        labels:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5Label'
-          type: array
-        values:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesValue'
-          nullable: true
-          type: array
-      type: object
-    RuletypesNotificationSettings:
-      properties:
-        groupBy:
-          items:
-            type: string
-          type: array
-        newGroupEvalDelay:
-          type: string
-        renotify:
-          $ref: '#/components/schemas/RuletypesRenotify'
-        usePolicy:
-          type: boolean
-      type: object
     Querybuildertypesv5LogAggregation:
       properties:
         alias:
@@ -4367,6 +4835,52 @@ components:
         expression:
           type: string
       type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    RuletypesEvaluationEnvelope:
+      oneOf:
+      - $ref: '#/components/schemas/RuletypesEvaluationRolling'
+      - $ref: '#/components/schemas/RuletypesEvaluationCumulative'
+      properties:
+        kind:
+          $ref: '#/components/schemas/RuletypesEvaluationKind'
+        spec: {}
+      required:
+      - kind
+      - spec
+      type: object
+    RuletypesCumulativeWindow:
+      properties:
+        frequency:
+          type: string
+        schedule:
+          $ref: '#/components/schemas/RuletypesCumulativeSchedule'
+        timezone:
+          type: string
+      required:
+      - schedule
+      - frequency
+      - timezone
+      type: object
+    RuletypesQueryType:
+      enum:
+      - builder
+      - clickhouse_sql
+      - promql
+      type: string
+    RuletypesEvaluationKind:
+      enum:
+      - rolling
+      - cumulative
+      type: string
     Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5LogAggregation:
       properties:
         aggregations:
@@ -4418,449 +4932,20 @@ components:
         stepInterval:
           $ref: '#/components/schemas/Querybuildertypesv5Step'
       type: object
-    RuletypesBasicRuleThreshold:
-      properties:
-        channels:
-          items:
-            type: string
-          nullable: true
-          type: array
-        matchType:
-          $ref: '#/components/schemas/RuletypesMatchType'
-        name:
-          type: string
-        op:
-          $ref: '#/components/schemas/RuletypesCompareOperator'
-        recoveryTarget:
-          nullable: true
-          type: number
-        target:
-          nullable: true
-          type: number
-        targetUnit:
-          type: string
-      required:
-      - name
-      - target
-      - matchType
-      - op
-      type: object
-    RuletypesQueryType:
-      enum:
-      - builder
-      - clickhouse_sql
-      - promql
-      type: string
-    RuletypesPostableRule:
-      properties:
-        alert:
-          type: string
-        alertType:
-          $ref: '#/components/schemas/RuletypesAlertType'
-        annotations:
-          additionalProperties:
-            type: string
-          type: object
-        condition:
-          $ref: '#/components/schemas/RuletypesRuleCondition'
-        description:
-          type: string
-        disabled:
-          type: boolean
-        evalWindow:
-          type: string
-        evaluation:
-          $ref: '#/components/schemas/RuletypesEvaluationEnvelope'
-        frequency:
-          type: string
-        labels:
-          additionalProperties:
-            type: string
-          type: object
-        notificationSettings:
-          $ref: '#/components/schemas/RuletypesNotificationSettings'
-        preferredChannels:
-          items:
-            type: string
-          type: array
-        ruleType:
-          $ref: '#/components/schemas/RuletypesRuleType'
-        schemaVersion:
-          type: string
-        source:
-          type: string
-        version:
-          type: string
-      required:
-      - alert
-      - alertType
-      - ruleType
-      - condition
-      type: object
-    RuletypesGettableTestRule:
-      properties:
-        alertCount:
-          type: integer
-        message:
-          type: string
-      type: object
-    Querybuildertypesv5QueryEnvelopeBuilderTrace:
-      properties:
-        spec:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5TraceAggregation'
-        type:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
-      type: object
-    RulestatehistorytypesGettableRuleStateHistoryStats:
-      properties:
-        currentAvgResolutionTime:
-          format: double
-          type: number
-        currentAvgResolutionTimeSeries:
-          $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
-        currentTriggersSeries:
-          $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
-        pastAvgResolutionTime:
-          format: double
-          type: number
-        pastAvgResolutionTimeSeries:
-          $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
-        pastTriggersSeries:
-          $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
-        totalCurrentTriggers:
-          minimum: 0
-          type: integer
-        totalPastTriggers:
-          minimum: 0
-          type: integer
-      required:
-      - totalCurrentTriggers
-      - totalPastTriggers
-      - currentTriggersSeries
-      - pastTriggersSeries
-      - currentAvgResolutionTime
-      - pastAvgResolutionTime
-      - currentAvgResolutionTimeSeries
-      - pastAvgResolutionTimeSeries
-      type: object
-    Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5MetricAggregation:
-      properties:
-        aggregations:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5MetricAggregation'
-          type: array
-        cursor:
-          type: string
-        disabled:
-          type: boolean
-        filter:
-          $ref: '#/components/schemas/Querybuildertypesv5Filter'
-        functions:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5Function'
-          type: array
-        groupBy:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5GroupByKey'
-          type: array
-        having:
-          $ref: '#/components/schemas/Querybuildertypesv5Having'
-        legend:
-          type: string
-        limit:
-          type: integer
-        limitBy:
-          $ref: '#/components/schemas/Querybuildertypesv5LimitBy'
-        name:
-          type: string
-        offset:
-          type: integer
-        order:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
-          type: array
-        secondaryAggregations:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5SecondaryAggregation'
-          type: array
-        selectFields:
-          items:
-            $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
-          type: array
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        source:
-          $ref: '#/components/schemas/TelemetrytypesSource'
-        stepInterval:
-          $ref: '#/components/schemas/Querybuildertypesv5Step'
-      type: object
-    RuletypesThresholdBasic:
-      properties:
-        kind:
-          $ref: '#/components/schemas/RuletypesThresholdKind'
-        spec:
-          $ref: '#/components/schemas/RuletypesBasicRuleThresholds'
-      type: object
-    Querybuildertypesv5OrderBy:
-      properties:
-        direction:
-          $ref: '#/components/schemas/Querybuildertypesv5OrderDirection'
-        key:
-          $ref: '#/components/schemas/Querybuildertypesv5OrderByKey'
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    RulestatehistorytypesGettableRuleStateTimeline:
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/RulestatehistorytypesGettableRuleStateHistory'
-          nullable: true
-          type: array
-        nextCursor:
-          type: string
-        total:
-          minimum: 0
-          type: integer
-      required:
-      - items
-      - total
-      type: object
-    RuletypesRuleCondition:
-      properties:
-        absentFor:
-          minimum: 0
-          type: integer
-        alertOnAbsent:
-          type: boolean
-        algorithm:
-          type: string
-        compositeQuery:
-          $ref: '#/components/schemas/RuletypesAlertCompositeQuery'
-        matchType:
-          $ref: '#/components/schemas/RuletypesMatchType'
-        op:
-          $ref: '#/components/schemas/RuletypesCompareOperator'
-        requireMinPoints:
-          type: boolean
-        requiredNumPoints:
-          type: integer
-        seasonality:
-          $ref: '#/components/schemas/RuletypesSeasonality'
-        selectedQueryName:
-          type: string
-        target:
-          nullable: true
-          type: number
-        targetUnit:
-          type: string
-        thresholds:
-          $ref: '#/components/schemas/RuletypesRuleThresholdData'
-      required:
-      - compositeQuery
-      type: object
-    Querybuildertypesv5Function:
-      properties:
-        args:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5FunctionArg'
-          type: array
-        name:
-          $ref: '#/components/schemas/Querybuildertypesv5FunctionName'
-      type: object
-    TelemetrytypesGettableFieldKeys:
-      properties:
-        complete:
-          type: boolean
-        keys:
-          additionalProperties:
-            items:
-              $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
-            type: array
-          nullable: true
-          type: object
-      required:
-      - keys
-      - complete
-      type: object
-    Querybuildertypesv5OrderByKey:
-      properties:
-        description:
-          type: string
-        fieldContext:
-          $ref: '#/components/schemas/TelemetrytypesFieldContext'
-        fieldDataType:
-          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        name:
-          type: string
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        unit:
-          type: string
-      required:
-      - name
-      type: object
-    MetrictypesTimeAggregation:
-      enum:
-      - latest
-      - sum
-      - avg
-      - min
-      - max
-      - count
-      - count_distinct
-      - rate
-      - increase
-      type: string
-    RuletypesRenotify:
-      properties:
-        alertStates:
-          items:
-            $ref: '#/components/schemas/RuletypesAlertState'
-          type: array
-        enabled:
-          type: boolean
-        interval:
-          type: string
-      type: object
-    RuletypesEvaluationEnvelope:
-      oneOf:
-      - $ref: '#/components/schemas/RuletypesEvaluationRolling'
-      - $ref: '#/components/schemas/RuletypesEvaluationCumulative'
+    RuletypesEvaluationRolling:
       properties:
         kind:
           $ref: '#/components/schemas/RuletypesEvaluationKind'
-        spec: {}
-      required:
-      - kind
-      - spec
-      type: object
-    RuletypesScheduleType:
-      enum:
-      - hourly
-      - daily
-      - weekly
-      - monthly
-      type: string
-    TelemetrytypesSignal:
-      enum:
-      - traces
-      - logs
-      - metrics
-      type: string
-    Querybuildertypesv5PromQuery:
-      properties:
-        disabled:
-          type: boolean
-        legend:
-          type: string
-        name:
-          type: string
-        query:
-          type: string
-        stats:
-          type: boolean
-        step:
-          $ref: '#/components/schemas/Querybuildertypesv5Step'
-      type: object
-    Querybuildertypesv5LimitBy:
-      properties:
-        keys:
-          items:
-            type: string
-          nullable: true
-          type: array
-        value:
-          type: string
-      type: object
-    Querybuildertypesv5Having:
-      properties:
-        expression:
-          type: string
-      type: object
-    RuletypesPanelType:
-      enum:
-      - value
-      - table
-      - graph
-      type: string
-    RuletypesAlertState:
-      enum:
-      - inactive
-      - pending
-      - recovering
-      - firing
-      - nodata
-      - disabled
-      type: string
-    Querybuildertypesv5QueryEnvelopeBuilderLog:
-      properties:
         spec:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5LogAggregation'
-        type:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
+          $ref: '#/components/schemas/RuletypesRollingWindow'
       type: object
-    RuletypesAlertType:
+    RuletypesMatchType:
       enum:
-      - METRIC_BASED_ALERT
-      - TRACES_BASED_ALERT
-      - LOGS_BASED_ALERT
-      - EXCEPTIONS_BASED_ALERT
-      type: string
-    RuletypesRollingWindow:
-      properties:
-        evalWindow:
-          type: string
-        frequency:
-          type: string
-      required:
-      - evalWindow
-      - frequency
-      type: object
-    RuletypesBasicRuleThresholds:
-      items:
-        $ref: '#/components/schemas/RuletypesBasicRuleThreshold'
-      nullable: true
-      type: array
-    TelemetrytypesGettableFieldValues:
-      properties:
-        complete:
-          type: boolean
-        values:
-          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldValues'
-      required:
-      - values
-      - complete
-      type: object
-    Querybuildertypesv5QueryEnvelope:
-      oneOf:
-      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeBuilderTrace'
-      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeBuilderLog'
-      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeBuilderMetric'
-      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeFormula'
-      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeTraceOperator'
-      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopePromQL'
-      - $ref: '#/components/schemas/Querybuildertypesv5QueryEnvelopeClickHouseSQL'
-      properties:
-        spec: {}
-        type:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
-      type: object
-    Querybuildertypesv5QueryType:
-      enum:
-      - builder_query
-      - builder_formula
-      - builder_trace_operator
-      - clickhouse_sql
-      - promql
+      - at_least_once
+      - all_the_times
+      - on_average
+      - in_total
+      - last
       type: string
     Querybuildertypesv5GroupByKey:
       properties:
@@ -4879,178 +4964,111 @@ components:
       required:
       - name
       type: object
-    Querybuildertypesv5SecondaryAggregation:
+    Querybuildertypesv5QueryBuilderFormula:
       properties:
-        alias:
-          type: string
+        disabled:
+          type: boolean
         expression:
           type: string
-        groupBy:
+        functions:
           items:
-            $ref: '#/components/schemas/Querybuildertypesv5GroupByKey'
+            $ref: '#/components/schemas/Querybuildertypesv5Function'
           type: array
+        having:
+          $ref: '#/components/schemas/Querybuildertypesv5Having'
+        legend:
+          type: string
         limit:
           type: integer
-        limitBy:
-          $ref: '#/components/schemas/Querybuildertypesv5LimitBy'
+        name:
+          type: string
         order:
           items:
             $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
           type: array
-        stepInterval:
-          $ref: '#/components/schemas/Querybuildertypesv5Step'
       type: object
-    Querybuildertypesv5QueryEnvelopeBuilderMetric:
+    RuletypesThresholdBasic:
+      properties:
+        kind:
+          $ref: '#/components/schemas/RuletypesThresholdKind'
+        spec:
+          $ref: '#/components/schemas/RuletypesBasicRuleThresholds'
+      type: object
+    Querybuildertypesv5QueryEnvelopePromQL:
       properties:
         spec:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5MetricAggregation'
+          $ref: '#/components/schemas/Querybuildertypesv5PromQuery'
         type:
           $ref: '#/components/schemas/Querybuildertypesv5QueryType'
       type: object
-    Querybuildertypesv5MetricAggregation:
+    Querybuildertypesv5QueryEnvelopeFormula:
       properties:
-        comparisonSpaceAggregationParam:
-          $ref: '#/components/schemas/MetrictypesComparisonSpaceAggregationParam'
-        metricName:
-          type: string
-        reduceTo:
-          $ref: '#/components/schemas/Querybuildertypesv5ReduceTo'
-        spaceAggregation:
-          $ref: '#/components/schemas/MetrictypesSpaceAggregation'
-        temporality:
-          $ref: '#/components/schemas/MetrictypesTemporality'
-        timeAggregation:
-          $ref: '#/components/schemas/MetrictypesTimeAggregation'
+        spec:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryBuilderFormula'
+        type:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryType'
       type: object
-    RuletypesRuleType:
-      enum:
-      - threshold_rule
-      - promql_rule
-      - anomaly_rule
-      type: string
-    Querybuildertypesv5ClickHouseQuery:
+    Querybuildertypesv5QueryBuilderTraceOperator:
       properties:
+        aggregations:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TraceAggregation'
+          type: array
+        cursor:
+          type: string
         disabled:
           type: boolean
+        expression:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Querybuildertypesv5Filter'
+        functions:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5Function'
+          type: array
+        groupBy:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5GroupByKey'
+          type: array
+        having:
+          $ref: '#/components/schemas/Querybuildertypesv5Having'
         legend:
           type: string
+        limit:
+          type: integer
         name:
           type: string
-        query:
-          type: string
-      type: object
-    RuletypesEvaluationCumulative:
-      properties:
-        kind:
-          $ref: '#/components/schemas/RuletypesEvaluationKind'
-        spec:
-          $ref: '#/components/schemas/RuletypesCumulativeWindow'
-      type: object
-    RulestatehistorytypesGettableRuleStateWindow:
-      properties:
-        end:
-          format: int64
+        offset:
           type: integer
-        start:
-          format: int64
-          type: integer
-        state:
-          $ref: '#/components/schemas/RuletypesAlertState'
-      required:
-      - state
-      - start
-      - end
+        order:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
+          type: array
+        returnSpansFrom:
+          type: string
+        selectFields:
+          items:
+            $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+          type: array
+        stepInterval:
+          $ref: '#/components/schemas/Querybuildertypesv5Step'
       type: object
-    ErrorsJSON:
+    MetrictypesComparisonSpaceAggregationParam:
       properties:
-        code:
+        operator:
           type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    TelemetrytypesTelemetryFieldValues:
-      properties:
-        boolValues:
-          items:
-            type: boolean
-          type: array
-        numberValues:
-          items:
-            format: double
-            type: number
-          type: array
-        relatedValues:
-          items:
-            type: string
-          type: array
-        stringValues:
-          items:
-            type: string
-          type: array
-      type: object
-    Querybuildertypesv5OrderDirection:
-      enum:
-      - asc
-      - desc
-      type: string
-    RulestatehistorytypesGettableRuleStateHistory:
-      properties:
-        fingerprint:
-          minimum: 0
-          type: integer
-        labels:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5Label'
-          nullable: true
-          type: array
-        overallState:
-          $ref: '#/components/schemas/RuletypesAlertState'
-        overallStateChanged:
-          type: boolean
-        ruleId:
-          type: string
-        ruleName:
-          type: string
-        state:
-          $ref: '#/components/schemas/RuletypesAlertState'
-        stateChanged:
-          type: boolean
-        unixMilli:
-          format: int64
-          type: integer
-        value:
+        threshold:
           format: double
           type: number
       required:
-      - ruleId
-      - ruleName
-      - overallState
-      - overallStateChanged
-      - state
-      - stateChanged
-      - unixMilli
-      - labels
-      - fingerprint
-      - value
+      - operator
+      - threshold
       type: object
-    Querybuildertypesv5Step:
-      description: Step interval. Accepts a Go duration string (e.g., "60s", "1m", "1h") or a number representing seconds (e.g., 60).
-      oneOf:
-      - description: Duration string (e.g., "60s", "5m", "1h").
-        example: 60s
-        type: string
-      - description: Duration in seconds.
-        example: 60
-        type: number
+    Querybuildertypesv5Filter:
+      properties:
+        expression:
+          type: string
+      type: object
   securitySchemes:
     api_key:
       description: API Keys

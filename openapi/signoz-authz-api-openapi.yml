@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts authz API
+  title: SigNoz Authz API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -93,26 +93,6 @@ paths:
       - authz
 components:
   schemas:
-    AuthtypesTransaction:
-      properties:
-        object:
-          $ref: '#/components/schemas/AuthtypesObject'
-        relation:
-          type: string
-      required:
-      - relation
-      - object
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
     AuthtypesGettableTransaction:
       properties:
         authorized:
@@ -125,26 +105,6 @@ components:
       - relation
       - object
       - authorized
-      type: object
-    AuthtypesObject:
-      properties:
-        resource:
-          $ref: '#/components/schemas/AuthtypesResource'
-        selector:
-          type: string
-      required:
-      - resource
-      - selector
-      type: object
-    AuthtypesResource:
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-      required:
-      - name
-      - type
       type: object
     ErrorsJSON:
       properties:
@@ -162,10 +122,25 @@ components:
       - code
       - message
       type: object
-    ErrorsResponseerroradditional:
+    RenderErrorResponse:
       properties:
-        message:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
           type: string
+      required:
+      - status
+      - error
+      type: object
+    AuthtypesObject:
+      properties:
+        resource:
+          $ref: '#/components/schemas/AuthtypesResource'
+        selector:
+          type: string
+      required:
+      - resource
+      - selector
       type: object
     AuthtypesGettableResources:
       properties:
@@ -174,8 +149,9 @@ components:
             items:
               type: string
             type: array
-          nullable: true
-          type: object
+          type:
+          - object
+          - 'null'
         resources:
           items:
             $ref: '#/components/schemas/AuthtypesResource'
@@ -183,6 +159,31 @@ components:
       required:
       - resources
       - relations
+      type: object
+    AuthtypesResource:
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - type
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    AuthtypesTransaction:
+      properties:
+        object:
+          $ref: '#/components/schemas/AuthtypesObject'
+        relation:
+          type: string
+      required:
+      - relation
+      - object
       type: object
   securitySchemes:
     api_key:

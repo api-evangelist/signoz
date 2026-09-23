@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts users API
+  title: SigNoz Users API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: users
+- name: Users
 paths:
   /api/v1/getResetPasswordToken/{id}:
     get:
@@ -87,7 +87,7 @@ paths:
         - ADMIN
       summary: Get reset password token
       tags:
-      - users
+      - Users
   /api/v1/invite:
     post:
       deprecated: false
@@ -150,7 +150,7 @@ paths:
         - ADMIN
       summary: Create invite
       tags:
-      - users
+      - Users
   /api/v1/invite/bulk:
     post:
       deprecated: false
@@ -201,7 +201,7 @@ paths:
         - ADMIN
       summary: Create bulk invite
       tags:
-      - users
+      - Users
   /api/v1/resetPassword:
     post:
       deprecated: false
@@ -235,7 +235,7 @@ paths:
           description: Internal Server Error
       summary: Reset password
       tags:
-      - users
+      - Users
   /api/v1/user:
     get:
       deprecated: false
@@ -283,7 +283,7 @@ paths:
         - ADMIN
       summary: List users
       tags:
-      - users
+      - Users
   /api/v1/user/{id}:
     delete:
       deprecated: false
@@ -329,7 +329,7 @@ paths:
         - ADMIN
       summary: Delete user
       tags:
-      - users
+      - Users
     get:
       deprecated: false
       description: This endpoint returns the user by id
@@ -386,7 +386,7 @@ paths:
         - ADMIN
       summary: Get user
       tags:
-      - users
+      - Users
     put:
       deprecated: false
       description: This endpoint updates the user by id
@@ -454,7 +454,7 @@ paths:
         - ADMIN
       summary: Update user
       tags:
-      - users
+      - Users
   /api/v1/user/me:
     get:
       deprecated: false
@@ -497,7 +497,7 @@ paths:
       - tokenizer: []
       summary: Get my user
       tags:
-      - users
+      - Users
   /api/v2/factor_password/forgot:
     post:
       deprecated: false
@@ -531,7 +531,7 @@ paths:
           description: Internal Server Error
       summary: Forgot password
       tags:
-      - users
+      - Users
   /api/v2/roles/{id}/users:
     get:
       deprecated: false
@@ -591,7 +591,7 @@ paths:
         - ADMIN
       summary: Get users by role id
       tags:
-      - users
+      - Users
   /api/v2/users:
     get:
       deprecated: false
@@ -639,7 +639,7 @@ paths:
         - ADMIN
       summary: List users v2
       tags:
-      - users
+      - Users
   /api/v2/users/{id}:
     get:
       deprecated: false
@@ -697,7 +697,7 @@ paths:
         - ADMIN
       summary: Get user by user id
       tags:
-      - users
+      - Users
     put:
       deprecated: false
       description: This endpoint updates the user by id
@@ -753,7 +753,7 @@ paths:
         - ADMIN
       summary: Update user v2
       tags:
-      - users
+      - Users
   /api/v2/users/{id}/reset_password_tokens:
     get:
       deprecated: false
@@ -811,7 +811,7 @@ paths:
         - ADMIN
       summary: Get reset password token for a user
       tags:
-      - users
+      - Users
     put:
       deprecated: false
       description: This endpoint creates or regenerates a reset password token for a user. If a valid token exists, it is returned. If expired, a new one is created.
@@ -874,7 +874,7 @@ paths:
         - ADMIN
       summary: Create or regenerate reset password token for a user
       tags:
-      - users
+      - Users
   /api/v2/users/{id}/roles:
     get:
       deprecated: false
@@ -934,7 +934,7 @@ paths:
         - ADMIN
       summary: Get user roles
       tags:
-      - users
+      - Users
     post:
       deprecated: false
       description: This endpoint assigns the role to the user roles by user id
@@ -984,7 +984,7 @@ paths:
         - ADMIN
       summary: Set user roles
       tags:
-      - users
+      - Users
   /api/v2/users/{id}/roles/{roleId}:
     delete:
       deprecated: false
@@ -1035,7 +1035,7 @@ paths:
         - ADMIN
       summary: Remove a role from user
       tags:
-      - users
+      - Users
   /api/v2/users/me:
     get:
       deprecated: false
@@ -1078,7 +1078,7 @@ paths:
       - tokenizer: []
       summary: Get my user v2
       tags:
-      - users
+      - Users
     put:
       deprecated: false
       description: This endpoint updates the user I belong to
@@ -1113,7 +1113,7 @@ paths:
       - tokenizer: []
       summary: Update my user v2
       tags:
-      - users
+      - Users
   /api/v2/users/me/factor_password:
     put:
       deprecated: false
@@ -1164,32 +1164,72 @@ paths:
         - ADMIN
       summary: Updates my password
       tags:
-      - users
+      - Users
 components:
   schemas:
-    AuthtypesUserRole:
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    TypesPostableInvite:
+      properties:
+        email:
+          type: string
+        frontendBaseUrl:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+      type: object
+    TypesDeprecatedUser:
       properties:
         createdAt:
           format: date-time
           type: string
+        displayName:
+          type: string
+        email:
+          type: string
         id:
           type: string
+        isRoot:
+          type: boolean
+        orgId:
+          type: string
         role:
-          $ref: '#/components/schemas/AuthtypesRole'
-        roleId:
+          type: string
+        status:
           type: string
         updatedAt:
           format: date-time
           type: string
-        userId:
-          type: string
       required:
       - id
-      - userId
-      - roleId
-      - createdAt
-      - updatedAt
-      - role
+      type: object
+    TypesPostableResetPassword:
+      properties:
+        password:
+          type: string
+        token:
+          type: string
       type: object
     RenderErrorResponse:
       properties:
@@ -1200,13 +1240,6 @@ components:
       required:
       - status
       - error
-      type: object
-    TypesPostableResetPassword:
-      properties:
-        password:
-          type: string
-        token:
-          type: string
       type: object
     AuthtypesUserWithRoles:
       properties:
@@ -1231,146 +1264,11 @@ components:
         userRoles:
           items:
             $ref: '#/components/schemas/AuthtypesUserRole'
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
       required:
       - id
-      type: object
-    TypesPostableInvite:
-      properties:
-        email:
-          type: string
-        frontendBaseUrl:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
-      type: object
-    TypesResetPasswordToken:
-      properties:
-        expiresAt:
-          format: date-time
-          type: string
-        id:
-          type: string
-        passwordId:
-          type: string
-        token:
-          type: string
-      required:
-      - id
-      type: object
-    TypesPostableForgotPassword:
-      properties:
-        email:
-          type: string
-        frontendBaseURL:
-          type: string
-        orgId:
-          type: string
-      required:
-      - orgId
-      - email
-      type: object
-    TypesPostableBulkInviteRequest:
-      properties:
-        invites:
-          items:
-            $ref: '#/components/schemas/TypesPostableInvite'
-          type: array
-      required:
-      - invites
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    TypesInvite:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        email:
-          type: string
-        id:
-          type: string
-        inviteLink:
-          type: string
-        name:
-          type: string
-        orgId:
-          type: string
-        role:
-          type: string
-        token:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-      required:
-      - id
-      type: object
-    TypesUser:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        displayName:
-          type: string
-        email:
-          type: string
-        id:
-          type: string
-        isRoot:
-          type: boolean
-        orgId:
-          type: string
-        status:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-      required:
-      - id
-      type: object
-    TypesUpdatableUser:
-      properties:
-        displayName:
-          type: string
-      required:
-      - displayName
-      type: object
-    TypesPostableRole:
-      properties:
-        name:
-          type: string
-      required:
-      - name
-      type: object
-    TypesChangePasswordRequest:
-      properties:
-        newPassword:
-          type: string
-        oldPassword:
-          type: string
       type: object
     AuthtypesRole:
       properties:
@@ -1397,7 +1295,14 @@ components:
       - type
       - orgId
       type: object
-    TypesDeprecatedUser:
+    TypesPostableRole:
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    TypesUser:
       properties:
         createdAt:
           format: date-time
@@ -1412,8 +1317,6 @@ components:
           type: boolean
         orgId:
           type: string
-        role:
-          type: string
         status:
           type: string
         updatedAt:
@@ -1421,6 +1324,104 @@ components:
           type: string
       required:
       - id
+      type: object
+    TypesInvite:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        email:
+          type: string
+        id:
+          type: string
+        inviteLink:
+          type: string
+        name:
+          type: string
+        orgId:
+          type: string
+        role:
+          type: string
+        token:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      type: object
+    TypesChangePasswordRequest:
+      properties:
+        newPassword:
+          type: string
+        oldPassword:
+          type: string
+      type: object
+    TypesPostableBulkInviteRequest:
+      properties:
+        invites:
+          items:
+            $ref: '#/components/schemas/TypesPostableInvite'
+          type: array
+      required:
+      - invites
+      type: object
+    TypesUpdatableUser:
+      properties:
+        displayName:
+          type: string
+      required:
+      - displayName
+      type: object
+    AuthtypesUserRole:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        id:
+          type: string
+        role:
+          $ref: '#/components/schemas/AuthtypesRole'
+        roleId:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+        userId:
+          type: string
+      required:
+      - id
+      - userId
+      - roleId
+      - createdAt
+      - updatedAt
+      - role
+      type: object
+    TypesResetPasswordToken:
+      properties:
+        expiresAt:
+          format: date-time
+          type: string
+        id:
+          type: string
+        passwordId:
+          type: string
+        token:
+          type: string
+      required:
+      - id
+      type: object
+    TypesPostableForgotPassword:
+      properties:
+        email:
+          type: string
+        frontendBaseURL:
+          type: string
+        orgId:
+          type: string
+      required:
+      - orgId
+      - email
       type: object
   securitySchemes:
     api_key:

@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts fields API
+  title: SigNoz Fields API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: fields
+- name: Fields
 paths:
   /api/v1/fields/keys:
     get:
@@ -112,7 +112,7 @@ paths:
         - VIEWER
       summary: Get field keys
       tags:
-      - fields
+      - Fields
   /api/v1/fields/values:
     get:
       deprecated: false
@@ -209,7 +209,7 @@ paths:
         - VIEWER
       summary: Get field values
       tags:
-      - fields
+      - Fields
 components:
   schemas:
     TelemetrytypesGettableFieldKeys:
@@ -221,19 +221,73 @@ components:
             items:
               $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
             type: array
-          nullable: true
-          type: object
+          type:
+          - object
+          - 'null'
       required:
       - keys
       - complete
       type: object
-    TelemetrytypesFieldDataType:
+    TelemetrytypesSignal:
       enum:
-      - string
-      - bool
-      - float64
-      - int64
-      - number
+      - traces
+      - logs
+      - metrics
+      type: string
+    TelemetrytypesGettableFieldValues:
+      properties:
+        complete:
+          type: boolean
+        values:
+          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldValues'
+      required:
+      - values
+      - complete
+      type: object
+    TelemetrytypesTelemetryFieldValues:
+      properties:
+        boolValues:
+          items:
+            type: boolean
+          type: array
+        numberValues:
+          items:
+            format: double
+            type: number
+          type: array
+        relatedValues:
+          items:
+            type: string
+          type: array
+        stringValues:
+          items:
+            type: string
+          type: array
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    TelemetrytypesFieldContext:
+      enum:
+      - metric
+      - log
+      - span
+      - resource
+      - attribute
+      - body
       type: string
     RenderErrorResponse:
       properties:
@@ -262,75 +316,22 @@ components:
       required:
       - name
       type: object
+    TelemetrytypesFieldDataType:
+      enum:
+      - string
+      - bool
+      - float64
+      - int64
+      - number
+      type: string
     TelemetrytypesSource:
       enum:
       - meter
       type: string
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    TelemetrytypesTelemetryFieldValues:
-      properties:
-        boolValues:
-          items:
-            type: boolean
-          type: array
-        numberValues:
-          items:
-            format: double
-            type: number
-          type: array
-        relatedValues:
-          items:
-            type: string
-          type: array
-        stringValues:
-          items:
-            type: string
-          type: array
-      type: object
     ErrorsResponseerroradditional:
       properties:
         message:
           type: string
-      type: object
-    TelemetrytypesSignal:
-      enum:
-      - traces
-      - logs
-      - metrics
-      type: string
-    TelemetrytypesFieldContext:
-      enum:
-      - metric
-      - log
-      - span
-      - resource
-      - attribute
-      - body
-      type: string
-    TelemetrytypesGettableFieldValues:
-      properties:
-        complete:
-          type: boolean
-        values:
-          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldValues'
-      required:
-      - values
-      - complete
       type: object
   securitySchemes:
     api_key:

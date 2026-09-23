@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts routepolicies API
+  title: SigNoz Routepolicies API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -301,21 +301,6 @@ paths:
       - routepolicies
 components:
   schemas:
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    AlertmanagertypesExpressionKind:
-      enum:
-      - rule
-      - policy
-      type: string
     ErrorsJSON:
       properties:
         code:
@@ -332,24 +317,63 @@ components:
       - code
       - message
       type: object
-    ErrorsResponseerroradditional:
+    AlertmanagertypesExpressionKind:
+      enum:
+      - rule
+      - policy
+      type: string
+    AlertmanagertypesPostableRoutePolicy:
       properties:
-        message:
+        channels:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        description:
           type: string
+        expression:
+          type: string
+        kind:
+          $ref: '#/components/schemas/AlertmanagertypesExpressionKind'
+        name:
+          type: string
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - expression
+      - channels
+      - name
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
       type: object
     AlertmanagertypesGettableRoutePolicy:
       properties:
         channels:
           items:
             type: string
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         createdAt:
           format: date-time
           type: string
         createdBy:
-          nullable: true
-          type: string
+          type:
+          - string
+          - 'null'
         description:
           type: string
         expression:
@@ -363,14 +387,16 @@ components:
         tags:
           items:
             type: string
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         updatedAt:
           format: date-time
           type: string
         updatedBy:
-          nullable: true
-          type: string
+          type:
+          - string
+          - 'null'
       required:
       - expression
       - channels
@@ -379,30 +405,10 @@ components:
       - createdAt
       - updatedAt
       type: object
-    AlertmanagertypesPostableRoutePolicy:
+    ErrorsResponseerroradditional:
       properties:
-        channels:
-          items:
-            type: string
-          nullable: true
-          type: array
-        description:
+        message:
           type: string
-        expression:
-          type: string
-        kind:
-          $ref: '#/components/schemas/AlertmanagertypesExpressionKind'
-        name:
-          type: string
-        tags:
-          items:
-            type: string
-          nullable: true
-          type: array
-      required:
-      - expression
-      - channels
-      - name
       type: object
   securitySchemes:
     api_key:

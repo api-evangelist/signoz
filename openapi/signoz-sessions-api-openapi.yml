@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts sessions API
+  title: SigNoz Sessions API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: sessions
+- name: Sessions
 paths:
   /api/v1/complete/google:
     get:
@@ -64,7 +64,7 @@ paths:
           description: Internal Server Error
       summary: Create session by google callback
       tags:
-      - sessions
+      - Sessions
   /api/v1/complete/oidc:
     get:
       deprecated: false
@@ -111,7 +111,7 @@ paths:
           description: Internal Server Error
       summary: Create session by oidc callback
       tags:
-      - sessions
+      - Sessions
   /api/v1/complete/saml:
     post:
       deprecated: false
@@ -177,7 +177,7 @@ paths:
           description: Internal Server Error
       summary: Create session by saml callback
       tags:
-      - sessions
+      - Sessions
   /api/v2/sessions:
     delete:
       deprecated: false
@@ -214,7 +214,7 @@ paths:
       - tokenizer: []
       summary: Delete session
       tags:
-      - sessions
+      - Sessions
   /api/v2/sessions/context:
     get:
       deprecated: false
@@ -249,7 +249,7 @@ paths:
           description: Internal Server Error
       summary: Get session context
       tags:
-      - sessions
+      - Sessions
   /api/v2/sessions/email_password:
     post:
       deprecated: false
@@ -295,7 +295,7 @@ paths:
           description: Internal Server Error
       summary: Create session by email and password
       tags:
-      - sessions
+      - Sessions
   /api/v2/sessions/rotate:
     post:
       deprecated: false
@@ -335,47 +335,19 @@ paths:
           description: Internal Server Error
       summary: Rotate session
       tags:
-      - sessions
+      - Sessions
 components:
   schemas:
-    AuthtypesGettableToken:
+    AuthtypesSessionContext:
       properties:
-        accessToken:
-          type: string
-        expiresIn:
-          type: integer
-        refreshToken:
-          type: string
-        tokenType:
-          type: string
-      type: object
-    AuthtypesOrgSessionContext:
-      properties:
-        authNSupport:
-          $ref: '#/components/schemas/AuthtypesAuthNSupport'
-        id:
-          type: string
-        name:
-          type: string
-        warning:
-          $ref: '#/components/schemas/ErrorsJSON'
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    AuthtypesCallbackAuthNSupport:
-      properties:
-        provider:
-          type: string
-        url:
-          type: string
+        exists:
+          type: boolean
+        orgs:
+          items:
+            $ref: '#/components/schemas/AuthtypesOrgSessionContext'
+          type:
+          - array
+          - 'null'
       type: object
     ErrorsJSON:
       properties:
@@ -393,23 +365,41 @@ components:
       - code
       - message
       type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
     AuthtypesAuthNSupport:
       properties:
         callback:
           items:
             $ref: '#/components/schemas/AuthtypesCallbackAuthNSupport'
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         password:
           items:
             $ref: '#/components/schemas/AuthtypesPasswordAuthNSupport'
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    AuthtypesOrgSessionContext:
+      properties:
+        authNSupport:
+          $ref: '#/components/schemas/AuthtypesAuthNSupport'
+        id:
+          type: string
+        name:
+          type: string
+        warning:
+          $ref: '#/components/schemas/ErrorsJSON'
       type: object
     AuthtypesPostableEmailPasswordSession:
       properties:
@@ -420,15 +410,23 @@ components:
         password:
           type: string
       type: object
-    AuthtypesSessionContext:
+    AuthtypesGettableToken:
       properties:
-        exists:
-          type: boolean
-        orgs:
-          items:
-            $ref: '#/components/schemas/AuthtypesOrgSessionContext'
-          nullable: true
-          type: array
+        accessToken:
+          type: string
+        expiresIn:
+          type: integer
+        refreshToken:
+          type: string
+        tokenType:
+          type: string
+      type: object
+    AuthtypesCallbackAuthNSupport:
+      properties:
+        provider:
+          type: string
+        url:
+          type: string
       type: object
     AuthtypesPostableRotateToken:
       properties:
@@ -438,6 +436,11 @@ components:
     AuthtypesPasswordAuthNSupport:
       properties:
         provider:
+          type: string
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
           type: string
       type: object
   securitySchemes:

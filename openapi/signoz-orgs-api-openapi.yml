@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts orgs API
+  title: SigNoz Orgs API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: orgs
+- name: Orgs
 paths:
   /api/v2/orgs/me:
     get:
@@ -69,7 +69,7 @@ paths:
         - ADMIN
       summary: Get my organization
       tags:
-      - orgs
+      - Orgs
     put:
       deprecated: false
       description: This endpoint updates the organization I belong to
@@ -119,24 +119,23 @@ paths:
         - ADMIN
       summary: Update my organization
       tags:
-      - orgs
+      - Orgs
 components:
   schemas:
-    ErrorsJSON:
+    ErrorsResponseerroradditional:
       properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
         message:
           type: string
-        url:
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
           type: string
       required:
-      - code
-      - message
+      - status
+      - error
       type: object
     TypesOrganization:
       properties:
@@ -160,20 +159,21 @@ components:
       required:
       - id
       type: object
-    RenderErrorResponse:
+    ErrorsJSON:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
+        code:
           type: string
-      required:
-      - status
-      - error
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
         message:
           type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
       type: object
   securitySchemes:
     api_key:

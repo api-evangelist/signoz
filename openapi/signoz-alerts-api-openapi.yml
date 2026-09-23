@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts API
+  title: SigNoz Alerts API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: alerts
+- name: Alerts
 paths:
   /api/v1/alerts:
     get:
@@ -71,62 +71,9 @@ paths:
         - VIEWER
       summary: Get alerts
       tags:
-      - alerts
+      - Alerts
 components:
   schemas:
-    AlertmanagertypesDeprecatedGettableAlert:
-      properties:
-        annotations:
-          $ref: '#/components/schemas/ModelLabelSet'
-        endsAt:
-          format: date-time
-          type: string
-        fingerprint:
-          type: string
-        generatorURL:
-          type: string
-        labels:
-          $ref: '#/components/schemas/ModelLabelSet'
-        receivers:
-          items:
-            type: string
-          nullable: true
-          type: array
-        startsAt:
-          format: date-time
-          type: string
-        status:
-          $ref: '#/components/schemas/TypesAlertStatus'
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ModelLabelSet:
-      additionalProperties:
-        type: string
-      type: object
-    TypesAlertStatus:
-      properties:
-        inhibitedBy:
-          items:
-            type: string
-          nullable: true
-          type: array
-        silencedBy:
-          items:
-            type: string
-          nullable: true
-          type: array
-        state:
-          type: string
-      type: object
     ErrorsJSON:
       properties:
         code:
@@ -143,9 +90,65 @@ components:
       - code
       - message
       type: object
+    ModelLabelSet:
+      additionalProperties:
+        type: string
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    AlertmanagertypesDeprecatedGettableAlert:
+      properties:
+        annotations:
+          $ref: '#/components/schemas/ModelLabelSet'
+        endsAt:
+          format: date-time
+          type: string
+        fingerprint:
+          type: string
+        generatorURL:
+          type: string
+        labels:
+          $ref: '#/components/schemas/ModelLabelSet'
+        receivers:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        startsAt:
+          format: date-time
+          type: string
+        status:
+          $ref: '#/components/schemas/TypesAlertStatus'
+      type: object
     ErrorsResponseerroradditional:
       properties:
         message:
+          type: string
+      type: object
+    TypesAlertStatus:
+      properties:
+        inhibitedBy:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        silencedBy:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        state:
           type: string
       type: object
   securitySchemes:

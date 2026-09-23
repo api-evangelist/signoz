@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts gateway API
+  title: SigNoz Gateway API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -22,7 +22,7 @@ servers:
       default: '8080'
       description: The port of the SigNoz APIServer
 tags:
-- name: gateway
+- name: Gateway
 paths:
   /api/v2/gateway/ingestion_keys:
     get:
@@ -78,7 +78,7 @@ paths:
         - EDITOR
       summary: Get ingestion keys for workspace
       tags:
-      - gateway
+      - Gateway
     post:
       deprecated: false
       description: This endpoint creates an ingestion key for the workspace
@@ -128,7 +128,7 @@ paths:
         - EDITOR
       summary: Create ingestion key for workspace
       tags:
-      - gateway
+      - Gateway
   /api/v2/gateway/ingestion_keys/{keyId}:
     delete:
       deprecated: false
@@ -168,7 +168,7 @@ paths:
         - EDITOR
       summary: Delete ingestion key for workspace
       tags:
-      - gateway
+      - Gateway
     patch:
       deprecated: false
       description: This endpoint updates an ingestion key for the workspace
@@ -212,7 +212,7 @@ paths:
         - EDITOR
       summary: Update ingestion key for workspace
       tags:
-      - gateway
+      - Gateway
   /api/v2/gateway/ingestion_keys/{keyId}/limits:
     post:
       deprecated: false
@@ -269,7 +269,7 @@ paths:
         - EDITOR
       summary: Create limit for the ingestion key
       tags:
-      - gateway
+      - Gateway
   /api/v2/gateway/ingestion_keys/limits/{limitId}:
     delete:
       deprecated: false
@@ -309,7 +309,7 @@ paths:
         - EDITOR
       summary: Delete limit for the ingestion key
       tags:
-      - gateway
+      - Gateway
     patch:
       deprecated: false
       description: This endpoint updates an ingestion key limit
@@ -353,7 +353,7 @@ paths:
         - EDITOR
       summary: Update limit for the ingestion key
       tags:
-      - gateway
+      - Gateway
   /api/v2/gateway/ingestion_keys/search:
     get:
       deprecated: false
@@ -413,47 +413,31 @@ paths:
         - EDITOR
       summary: Search ingestion keys for workspace
       tags:
-      - gateway
+      - Gateway
 components:
   schemas:
-    GatewaytypesPostableIngestionKey:
-      properties:
-        expires_at:
-          format: date-time
-          type: string
-        name:
-          type: string
-        tags:
-          items:
-            type: string
-          nullable: true
-          type: array
-      required:
-      - name
-      type: object
-    GatewaytypesGettableCreatedIngestionKeyLimit:
-      properties:
-        id:
-          type: string
-      required:
-      - id
-      type: object
-    GatewaytypesLimitConfig:
+    GatewaytypesLimitMetric:
       properties:
         day:
-          $ref: '#/components/schemas/GatewaytypesLimitValue'
+          $ref: '#/components/schemas/GatewaytypesLimitMetricValue'
         second:
-          $ref: '#/components/schemas/GatewaytypesLimitValue'
+          $ref: '#/components/schemas/GatewaytypesLimitMetricValue'
       type: object
-    GatewaytypesGettableIngestionKeys:
+    ErrorsJSON:
       properties:
-        _pagination:
-          $ref: '#/components/schemas/GatewaytypesPagination'
-        keys:
+        code:
+          type: string
+        errors:
           items:
-            $ref: '#/components/schemas/GatewaytypesIngestionKey'
-          nullable: true
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
           type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
       type: object
     RenderErrorResponse:
       properties:
@@ -464,36 +448,6 @@ components:
       required:
       - status
       - error
-      type: object
-    GatewaytypesIngestionKey:
-      properties:
-        created_at:
-          format: date-time
-          type: string
-        expires_at:
-          format: date-time
-          type: string
-        id:
-          type: string
-        limits:
-          items:
-            $ref: '#/components/schemas/GatewaytypesLimit'
-          nullable: true
-          type: array
-        name:
-          type: string
-        tags:
-          items:
-            type: string
-          nullable: true
-          type: array
-        updated_at:
-          format: date-time
-          type: string
-        value:
-          type: string
-        workspace_id:
-          type: string
       type: object
     GatewaytypesLimit:
       properties:
@@ -513,18 +467,86 @@ components:
         tags:
           items:
             type: string
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         updated_at:
           format: date-time
           type: string
       type: object
-    GatewaytypesLimitMetric:
+    GatewaytypesIngestionKey:
+      properties:
+        created_at:
+          format: date-time
+          type: string
+        expires_at:
+          format: date-time
+          type: string
+        id:
+          type: string
+        limits:
+          items:
+            $ref: '#/components/schemas/GatewaytypesLimit'
+          type:
+          - array
+          - 'null'
+        name:
+          type: string
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        updated_at:
+          format: date-time
+          type: string
+        value:
+          type: string
+        workspace_id:
+          type: string
+      type: object
+    GatewaytypesUpdatableIngestionKeyLimit:
+      properties:
+        config:
+          $ref: '#/components/schemas/GatewaytypesLimitConfig'
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - config
+      type: object
+    GatewaytypesLimitValue:
+      properties:
+        count:
+          type:
+          - integer
+          - 'null'
+        size:
+          type:
+          - integer
+          - 'null'
+      type: object
+    GatewaytypesLimitConfig:
       properties:
         day:
-          $ref: '#/components/schemas/GatewaytypesLimitMetricValue'
+          $ref: '#/components/schemas/GatewaytypesLimitValue'
         second:
-          $ref: '#/components/schemas/GatewaytypesLimitMetricValue'
+          $ref: '#/components/schemas/GatewaytypesLimitValue'
+      type: object
+    GatewaytypesGettableIngestionKeys:
+      properties:
+        _pagination:
+          $ref: '#/components/schemas/GatewaytypesPagination'
+        keys:
+          items:
+            $ref: '#/components/schemas/GatewaytypesIngestionKey'
+          type:
+          - array
+          - 'null'
       type: object
     GatewaytypesLimitMetricValue:
       properties:
@@ -534,6 +556,31 @@ components:
         size:
           format: int64
           type: integer
+      type: object
+    GatewaytypesGettableCreatedIngestionKeyLimit:
+      properties:
+        id:
+          type: string
+      required:
+      - id
+      type: object
+    GatewaytypesPostableIngestionKeyLimit:
+      properties:
+        config:
+          $ref: '#/components/schemas/GatewaytypesLimitConfig'
+        signal:
+          type: string
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
       type: object
     GatewaytypesGettableCreatedIngestionKey:
       properties:
@@ -545,30 +592,21 @@ components:
       - id
       - value
       type: object
-    GatewaytypesLimitValue:
+    GatewaytypesPostableIngestionKey:
       properties:
-        count:
-          nullable: true
-          type: integer
-        size:
-          nullable: true
-          type: integer
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
+        expires_at:
+          format: date-time
           type: string
-        errors:
+        name:
+          type: string
+        tags:
           items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
+            type: string
+          type:
+          - array
+          - 'null'
       required:
-      - code
-      - message
+      - name
       type: object
     GatewaytypesPagination:
       properties:
@@ -580,35 +618,6 @@ components:
           type: integer
         total:
           type: integer
-      type: object
-    GatewaytypesUpdatableIngestionKeyLimit:
-      properties:
-        config:
-          $ref: '#/components/schemas/GatewaytypesLimitConfig'
-        tags:
-          items:
-            type: string
-          nullable: true
-          type: array
-      required:
-      - config
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    GatewaytypesPostableIngestionKeyLimit:
-      properties:
-        config:
-          $ref: '#/components/schemas/GatewaytypesLimitConfig'
-        signal:
-          type: string
-        tags:
-          items:
-            type: string
-          nullable: true
-          type: array
       type: object
   securitySchemes:
     api_key:

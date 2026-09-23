@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts zeus API
+  title: SigNoz Zeus API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -79,7 +79,7 @@ paths:
         - VIEWER
       - tokenizer:
         - VIEWER
-      summary: Get host info from Zeus.
+      summary: Get host info from Zeus
       tags:
       - zeus
     put:
@@ -135,7 +135,7 @@ paths:
         - ADMIN
       - tokenizer:
         - ADMIN
-      summary: Put host in Zeus for a deployment.
+      summary: Put host in Zeus for a deployment
       tags:
       - zeus
   /api/v2/zeus/profiles:
@@ -192,62 +192,11 @@ paths:
         - ADMIN
       - tokenizer:
         - ADMIN
-      summary: Put profile in Zeus for a deployment.
+      summary: Put profile in Zeus for a deployment
       tags:
       - zeus
 components:
   schemas:
-    ZeustypesPostableHost:
-      properties:
-        name:
-          type: string
-      required:
-      - name
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    ZeustypesHost:
-      properties:
-        is_default:
-          type: boolean
-        name:
-          type: string
-        url:
-          type: string
-      required:
-      - name
-      - is_default
-      - url
-      type: object
     ZeustypesPostableProfile:
       properties:
         existing_observability_tool:
@@ -266,8 +215,9 @@ components:
         reasons_for_interest_in_signoz:
           items:
             type: string
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         timeline_for_migrating_to_signoz:
           type: string
         uses_otel:
@@ -285,13 +235,30 @@ components:
       - where_did_you_discover_signoz
       - timeline_for_migrating_to_signoz
       type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
     ZeustypesGettableHost:
       properties:
         hosts:
           items:
             $ref: '#/components/schemas/ZeustypesHost'
-          nullable: true
-          type: array
+          type:
+          - array
+          - 'null'
         name:
           type: string
         state:
@@ -303,6 +270,41 @@ components:
       - state
       - tier
       - hosts
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    ZeustypesPostableHost:
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    ZeustypesHost:
+      properties:
+        is_default:
+          type: boolean
+        name:
+          type: string
+        url:
+          type: string
+      required:
+      - name
+      - is_default
+      - url
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
       type: object
   securitySchemes:
     api_key:

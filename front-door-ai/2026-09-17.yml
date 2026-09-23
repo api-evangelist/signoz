@@ -1,0 +1,33 @@
+# Front Door AI Index — signoz — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: signoz
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: signoz.io
+  final_host: signoz.io
+  ownership: own
+  owner: signoz
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 22
+  host_score: 22
+  density: 20.22
+  words: 1088
+  tiers:
+    agentic: 6
+    core: 12
+    model: 4
+  ambiguous: 8
+  top_terms:
+    AI: 9
+    agent: 8
+    LLMs: 3
+    MCP: 3
+    AI agent: 2
+    OpenAI: 2
+    Azure OpenAI: 1
+    Gemini: 1
+    llms.txt: 1

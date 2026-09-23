@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  version: "1.0"
   contact:
     email: support@signoz.io
     name: SigNoz Support
     url: https://signoz.io
   description: OpenTelemetry-Native Logs, Metrics and Traces in a single pane
   termsOfService: https://signoz.io/terms-of-service/
-  title: SigNoz alerts authdomains API
+  title: SigNoz Authdomains API
+  version: ''
 servers:
 - description: The fully qualified URL to the SigNoz APIServer.
   url: https://{host}:{port}{base_path}
@@ -238,12 +238,6 @@ paths:
       - authdomains
 components:
   schemas:
-    AuthtypesAuthNProviderInfo:
-      properties:
-        relayStatePath:
-          nullable: true
-          type: string
-      type: object
     AuthtypesPostableAuthDomain:
       properties:
         config:
@@ -251,19 +245,66 @@ components:
         name:
           type: string
       type: object
-    AuthtypesAuthDomainConfig:
+    ErrorsJSON:
       properties:
-        googleAuthConfig:
-          $ref: '#/components/schemas/AuthtypesGoogleConfig'
-        oidcConfig:
-          $ref: '#/components/schemas/AuthtypesOIDCConfig'
-        roleMapping:
-          $ref: '#/components/schemas/AuthtypesRoleMapping'
-        samlConfig:
-          $ref: '#/components/schemas/AuthtypesSamlConfig'
-        ssoEnabled:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    AuthtypesGoogleConfig:
+      properties:
+        allowedGroups:
+          items:
+            type: string
+          type: array
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        domainToAdminEmail:
+          additionalProperties:
+            type: string
+          type: object
+        fetchGroups:
           type: boolean
-        ssoType:
+        fetchTransitiveGroupMembership:
+          type: boolean
+        insecureSkipEmailVerified:
+          type: boolean
+        redirectURI:
+          type: string
+        serviceAccountJson:
+          type: string
+      type: object
+    AuthtypesAttributeMapping:
+      properties:
+        email:
+          type: string
+        groups:
+          type: string
+        name:
+          type: string
+        role:
           type: string
       type: object
     AuthtypesOIDCConfig:
@@ -283,48 +324,17 @@ components:
         issuerAlias:
           type: string
       type: object
-    RenderErrorResponse:
+    AuthtypesUpdateableAuthDomain:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
+        config:
+          $ref: '#/components/schemas/AuthtypesAuthDomainConfig'
       type: object
-    AuthtypesRoleMapping:
+    AuthtypesAuthNProviderInfo:
       properties:
-        defaultRole:
-          type: string
-        groupMappings:
-          additionalProperties:
-            type: string
-          nullable: true
-          type: object
-        useRoleAttribute:
-          type: boolean
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
+        relayStatePath:
+          type:
+          - string
+          - 'null'
       type: object
     AuthtypesSamlConfig:
       properties:
@@ -339,10 +349,38 @@ components:
         samlIdp:
           type: string
       type: object
-    AuthtypesUpdateableAuthDomain:
+    AuthtypesRoleMapping:
       properties:
-        config:
-          $ref: '#/components/schemas/AuthtypesAuthDomainConfig'
+        defaultRole:
+          type: string
+        groupMappings:
+          additionalProperties:
+            type: string
+          type:
+          - object
+          - 'null'
+        useRoleAttribute:
+          type: boolean
+      type: object
+    AuthtypesAuthDomainConfig:
+      properties:
+        googleAuthConfig:
+          $ref: '#/components/schemas/AuthtypesGoogleConfig'
+        oidcConfig:
+          $ref: '#/components/schemas/AuthtypesOIDCConfig'
+        roleMapping:
+          $ref: '#/components/schemas/AuthtypesRoleMapping'
+        samlConfig:
+          $ref: '#/components/schemas/AuthtypesSamlConfig'
+        ssoEnabled:
+          type: boolean
+        ssoType:
+          type: string
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
       type: object
     AuthtypesGettableAuthDomain:
       properties:
@@ -374,42 +412,6 @@ components:
           type: string
       required:
       - id
-      type: object
-    AuthtypesAttributeMapping:
-      properties:
-        email:
-          type: string
-        groups:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
-      type: object
-    AuthtypesGoogleConfig:
-      properties:
-        allowedGroups:
-          items:
-            type: string
-          type: array
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        domainToAdminEmail:
-          additionalProperties:
-            type: string
-          type: object
-        fetchGroups:
-          type: boolean
-        fetchTransitiveGroupMembership:
-          type: boolean
-        insecureSkipEmailVerified:
-          type: boolean
-        redirectURI:
-          type: string
-        serviceAccountJson:
-          type: string
       type: object
   securitySchemes:
     api_key:
