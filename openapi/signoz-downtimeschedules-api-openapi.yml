@@ -302,50 +302,25 @@ paths:
       - downtimeschedules
 components:
   schemas:
-    RuletypesMaintenanceStatus:
-      enum:
-      - active
-      - upcoming
-      - expired
-      type: string
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
     RuletypesMaintenanceKind:
       enum:
       - fixed
       - recurring
       type: string
-    RuletypesPostablePlannedMaintenance:
+    RuletypesSchedule:
       properties:
-        alertIds:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        description:
+        endTime:
+          format: date-time
           type: string
-        name:
+        recurrence:
+          $ref: '#/components/schemas/RuletypesRecurrence'
+        startTime:
+          format: date-time
           type: string
-        schedule:
-          $ref: '#/components/schemas/RuletypesSchedule'
+        timezone:
+          type: string
       required:
-      - name
-      - schedule
+      - timezone
       type: object
     RenderErrorResponse:
       properties:
@@ -356,6 +331,31 @@ components:
       required:
       - status
       - error
+      type: object
+    RuletypesRecurrence:
+      properties:
+        duration:
+          type: string
+        endTime:
+          format: date-time
+          type:
+          - string
+          - 'null'
+        repeatOn:
+          items:
+            $ref: '#/components/schemas/RuletypesRepeatOn'
+          type:
+          - array
+          - 'null'
+        repeatType:
+          $ref: '#/components/schemas/RuletypesRepeatType'
+        startTime:
+          format: date-time
+          type: string
+      required:
+      - startTime
+      - duration
+      - repeatType
       type: object
     RuletypesPlannedMaintenance:
       properties:
@@ -394,6 +394,27 @@ components:
       - status
       - kind
       type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
     RuletypesRepeatOn:
       enum:
       - sunday
@@ -404,57 +425,36 @@ components:
       - friday
       - saturday
       type: string
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    RuletypesSchedule:
-      properties:
-        endTime:
-          format: date-time
-          type: string
-        recurrence:
-          $ref: '#/components/schemas/RuletypesRecurrence'
-        startTime:
-          format: date-time
-          type: string
-        timezone:
-          type: string
-      required:
-      - timezone
-      type: object
     RuletypesRepeatType:
       enum:
       - daily
       - weekly
       - monthly
       type: string
-    RuletypesRecurrence:
+    RuletypesPostablePlannedMaintenance:
       properties:
-        duration:
-          type: string
-        endTime:
-          format: date-time
-          type:
-          - string
-          - 'null'
-        repeatOn:
+        alertIds:
           items:
-            $ref: '#/components/schemas/RuletypesRepeatOn'
+            type: string
           type:
           - array
           - 'null'
-        repeatType:
-          $ref: '#/components/schemas/RuletypesRepeatType'
-        startTime:
-          format: date-time
+        description:
           type: string
+        name:
+          type: string
+        schedule:
+          $ref: '#/components/schemas/RuletypesSchedule'
       required:
-      - startTime
-      - duration
-      - repeatType
+      - name
+      - schedule
       type: object
+    RuletypesMaintenanceStatus:
+      enum:
+      - active
+      - upcoming
+      - expired
+      type: string
   securitySchemes:
     api_key:
       description: API Keys

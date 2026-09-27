@@ -481,31 +481,37 @@ paths:
       - Role
 components:
   schemas:
-    ErrorsJSON:
+    AuthtypesPatchableObjects:
       properties:
-        code:
-          type: string
-        errors:
+        additions:
           items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
+            $ref: '#/components/schemas/AuthtypesGettableObjects'
+          type:
+          - array
+          - 'null'
+        deletions:
+          items:
+            $ref: '#/components/schemas/AuthtypesGettableObjects'
+          type:
+          - array
+          - 'null'
       required:
-      - code
-      - message
+      - additions
+      - deletions
       type: object
-    RenderErrorResponse:
+    AuthtypesPatchableRole:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
+        description:
           type: string
       required:
-      - status
-      - error
+      - description
+      type: object
+    TypesIdentifiable:
+      properties:
+        id:
+          type: string
+      required:
+      - id
       type: object
     AuthtypesGettableObjects:
       properties:
@@ -518,6 +524,16 @@ components:
       required:
       - resource
       - selectors
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
       type: object
     AuthtypesRole:
       properties:
@@ -544,21 +560,26 @@ components:
       - type
       - orgId
       type: object
-    AuthtypesPostableRole:
+    ErrorsJSON:
       properties:
-        description:
+        code:
           type: string
-        name:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
           type: string
       required:
-      - name
+      - code
+      - message
       type: object
-    TypesIdentifiable:
+    ErrorsResponseerroradditional:
       properties:
-        id:
+        message:
           type: string
-      required:
-      - id
       type: object
     AuthtypesResource:
       properties:
@@ -570,35 +591,14 @@ components:
       - name
       - type
       type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    AuthtypesPatchableRole:
+    AuthtypesPostableRole:
       properties:
         description:
           type: string
+        name:
+          type: string
       required:
-      - description
-      type: object
-    AuthtypesPatchableObjects:
-      properties:
-        additions:
-          items:
-            $ref: '#/components/schemas/AuthtypesGettableObjects'
-          type:
-          - array
-          - 'null'
-        deletions:
-          items:
-            $ref: '#/components/schemas/AuthtypesGettableObjects'
-          type:
-          - array
-          - 'null'
-      required:
-      - additions
-      - deletions
+      - name
       type: object
   securitySchemes:
     api_key:

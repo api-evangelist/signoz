@@ -238,96 +238,18 @@ paths:
       - authdomains
 components:
   schemas:
-    AuthtypesPostableAuthDomain:
+    AuthtypesRoleMapping:
       properties:
-        config:
-          $ref: '#/components/schemas/AuthtypesAuthDomainConfig'
-        name:
+        defaultRole:
           type: string
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    AuthtypesGoogleConfig:
-      properties:
-        allowedGroups:
-          items:
-            type: string
-          type: array
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        domainToAdminEmail:
+        groupMappings:
           additionalProperties:
             type: string
-          type: object
-        fetchGroups:
+          type:
+          - object
+          - 'null'
+        useRoleAttribute:
           type: boolean
-        fetchTransitiveGroupMembership:
-          type: boolean
-        insecureSkipEmailVerified:
-          type: boolean
-        redirectURI:
-          type: string
-        serviceAccountJson:
-          type: string
-      type: object
-    AuthtypesAttributeMapping:
-      properties:
-        email:
-          type: string
-        groups:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
-      type: object
-    AuthtypesOIDCConfig:
-      properties:
-        claimMapping:
-          $ref: '#/components/schemas/AuthtypesAttributeMapping'
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        getUserInfo:
-          type: boolean
-        insecureSkipEmailVerified:
-          type: boolean
-        issuer:
-          type: string
-        issuerAlias:
-          type: string
-      type: object
-    AuthtypesUpdateableAuthDomain:
-      properties:
-        config:
-          $ref: '#/components/schemas/AuthtypesAuthDomainConfig'
       type: object
     AuthtypesAuthNProviderInfo:
       properties:
@@ -347,39 +269,6 @@ components:
         samlEntity:
           type: string
         samlIdp:
-          type: string
-      type: object
-    AuthtypesRoleMapping:
-      properties:
-        defaultRole:
-          type: string
-        groupMappings:
-          additionalProperties:
-            type: string
-          type:
-          - object
-          - 'null'
-        useRoleAttribute:
-          type: boolean
-      type: object
-    AuthtypesAuthDomainConfig:
-      properties:
-        googleAuthConfig:
-          $ref: '#/components/schemas/AuthtypesGoogleConfig'
-        oidcConfig:
-          $ref: '#/components/schemas/AuthtypesOIDCConfig'
-        roleMapping:
-          $ref: '#/components/schemas/AuthtypesRoleMapping'
-        samlConfig:
-          $ref: '#/components/schemas/AuthtypesSamlConfig'
-        ssoEnabled:
-          type: boolean
-        ssoType:
-          type: string
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
           type: string
       type: object
     AuthtypesGettableAuthDomain:
@@ -412,6 +301,117 @@ components:
           type: string
       required:
       - id
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    AuthtypesPostableAuthDomain:
+      properties:
+        config:
+          $ref: '#/components/schemas/AuthtypesAuthDomainConfig'
+        name:
+          type: string
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    AuthtypesGoogleConfig:
+      properties:
+        allowedGroups:
+          items:
+            type: string
+          type: array
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        domainToAdminEmail:
+          additionalProperties:
+            type: string
+          type: object
+        fetchGroups:
+          type: boolean
+        fetchTransitiveGroupMembership:
+          type: boolean
+        insecureSkipEmailVerified:
+          type: boolean
+        redirectURI:
+          type: string
+        serviceAccountJson:
+          type: string
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    AuthtypesAuthDomainConfig:
+      properties:
+        googleAuthConfig:
+          $ref: '#/components/schemas/AuthtypesGoogleConfig'
+        oidcConfig:
+          $ref: '#/components/schemas/AuthtypesOIDCConfig'
+        roleMapping:
+          $ref: '#/components/schemas/AuthtypesRoleMapping'
+        samlConfig:
+          $ref: '#/components/schemas/AuthtypesSamlConfig'
+        ssoEnabled:
+          type: boolean
+        ssoType:
+          type: string
+      type: object
+    AuthtypesOIDCConfig:
+      properties:
+        claimMapping:
+          $ref: '#/components/schemas/AuthtypesAttributeMapping'
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        getUserInfo:
+          type: boolean
+        insecureSkipEmailVerified:
+          type: boolean
+        issuer:
+          type: string
+        issuerAlias:
+          type: string
+      type: object
+    AuthtypesAttributeMapping:
+      properties:
+        email:
+          type: string
+        groups:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+      type: object
+    AuthtypesUpdateableAuthDomain:
+      properties:
+        config:
+          $ref: '#/components/schemas/AuthtypesAuthDomainConfig'
       type: object
   securitySchemes:
     api_key:

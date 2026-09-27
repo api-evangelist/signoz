@@ -197,6 +197,45 @@ paths:
       - zeus
 components:
   schemas:
+    ZeustypesHost:
+      properties:
+        is_default:
+          type: boolean
+        name:
+          type: string
+        url:
+          type: string
+      required:
+      - name
+      - is_default
+      - url
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
     ZeustypesPostableProfile:
       properties:
         existing_observability_tool:
@@ -235,21 +274,17 @@ components:
       - where_did_you_discover_signoz
       - timeline_for_migrating_to_signoz
       type: object
-    ErrorsJSON:
+    ErrorsResponseerroradditional:
       properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
         message:
           type: string
-        url:
+      type: object
+    ZeustypesPostableHost:
+      properties:
+        name:
           type: string
       required:
-      - code
-      - message
+      - name
       type: object
     ZeustypesGettableHost:
       properties:
@@ -270,41 +305,6 @@ components:
       - state
       - tier
       - hosts
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ZeustypesPostableHost:
-      properties:
-        name:
-          type: string
-      required:
-      - name
-      type: object
-    ZeustypesHost:
-      properties:
-        is_default:
-          type: boolean
-        name:
-          type: string
-        url:
-          type: string
-      required:
-      - name
-      - is_default
-      - url
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
       type: object
   securitySchemes:
     api_key:

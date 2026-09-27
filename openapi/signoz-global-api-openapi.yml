@@ -55,10 +55,25 @@ paths:
       - Global
 components:
   schemas:
+    GlobaltypesTokenizerConfig:
+      properties:
+        enabled:
+          type: boolean
+      type: object
     GlobaltypesImpersonationConfig:
       properties:
         enabled:
           type: boolean
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
       type: object
     ErrorsJSON:
       properties:
@@ -76,20 +91,10 @@ components:
       - code
       - message
       type: object
-    GlobaltypesAPIKeyConfig:
+    ErrorsResponseerroradditional:
       properties:
-        enabled:
-          type: boolean
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
+        message:
           type: string
-      required:
-      - status
-      - error
       type: object
     GlobaltypesIdentNConfig:
       properties:
@@ -99,11 +104,6 @@ components:
           $ref: '#/components/schemas/GlobaltypesImpersonationConfig'
         tokenizer:
           $ref: '#/components/schemas/GlobaltypesTokenizerConfig'
-      type: object
-    GlobaltypesTokenizerConfig:
-      properties:
-        enabled:
-          type: boolean
       type: object
     GlobaltypesConfig:
       properties:
@@ -122,10 +122,10 @@ components:
       - ingestion_url
       - mcp_url
       type: object
-    ErrorsResponseerroradditional:
+    GlobaltypesAPIKeyConfig:
       properties:
-        message:
-          type: string
+        enabled:
+          type: boolean
       type: object
   securitySchemes:
     api_key:

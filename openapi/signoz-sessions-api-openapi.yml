@@ -349,36 +349,10 @@ components:
           - array
           - 'null'
       type: object
-    ErrorsJSON:
+    AuthtypesPasswordAuthNSupport:
       properties:
-        code:
+        provider:
           type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    AuthtypesAuthNSupport:
-      properties:
-        callback:
-          items:
-            $ref: '#/components/schemas/AuthtypesCallbackAuthNSupport'
-          type:
-          - array
-          - 'null'
-        password:
-          items:
-            $ref: '#/components/schemas/AuthtypesPasswordAuthNSupport'
-          type:
-          - array
-          - 'null'
       type: object
     RenderErrorResponse:
       properties:
@@ -401,14 +375,41 @@ components:
         warning:
           $ref: '#/components/schemas/ErrorsJSON'
       type: object
-    AuthtypesPostableEmailPasswordSession:
+    AuthtypesPostableRotateToken:
       properties:
-        email:
+        refreshToken:
           type: string
-        orgId:
-          type: string
+      type: object
+    AuthtypesAuthNSupport:
+      properties:
+        callback:
+          items:
+            $ref: '#/components/schemas/AuthtypesCallbackAuthNSupport'
+          type:
+          - array
+          - 'null'
         password:
+          items:
+            $ref: '#/components/schemas/AuthtypesPasswordAuthNSupport'
+          type:
+          - array
+          - 'null'
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
           type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
       type: object
     AuthtypesGettableToken:
       properties:
@@ -421,26 +422,25 @@ components:
         tokenType:
           type: string
       type: object
-    AuthtypesCallbackAuthNSupport:
+    AuthtypesPostableEmailPasswordSession:
       properties:
-        provider:
+        email:
           type: string
-        url:
+        orgId:
           type: string
-      type: object
-    AuthtypesPostableRotateToken:
-      properties:
-        refreshToken:
-          type: string
-      type: object
-    AuthtypesPasswordAuthNSupport:
-      properties:
-        provider:
+        password:
           type: string
       type: object
     ErrorsResponseerroradditional:
       properties:
         message:
+          type: string
+      type: object
+    AuthtypesCallbackAuthNSupport:
+      properties:
+        provider:
+          type: string
+        url:
           type: string
       type: object
   securitySchemes:

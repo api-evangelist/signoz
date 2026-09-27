@@ -1167,38 +1167,6 @@ paths:
       - Users
 components:
   schemas:
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    TypesPostableInvite:
-      properties:
-        email:
-          type: string
-        frontendBaseUrl:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
-      type: object
     TypesDeprecatedUser:
       properties:
         createdAt:
@@ -1224,22 +1192,12 @@ components:
       required:
       - id
       type: object
-    TypesPostableResetPassword:
+    TypesChangePasswordRequest:
       properties:
-        password:
+        newPassword:
           type: string
-        token:
+        oldPassword:
           type: string
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
       type: object
     AuthtypesUserWithRoles:
       properties:
@@ -1270,6 +1228,80 @@ components:
       required:
       - id
       type: object
+    TypesUser:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        displayName:
+          type: string
+        email:
+          type: string
+        id:
+          type: string
+        isRoot:
+          type: boolean
+        orgId:
+          type: string
+        status:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    TypesPostableBulkInviteRequest:
+      properties:
+        invites:
+          items:
+            $ref: '#/components/schemas/TypesPostableInvite'
+          type: array
+      required:
+      - invites
+      type: object
+    TypesUpdatableUser:
+      properties:
+        displayName:
+          type: string
+      required:
+      - displayName
+      type: object
+    TypesPostableInvite:
+      properties:
+        email:
+          type: string
+        frontendBaseUrl:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+      type: object
+    TypesResetPasswordToken:
+      properties:
+        expiresAt:
+          format: date-time
+          type: string
+        id:
+          type: string
+        passwordId:
+          type: string
+        token:
+          type: string
+      required:
+      - id
+      type: object
     AuthtypesRole:
       properties:
         createdAt:
@@ -1295,6 +1327,27 @@ components:
       - type
       - orgId
       type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
     TypesPostableRole:
       properties:
         name:
@@ -1302,28 +1355,29 @@ components:
       required:
       - name
       type: object
-    TypesUser:
+    AuthtypesUserRole:
       properties:
         createdAt:
           format: date-time
           type: string
-        displayName:
-          type: string
-        email:
-          type: string
         id:
           type: string
-        isRoot:
-          type: boolean
-        orgId:
-          type: string
-        status:
+        role:
+          $ref: '#/components/schemas/AuthtypesRole'
+        roleId:
           type: string
         updatedAt:
           format: date-time
           type: string
+        userId:
+          type: string
       required:
       - id
+      - userId
+      - roleId
+      - createdAt
+      - updatedAt
+      - role
       type: object
     TypesInvite:
       properties:
@@ -1350,66 +1404,12 @@ components:
       required:
       - id
       type: object
-    TypesChangePasswordRequest:
+    TypesPostableResetPassword:
       properties:
-        newPassword:
-          type: string
-        oldPassword:
-          type: string
-      type: object
-    TypesPostableBulkInviteRequest:
-      properties:
-        invites:
-          items:
-            $ref: '#/components/schemas/TypesPostableInvite'
-          type: array
-      required:
-      - invites
-      type: object
-    TypesUpdatableUser:
-      properties:
-        displayName:
-          type: string
-      required:
-      - displayName
-      type: object
-    AuthtypesUserRole:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        id:
-          type: string
-        role:
-          $ref: '#/components/schemas/AuthtypesRole'
-        roleId:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-        userId:
-          type: string
-      required:
-      - id
-      - userId
-      - roleId
-      - createdAt
-      - updatedAt
-      - role
-      type: object
-    TypesResetPasswordToken:
-      properties:
-        expiresAt:
-          format: date-time
-          type: string
-        id:
-          type: string
-        passwordId:
+        password:
           type: string
         token:
           type: string
-      required:
-      - id
       type: object
     TypesPostableForgotPassword:
       properties:

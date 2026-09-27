@@ -93,6 +93,44 @@ paths:
       - authz
 components:
   schemas:
+    AuthtypesTransaction:
+      properties:
+        object:
+          $ref: '#/components/schemas/AuthtypesObject'
+        relation:
+          type: string
+      required:
+      - relation
+      - object
+      type: object
+    AuthtypesGettableResources:
+      properties:
+        relations:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type:
+          - object
+          - 'null'
+        resources:
+          items:
+            $ref: '#/components/schemas/AuthtypesResource'
+          type: array
+      required:
+      - resources
+      - relations
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
     AuthtypesGettableTransaction:
       properties:
         authorized:
@@ -122,15 +160,10 @@ components:
       - code
       - message
       type: object
-    RenderErrorResponse:
+    ErrorsResponseerroradditional:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
+        message:
           type: string
-      required:
-      - status
-      - error
       type: object
     AuthtypesObject:
       properties:
@@ -142,24 +175,6 @@ components:
       - resource
       - selector
       type: object
-    AuthtypesGettableResources:
-      properties:
-        relations:
-          additionalProperties:
-            items:
-              type: string
-            type: array
-          type:
-          - object
-          - 'null'
-        resources:
-          items:
-            $ref: '#/components/schemas/AuthtypesResource'
-          type: array
-      required:
-      - resources
-      - relations
-      type: object
     AuthtypesResource:
       properties:
         name:
@@ -169,21 +184,6 @@ components:
       required:
       - name
       - type
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    AuthtypesTransaction:
-      properties:
-        object:
-          $ref: '#/components/schemas/AuthtypesObject'
-        relation:
-          type: string
-      required:
-      - relation
-      - object
       type: object
   securitySchemes:
     api_key:

@@ -74,21 +74,6 @@ paths:
       - Features
 components:
   schemas:
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
     FeaturetypesGettableFeature:
       properties:
         defaultVariant:
@@ -107,6 +92,21 @@ components:
           type:
           - object
           - 'null'
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
       type: object
     ErrorsJSON:
       properties:

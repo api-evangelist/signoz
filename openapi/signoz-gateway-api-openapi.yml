@@ -416,6 +416,30 @@ paths:
       - Gateway
 components:
   schemas:
+    GatewaytypesPagination:
+      properties:
+        page:
+          type: integer
+        pages:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+      type: object
+    GatewaytypesUpdatableIngestionKeyLimit:
+      properties:
+        config:
+          $ref: '#/components/schemas/GatewaytypesLimitConfig'
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - config
+      type: object
     GatewaytypesLimitMetric:
       properties:
         day:
@@ -423,21 +447,21 @@ components:
         second:
           $ref: '#/components/schemas/GatewaytypesLimitMetricValue'
       type: object
-    ErrorsJSON:
+    GatewaytypesLimitMetricValue:
       properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
+        count:
+          format: int64
+          type: integer
+        size:
+          format: int64
+          type: integer
+      type: object
+    GatewaytypesLimitConfig:
+      properties:
+        day:
+          $ref: '#/components/schemas/GatewaytypesLimitValue'
+        second:
+          $ref: '#/components/schemas/GatewaytypesLimitValue'
       type: object
     RenderErrorResponse:
       properties:
@@ -449,30 +473,15 @@ components:
       - status
       - error
       type: object
-    GatewaytypesLimit:
+    GatewaytypesGettableCreatedIngestionKey:
       properties:
-        config:
-          $ref: '#/components/schemas/GatewaytypesLimitConfig'
-        created_at:
-          format: date-time
-          type: string
         id:
           type: string
-        key_id:
+        value:
           type: string
-        metric:
-          $ref: '#/components/schemas/GatewaytypesLimitMetric'
-        signal:
-          type: string
-        tags:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        updated_at:
-          format: date-time
-          type: string
+      required:
+      - id
+      - value
       type: object
     GatewaytypesIngestionKey:
       properties:
@@ -506,64 +515,6 @@ components:
         workspace_id:
           type: string
       type: object
-    GatewaytypesUpdatableIngestionKeyLimit:
-      properties:
-        config:
-          $ref: '#/components/schemas/GatewaytypesLimitConfig'
-        tags:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-      required:
-      - config
-      type: object
-    GatewaytypesLimitValue:
-      properties:
-        count:
-          type:
-          - integer
-          - 'null'
-        size:
-          type:
-          - integer
-          - 'null'
-      type: object
-    GatewaytypesLimitConfig:
-      properties:
-        day:
-          $ref: '#/components/schemas/GatewaytypesLimitValue'
-        second:
-          $ref: '#/components/schemas/GatewaytypesLimitValue'
-      type: object
-    GatewaytypesGettableIngestionKeys:
-      properties:
-        _pagination:
-          $ref: '#/components/schemas/GatewaytypesPagination'
-        keys:
-          items:
-            $ref: '#/components/schemas/GatewaytypesIngestionKey'
-          type:
-          - array
-          - 'null'
-      type: object
-    GatewaytypesLimitMetricValue:
-      properties:
-        count:
-          format: int64
-          type: integer
-        size:
-          format: int64
-          type: integer
-      type: object
-    GatewaytypesGettableCreatedIngestionKeyLimit:
-      properties:
-        id:
-          type: string
-      required:
-      - id
-      type: object
     GatewaytypesPostableIngestionKeyLimit:
       properties:
         config:
@@ -577,20 +528,80 @@ components:
           - array
           - 'null'
       type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
     ErrorsResponseerroradditional:
       properties:
         message:
           type: string
       type: object
-    GatewaytypesGettableCreatedIngestionKey:
+    GatewaytypesGettableCreatedIngestionKeyLimit:
       properties:
         id:
           type: string
-        value:
-          type: string
       required:
       - id
-      - value
+      type: object
+    GatewaytypesGettableIngestionKeys:
+      properties:
+        _pagination:
+          $ref: '#/components/schemas/GatewaytypesPagination'
+        keys:
+          items:
+            $ref: '#/components/schemas/GatewaytypesIngestionKey'
+          type:
+          - array
+          - 'null'
+      type: object
+    GatewaytypesLimitValue:
+      properties:
+        count:
+          type:
+          - integer
+          - 'null'
+        size:
+          type:
+          - integer
+          - 'null'
+      type: object
+    GatewaytypesLimit:
+      properties:
+        config:
+          $ref: '#/components/schemas/GatewaytypesLimitConfig'
+        created_at:
+          format: date-time
+          type: string
+        id:
+          type: string
+        key_id:
+          type: string
+        metric:
+          $ref: '#/components/schemas/GatewaytypesLimitMetric'
+        signal:
+          type: string
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        updated_at:
+          format: date-time
+          type: string
       type: object
     GatewaytypesPostableIngestionKey:
       properties:
@@ -607,17 +618,6 @@ components:
           - 'null'
       required:
       - name
-      type: object
-    GatewaytypesPagination:
-      properties:
-        page:
-          type: integer
-        pages:
-          type: integer
-        per_page:
-          type: integer
-        total:
-          type: integer
       type: object
   securitySchemes:
     api_key:

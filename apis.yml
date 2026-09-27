@@ -8,6 +8,10 @@ description: >-
 type: Index
 deliveryModel:
   model: unknown
+  license_evidence:
+    repo: signoz/signoz
+    spdx: NOASSERTION
+    stars: 32191
   open_source: unknown
   commercial: true
   callable_host: false
@@ -17,7 +21,7 @@ deliveryModel:
   - openapi
   - pricing
   - repository-unlicensed
-  generated: '2026-08-28'
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -45,7 +49,8 @@ tags:
   - Metrics
   - Observability
   - OpenTelemetry
-  - Open-Source
+  - Open Source
+  - Monitoring
 tags_raw:
   - APM
   - Alerting
@@ -58,13 +63,15 @@ tags_raw:
   - Observability
   - OpenTelemetry
   - Open Source
+  - Open-Source
+  - Monitoring
 url: https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/apis.yml
 created: '2026-03-25'
 modified: '2026-05-19'
 specificationVersion: '0.23'
 apis:
 - aid: signoz:signoz-alerts-api
-  name: SigNoz alerts API
+  name: SigNoz Alerts API
   description: The alerts API from SigNoz — 1 operation(s) for alerts.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -94,7 +101,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-authdomains-api
-  name: SigNoz authdomains API
+  name: SigNoz Authdomains API
   description: The authdomains API from SigNoz — 2 operation(s) for authdomains.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -122,7 +129,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-authz-api
-  name: SigNoz authz API
+  name: SigNoz Authz API
   description: The authz API from SigNoz — 2 operation(s) for authz.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -150,7 +157,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-channels-api
-  name: SigNoz channels API
+  name: SigNoz Channels API
   description: The channels API from SigNoz — 4 operation(s) for channels.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -180,7 +187,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-dashboard-api
-  name: SigNoz dashboard API
+  name: SigNoz Dashboard API
   description: The dashboard API from SigNoz — 3 operation(s) for dashboard.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -210,7 +217,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-downtimeschedules-api
-  name: SigNoz downtimeschedules API
+  name: SigNoz Downtimeschedules API
   description: The downtimeschedules API from SigNoz — 2 operation(s) for downtimeschedules.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -238,7 +245,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-features-api
-  name: SigNoz features API
+  name: SigNoz Features API
   description: The features API from SigNoz — 1 operation(s) for features.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -268,7 +275,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-fields-api
-  name: SigNoz fields API
+  name: SigNoz Fields API
   description: The fields API from SigNoz — 2 operation(s) for fields.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -298,7 +305,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-gateway-api
-  name: SigNoz gateway API
+  name: SigNoz Gateway API
   description: The gateway API from SigNoz — 5 operation(s) for gateway.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -328,7 +335,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-global-api
-  name: SigNoz global API
+  name: SigNoz Global API
   description: The global API from SigNoz — 1 operation(s) for global.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -358,7 +365,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-health-api
-  name: SigNoz health API
+  name: SigNoz Health API
   description: The health API from SigNoz — 3 operation(s) for health.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -388,7 +395,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-inframonitoring-api
-  name: SigNoz inframonitoring API
+  name: SigNoz Inframonitoring API
   description: The inframonitoring API from SigNoz — 2 operation(s) for inframonitoring.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -416,7 +423,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-llmpricingrules-api
-  name: SigNoz llmpricingrules API
+  name: SigNoz Llmpricingrules API
   description: The llmpricingrules API from SigNoz — 2 operation(s) for llmpricingrules.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -444,7 +451,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-logs-api
-  name: SigNoz logs API
+  name: SigNoz Logs API
   description: The logs API from SigNoz — 2 operation(s) for logs.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -474,7 +481,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-metrics-api
-  name: SigNoz metrics API
+  name: SigNoz Metrics API
   description: The metrics API from SigNoz — 10 operation(s) for metrics.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -504,7 +511,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-orgs-api
-  name: SigNoz orgs API
+  name: SigNoz Orgs API
   description: The orgs API from SigNoz — 1 operation(s) for orgs.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -534,7 +541,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-preferences-api
-  name: SigNoz preferences API
+  name: SigNoz Preferences API
   description: The preferences API from SigNoz — 4 operation(s) for preferences.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -564,7 +571,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-querier-api
-  name: SigNoz querier API
+  name: SigNoz Querier API
   description: The querier API from SigNoz — 2 operation(s) for querier.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -592,7 +599,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-role-api
-  name: SigNoz role API
+  name: SigNoz Role API
   description: The role API from SigNoz — 3 operation(s) for role.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -622,7 +629,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-routepolicies-api
-  name: SigNoz routepolicies API
+  name: SigNoz Routepolicies API
   description: The routepolicies API from SigNoz — 2 operation(s) for routepolicies.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -650,7 +657,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-rules-api
-  name: SigNoz rules API
+  name: SigNoz Rules API
   description: The rules API from SigNoz — 9 operation(s) for rules.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -680,7 +687,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-sessions-api
-  name: SigNoz sessions API
+  name: SigNoz Sessions API
   description: The sessions API from SigNoz — 7 operation(s) for sessions.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -710,7 +717,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-spanmapper-api
-  name: SigNoz spanmapper API
+  name: SigNoz Spanmapper API
   description: The spanmapper API from SigNoz — 4 operation(s) for spanmapper.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -738,7 +745,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-tracedetail-api
-  name: SigNoz tracedetail API
+  name: SigNoz Tracedetail API
   description: The tracedetail API from SigNoz — 1 operation(s) for tracedetail.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -766,7 +773,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-traces-api
-  name: SigNoz traces API
+  name: SigNoz Traces API
   description: The traces API from SigNoz — 1 operation(s) for traces.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -796,7 +803,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-users-api
-  name: SigNoz users API
+  name: SigNoz Users API
   description: The users API from SigNoz — 16 operation(s) for users.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -826,7 +833,7 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/signoz/refs/heads/main/vocabulary/signoz-vocabulary.yml
 - aid: signoz:signoz-zeus-api
-  name: SigNoz zeus API
+  name: SigNoz Zeus API
   description: The zeus API from SigNoz — 2 operation(s) for zeus.
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
@@ -887,8 +894,6 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
-  - ServiceAccount
-  tags_raw:
   - Service Account
   properties:
   - type: OpenAPI

@@ -74,35 +74,22 @@ paths:
       - Alerts
 components:
   schemas:
-    ErrorsJSON:
+    TypesAlertStatus:
       properties:
-        code:
-          type: string
-        errors:
+        inhibitedBy:
           items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
+            type: string
+          type:
+          - array
+          - 'null'
+        silencedBy:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        state:
           type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    ModelLabelSet:
-      additionalProperties:
-        type: string
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
       type: object
     AlertmanagertypesDeprecatedGettableAlert:
       properties:
@@ -129,26 +116,39 @@ components:
         status:
           $ref: '#/components/schemas/TypesAlertStatus'
       type: object
+    ModelLabelSet:
+      additionalProperties:
+        type: string
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
     ErrorsResponseerroradditional:
       properties:
         message:
-          type: string
-      type: object
-    TypesAlertStatus:
-      properties:
-        inhibitedBy:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        silencedBy:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        state:
           type: string
       type: object
   securitySchemes:

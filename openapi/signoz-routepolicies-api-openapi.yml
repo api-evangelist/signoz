@@ -301,64 +301,6 @@ paths:
       - routepolicies
 components:
   schemas:
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    AlertmanagertypesExpressionKind:
-      enum:
-      - rule
-      - policy
-      type: string
-    AlertmanagertypesPostableRoutePolicy:
-      properties:
-        channels:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        description:
-          type: string
-        expression:
-          type: string
-        kind:
-          $ref: '#/components/schemas/AlertmanagertypesExpressionKind'
-        name:
-          type: string
-        tags:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-      required:
-      - expression
-      - channels
-      - name
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
     AlertmanagertypesGettableRoutePolicy:
       properties:
         channels:
@@ -404,6 +346,64 @@ components:
       - id
       - createdAt
       - updatedAt
+      type: object
+    AlertmanagertypesPostableRoutePolicy:
+      properties:
+        channels:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        description:
+          type: string
+        expression:
+          type: string
+        kind:
+          $ref: '#/components/schemas/AlertmanagertypesExpressionKind'
+        name:
+          type: string
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - expression
+      - channels
+      - name
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    AlertmanagertypesExpressionKind:
+      enum:
+      - rule
+      - policy
+      type: string
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
       type: object
     ErrorsResponseerroradditional:
       properties:
