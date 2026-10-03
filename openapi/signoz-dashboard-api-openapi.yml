@@ -330,18 +330,63 @@ paths:
       - Dashboard
 components:
   schemas:
-    Querybuildertypesv5Label:
+    Querybuildertypesv5QueryWarnData:
       properties:
-        key:
-          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
-        value: {}
+        message:
+          type: string
+        url:
+          type: string
+        warnings:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5QueryWarnDataAdditional'
+          type: array
       type: object
-    TelemetrytypesSignal:
+    Querybuildertypesv5RawData:
+      properties:
+        nextCursor:
+          type: string
+        queryName:
+          type: string
+        rows:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5RawRow'
+          type:
+          - array
+          - 'null'
+      type: object
+    Querybuildertypesv5Bucket:
+      properties:
+        step:
+          format: double
+          type: number
+      type: object
+    TelemetrytypesFieldContext:
       enum:
-      - traces
-      - logs
-      - metrics
+      - metric
+      - log
+      - span
+      - resource
+      - attribute
+      - body
       type: string
+    Querybuildertypesv5ExecStats:
+      description: Execution statistics for the query, including rows scanned, bytes scanned, and duration.
+      properties:
+        bytesScanned:
+          minimum: 0
+          type: integer
+        durationMs:
+          minimum: 0
+          type: integer
+        rowsScanned:
+          minimum: 0
+          type: integer
+        stepIntervals:
+          additionalProperties:
+            minimum: 0
+            type: integer
+          type: object
+      type: object
     Querybuildertypesv5ColumnDescriptor:
       properties:
         aggregationIndex:
@@ -371,6 +416,168 @@ components:
       required:
       - name
       type: object
+    TelemetrytypesSignal:
+      enum:
+      - traces
+      - logs
+      - metrics
+      type: string
+    Querybuildertypesv5QueryData:
+      oneOf:
+      - $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesData'
+      - $ref: '#/components/schemas/Querybuildertypesv5ScalarData'
+      - $ref: '#/components/schemas/Querybuildertypesv5RawData'
+      properties:
+        results:
+          items: {}
+          type:
+          - array
+          - 'null'
+      type: object
+    DashboardtypesGettablePublicDasbhboard:
+      properties:
+        defaultTimeRange:
+          type: string
+        publicPath:
+          type: string
+        timeRangeEnabled:
+          type: boolean
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    DashboardtypesStorableDashboardData:
+      additionalProperties: {}
+      type: object
+    Querybuildertypesv5ScalarData:
+      properties:
+        columns:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5ColumnDescriptor'
+          type:
+          - array
+          - 'null'
+        data:
+          items:
+            items: {}
+            type: array
+          type:
+          - array
+          - 'null'
+        queryName:
+          type: string
+      type: object
+    Querybuildertypesv5TimeSeriesValue:
+      properties:
+        bucket:
+          $ref: '#/components/schemas/Querybuildertypesv5Bucket'
+        partial:
+          type: boolean
+        timestamp:
+          format: int64
+          type: integer
+        value:
+          format: double
+          type: number
+        values:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    DashboardtypesPostablePublicDashboard:
+      properties:
+        defaultTimeRange:
+          type: string
+        timeRangeEnabled:
+          type: boolean
+      type: object
+    DashboardtypesUpdatablePublicDashboard:
+      properties:
+        defaultTimeRange:
+          type: string
+        timeRangeEnabled:
+          type: boolean
+      type: object
+    Querybuildertypesv5RequestType:
+      enum:
+      - scalar
+      - time_series
+      - raw
+      - raw_stream
+      - trace
+      type: string
+    TelemetrytypesFieldDataType:
+      enum:
+      - string
+      - bool
+      - float64
+      - int64
+      - number
+      type: string
+    Querybuildertypesv5ColumnType:
+      enum:
+      - group
+      - aggregation
+      type: string
+    Querybuildertypesv5RawRow:
+      properties:
+        data:
+          additionalProperties: {}
+          type:
+          - object
+          - 'null'
+        timestamp:
+          format: date-time
+          type: string
+      type: object
+    Querybuildertypesv5QueryRangeResponse:
+      description: 'Response from the v5 query range endpoint. The data.results array contains typed results depending on the requestType: TimeSeriesData for time_series, ScalarData for scalar, or RawData for raw requests.'
+      properties:
+        data:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryData'
+        meta:
+          $ref: '#/components/schemas/Querybuildertypesv5ExecStats'
+        type:
+          $ref: '#/components/schemas/Querybuildertypesv5RequestType'
+        warning:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryWarnData'
+      type: object
+    Querybuildertypesv5QueryWarnDataAdditional:
+      properties:
+        message:
+          type: string
+      type: object
+    TypesIdentifiable:
+      properties:
+        id:
+          type: string
+      required:
+      - id
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
     DashboardtypesDashboard:
       properties:
         createdAt:
@@ -390,6 +597,18 @@ components:
           format: date-time
           type: string
         updatedBy:
+          type: string
+      type: object
+    DashboardtypesGettablePublicDashboardData:
+      properties:
+        dashboard:
+          $ref: '#/components/schemas/DashboardtypesDashboard'
+        publicDashboard:
+          $ref: '#/components/schemas/DashboardtypesGettablePublicDasbhboard'
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
           type: string
       type: object
     Querybuildertypesv5AggregationBucket:
@@ -426,171 +645,24 @@ components:
             $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
           type: array
       type: object
-    RenderErrorResponse:
+    Querybuildertypesv5TimeSeries:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
+        labels:
           items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+            $ref: '#/components/schemas/Querybuildertypesv5Label'
           type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    Querybuildertypesv5ScalarData:
-      properties:
-        columns:
+        values:
           items:
-            $ref: '#/components/schemas/Querybuildertypesv5ColumnDescriptor'
-          type:
-          - array
-          - 'null'
-        data:
-          items:
-            items: {}
-            type: array
-          type:
-          - array
-          - 'null'
-        queryName:
-          type: string
-      type: object
-    DashboardtypesPostablePublicDashboard:
-      properties:
-        defaultTimeRange:
-          type: string
-        timeRangeEnabled:
-          type: boolean
-      type: object
-    DashboardtypesStorableDashboardData:
-      additionalProperties: {}
-      type: object
-    DashboardtypesUpdatablePublicDashboard:
-      properties:
-        defaultTimeRange:
-          type: string
-        timeRangeEnabled:
-          type: boolean
-      type: object
-    Querybuildertypesv5RequestType:
-      enum:
-      - scalar
-      - time_series
-      - raw
-      - raw_stream
-      - trace
-      type: string
-    Querybuildertypesv5TimeSeriesData:
-      properties:
-        aggregations:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5AggregationBucket'
-          type:
-          - array
-          - 'null'
-        queryName:
-          type: string
-      type: object
-    DashboardtypesGettablePublicDashboardData:
-      properties:
-        dashboard:
-          $ref: '#/components/schemas/DashboardtypesDashboard'
-        publicDashboard:
-          $ref: '#/components/schemas/DashboardtypesGettablePublicDasbhboard'
-      type: object
-    Querybuildertypesv5ExecStats:
-      description: Execution statistics for the query, including rows scanned, bytes scanned, and duration.
-      properties:
-        bytesScanned:
-          minimum: 0
-          type: integer
-        durationMs:
-          minimum: 0
-          type: integer
-        rowsScanned:
-          minimum: 0
-          type: integer
-        stepIntervals:
-          additionalProperties:
-            minimum: 0
-            type: integer
-          type: object
-      type: object
-    Querybuildertypesv5QueryWarnData:
-      properties:
-        message:
-          type: string
-        url:
-          type: string
-        warnings:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5QueryWarnDataAdditional'
-          type: array
-      type: object
-    TelemetrytypesFieldDataType:
-      enum:
-      - string
-      - bool
-      - float64
-      - int64
-      - number
-      type: string
-    TypesIdentifiable:
-      properties:
-        id:
-          type: string
-      required:
-      - id
-      type: object
-    Querybuildertypesv5QueryWarnDataAdditional:
-      properties:
-        message:
-          type: string
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    Querybuildertypesv5RawData:
-      properties:
-        nextCursor:
-          type: string
-        queryName:
-          type: string
-        rows:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5RawRow'
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesValue'
           type:
           - array
           - 'null'
       type: object
-    Querybuildertypesv5QueryData:
-      oneOf:
-      - $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesData'
-      - $ref: '#/components/schemas/Querybuildertypesv5ScalarData'
-      - $ref: '#/components/schemas/Querybuildertypesv5RawData'
+    Querybuildertypesv5Label:
       properties:
-        results:
-          items: {}
-          type:
-          - array
-          - 'null'
+        key:
+          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+        value: {}
       type: object
     TelemetrytypesTelemetryFieldKey:
       properties:
@@ -609,88 +681,16 @@ components:
       required:
       - name
       type: object
-    DashboardtypesGettablePublicDasbhboard:
+    Querybuildertypesv5TimeSeriesData:
       properties:
-        defaultTimeRange:
-          type: string
-        publicPath:
-          type: string
-        timeRangeEnabled:
-          type: boolean
-      type: object
-    Querybuildertypesv5RawRow:
-      properties:
-        data:
-          additionalProperties: {}
-          type:
-          - object
-          - 'null'
-        timestamp:
-          format: date-time
-          type: string
-      type: object
-    Querybuildertypesv5Bucket:
-      properties:
-        step:
-          format: double
-          type: number
-      type: object
-    Querybuildertypesv5TimeSeries:
-      properties:
-        labels:
+        aggregations:
           items:
-            $ref: '#/components/schemas/Querybuildertypesv5Label'
-          type: array
-        values:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesValue'
+            $ref: '#/components/schemas/Querybuildertypesv5AggregationBucket'
           type:
           - array
           - 'null'
-      type: object
-    Querybuildertypesv5ColumnType:
-      enum:
-      - group
-      - aggregation
-      type: string
-    Querybuildertypesv5QueryRangeResponse:
-      description: 'Response from the v5 query range endpoint. The data.results array contains typed results depending on the requestType: TimeSeriesData for time_series, ScalarData for scalar, or RawData for raw requests.'
-      properties:
-        data:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryData'
-        meta:
-          $ref: '#/components/schemas/Querybuildertypesv5ExecStats'
-        type:
-          $ref: '#/components/schemas/Querybuildertypesv5RequestType'
-        warning:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryWarnData'
-      type: object
-    TelemetrytypesFieldContext:
-      enum:
-      - metric
-      - log
-      - span
-      - resource
-      - attribute
-      - body
-      type: string
-    Querybuildertypesv5TimeSeriesValue:
-      properties:
-        bucket:
-          $ref: '#/components/schemas/Querybuildertypesv5Bucket'
-        partial:
-          type: boolean
-        timestamp:
-          format: int64
-          type: integer
-        value:
-          format: double
-          type: number
-        values:
-          items:
-            format: double
-            type: number
-          type: array
+        queryName:
+          type: string
       type: object
   securitySchemes:
     api_key:

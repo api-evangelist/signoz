@@ -356,17 +356,9 @@ paths:
       - Preferences
 components:
   schemas:
-    PreferencetypesValue:
-      type: object
-    RenderErrorResponse:
+    PreferencetypesUpdatablePreference:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
+        value: {}
       type: object
     PreferencetypesPreference:
       properties:
@@ -393,6 +385,16 @@ components:
         valueType:
           type: string
       type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
     ErrorsJSON:
       properties:
         code:
@@ -409,14 +411,12 @@ components:
       - code
       - message
       type: object
+    PreferencetypesValue:
+      type: object
     ErrorsResponseerroradditional:
       properties:
         message:
           type: string
-      type: object
-    PreferencetypesUpdatablePreference:
-      properties:
-        value: {}
       type: object
   securitySchemes:
     api_key:

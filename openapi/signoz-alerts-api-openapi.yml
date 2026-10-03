@@ -74,23 +74,6 @@ paths:
       - Alerts
 components:
   schemas:
-    TypesAlertStatus:
-      properties:
-        inhibitedBy:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        silencedBy:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        state:
-          type: string
-      type: object
     AlertmanagertypesDeprecatedGettableAlert:
       properties:
         annotations:
@@ -115,6 +98,23 @@ components:
           type: string
         status:
           $ref: '#/components/schemas/TypesAlertStatus'
+      type: object
+    TypesAlertStatus:
+      properties:
+        inhibitedBy:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        silencedBy:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        state:
+          type: string
       type: object
     ModelLabelSet:
       additionalProperties:

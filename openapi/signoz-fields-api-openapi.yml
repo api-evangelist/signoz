@@ -212,11 +212,36 @@ paths:
       - Fields
 components:
   schemas:
+    TelemetrytypesGettableFieldKeys:
+      properties:
+        complete:
+          type: boolean
+        keys:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+            type: array
+          type:
+          - object
+          - 'null'
+      required:
+      - keys
+      - complete
+      type: object
     TelemetrytypesSignal:
       enum:
       - traces
       - logs
       - metrics
+      type: string
+    TelemetrytypesFieldContext:
+      enum:
+      - metric
+      - log
+      - span
+      - resource
+      - attribute
+      - body
       type: string
     TelemetrytypesFieldDataType:
       enum:
@@ -226,6 +251,26 @@ components:
       - int64
       - number
       type: string
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    TelemetrytypesGettableFieldValues:
+      properties:
+        complete:
+          type: boolean
+        values:
+          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldValues'
+      required:
+      - values
+      - complete
+      type: object
     TelemetrytypesTelemetryFieldValues:
       properties:
         boolValues:
@@ -246,6 +291,22 @@ components:
             type: string
           type: array
       type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
     TelemetrytypesTelemetryFieldKey:
       properties:
         description:
@@ -263,76 +324,15 @@ components:
       required:
       - name
       type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    TelemetrytypesGettableFieldValues:
-      properties:
-        complete:
-          type: boolean
-        values:
-          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldValues'
-      required:
-      - values
-      - complete
-      type: object
+    TelemetrytypesSource:
+      enum:
+      - meter
+      type: string
     ErrorsResponseerroradditional:
       properties:
         message:
           type: string
       type: object
-    TelemetrytypesSource:
-      enum:
-      - meter
-      type: string
-    TelemetrytypesGettableFieldKeys:
-      properties:
-        complete:
-          type: boolean
-        keys:
-          additionalProperties:
-            items:
-              $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
-            type: array
-          type:
-          - object
-          - 'null'
-      required:
-      - keys
-      - complete
-      type: object
-    TelemetrytypesFieldContext:
-      enum:
-      - metric
-      - log
-      - span
-      - resource
-      - attribute
-      - body
-      type: string
   securitySchemes:
     api_key:
       description: API Keys

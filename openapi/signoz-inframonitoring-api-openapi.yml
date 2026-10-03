@@ -140,12 +140,42 @@ paths:
       - inframonitoring
 components:
   schemas:
-    TelemetrytypesSignal:
-      enum:
-      - traces
-      - logs
-      - metrics
-      type: string
+    Querybuildertypesv5QueryWarnData:
+      properties:
+        message:
+          type: string
+        url:
+          type: string
+        warnings:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5QueryWarnDataAdditional'
+          type: array
+      type: object
+    InframonitoringtypesPods:
+      properties:
+        endTimeBeforeRetention:
+          type: boolean
+        records:
+          items:
+            $ref: '#/components/schemas/InframonitoringtypesPodRecord'
+          type:
+          - array
+          - 'null'
+        requiredMetricsCheck:
+          $ref: '#/components/schemas/InframonitoringtypesRequiredMetricsCheck'
+        total:
+          type: integer
+        type:
+          $ref: '#/components/schemas/InframonitoringtypesResponseType'
+        warning:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryWarnData'
+      required:
+      - type
+      - records
+      - total
+      - requiredMetricsCheck
+      - endTimeBeforeRetention
+      type: object
     TelemetrytypesFieldContext:
       enum:
       - metric
@@ -154,6 +184,24 @@ components:
       - resource
       - attribute
       - body
+      type: string
+    InframonitoringtypesHostFilter:
+      properties:
+        expression:
+          type: string
+        filterByStatus:
+          $ref: '#/components/schemas/InframonitoringtypesHostStatus'
+      type: object
+    TelemetrytypesSignal:
+      enum:
+      - traces
+      - logs
+      - metrics
+      type: string
+    Querybuildertypesv5OrderDirection:
+      enum:
+      - asc
+      - desc
       type: string
     RenderErrorResponse:
       properties:
@@ -165,32 +213,64 @@ components:
       - status
       - error
       type: object
-    InframonitoringtypesPostablePods:
+    InframonitoringtypesRequiredMetricsCheck:
       properties:
-        end:
-          format: int64
-          type: integer
-        filter:
-          $ref: '#/components/schemas/Querybuildertypesv5Filter'
-        groupBy:
+        missingMetrics:
           items:
-            $ref: '#/components/schemas/Querybuildertypesv5GroupByKey'
+            type: string
           type:
           - array
           - 'null'
-        limit:
-          type: integer
-        offset:
-          type: integer
-        orderBy:
-          $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
-        start:
-          format: int64
-          type: integer
       required:
-      - start
-      - end
-      - limit
+      - missingMetrics
+      type: object
+    Querybuildertypesv5OrderByKey:
+      properties:
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        name:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
+      type: object
+    InframonitoringtypesPodPhase:
+      enum:
+      - pending
+      - running
+      - succeeded
+      - failed
+      - unknown
+      - ''
+      type: string
+    InframonitoringtypesResponseType:
+      enum:
+      - list
+      - grouped_list
+      type: string
+    Querybuildertypesv5GroupByKey:
+      properties:
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        name:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
       type: object
     InframonitoringtypesPostableHosts:
       properties:
@@ -219,111 +299,6 @@ components:
       - end
       - limit
       type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    InframonitoringtypesHostFilter:
-      properties:
-        expression:
-          type: string
-        filterByStatus:
-          $ref: '#/components/schemas/InframonitoringtypesHostStatus'
-      type: object
-    Querybuildertypesv5Filter:
-      properties:
-        expression:
-          type: string
-      type: object
-    Querybuildertypesv5OrderBy:
-      properties:
-        direction:
-          $ref: '#/components/schemas/Querybuildertypesv5OrderDirection'
-        key:
-          $ref: '#/components/schemas/Querybuildertypesv5OrderByKey'
-      type: object
-    InframonitoringtypesRequiredMetricsCheck:
-      properties:
-        missingMetrics:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-      required:
-      - missingMetrics
-      type: object
-    InframonitoringtypesHostRecord:
-      properties:
-        activeHostCount:
-          type: integer
-        cpu:
-          format: double
-          type: number
-        diskUsage:
-          format: double
-          type: number
-        hostName:
-          type: string
-        inactiveHostCount:
-          type: integer
-        load15:
-          format: double
-          type: number
-        memory:
-          format: double
-          type: number
-        meta:
-          additionalProperties: {}
-          type:
-          - object
-          - 'null'
-        status:
-          $ref: '#/components/schemas/InframonitoringtypesHostStatus'
-        wait:
-          format: double
-          type: number
-      required:
-      - hostName
-      - status
-      - activeHostCount
-      - inactiveHostCount
-      - cpu
-      - memory
-      - wait
-      - load15
-      - diskUsage
-      - meta
-      type: object
-    InframonitoringtypesHostStatus:
-      enum:
-      - active
-      - inactive
-      - ''
-      type: string
-    Querybuildertypesv5QueryWarnData:
-      properties:
-        message:
-          type: string
-        url:
-          type: string
-        warnings:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5QueryWarnDataAdditional'
-          type: array
-      type: object
     TelemetrytypesFieldDataType:
       enum:
       - string
@@ -332,48 +307,17 @@ components:
       - int64
       - number
       type: string
-    Querybuildertypesv5OrderByKey:
+    Querybuildertypesv5QueryWarnDataAdditional:
       properties:
-        description:
+        message:
           type: string
-        fieldContext:
-          $ref: '#/components/schemas/TelemetrytypesFieldContext'
-        fieldDataType:
-          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        name:
-          type: string
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        unit:
-          type: string
-      required:
-      - name
       type: object
-    InframonitoringtypesHosts:
-      properties:
-        endTimeBeforeRetention:
-          type: boolean
-        records:
-          items:
-            $ref: '#/components/schemas/InframonitoringtypesHostRecord'
-          type:
-          - array
-          - 'null'
-        requiredMetricsCheck:
-          $ref: '#/components/schemas/InframonitoringtypesRequiredMetricsCheck'
-        total:
-          type: integer
-        type:
-          $ref: '#/components/schemas/InframonitoringtypesResponseType'
-        warning:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryWarnData'
-      required:
-      - type
-      - records
-      - total
-      - requiredMetricsCheck
-      - endTimeBeforeRetention
-      type: object
+    InframonitoringtypesHostStatus:
+      enum:
+      - active
+      - inactive
+      - ''
+      type: string
     InframonitoringtypesPodRecord:
       properties:
         failedPodCount:
@@ -433,54 +377,56 @@ components:
       - podAge
       - meta
       type: object
-    Querybuildertypesv5QueryWarnDataAdditional:
+    ErrorsJSON:
       properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
         message:
           type: string
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    Querybuildertypesv5GroupByKey:
-      properties:
-        description:
-          type: string
-        fieldContext:
-          $ref: '#/components/schemas/TelemetrytypesFieldContext'
-        fieldDataType:
-          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        name:
-          type: string
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        unit:
+        url:
           type: string
       required:
-      - name
+      - code
+      - message
       type: object
-    InframonitoringtypesResponseType:
-      enum:
-      - list
-      - grouped_list
-      type: string
-    InframonitoringtypesPodPhase:
-      enum:
-      - pending
-      - running
-      - succeeded
-      - failed
-      - unknown
-      - ''
-      type: string
-    InframonitoringtypesPods:
+    InframonitoringtypesPostablePods:
+      properties:
+        end:
+          format: int64
+          type: integer
+        filter:
+          $ref: '#/components/schemas/Querybuildertypesv5Filter'
+        groupBy:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5GroupByKey'
+          type:
+          - array
+          - 'null'
+        limit:
+          type: integer
+        offset:
+          type: integer
+        orderBy:
+          $ref: '#/components/schemas/Querybuildertypesv5OrderBy'
+        start:
+          format: int64
+          type: integer
+      required:
+      - start
+      - end
+      - limit
+      type: object
+    InframonitoringtypesHosts:
       properties:
         endTimeBeforeRetention:
           type: boolean
         records:
           items:
-            $ref: '#/components/schemas/InframonitoringtypesPodRecord'
+            $ref: '#/components/schemas/InframonitoringtypesHostRecord'
           type:
           - array
           - 'null'
@@ -499,11 +445,65 @@ components:
       - requiredMetricsCheck
       - endTimeBeforeRetention
       type: object
-    Querybuildertypesv5OrderDirection:
-      enum:
-      - asc
-      - desc
-      type: string
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    Querybuildertypesv5OrderBy:
+      properties:
+        direction:
+          $ref: '#/components/schemas/Querybuildertypesv5OrderDirection'
+        key:
+          $ref: '#/components/schemas/Querybuildertypesv5OrderByKey'
+      type: object
+    Querybuildertypesv5Filter:
+      properties:
+        expression:
+          type: string
+      type: object
+    InframonitoringtypesHostRecord:
+      properties:
+        activeHostCount:
+          type: integer
+        cpu:
+          format: double
+          type: number
+        diskUsage:
+          format: double
+          type: number
+        hostName:
+          type: string
+        inactiveHostCount:
+          type: integer
+        load15:
+          format: double
+          type: number
+        memory:
+          format: double
+          type: number
+        meta:
+          additionalProperties: {}
+          type:
+          - object
+          - 'null'
+        status:
+          $ref: '#/components/schemas/InframonitoringtypesHostStatus'
+        wait:
+          format: double
+          type: number
+      required:
+      - hostName
+      - status
+      - activeHostCount
+      - inactiveHostCount
+      - cpu
+      - memory
+      - wait
+      - load15
+      - diskUsage
+      - meta
+      type: object
   securitySchemes:
     api_key:
       description: API Keys

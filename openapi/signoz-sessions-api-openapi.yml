@@ -338,6 +338,11 @@ paths:
       - Sessions
 components:
   schemas:
+    AuthtypesPasswordAuthNSupport:
+      properties:
+        provider:
+          type: string
+      type: object
     AuthtypesSessionContext:
       properties:
         exists:
@@ -349,20 +354,23 @@ components:
           - array
           - 'null'
       type: object
-    AuthtypesPasswordAuthNSupport:
+    AuthtypesGettableToken:
+      properties:
+        accessToken:
+          type: string
+        expiresIn:
+          type: integer
+        refreshToken:
+          type: string
+        tokenType:
+          type: string
+      type: object
+    AuthtypesCallbackAuthNSupport:
       properties:
         provider:
           type: string
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
+        url:
           type: string
-      required:
-      - status
-      - error
       type: object
     AuthtypesOrgSessionContext:
       properties:
@@ -375,25 +383,24 @@ components:
         warning:
           $ref: '#/components/schemas/ErrorsJSON'
       type: object
-    AuthtypesPostableRotateToken:
+    RenderErrorResponse:
       properties:
-        refreshToken:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
           type: string
+      required:
+      - status
+      - error
       type: object
-    AuthtypesAuthNSupport:
+    AuthtypesPostableEmailPasswordSession:
       properties:
-        callback:
-          items:
-            $ref: '#/components/schemas/AuthtypesCallbackAuthNSupport'
-          type:
-          - array
-          - 'null'
+        email:
+          type: string
+        orgId:
+          type: string
         password:
-          items:
-            $ref: '#/components/schemas/AuthtypesPasswordAuthNSupport'
-          type:
-          - array
-          - 'null'
+          type: string
       type: object
     ErrorsJSON:
       properties:
@@ -411,36 +418,29 @@ components:
       - code
       - message
       type: object
-    AuthtypesGettableToken:
+    AuthtypesAuthNSupport:
       properties:
-        accessToken:
-          type: string
-        expiresIn:
-          type: integer
-        refreshToken:
-          type: string
-        tokenType:
-          type: string
-      type: object
-    AuthtypesPostableEmailPasswordSession:
-      properties:
-        email:
-          type: string
-        orgId:
-          type: string
+        callback:
+          items:
+            $ref: '#/components/schemas/AuthtypesCallbackAuthNSupport'
+          type:
+          - array
+          - 'null'
         password:
+          items:
+            $ref: '#/components/schemas/AuthtypesPasswordAuthNSupport'
+          type:
+          - array
+          - 'null'
+      type: object
+    AuthtypesPostableRotateToken:
+      properties:
+        refreshToken:
           type: string
       type: object
     ErrorsResponseerroradditional:
       properties:
         message:
-          type: string
-      type: object
-    AuthtypesCallbackAuthNSupport:
-      properties:
-        provider:
-          type: string
-        url:
           type: string
       type: object
   securitySchemes:

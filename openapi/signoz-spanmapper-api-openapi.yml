@@ -505,6 +505,37 @@ paths:
       - spanmapper
 components:
   schemas:
+    SpantypesSpanMapperSource:
+      properties:
+        context:
+          $ref: '#/components/schemas/SpantypesFieldContext'
+        key:
+          type: string
+        operation:
+          $ref: '#/components/schemas/SpantypesSpanMapperOperation'
+        priority:
+          type: integer
+      required:
+      - key
+      - context
+      - operation
+      - priority
+      type: object
+    SpantypesPostableSpanMapper:
+      properties:
+        config:
+          $ref: '#/components/schemas/SpantypesSpanMapperConfig'
+        enabled:
+          type: boolean
+        field_context:
+          $ref: '#/components/schemas/SpantypesFieldContext'
+        name:
+          type: string
+      required:
+      - name
+      - field_context
+      - config
+      type: object
     SpantypesSpanMapperGroup:
       properties:
         category:
@@ -536,45 +567,6 @@ components:
       - category
       - condition
       - enabled
-      type: object
-    SpantypesPostableSpanMapper:
-      properties:
-        config:
-          $ref: '#/components/schemas/SpantypesSpanMapperConfig'
-        enabled:
-          type: boolean
-        field_context:
-          $ref: '#/components/schemas/SpantypesFieldContext'
-        name:
-          type: string
-      required:
-      - name
-      - field_context
-      - config
-      type: object
-    SpantypesPostableSpanMapperGroup:
-      properties:
-        category:
-          $ref: '#/components/schemas/SpantypesSpanMapperGroupCategory'
-        condition:
-          $ref: '#/components/schemas/SpantypesSpanMapperGroupCondition'
-        enabled:
-          type: boolean
-        name:
-          type: string
-      required:
-      - name
-      - category
-      - condition
-      type: object
-    SpantypesGettableSpanMapperGroups:
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/SpantypesSpanMapperGroup'
-          type: array
-      required:
-      - items
       type: object
     SpantypesSpanMapper:
       properties:
@@ -608,21 +600,37 @@ components:
       - config
       - enabled
       type: object
-    SpantypesSpanMapperSource:
+    SpantypesSpanMapperOperation:
+      enum:
+      - move
+      - copy
+      type: string
+    SpantypesGettableSpanMapperGroups:
       properties:
-        context:
-          $ref: '#/components/schemas/SpantypesFieldContext'
-        key:
-          type: string
-        operation:
-          $ref: '#/components/schemas/SpantypesSpanMapperOperation'
-        priority:
-          type: integer
+        items:
+          items:
+            $ref: '#/components/schemas/SpantypesSpanMapperGroup'
+          type: array
       required:
-      - key
-      - context
-      - operation
-      - priority
+      - items
+      type: object
+    SpantypesSpanMapperGroupCondition:
+      properties:
+        attributes:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        resource:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - attributes
+      - resource
       type: object
     RenderErrorResponse:
       properties:
@@ -633,6 +641,56 @@ components:
       required:
       - status
       - error
+      type: object
+    SpantypesPostableSpanMapperGroup:
+      properties:
+        category:
+          $ref: '#/components/schemas/SpantypesSpanMapperGroupCategory'
+        condition:
+          $ref: '#/components/schemas/SpantypesSpanMapperGroupCondition'
+        enabled:
+          type: boolean
+        name:
+          type: string
+      required:
+      - name
+      - category
+      - condition
+      type: object
+    SpantypesUpdatableSpanMapperGroup:
+      properties:
+        condition:
+          $ref: '#/components/schemas/SpantypesSpanMapperGroupCondition'
+        enabled:
+          type:
+          - boolean
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+      type: object
+    SpantypesSpanMapperConfig:
+      properties:
+        sources:
+          items:
+            $ref: '#/components/schemas/SpantypesSpanMapperSource'
+          type:
+          - array
+          - 'null'
+      required:
+      - sources
+      type: object
+    SpantypesUpdatableSpanMapper:
+      properties:
+        config:
+          $ref: '#/components/schemas/SpantypesSpanMapperConfig'
+        enabled:
+          type:
+          - boolean
+          - 'null'
+        field_context:
+          $ref: '#/components/schemas/SpantypesFieldContext'
       type: object
     SpantypesSpanMapperGroupCategory:
       type: object
@@ -657,69 +715,11 @@ components:
         message:
           type: string
       type: object
-    SpantypesUpdatableSpanMapperGroup:
-      properties:
-        condition:
-          $ref: '#/components/schemas/SpantypesSpanMapperGroupCondition'
-        enabled:
-          type:
-          - boolean
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-      type: object
-    SpantypesSpanMapperGroupCondition:
-      properties:
-        attributes:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        resource:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-      required:
-      - attributes
-      - resource
-      type: object
-    SpantypesSpanMapperOperation:
-      enum:
-      - move
-      - copy
-      type: string
     SpantypesFieldContext:
       enum:
       - attribute
       - resource
       type: string
-    SpantypesUpdatableSpanMapper:
-      properties:
-        config:
-          $ref: '#/components/schemas/SpantypesSpanMapperConfig'
-        enabled:
-          type:
-          - boolean
-          - 'null'
-        field_context:
-          $ref: '#/components/schemas/SpantypesFieldContext'
-      type: object
-    SpantypesSpanMapperConfig:
-      properties:
-        sources:
-          items:
-            $ref: '#/components/schemas/SpantypesSpanMapperSource'
-          type:
-          - array
-          - 'null'
-      required:
-      - sources
-      type: object
   securitySchemes:
     api_key:
       description: API Keys

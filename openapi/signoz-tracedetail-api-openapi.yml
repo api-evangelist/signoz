@@ -95,6 +95,12 @@ paths:
       - tracedetail
 components:
   schemas:
+    TelemetrytypesSignal:
+      enum:
+      - traces
+      - logs
+      - metrics
+      type: string
     TracedetailtypesPostableWaterfall:
       properties:
         aggregations:
@@ -115,17 +121,14 @@ components:
           - array
           - 'null'
       type: object
-    TelemetrytypesSignal:
+    TelemetrytypesFieldContext:
       enum:
-      - traces
-      - logs
-      - metrics
-      type: string
-    TracedetailtypesSpanAggregationType:
-      enum:
-      - span_count
-      - execution_time_percentage
-      - duration
+      - metric
+      - log
+      - span
+      - resource
+      - attribute
+      - body
       type: string
     TelemetrytypesFieldDataType:
       enum:
@@ -135,71 +138,6 @@ components:
       - int64
       - number
       type: string
-    TracedetailtypesGettableWaterfallTrace:
-      properties:
-        aggregations:
-          items:
-            $ref: '#/components/schemas/TracedetailtypesSpanAggregationResult'
-          type:
-          - array
-          - 'null'
-        endTimestampMillis:
-          minimum: 0
-          type: integer
-        hasMissingSpans:
-          type: boolean
-        hasMore:
-          type: boolean
-        rootServiceEntryPoint:
-          type: string
-        rootServiceName:
-          type: string
-        serviceNameToTotalDurationMap:
-          additionalProperties:
-            minimum: 0
-            type: integer
-          type:
-          - object
-          - 'null'
-        spans:
-          items:
-            $ref: '#/components/schemas/TracedetailtypesWaterfallSpan'
-          type:
-          - array
-          - 'null'
-        startTimestampMillis:
-          minimum: 0
-          type: integer
-        totalErrorSpansCount:
-          minimum: 0
-          type: integer
-        totalSpansCount:
-          minimum: 0
-          type: integer
-        uncollapsedSpans:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-      type: object
-    TelemetrytypesTelemetryFieldKey:
-      properties:
-        description:
-          type: string
-        fieldContext:
-          $ref: '#/components/schemas/TelemetrytypesFieldContext'
-        fieldDataType:
-          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        name:
-          type: string
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        unit:
-          type: string
-      required:
-      - name
-      type: object
     RenderErrorResponse:
       properties:
         error:
@@ -209,6 +147,13 @@ components:
       required:
       - status
       - error
+      type: object
+    TracedetailtypesSpanAggregation:
+      properties:
+        aggregation:
+          $ref: '#/components/schemas/TracedetailtypesSpanAggregationType'
+        field:
+          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
       type: object
     TracedetailtypesSpanAggregationResult:
       properties:
@@ -224,22 +169,12 @@ components:
           - object
           - 'null'
       type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
+    TracedetailtypesSpanAggregationType:
+      enum:
+      - span_count
+      - execution_time_percentage
+      - duration
+      type: string
     TracedetailtypesWaterfallSpan:
       properties:
         attributes:
@@ -312,10 +247,53 @@ components:
         trace_state:
           type: string
       type: object
-    ErrorsResponseerroradditional:
+    TracedetailtypesGettableWaterfallTrace:
       properties:
-        message:
+        aggregations:
+          items:
+            $ref: '#/components/schemas/TracedetailtypesSpanAggregationResult'
+          type:
+          - array
+          - 'null'
+        endTimestampMillis:
+          minimum: 0
+          type: integer
+        hasMissingSpans:
+          type: boolean
+        hasMore:
+          type: boolean
+        rootServiceEntryPoint:
           type: string
+        rootServiceName:
+          type: string
+        serviceNameToTotalDurationMap:
+          additionalProperties:
+            minimum: 0
+            type: integer
+          type:
+          - object
+          - 'null'
+        spans:
+          items:
+            $ref: '#/components/schemas/TracedetailtypesWaterfallSpan'
+          type:
+          - array
+          - 'null'
+        startTimestampMillis:
+          minimum: 0
+          type: integer
+        totalErrorSpansCount:
+          minimum: 0
+          type: integer
+        totalSpansCount:
+          minimum: 0
+          type: integer
+        uncollapsedSpans:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
       type: object
     TracedetailtypesEvent:
       properties:
@@ -330,21 +308,43 @@ components:
           minimum: 0
           type: integer
       type: object
-    TelemetrytypesFieldContext:
-      enum:
-      - metric
-      - log
-      - span
-      - resource
-      - attribute
-      - body
-      type: string
-    TracedetailtypesSpanAggregation:
+    ErrorsJSON:
       properties:
-        aggregation:
-          $ref: '#/components/schemas/TracedetailtypesSpanAggregationType'
-        field:
-          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    TelemetrytypesTelemetryFieldKey:
+      properties:
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        name:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
       type: object
   securitySchemes:
     api_key:

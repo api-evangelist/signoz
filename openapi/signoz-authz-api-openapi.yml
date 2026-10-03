@@ -93,16 +93,6 @@ paths:
       - authz
 components:
   schemas:
-    AuthtypesTransaction:
-      properties:
-        object:
-          $ref: '#/components/schemas/AuthtypesObject'
-        relation:
-          type: string
-      required:
-      - relation
-      - object
-      type: object
     AuthtypesGettableResources:
       properties:
         relations:
@@ -121,16 +111,6 @@ components:
       - resources
       - relations
       type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
     AuthtypesGettableTransaction:
       properties:
         authorized:
@@ -143,6 +123,36 @@ components:
       - relation
       - object
       - authorized
+      type: object
+    AuthtypesObject:
+      properties:
+        resource:
+          $ref: '#/components/schemas/AuthtypesResource'
+        selector:
+          type: string
+      required:
+      - resource
+      - selector
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    AuthtypesResource:
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - type
       type: object
     ErrorsJSON:
       properties:
@@ -165,25 +175,15 @@ components:
         message:
           type: string
       type: object
-    AuthtypesObject:
+    AuthtypesTransaction:
       properties:
-        resource:
-          $ref: '#/components/schemas/AuthtypesResource'
-        selector:
+        object:
+          $ref: '#/components/schemas/AuthtypesObject'
+        relation:
           type: string
       required:
-      - resource
-      - selector
-      type: object
-    AuthtypesResource:
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-      required:
-      - name
-      - type
+      - relation
+      - object
       type: object
   securitySchemes:
     api_key:

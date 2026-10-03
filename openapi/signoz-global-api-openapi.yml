@@ -55,56 +55,6 @@ paths:
       - Global
 components:
   schemas:
-    GlobaltypesTokenizerConfig:
-      properties:
-        enabled:
-          type: boolean
-      type: object
-    GlobaltypesImpersonationConfig:
-      properties:
-        enabled:
-          type: boolean
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    GlobaltypesIdentNConfig:
-      properties:
-        apikey:
-          $ref: '#/components/schemas/GlobaltypesAPIKeyConfig'
-        impersonation:
-          $ref: '#/components/schemas/GlobaltypesImpersonationConfig'
-        tokenizer:
-          $ref: '#/components/schemas/GlobaltypesTokenizerConfig'
-      type: object
     GlobaltypesConfig:
       properties:
         external_url:
@@ -126,6 +76,56 @@ components:
       properties:
         enabled:
           type: boolean
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    GlobaltypesIdentNConfig:
+      properties:
+        apikey:
+          $ref: '#/components/schemas/GlobaltypesAPIKeyConfig'
+        impersonation:
+          $ref: '#/components/schemas/GlobaltypesImpersonationConfig'
+        tokenizer:
+          $ref: '#/components/schemas/GlobaltypesTokenizerConfig'
+      type: object
+    GlobaltypesTokenizerConfig:
+      properties:
+        enabled:
+          type: boolean
+      type: object
+    GlobaltypesImpersonationConfig:
+      properties:
+        enabled:
+          type: boolean
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
       type: object
   securitySchemes:
     api_key:

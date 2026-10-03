@@ -636,46 +636,162 @@ paths:
       - Cloud Integration
 components:
   schemas:
-    CloudintegrationtypesServiceID:
-      enum:
-      - alb
-      - api-gateway
-      - dynamodb
-      - ec2
-      - ecs
-      - eks
-      - elasticache
-      - lambda
-      - msk
-      - rds
-      - s3sync
-      - sns
-      - sqs
-      - storageaccountsblob
-      - cdnprofile
-      type: string
-    CloudintegrationtypesSupportedSignals:
+    CloudintegrationtypesAWSServiceConfig:
       properties:
         logs:
-          type: boolean
+          $ref: '#/components/schemas/CloudintegrationtypesAWSServiceLogsConfig'
         metrics:
-          type: boolean
+          $ref: '#/components/schemas/CloudintegrationtypesAWSServiceMetricsConfig'
       type: object
-    CloudintegrationtypesUpdatableAccountConfig:
+    CloudintegrationtypesDataCollected:
+      properties:
+        logs:
+          items:
+            $ref: '#/components/schemas/CloudintegrationtypesCollectedLogAttribute'
+          type:
+          - array
+          - 'null'
+        metrics:
+          items:
+            $ref: '#/components/schemas/CloudintegrationtypesCollectedMetric'
+          type:
+          - array
+          - 'null'
+      type: object
+    CloudintegrationtypesAzureAccountConfig:
+      properties:
+        deploymentRegion:
+          type: string
+        resourceGroups:
+          items:
+            type: string
+          type: array
+      required:
+      - deploymentRegion
+      - resourceGroups
+      type: object
+    CloudintegrationtypesAccountConfig:
       properties:
         aws:
           $ref: '#/components/schemas/CloudintegrationtypesAWSAccountConfig'
         azure:
-          $ref: '#/components/schemas/CloudintegrationtypesUpdatableAzureAccountConfig'
+          $ref: '#/components/schemas/CloudintegrationtypesAzureAccountConfig'
       type: object
-    CloudintegrationtypesOldAWSLogsStrategy:
+    CloudintegrationtypesIntegrationConfig:
       properties:
-        cloudwatch_logs_subscriptions:
+        enabled_regions:
+          items:
+            type: string
+          type: array
+        telemetry:
+          $ref: '#/components/schemas/CloudintegrationtypesOldAWSCollectionStrategy'
+      required:
+      - enabled_regions
+      - telemetry
+      type:
+      - object
+      - 'null'
+    CloudintegrationtypesAWSCloudWatchLogsSubscription:
+      properties:
+        filterPattern:
+          type: string
+        logGroupNamePrefix:
+          type: string
+      required:
+      - logGroupNamePrefix
+      - filterPattern
+      type: object
+    CloudintegrationtypesAssets:
+      properties:
+        dashboards:
+          items:
+            $ref: '#/components/schemas/CloudintegrationtypesDashboard'
+          type:
+          - array
+          - 'null'
+      type: object
+    CloudintegrationtypesAWSMetricsCollectionStrategy:
+      properties:
+        streamFilters:
+          items:
+            $ref: '#/components/schemas/CloudintegrationtypesAWSCloudWatchMetricStreamFilter'
+          type: array
+      required:
+      - streamFilters
+      type: object
+    CloudintegrationtypesAWSTelemetryCollectionStrategy:
+      properties:
+        logs:
+          $ref: '#/components/schemas/CloudintegrationtypesAWSLogsCollectionStrategy'
+        metrics:
+          $ref: '#/components/schemas/CloudintegrationtypesAWSMetricsCollectionStrategy'
+        s3Buckets:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+      type: object
+    CloudintegrationtypesAzureConnectionArtifact:
+      properties:
+        cliCommand:
+          type: string
+        cloudPowerShellCommand:
+          type: string
+      required:
+      - cliCommand
+      - cloudPowerShellCommand
+      type: object
+    CloudintegrationtypesAWSPostableAccountConfig:
+      properties:
+        deploymentRegion:
+          type: string
+        regions:
+          items:
+            type: string
+          type: array
+      required:
+      - deploymentRegion
+      - regions
+      type: object
+    CloudintegrationtypesServiceConfig:
+      properties:
+        aws:
+          $ref: '#/components/schemas/CloudintegrationtypesAWSServiceConfig'
+        azure:
+          $ref: '#/components/schemas/CloudintegrationtypesAzureServiceConfig'
+      type: object
+    CloudintegrationtypesAWSIntegrationConfig:
+      properties:
+        enabledRegions:
+          items:
+            type: string
+          type: array
+        telemetryCollectionStrategy:
+          $ref: '#/components/schemas/CloudintegrationtypesAWSTelemetryCollectionStrategy'
+      required:
+      - enabledRegions
+      - telemetryCollectionStrategy
+      type: object
+    CloudintegrationtypesUpdatableAzureAccountConfig:
+      properties:
+        resourceGroups:
+          items:
+            type: string
+          type: array
+      required:
+      - resourceGroups
+      type: object
+    CloudintegrationtypesOldAWSMetricsStrategy:
+      properties:
+        cloudwatch_metric_stream_filters:
           items:
             properties:
-              filter_pattern:
-                type: string
-              log_group_name_prefix:
+              MetricNames:
+                items:
+                  type: string
+                type: array
+              Namespace:
                 type: string
             type: object
           type:
@@ -691,19 +807,14 @@ components:
       required:
       - services
       type: object
-    CloudintegrationtypesAzureTelemetryCollectionStrategy:
+    CloudintegrationtypesAWSLogsCollectionStrategy:
       properties:
-        logs:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureLogsCollectionStrategy'
-        metrics:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureMetricsCollectionStrategy'
-        resourceProvider:
-          type: string
-        resourceType:
-          type: string
+        subscriptions:
+          items:
+            $ref: '#/components/schemas/CloudintegrationtypesAWSCloudWatchLogsSubscription'
+          type: array
       required:
-      - resourceProvider
-      - resourceType
+      - subscriptions
       type: object
     CloudintegrationtypesCollectedMetric:
       properties:
@@ -726,34 +837,21 @@ components:
       - status
       - error
       type: object
-    CloudintegrationtypesAWSCloudWatchMetricStreamFilter:
+    CloudintegrationtypesAWSAccountConfig:
       properties:
-        metricNames:
+        regions:
           items:
             type: string
           type: array
-        namespace:
-          type: string
       required:
-      - namespace
+      - regions
       type: object
-    ErrorsJSON:
+    CloudintegrationtypesAzureServiceMetricsConfig:
       properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
+        enabled:
+          type: boolean
       type: object
-    CloudintegrationtypesAWSServiceMetricsConfig:
+    CloudintegrationtypesAzureServiceLogsConfig:
       properties:
         enabled:
           type: boolean
@@ -761,41 +859,37 @@ components:
     DashboardtypesStorableDashboardData:
       additionalProperties: {}
       type: object
-    CloudintegrationtypesUpdatableAccount:
+    CloudintegrationtypesAWSServiceLogsConfig:
+      properties:
+        enabled:
+          type: boolean
+        s3Buckets:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+      type: object
+    CloudintegrationtypesPostableAccount:
       properties:
         config:
-          $ref: '#/components/schemas/CloudintegrationtypesUpdatableAccountConfig'
+          $ref: '#/components/schemas/CloudintegrationtypesPostableAccountConfig'
+        credentials:
+          $ref: '#/components/schemas/CloudintegrationtypesCredentials'
       required:
       - config
+      - credentials
       type: object
-    CloudintegrationtypesAWSConnectionArtifact:
+    CloudintegrationtypesGettableAccountWithConnectionArtifact:
       properties:
-        connectionUrl:
-          type: string
-      required:
-      - connectionUrl
-      type: object
-    CloudintegrationtypesCloudIntegrationService:
-      properties:
-        cloudIntegrationId:
-          type: string
-        config:
-          $ref: '#/components/schemas/CloudintegrationtypesServiceConfig'
-        createdAt:
-          format: date-time
-          type: string
+        connectionArtifact:
+          $ref: '#/components/schemas/CloudintegrationtypesConnectionArtifact'
         id:
-          type: string
-        type:
-          $ref: '#/components/schemas/CloudintegrationtypesServiceID'
-        updatedAt:
-          format: date-time
           type: string
       required:
       - id
-      type:
-      - object
-      - 'null'
+      - connectionArtifact
+      type: object
     CloudintegrationtypesService:
       properties:
         assets:
@@ -827,279 +921,7 @@ components:
       - telemetryCollectionStrategy
       - cloudIntegrationService
       type: object
-    CloudintegrationtypesAWSIntegrationConfig:
-      properties:
-        enabledRegions:
-          items:
-            type: string
-          type: array
-        telemetryCollectionStrategy:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSTelemetryCollectionStrategy'
-      required:
-      - enabledRegions
-      - telemetryCollectionStrategy
-      type: object
-    CloudintegrationtypesAgentReport:
-      properties:
-        data:
-          additionalProperties: {}
-          type:
-          - object
-          - 'null'
-        timestampMillis:
-          format: int64
-          type: integer
-      required:
-      - timestampMillis
-      - data
-      type:
-      - object
-      - 'null'
-    CloudintegrationtypesAWSTelemetryCollectionStrategy:
-      properties:
-        logs:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSLogsCollectionStrategy'
-        metrics:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSMetricsCollectionStrategy'
-        s3Buckets:
-          additionalProperties:
-            items:
-              type: string
-            type: array
-          type: object
-      type: object
-    CloudintegrationtypesUpdatableAzureAccountConfig:
-      properties:
-        resourceGroups:
-          items:
-            type: string
-          type: array
-      required:
-      - resourceGroups
-      type: object
-    CloudintegrationtypesAzureAccountConfig:
-      properties:
-        deploymentRegion:
-          type: string
-        resourceGroups:
-          items:
-            type: string
-          type: array
-      required:
-      - deploymentRegion
-      - resourceGroups
-      type: object
-    CloudintegrationtypesPostableAccount:
-      properties:
-        config:
-          $ref: '#/components/schemas/CloudintegrationtypesPostableAccountConfig'
-        credentials:
-          $ref: '#/components/schemas/CloudintegrationtypesCredentials'
-      required:
-      - config
-      - credentials
-      type: object
-    CloudintegrationtypesOldAWSCollectionStrategy:
-      properties:
-        aws_logs:
-          $ref: '#/components/schemas/CloudintegrationtypesOldAWSLogsStrategy'
-        aws_metrics:
-          $ref: '#/components/schemas/CloudintegrationtypesOldAWSMetricsStrategy'
-        provider:
-          type: string
-        s3_buckets:
-          additionalProperties:
-            items:
-              type: string
-            type: array
-          type: object
-      type: object
-    CloudintegrationtypesCredentials:
-      properties:
-        ingestionKey:
-          type: string
-        ingestionUrl:
-          type: string
-        sigNozApiKey:
-          type: string
-        sigNozApiUrl:
-          type: string
-      required:
-      - sigNozApiUrl
-      - sigNozApiKey
-      - ingestionUrl
-      - ingestionKey
-      type: object
-    CloudintegrationtypesServiceConfig:
-      properties:
-        aws:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSServiceConfig'
-        azure:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureServiceConfig'
-      type: object
-    CloudintegrationtypesTelemetryCollectionStrategy:
-      properties:
-        aws:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSTelemetryCollectionStrategy'
-        azure:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureTelemetryCollectionStrategy'
-      type: object
-    CloudintegrationtypesAWSPostableAccountConfig:
-      properties:
-        deploymentRegion:
-          type: string
-        regions:
-          items:
-            type: string
-          type: array
-      required:
-      - deploymentRegion
-      - regions
-      type: object
-    CloudintegrationtypesAWSServiceConfig:
-      properties:
-        logs:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSServiceLogsConfig'
-        metrics:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSServiceMetricsConfig'
-      type: object
-    CloudintegrationtypesAWSCloudWatchLogsSubscription:
-      properties:
-        filterPattern:
-          type: string
-        logGroupNamePrefix:
-          type: string
-      required:
-      - logGroupNamePrefix
-      - filterPattern
-      type: object
-    CloudintegrationtypesCollectedLogAttribute:
-      properties:
-        name:
-          type: string
-        path:
-          type: string
-        type:
-          type: string
-      type: object
-    CloudintegrationtypesAzureServiceConfig:
-      properties:
-        logs:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureServiceLogsConfig'
-        metrics:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureServiceMetricsConfig'
-      required:
-      - logs
-      - metrics
-      type: object
-    CloudintegrationtypesAzureConnectionArtifact:
-      properties:
-        cliCommand:
-          type: string
-        cloudPowerShellCommand:
-          type: string
-      required:
-      - cliCommand
-      - cloudPowerShellCommand
-      type: object
-    CloudintegrationtypesAzureServiceLogsConfig:
-      properties:
-        enabled:
-          type: boolean
-      type: object
-    CloudintegrationtypesUpdatableService:
-      properties:
-        config:
-          $ref: '#/components/schemas/CloudintegrationtypesServiceConfig'
-      required:
-      - config
-      type: object
-    CloudintegrationtypesAssets:
-      properties:
-        dashboards:
-          items:
-            $ref: '#/components/schemas/CloudintegrationtypesDashboard'
-          type:
-          - array
-          - 'null'
-      type: object
-    CloudintegrationtypesPostableAgentCheckIn:
-      properties:
-        account_id:
-          type: string
-        cloud_account_id:
-          type: string
-        cloudIntegrationId:
-          type: string
-        data:
-          additionalProperties: {}
-          type:
-          - object
-          - 'null'
-        providerAccountId:
-          type: string
-      required:
-      - data
-      type: object
-    CloudintegrationtypesGettableAccounts:
-      properties:
-        accounts:
-          items:
-            $ref: '#/components/schemas/CloudintegrationtypesAccount'
-          type: array
-      required:
-      - accounts
-      type: object
-    CloudintegrationtypesAWSAccountConfig:
-      properties:
-        regions:
-          items:
-            type: string
-          type: array
-      required:
-      - regions
-      type: object
-    CloudintegrationtypesGettableAccountWithConnectionArtifact:
-      properties:
-        connectionArtifact:
-          $ref: '#/components/schemas/CloudintegrationtypesConnectionArtifact'
-        id:
-          type: string
-      required:
-      - id
-      - connectionArtifact
-      type: object
-    CloudintegrationtypesProviderIntegrationConfig:
-      properties:
-        aws:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSIntegrationConfig'
-        azure:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureIntegrationConfig'
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    CloudintegrationtypesAWSLogsCollectionStrategy:
-      properties:
-        subscriptions:
-          items:
-            $ref: '#/components/schemas/CloudintegrationtypesAWSCloudWatchLogsSubscription'
-          type: array
-      required:
-      - subscriptions
-      type: object
-    CloudintegrationtypesAWSServiceLogsConfig:
-      properties:
-        enabled:
-          type: boolean
-        s3Buckets:
-          additionalProperties:
-            items:
-              type: string
-            type: array
-          type: object
+    CloudintegrationtypesAzureMetricsCollectionStrategy:
       type: object
     CloudintegrationtypesAccount:
       properties:
@@ -1137,50 +959,48 @@ components:
       - orgId
       - config
       type: object
-    CloudintegrationtypesOldAWSMetricsStrategy:
+    CloudintegrationtypesSupportedSignals:
       properties:
-        cloudwatch_metric_stream_filters:
-          items:
-            properties:
-              MetricNames:
-                items:
-                  type: string
-                type: array
-              Namespace:
-                type: string
-            type: object
-          type:
-          - array
-          - 'null'
+        logs:
+          type: boolean
+        metrics:
+          type: boolean
       type: object
-    CloudintegrationtypesIntegrationConfig:
+    CloudintegrationtypesServiceID:
+      enum:
+      - alb
+      - api-gateway
+      - dynamodb
+      - ec2
+      - ecs
+      - eks
+      - elasticache
+      - lambda
+      - msk
+      - rds
+      - s3sync
+      - sns
+      - sqs
+      - storageaccountsblob
+      - cdnprofile
+      type: string
+    CloudintegrationtypesUpdatableAccount:
       properties:
-        enabled_regions:
+        config:
+          $ref: '#/components/schemas/CloudintegrationtypesUpdatableAccountConfig'
+      required:
+      - config
+      type: object
+    CloudintegrationtypesAWSCloudWatchMetricStreamFilter:
+      properties:
+        metricNames:
           items:
             type: string
           type: array
-        telemetry:
-          $ref: '#/components/schemas/CloudintegrationtypesOldAWSCollectionStrategy'
+        namespace:
+          type: string
       required:
-      - enabled_regions
-      - telemetry
-      type:
-      - object
-      - 'null'
-    CloudintegrationtypesDataCollected:
-      properties:
-        logs:
-          items:
-            $ref: '#/components/schemas/CloudintegrationtypesCollectedLogAttribute'
-          type:
-          - array
-          - 'null'
-        metrics:
-          items:
-            $ref: '#/components/schemas/CloudintegrationtypesCollectedMetric'
-          type:
-          - array
-          - 'null'
+      - namespace
       type: object
     CloudintegrationtypesAzureLogsCollectionStrategy:
       properties:
@@ -1191,31 +1011,15 @@ components:
       required:
       - categoryGroups
       type: object
-    CloudintegrationtypesAzureIntegrationConfig:
+    CloudintegrationtypesAzureServiceConfig:
       properties:
-        deploymentRegion:
-          type: string
-        resourceGroups:
-          items:
-            type: string
-          type: array
-        telemetryCollectionStrategy:
-          items:
-            $ref: '#/components/schemas/CloudintegrationtypesAzureTelemetryCollectionStrategy'
-          type: array
+        logs:
+          $ref: '#/components/schemas/CloudintegrationtypesAzureServiceLogsConfig'
+        metrics:
+          $ref: '#/components/schemas/CloudintegrationtypesAzureServiceMetricsConfig'
       required:
-      - deploymentRegion
-      - resourceGroups
-      - telemetryCollectionStrategy
-      type: object
-    CloudintegrationtypesAzureMetricsCollectionStrategy:
-      type: object
-    CloudintegrationtypesPostableAccountConfig:
-      properties:
-        aws:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSPostableAccountConfig'
-        azure:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureAccountConfig'
+      - logs
+      - metrics
       type: object
     CloudintegrationtypesGettableAgentCheckIn:
       properties:
@@ -1251,34 +1055,43 @@ components:
       - integrationConfig
       - removedAt
       type: object
-    CloudintegrationtypesConnectionArtifact:
+    CloudintegrationtypesGettableAccounts:
       properties:
-        aws:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSConnectionArtifact'
-        azure:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureConnectionArtifact'
-      type: object
-    CloudintegrationtypesAzureServiceMetricsConfig:
-      properties:
-        enabled:
-          type: boolean
-      type: object
-    CloudintegrationtypesAccountConfig:
-      properties:
-        aws:
-          $ref: '#/components/schemas/CloudintegrationtypesAWSAccountConfig'
-        azure:
-          $ref: '#/components/schemas/CloudintegrationtypesAzureAccountConfig'
-      type: object
-    CloudintegrationtypesAWSMetricsCollectionStrategy:
-      properties:
-        streamFilters:
+        accounts:
           items:
-            $ref: '#/components/schemas/CloudintegrationtypesAWSCloudWatchMetricStreamFilter'
+            $ref: '#/components/schemas/CloudintegrationtypesAccount'
           type: array
       required:
-      - streamFilters
+      - accounts
       type: object
+    CloudintegrationtypesAWSConnectionArtifact:
+      properties:
+        connectionUrl:
+          type: string
+      required:
+      - connectionUrl
+      type: object
+    CloudintegrationtypesCloudIntegrationService:
+      properties:
+        cloudIntegrationId:
+          type: string
+        config:
+          $ref: '#/components/schemas/CloudintegrationtypesServiceConfig'
+        createdAt:
+          format: date-time
+          type: string
+        id:
+          type: string
+        type:
+          $ref: '#/components/schemas/CloudintegrationtypesServiceID'
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      type:
+      - object
+      - 'null'
     CloudintegrationtypesDashboard:
       properties:
         definition:
@@ -1289,6 +1102,125 @@ components:
           type: string
         title:
           type: string
+      type: object
+    CloudintegrationtypesAzureTelemetryCollectionStrategy:
+      properties:
+        logs:
+          $ref: '#/components/schemas/CloudintegrationtypesAzureLogsCollectionStrategy'
+        metrics:
+          $ref: '#/components/schemas/CloudintegrationtypesAzureMetricsCollectionStrategy'
+        resourceProvider:
+          type: string
+        resourceType:
+          type: string
+      required:
+      - resourceProvider
+      - resourceType
+      type: object
+    CloudintegrationtypesOldAWSLogsStrategy:
+      properties:
+        cloudwatch_logs_subscriptions:
+          items:
+            properties:
+              filter_pattern:
+                type: string
+              log_group_name_prefix:
+                type: string
+            type: object
+          type:
+          - array
+          - 'null'
+      type: object
+    CloudintegrationtypesUpdatableService:
+      properties:
+        config:
+          $ref: '#/components/schemas/CloudintegrationtypesServiceConfig'
+      required:
+      - config
+      type: object
+    CloudintegrationtypesUpdatableAccountConfig:
+      properties:
+        aws:
+          $ref: '#/components/schemas/CloudintegrationtypesAWSAccountConfig'
+        azure:
+          $ref: '#/components/schemas/CloudintegrationtypesUpdatableAzureAccountConfig'
+      type: object
+    CloudintegrationtypesCredentials:
+      properties:
+        ingestionKey:
+          type: string
+        ingestionUrl:
+          type: string
+        sigNozApiKey:
+          type: string
+        sigNozApiUrl:
+          type: string
+      required:
+      - sigNozApiUrl
+      - sigNozApiKey
+      - ingestionUrl
+      - ingestionKey
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    CloudintegrationtypesConnectionArtifact:
+      properties:
+        aws:
+          $ref: '#/components/schemas/CloudintegrationtypesAWSConnectionArtifact'
+        azure:
+          $ref: '#/components/schemas/CloudintegrationtypesAzureConnectionArtifact'
+      type: object
+    CloudintegrationtypesOldAWSCollectionStrategy:
+      properties:
+        aws_logs:
+          $ref: '#/components/schemas/CloudintegrationtypesOldAWSLogsStrategy'
+        aws_metrics:
+          $ref: '#/components/schemas/CloudintegrationtypesOldAWSMetricsStrategy'
+        provider:
+          type: string
+        s3_buckets:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          type: object
+      type: object
+    CloudintegrationtypesPostableAgentCheckIn:
+      properties:
+        account_id:
+          type: string
+        cloud_account_id:
+          type: string
+        cloudIntegrationId:
+          type: string
+        data:
+          additionalProperties: {}
+          type:
+          - object
+          - 'null'
+        providerAccountId:
+          type: string
+      required:
+      - data
       type: object
     CloudintegrationtypesServiceMetadata:
       properties:
@@ -1306,6 +1238,74 @@ components:
       - icon
       - enabled
       type: object
+    CloudintegrationtypesTelemetryCollectionStrategy:
+      properties:
+        aws:
+          $ref: '#/components/schemas/CloudintegrationtypesAWSTelemetryCollectionStrategy'
+        azure:
+          $ref: '#/components/schemas/CloudintegrationtypesAzureTelemetryCollectionStrategy'
+      type: object
+    CloudintegrationtypesAWSServiceMetricsConfig:
+      properties:
+        enabled:
+          type: boolean
+      type: object
+    CloudintegrationtypesProviderIntegrationConfig:
+      properties:
+        aws:
+          $ref: '#/components/schemas/CloudintegrationtypesAWSIntegrationConfig'
+        azure:
+          $ref: '#/components/schemas/CloudintegrationtypesAzureIntegrationConfig'
+      type: object
+    CloudintegrationtypesAzureIntegrationConfig:
+      properties:
+        deploymentRegion:
+          type: string
+        resourceGroups:
+          items:
+            type: string
+          type: array
+        telemetryCollectionStrategy:
+          items:
+            $ref: '#/components/schemas/CloudintegrationtypesAzureTelemetryCollectionStrategy'
+          type: array
+      required:
+      - deploymentRegion
+      - resourceGroups
+      - telemetryCollectionStrategy
+      type: object
+    CloudintegrationtypesPostableAccountConfig:
+      properties:
+        aws:
+          $ref: '#/components/schemas/CloudintegrationtypesAWSPostableAccountConfig'
+        azure:
+          $ref: '#/components/schemas/CloudintegrationtypesAzureAccountConfig'
+      type: object
+    CloudintegrationtypesCollectedLogAttribute:
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+        type:
+          type: string
+      type: object
+    CloudintegrationtypesAgentReport:
+      properties:
+        data:
+          additionalProperties: {}
+          type:
+          - object
+          - 'null'
+        timestampMillis:
+          format: int64
+          type: integer
+      required:
+      - timestampMillis
+      - data
+      type:
+      - object
+      - 'null'
   securitySchemes:
     api_key:
       description: API Keys

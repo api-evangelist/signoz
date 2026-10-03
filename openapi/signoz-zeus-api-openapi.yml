@@ -197,44 +197,32 @@ paths:
       - zeus
 components:
   schemas:
-    ZeustypesHost:
+    ZeustypesPostableHost:
       properties:
-        is_default:
-          type: boolean
         name:
-          type: string
-        url:
           type: string
       required:
       - name
-      - is_default
-      - url
       type: object
-    RenderErrorResponse:
+    ZeustypesGettableHost:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
+        hosts:
           items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
+            $ref: '#/components/schemas/ZeustypesHost'
+          type:
+          - array
+          - 'null'
+        name:
           type: string
-        url:
+        state:
+          type: string
+        tier:
           type: string
       required:
-      - code
-      - message
+      - name
+      - state
+      - tier
+      - hosts
       type: object
     ZeustypesPostableProfile:
       properties:
@@ -274,37 +262,49 @@ components:
       - where_did_you_discover_signoz
       - timeline_for_migrating_to_signoz
       type: object
+    ZeustypesHost:
+      properties:
+        is_default:
+          type: boolean
+        name:
+          type: string
+        url:
+          type: string
+      required:
+      - name
+      - is_default
+      - url
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
     ErrorsResponseerroradditional:
       properties:
         message:
           type: string
-      type: object
-    ZeustypesPostableHost:
-      properties:
-        name:
-          type: string
-      required:
-      - name
-      type: object
-    ZeustypesGettableHost:
-      properties:
-        hosts:
-          items:
-            $ref: '#/components/schemas/ZeustypesHost'
-          type:
-          - array
-          - 'null'
-        name:
-          type: string
-        state:
-          type: string
-        tier:
-          type: string
-      required:
-      - name
-      - state
-      - tier
-      - hosts
       type: object
   securitySchemes:
     api_key:

@@ -122,20 +122,21 @@ paths:
       - Orgs
 components:
   schemas:
-    ErrorsResponseerroradditional:
+    ErrorsJSON:
       properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
         message:
           type: string
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
+        url:
           type: string
       required:
-      - status
-      - error
+      - code
+      - message
       type: object
     TypesOrganization:
       properties:
@@ -159,21 +160,20 @@ components:
       required:
       - id
       type: object
-    ErrorsJSON:
+    ErrorsResponseerroradditional:
       properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
         message:
           type: string
-        url:
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
           type: string
       required:
-      - code
-      - message
+      - status
+      - error
       type: object
   securitySchemes:
     api_key:

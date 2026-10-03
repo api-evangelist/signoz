@@ -307,6 +307,16 @@ components:
       - fixed
       - recurring
       type: string
+    RuletypesRepeatOn:
+      enum:
+      - sunday
+      - monday
+      - tuesday
+      - wednesday
+      - thursday
+      - friday
+      - saturday
+      type: string
     RuletypesSchedule:
       properties:
         endTime:
@@ -322,6 +332,18 @@ components:
       required:
       - timezone
       type: object
+    RuletypesRepeatType:
+      enum:
+      - daily
+      - weekly
+      - monthly
+      type: string
+    RuletypesMaintenanceStatus:
+      enum:
+      - active
+      - upcoming
+      - expired
+      type: string
     RenderErrorResponse:
       properties:
         error:
@@ -331,31 +353,6 @@ components:
       required:
       - status
       - error
-      type: object
-    RuletypesRecurrence:
-      properties:
-        duration:
-          type: string
-        endTime:
-          format: date-time
-          type:
-          - string
-          - 'null'
-        repeatOn:
-          items:
-            $ref: '#/components/schemas/RuletypesRepeatOn'
-          type:
-          - array
-          - 'null'
-        repeatType:
-          $ref: '#/components/schemas/RuletypesRepeatType'
-        startTime:
-          format: date-time
-          type: string
-      required:
-      - startTime
-      - duration
-      - repeatType
       type: object
     RuletypesPlannedMaintenance:
       properties:
@@ -394,43 +391,6 @@ components:
       - status
       - kind
       type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    RuletypesRepeatOn:
-      enum:
-      - sunday
-      - monday
-      - tuesday
-      - wednesday
-      - thursday
-      - friday
-      - saturday
-      type: string
-    RuletypesRepeatType:
-      enum:
-      - daily
-      - weekly
-      - monthly
-      type: string
     RuletypesPostablePlannedMaintenance:
       properties:
         alertIds:
@@ -449,12 +409,52 @@ components:
       - name
       - schedule
       type: object
-    RuletypesMaintenanceStatus:
-      enum:
-      - active
-      - upcoming
-      - expired
-      type: string
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    RuletypesRecurrence:
+      properties:
+        duration:
+          type: string
+        endTime:
+          format: date-time
+          type:
+          - string
+          - 'null'
+        repeatOn:
+          items:
+            $ref: '#/components/schemas/RuletypesRepeatOn'
+          type:
+          - array
+          - 'null'
+        repeatType:
+          $ref: '#/components/schemas/RuletypesRepeatType'
+        startTime:
+          format: date-time
+          type: string
+      required:
+      - startTime
+      - duration
+      - repeatType
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
   securitySchemes:
     api_key:
       description: API Keys
