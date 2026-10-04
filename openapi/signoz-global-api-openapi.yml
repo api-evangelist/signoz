@@ -55,53 +55,7 @@ paths:
       - Global
 components:
   schemas:
-    GlobaltypesConfig:
-      properties:
-        external_url:
-          type: string
-        identN:
-          $ref: '#/components/schemas/GlobaltypesIdentNConfig'
-        ingestion_url:
-          type: string
-        mcp_url:
-          type:
-          - string
-          - 'null'
-      required:
-      - external_url
-      - ingestion_url
-      - mcp_url
-      type: object
-    GlobaltypesAPIKeyConfig:
-      properties:
-        enabled:
-          type: boolean
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    GlobaltypesIdentNConfig:
-      properties:
-        apikey:
-          $ref: '#/components/schemas/GlobaltypesAPIKeyConfig'
-        impersonation:
-          $ref: '#/components/schemas/GlobaltypesImpersonationConfig'
-        tokenizer:
-          $ref: '#/components/schemas/GlobaltypesTokenizerConfig'
-      type: object
     GlobaltypesTokenizerConfig:
-      properties:
-        enabled:
-          type: boolean
-      type: object
-    GlobaltypesImpersonationConfig:
       properties:
         enabled:
           type: boolean
@@ -122,10 +76,56 @@ components:
       - code
       - message
       type: object
+    GlobaltypesAPIKeyConfig:
+      properties:
+        enabled:
+          type: boolean
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    GlobaltypesConfig:
+      properties:
+        external_url:
+          type: string
+        identN:
+          $ref: '#/components/schemas/GlobaltypesIdentNConfig'
+        ingestion_url:
+          type: string
+        mcp_url:
+          type:
+          - string
+          - 'null'
+      required:
+      - external_url
+      - ingestion_url
+      - mcp_url
+      type: object
     ErrorsResponseerroradditional:
       properties:
         message:
           type: string
+      type: object
+    GlobaltypesIdentNConfig:
+      properties:
+        apikey:
+          $ref: '#/components/schemas/GlobaltypesAPIKeyConfig'
+        impersonation:
+          $ref: '#/components/schemas/GlobaltypesImpersonationConfig'
+        tokenizer:
+          $ref: '#/components/schemas/GlobaltypesTokenizerConfig'
+      type: object
+    GlobaltypesImpersonationConfig:
+      properties:
+        enabled:
+          type: boolean
       type: object
   securitySchemes:
     api_key:

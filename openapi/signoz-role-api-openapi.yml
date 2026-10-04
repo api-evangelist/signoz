@@ -481,6 +481,100 @@ paths:
       - Role
 components:
   schemas:
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    AuthtypesPostableRole:
+      properties:
+        description:
+          type: string
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    AuthtypesGettableObjects:
+      properties:
+        resource:
+          $ref: '#/components/schemas/AuthtypesResource'
+        selectors:
+          items:
+            type: string
+          type: array
+      required:
+      - resource
+      - selectors
+      type: object
+    AuthtypesPatchableRole:
+      properties:
+        description:
+          type: string
+      required:
+      - description
+      type: object
+    AuthtypesPatchableObjects:
+      properties:
+        additions:
+          items:
+            $ref: '#/components/schemas/AuthtypesGettableObjects'
+          type:
+          - array
+          - 'null'
+        deletions:
+          items:
+            $ref: '#/components/schemas/AuthtypesGettableObjects'
+          type:
+          - array
+          - 'null'
+      required:
+      - additions
+      - deletions
+      type: object
+    TypesIdentifiable:
+      properties:
+        id:
+          type: string
+      required:
+      - id
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    AuthtypesResource:
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - type
+      type: object
     AuthtypesRole:
       properties:
         createdAt:
@@ -505,100 +599,6 @@ components:
       - description
       - type
       - orgId
-      type: object
-    AuthtypesPostableRole:
-      properties:
-        description:
-          type: string
-        name:
-          type: string
-      required:
-      - name
-      type: object
-    AuthtypesPatchableObjects:
-      properties:
-        additions:
-          items:
-            $ref: '#/components/schemas/AuthtypesGettableObjects'
-          type:
-          - array
-          - 'null'
-        deletions:
-          items:
-            $ref: '#/components/schemas/AuthtypesGettableObjects'
-          type:
-          - array
-          - 'null'
-      required:
-      - additions
-      - deletions
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    AuthtypesGettableObjects:
-      properties:
-        resource:
-          $ref: '#/components/schemas/AuthtypesResource'
-        selectors:
-          items:
-            type: string
-          type: array
-      required:
-      - resource
-      - selectors
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    AuthtypesResource:
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-      required:
-      - name
-      - type
-      type: object
-    TypesIdentifiable:
-      properties:
-        id:
-          type: string
-      required:
-      - id
-      type: object
-    AuthtypesPatchableRole:
-      properties:
-        description:
-          type: string
-      required:
-      - description
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
       type: object
   securitySchemes:
     api_key:

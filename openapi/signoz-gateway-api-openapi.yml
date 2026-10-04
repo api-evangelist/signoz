@@ -416,6 +416,87 @@ paths:
       - Gateway
 components:
   schemas:
+    GatewaytypesUpdatableIngestionKeyLimit:
+      properties:
+        config:
+          $ref: '#/components/schemas/GatewaytypesLimitConfig'
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - config
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    GatewaytypesLimitMetric:
+      properties:
+        day:
+          $ref: '#/components/schemas/GatewaytypesLimitMetricValue'
+        second:
+          $ref: '#/components/schemas/GatewaytypesLimitMetricValue'
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    GatewaytypesLimitMetricValue:
+      properties:
+        count:
+          format: int64
+          type: integer
+        size:
+          format: int64
+          type: integer
+      type: object
+    GatewaytypesGettableCreatedIngestionKey:
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+      required:
+      - id
+      - value
+      type: object
+    GatewaytypesPostableIngestionKey:
+      properties:
+        expires_at:
+          format: date-time
+          type: string
+        name:
+          type: string
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      required:
+      - name
+      type: object
     GatewaytypesLimit:
       properties:
         config:
@@ -441,28 +522,70 @@ components:
           format: date-time
           type: string
       type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
     GatewaytypesLimitConfig:
       properties:
         day:
           $ref: '#/components/schemas/GatewaytypesLimitValue'
         second:
           $ref: '#/components/schemas/GatewaytypesLimitValue'
+      type: object
+    GatewaytypesPagination:
+      properties:
+        page:
+          type: integer
+        pages:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    GatewaytypesGettableCreatedIngestionKeyLimit:
+      properties:
+        id:
+          type: string
+      required:
+      - id
+      type: object
+    GatewaytypesGettableIngestionKeys:
+      properties:
+        _pagination:
+          $ref: '#/components/schemas/GatewaytypesPagination'
+        keys:
+          items:
+            $ref: '#/components/schemas/GatewaytypesIngestionKey'
+          type:
+          - array
+          - 'null'
+      type: object
+    GatewaytypesPostableIngestionKeyLimit:
+      properties:
+        config:
+          $ref: '#/components/schemas/GatewaytypesLimitConfig'
+        signal:
+          type: string
+        tags:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      type: object
+    GatewaytypesLimitValue:
+      properties:
+        count:
+          type:
+          - integer
+          - 'null'
+        size:
+          type:
+          - integer
+          - 'null'
       type: object
     GatewaytypesIngestionKey:
       properties:
@@ -494,129 +617,6 @@ components:
         value:
           type: string
         workspace_id:
-          type: string
-      type: object
-    GatewaytypesPostableIngestionKey:
-      properties:
-        expires_at:
-          format: date-time
-          type: string
-        name:
-          type: string
-        tags:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-      required:
-      - name
-      type: object
-    GatewaytypesPostableIngestionKeyLimit:
-      properties:
-        config:
-          $ref: '#/components/schemas/GatewaytypesLimitConfig'
-        signal:
-          type: string
-        tags:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-      type: object
-    GatewaytypesGettableIngestionKeys:
-      properties:
-        _pagination:
-          $ref: '#/components/schemas/GatewaytypesPagination'
-        keys:
-          items:
-            $ref: '#/components/schemas/GatewaytypesIngestionKey'
-          type:
-          - array
-          - 'null'
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    GatewaytypesPagination:
-      properties:
-        page:
-          type: integer
-        pages:
-          type: integer
-        per_page:
-          type: integer
-        total:
-          type: integer
-      type: object
-    GatewaytypesLimitValue:
-      properties:
-        count:
-          type:
-          - integer
-          - 'null'
-        size:
-          type:
-          - integer
-          - 'null'
-      type: object
-    GatewaytypesGettableCreatedIngestionKey:
-      properties:
-        id:
-          type: string
-        value:
-          type: string
-      required:
-      - id
-      - value
-      type: object
-    GatewaytypesLimitMetricValue:
-      properties:
-        count:
-          format: int64
-          type: integer
-        size:
-          format: int64
-          type: integer
-      type: object
-    GatewaytypesUpdatableIngestionKeyLimit:
-      properties:
-        config:
-          $ref: '#/components/schemas/GatewaytypesLimitConfig'
-        tags:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-      required:
-      - config
-      type: object
-    GatewaytypesLimitMetric:
-      properties:
-        day:
-          $ref: '#/components/schemas/GatewaytypesLimitMetricValue'
-        second:
-          $ref: '#/components/schemas/GatewaytypesLimitMetricValue'
-      type: object
-    GatewaytypesGettableCreatedIngestionKeyLimit:
-      properties:
-        id:
-          type: string
-      required:
-      - id
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
           type: string
       type: object
   securitySchemes:

@@ -234,66 +234,48 @@ paths:
       - llmpricingrules
 components:
   schemas:
-    LlmpricingruletypesLLMPricingRuleUnit:
-      enum:
-      - per_million_tokens
-      type: string
-    LlmpricingruletypesStringSlice:
-      items:
-        type: string
-      type:
-      - array
-      - 'null'
-    LlmpricingruletypesUpdatableLLMPricingRule:
+    ErrorsJSON:
       properties:
-        enabled:
-          type: boolean
-        id:
-          type:
-          - string
-          - 'null'
-        isOverride:
-          type:
-          - boolean
-          - 'null'
-        modelName:
+        code:
           type: string
-        modelPattern:
+        errors:
           items:
-            type: string
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    LlmpricingruletypesUpdatableLLMPricingRules:
+      properties:
+        rules:
+          items:
+            $ref: '#/components/schemas/LlmpricingruletypesUpdatableLLMPricingRule'
           type:
           - array
           - 'null'
-        pricing:
-          $ref: '#/components/schemas/LlmpricingruletypesLLMRulePricing'
-        provider:
-          type: string
-        sourceId:
-          type:
-          - string
-          - 'null'
-        unit:
-          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRuleUnit'
       required:
-      - modelName
-      - provider
-      - modelPattern
-      - unit
-      - pricing
-      - enabled
+      - rules
       type: object
-    LlmpricingruletypesLLMPricingCacheCosts:
+    LlmpricingruletypesLLMPricingRuleCacheMode:
+      enum:
+      - subtract
+      - additive
+      - unknown
+      type: string
+    RenderErrorResponse:
       properties:
-        mode:
-          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRuleCacheMode'
-        read:
-          format: double
-          type: number
-        write:
-          format: double
-          type: number
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
       required:
-      - mode
+      - status
+      - error
       type: object
     LlmpricingruletypesGettablePricingRules:
       properties:
@@ -315,47 +297,6 @@ components:
       - offset
       - limit
       type: object
-    LlmpricingruletypesUpdatableLLMPricingRules:
-      properties:
-        rules:
-          items:
-            $ref: '#/components/schemas/LlmpricingruletypesUpdatableLLMPricingRule'
-          type:
-          - array
-          - 'null'
-      required:
-      - rules
-      type: object
-    LlmpricingruletypesLLMRulePricing:
-      properties:
-        cache:
-          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingCacheCosts'
-        input:
-          format: double
-          type: number
-        output:
-          format: double
-          type: number
-      required:
-      - input
-      - output
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    LlmpricingruletypesLLMPricingRuleCacheMode:
-      enum:
-      - subtract
-      - additive
-      - unknown
-      type: string
     LlmpricingruletypesLLMPricingRule:
       properties:
         createdAt:
@@ -404,26 +345,85 @@ components:
       - isOverride
       - enabled
       type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
     ErrorsResponseerroradditional:
       properties:
         message:
           type: string
+      type: object
+    LlmpricingruletypesLLMPricingCacheCosts:
+      properties:
+        mode:
+          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRuleCacheMode'
+        read:
+          format: double
+          type: number
+        write:
+          format: double
+          type: number
+      required:
+      - mode
+      type: object
+    LlmpricingruletypesLLMPricingRuleUnit:
+      enum:
+      - per_million_tokens
+      type: string
+    LlmpricingruletypesStringSlice:
+      items:
+        type: string
+      type:
+      - array
+      - 'null'
+    LlmpricingruletypesLLMRulePricing:
+      properties:
+        cache:
+          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingCacheCosts'
+        input:
+          format: double
+          type: number
+        output:
+          format: double
+          type: number
+      required:
+      - input
+      - output
+      type: object
+    LlmpricingruletypesUpdatableLLMPricingRule:
+      properties:
+        enabled:
+          type: boolean
+        id:
+          type:
+          - string
+          - 'null'
+        isOverride:
+          type:
+          - boolean
+          - 'null'
+        modelName:
+          type: string
+        modelPattern:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        pricing:
+          $ref: '#/components/schemas/LlmpricingruletypesLLMRulePricing'
+        provider:
+          type: string
+        sourceId:
+          type:
+          - string
+          - 'null'
+        unit:
+          $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRuleUnit'
+      required:
+      - modelName
+      - provider
+      - modelPattern
+      - unit
+      - pricing
+      - enabled
       type: object
   securitySchemes:
     api_key:

@@ -330,84 +330,15 @@ paths:
       - Dashboard
 components:
   schemas:
-    Querybuildertypesv5QueryWarnData:
+    TelemetrytypesTelemetryFieldKey:
       properties:
-        message:
-          type: string
-        url:
-          type: string
-        warnings:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5QueryWarnDataAdditional'
-          type: array
-      type: object
-    Querybuildertypesv5RawData:
-      properties:
-        nextCursor:
-          type: string
-        queryName:
-          type: string
-        rows:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5RawRow'
-          type:
-          - array
-          - 'null'
-      type: object
-    Querybuildertypesv5Bucket:
-      properties:
-        step:
-          format: double
-          type: number
-      type: object
-    TelemetrytypesFieldContext:
-      enum:
-      - metric
-      - log
-      - span
-      - resource
-      - attribute
-      - body
-      type: string
-    Querybuildertypesv5ExecStats:
-      description: Execution statistics for the query, including rows scanned, bytes scanned, and duration.
-      properties:
-        bytesScanned:
-          minimum: 0
-          type: integer
-        durationMs:
-          minimum: 0
-          type: integer
-        rowsScanned:
-          minimum: 0
-          type: integer
-        stepIntervals:
-          additionalProperties:
-            minimum: 0
-            type: integer
-          type: object
-      type: object
-    Querybuildertypesv5ColumnDescriptor:
-      properties:
-        aggregationIndex:
-          format: int64
-          type: integer
-        columnType:
-          $ref: '#/components/schemas/Querybuildertypesv5ColumnType'
         description:
           type: string
         fieldContext:
           $ref: '#/components/schemas/TelemetrytypesFieldContext'
         fieldDataType:
           $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        meta:
-          properties:
-            unit:
-              type: string
-          type: object
         name:
-          type: string
-        queryName:
           type: string
         signal:
           $ref: '#/components/schemas/TelemetrytypesSignal'
@@ -415,46 +346,6 @@ components:
           type: string
       required:
       - name
-      type: object
-    TelemetrytypesSignal:
-      enum:
-      - traces
-      - logs
-      - metrics
-      type: string
-    Querybuildertypesv5QueryData:
-      oneOf:
-      - $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesData'
-      - $ref: '#/components/schemas/Querybuildertypesv5ScalarData'
-      - $ref: '#/components/schemas/Querybuildertypesv5RawData'
-      properties:
-        results:
-          items: {}
-          type:
-          - array
-          - 'null'
-      type: object
-    DashboardtypesGettablePublicDasbhboard:
-      properties:
-        defaultTimeRange:
-          type: string
-        publicPath:
-          type: string
-        timeRangeEnabled:
-          type: boolean
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    DashboardtypesStorableDashboardData:
-      additionalProperties: {}
       type: object
     Querybuildertypesv5ScalarData:
       properties:
@@ -474,6 +365,43 @@ components:
         queryName:
           type: string
       type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    DashboardtypesGettablePublicDasbhboard:
+      properties:
+        defaultTimeRange:
+          type: string
+        publicPath:
+          type: string
+        timeRangeEnabled:
+          type: boolean
+      type: object
+    Querybuildertypesv5RawRow:
+      properties:
+        data:
+          additionalProperties: {}
+          type:
+          - object
+          - 'null'
+        timestamp:
+          format: date-time
+          type: string
+      type: object
+    TypesIdentifiable:
+      properties:
+        id:
+          type: string
+      required:
+      - id
+      type: object
     Querybuildertypesv5TimeSeriesValue:
       properties:
         bucket:
@@ -492,13 +420,6 @@ components:
             type: number
           type: array
       type: object
-    DashboardtypesPostablePublicDashboard:
-      properties:
-        defaultTimeRange:
-          type: string
-        timeRangeEnabled:
-          type: boolean
-      type: object
     DashboardtypesUpdatablePublicDashboard:
       properties:
         defaultTimeRange:
@@ -506,111 +427,31 @@ components:
         timeRangeEnabled:
           type: boolean
       type: object
-    Querybuildertypesv5RequestType:
-      enum:
-      - scalar
-      - time_series
-      - raw
-      - raw_stream
-      - trace
-      type: string
-    TelemetrytypesFieldDataType:
-      enum:
-      - string
-      - bool
-      - float64
-      - int64
-      - number
-      type: string
-    Querybuildertypesv5ColumnType:
-      enum:
-      - group
-      - aggregation
-      type: string
-    Querybuildertypesv5RawRow:
+    Querybuildertypesv5TimeSeries:
       properties:
-        data:
-          additionalProperties: {}
-          type:
-          - object
-          - 'null'
-        timestamp:
-          format: date-time
-          type: string
-      type: object
-    Querybuildertypesv5QueryRangeResponse:
-      description: 'Response from the v5 query range endpoint. The data.results array contains typed results depending on the requestType: TimeSeriesData for time_series, ScalarData for scalar, or RawData for raw requests.'
-      properties:
-        data:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryData'
-        meta:
-          $ref: '#/components/schemas/Querybuildertypesv5ExecStats'
-        type:
-          $ref: '#/components/schemas/Querybuildertypesv5RequestType'
-        warning:
-          $ref: '#/components/schemas/Querybuildertypesv5QueryWarnData'
-      type: object
-    Querybuildertypesv5QueryWarnDataAdditional:
-      properties:
-        message:
-          type: string
-      type: object
-    TypesIdentifiable:
-      properties:
-        id:
-          type: string
-      required:
-      - id
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
+        labels:
           items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+            $ref: '#/components/schemas/Querybuildertypesv5Label'
           type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
+        values:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesValue'
+          type:
+          - array
+          - 'null'
       type: object
-    DashboardtypesDashboard:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        createdBy:
-          type: string
-        data:
-          $ref: '#/components/schemas/DashboardtypesStorableDashboardData'
-        id:
-          type: string
-        locked:
-          type: boolean
-        org_id:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-        updatedBy:
-          type: string
+    DashboardtypesStorableDashboardData:
+      additionalProperties: {}
       type: object
-    DashboardtypesGettablePublicDashboardData:
-      properties:
-        dashboard:
-          $ref: '#/components/schemas/DashboardtypesDashboard'
-        publicDashboard:
-          $ref: '#/components/schemas/DashboardtypesGettablePublicDasbhboard'
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
+    TelemetrytypesFieldContext:
+      enum:
+      - metric
+      - log
+      - span
+      - resource
+      - attribute
+      - body
+      type: string
     Querybuildertypesv5AggregationBucket:
       properties:
         alias:
@@ -645,42 +486,56 @@ components:
             $ref: '#/components/schemas/Querybuildertypesv5TimeSeries'
           type: array
       type: object
-    Querybuildertypesv5TimeSeries:
+    Querybuildertypesv5QueryRangeResponse:
+      description: 'Response from the v5 query range endpoint. The data.results array contains typed results depending on the requestType: TimeSeriesData for time_series, ScalarData for scalar, or RawData for raw requests.'
       properties:
-        labels:
+        data:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryData'
+        meta:
+          $ref: '#/components/schemas/Querybuildertypesv5ExecStats'
+        type:
+          $ref: '#/components/schemas/Querybuildertypesv5RequestType'
+        warning:
+          $ref: '#/components/schemas/Querybuildertypesv5QueryWarnData'
+      type: object
+    DashboardtypesPostablePublicDashboard:
+      properties:
+        defaultTimeRange:
+          type: string
+        timeRangeEnabled:
+          type: boolean
+      type: object
+    DashboardtypesGettablePublicDashboardData:
+      properties:
+        dashboard:
+          $ref: '#/components/schemas/DashboardtypesDashboard'
+        publicDashboard:
+          $ref: '#/components/schemas/DashboardtypesGettablePublicDasbhboard'
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
           items:
-            $ref: '#/components/schemas/Querybuildertypesv5Label'
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
           type: array
-        values:
-          items:
-            $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesValue'
-          type:
-          - array
-          - 'null'
-      type: object
-    Querybuildertypesv5Label:
-      properties:
-        key:
-          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
-        value: {}
-      type: object
-    TelemetrytypesTelemetryFieldKey:
-      properties:
-        description:
+        message:
           type: string
-        fieldContext:
-          $ref: '#/components/schemas/TelemetrytypesFieldContext'
-        fieldDataType:
-          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        name:
-          type: string
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        unit:
+        url:
           type: string
       required:
-      - name
+      - code
+      - message
       type: object
+    TelemetrytypesFieldDataType:
+      enum:
+      - string
+      - bool
+      - float64
+      - int64
+      - number
+      type: string
     Querybuildertypesv5TimeSeriesData:
       properties:
         aggregations:
@@ -691,6 +546,151 @@ components:
           - 'null'
         queryName:
           type: string
+      type: object
+    Querybuildertypesv5QueryWarnDataAdditional:
+      properties:
+        message:
+          type: string
+      type: object
+    Querybuildertypesv5RequestType:
+      enum:
+      - scalar
+      - time_series
+      - raw
+      - raw_stream
+      - trace
+      type: string
+    Querybuildertypesv5QueryData:
+      oneOf:
+      - $ref: '#/components/schemas/Querybuildertypesv5TimeSeriesData'
+      - $ref: '#/components/schemas/Querybuildertypesv5ScalarData'
+      - $ref: '#/components/schemas/Querybuildertypesv5RawData'
+      properties:
+        results:
+          items: {}
+          type:
+          - array
+          - 'null'
+      type: object
+    Querybuildertypesv5ColumnType:
+      enum:
+      - group
+      - aggregation
+      type: string
+    Querybuildertypesv5RawData:
+      properties:
+        nextCursor:
+          type: string
+        queryName:
+          type: string
+        rows:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5RawRow'
+          type:
+          - array
+          - 'null'
+      type: object
+    DashboardtypesDashboard:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        createdBy:
+          type: string
+        data:
+          $ref: '#/components/schemas/DashboardtypesStorableDashboardData'
+        id:
+          type: string
+        locked:
+          type: boolean
+        org_id:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+        updatedBy:
+          type: string
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    Querybuildertypesv5ExecStats:
+      description: Execution statistics for the query, including rows scanned, bytes scanned, and duration.
+      properties:
+        bytesScanned:
+          minimum: 0
+          type: integer
+        durationMs:
+          minimum: 0
+          type: integer
+        rowsScanned:
+          minimum: 0
+          type: integer
+        stepIntervals:
+          additionalProperties:
+            minimum: 0
+            type: integer
+          type: object
+      type: object
+    Querybuildertypesv5Label:
+      properties:
+        key:
+          $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
+        value: {}
+      type: object
+    Querybuildertypesv5QueryWarnData:
+      properties:
+        message:
+          type: string
+        url:
+          type: string
+        warnings:
+          items:
+            $ref: '#/components/schemas/Querybuildertypesv5QueryWarnDataAdditional'
+          type: array
+      type: object
+    Querybuildertypesv5Bucket:
+      properties:
+        step:
+          format: double
+          type: number
+      type: object
+    TelemetrytypesSignal:
+      enum:
+      - traces
+      - logs
+      - metrics
+      type: string
+    Querybuildertypesv5ColumnDescriptor:
+      properties:
+        aggregationIndex:
+          format: int64
+          type: integer
+        columnType:
+          $ref: '#/components/schemas/Querybuildertypesv5ColumnType'
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        meta:
+          properties:
+            unit:
+              type: string
+          type: object
+        name:
+          type: string
+        queryName:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
       type: object
   securitySchemes:
     api_key:

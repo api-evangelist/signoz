@@ -379,39 +379,29 @@ paths:
       - Channels
 components:
   schemas:
-    ConfigMattermostAttachment:
+    ConfigIncidentioConfig:
       properties:
-        author_icon:
+        alert_source_token:
           type: string
-        author_link:
+        alert_source_token_file:
           type: string
-        author_name:
-          type: string
-        color:
-          type: string
-        fallback:
-          type: string
-        fields:
-          items:
-            $ref: '#/components/schemas/ConfigMattermostField'
-          type: array
-        footer:
-          type: string
-        footer_icon:
-          type: string
-        image_url:
-          type: string
-        pretext:
-          type: string
-        text:
-          type: string
-        thumb_url:
-          type: string
-        title:
-          type: string
-        title_link:
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        max_alerts:
+          minimum: 0
+          type: integer
+        send_resolved:
+          type: boolean
+        timeout:
+          $ref: '#/components/schemas/TimeDuration'
+        url:
+          $ref: '#/components/schemas/ConfigURLType2'
+        url_file:
           type: string
       type: object
+    ModelDuration:
+      format: int64
+      type: integer
     ConfigMattermostPriority:
       properties:
         persistent_notifications:
@@ -421,31 +411,104 @@ components:
         requested_ack:
           type: boolean
       type: object
-    ConfigVictorOpsConfig:
+    ConfigHTTPClientConfig:
       properties:
-        api_key:
+        authorization:
+          $ref: '#/components/schemas/ConfigAuthorization'
+        basic_auth:
+          $ref: '#/components/schemas/ConfigBasicAuth'
+        bearer_token:
           type: string
-        api_key_file:
+        bearer_token_file:
           type: string
-        api_url:
-          $ref: '#/components/schemas/ConfigURLType2'
-        custom_fields:
+        enable_http2:
+          type: boolean
+        follow_redirects:
+          type: boolean
+        http_headers:
+          $ref: '#/components/schemas/ConfigHeaders'
+        no_proxy:
+          type: string
+        oauth2:
+          $ref: '#/components/schemas/ConfigOAuth2'
+        proxy_connect_header:
+          $ref: '#/components/schemas/ConfigProxyHeader'
+        proxy_from_environment:
+          type: boolean
+        proxy_url:
+          $ref: '#/components/schemas/ConfigURL'
+        tls_config:
+          $ref: '#/components/schemas/ConfigTLSConfig'
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    ConfigHeaders:
+      type: object
+    ConfigOAuth2:
+      properties:
+        audience:
+          type: string
+        claims:
+          additionalProperties: {}
+          type: object
+        client_certificate_key:
+          type: string
+        client_certificate_key_file:
+          type: string
+        client_certificate_key_id:
+          type: string
+        client_certificate_key_ref:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        client_secret_file:
+          type: string
+        client_secret_ref:
+          type: string
+        endpoint_params:
           additionalProperties:
             type: string
           type: object
-        entity_display_name:
+        grant_type:
           type: string
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        message_type:
+        iss:
           type: string
-        monitoring_tool:
+        no_proxy:
           type: string
-        routing_key:
-          type: string
-        send_resolved:
+        proxy_connect_header:
+          $ref: '#/components/schemas/ConfigProxyHeader'
+        proxy_from_environment:
           type: boolean
-        state_message:
+        proxy_url:
+          $ref: '#/components/schemas/ConfigURL'
+        scopes:
+          items:
+            type: string
+          type: array
+        signature_algorithm:
+          type: string
+        token_url:
+          type: string
+      type: object
+    ConfigSlackConfirmationField:
+      properties:
+        dismiss_text:
+          type: string
+        ok_text:
+          type: string
+        text:
+          type: string
+        title:
           type: string
       type: object
     ConfigTelegramConfig:
@@ -474,209 +537,97 @@ components:
         token_file:
           type: string
       type: object
-    ConfigPushoverConfig:
+    ConfigDiscordConfig:
       properties:
-        device:
+        avatar_url:
           type: string
-        expire:
-          $ref: '#/components/schemas/ConfigDuration'
-        html:
-          type: boolean
+        content:
+          type: string
         http_config:
           $ref: '#/components/schemas/ConfigHTTPClientConfig'
         message:
           type: string
-        monospace:
-          type: boolean
-        priority:
-          type: string
-        retry:
-          $ref: '#/components/schemas/ConfigDuration'
         send_resolved:
           type: boolean
-        sound:
-          type: string
         title:
           type: string
-        token:
+        username:
           type: string
-        token_file:
-          type: string
-        ttl:
-          $ref: '#/components/schemas/ConfigDuration'
-        url:
-          type: string
-        url_title:
-          type: string
-        user_key:
-          type: string
-        user_key_file:
-          type: string
-      type: object
-    ModelDuration:
-      format: int64
-      type: integer
-    ConfigTLSConfig:
-      properties:
-        ca:
-          type: string
-        ca_file:
-          type: string
-        ca_ref:
-          type: string
-        cert:
-          type: string
-        cert_file:
-          type: string
-        cert_ref:
-          type: string
-        insecure_skip_verify:
-          type: boolean
-        key:
-          type: string
-        key_file:
-          type: string
-        key_ref:
-          type: string
-        max_version:
-          minimum: 0
-          type: integer
-        min_version:
-          minimum: 0
-          type: integer
-        server_name:
-          type: string
-      type: object
-    ConfigSlackConfig:
-      properties:
-        actions:
-          items:
-            $ref: '#/components/schemas/ConfigSlackAction'
-          type: array
-        api_url:
+        webhook_url:
           $ref: '#/components/schemas/ConfigSecretURL'
-        api_url_file:
+        webhook_url_file:
           type: string
-        app_token:
+      type: object
+    ConfigSecretURL:
+      type: object
+    ConfigPagerdutyConfig:
+      properties:
+        class:
           type: string
-        app_token_file:
+        client:
           type: string
-        app_url:
-          $ref: '#/components/schemas/ConfigURLType2'
-        callback_id:
+        client_url:
           type: string
-        channel:
+        component:
           type: string
-        color:
+        description:
           type: string
-        fallback:
-          type: string
-        fields:
-          items:
-            $ref: '#/components/schemas/ConfigSlackField'
-          type: array
-        footer:
+        details:
+          additionalProperties: {}
+          type: object
+        group:
           type: string
         http_config:
           $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        icon_emoji:
-          type: string
-        icon_url:
-          type: string
-        image_url:
-          type: string
-        link_names:
-          type: boolean
-        message_text:
-          type: string
-        mrkdwn_in:
+        images:
           items:
-            type: string
+            $ref: '#/components/schemas/ConfigPagerdutyImage'
           type: array
-        pretext:
+        links:
+          items:
+            $ref: '#/components/schemas/ConfigPagerdutyLink'
+          type: array
+        routing_key:
+          type: string
+        routing_key_file:
           type: string
         send_resolved:
           type: boolean
-        short_fields:
-          type: boolean
-        text:
+        service_key:
           type: string
-        thumb_url:
+        service_key_file:
+          type: string
+        severity:
+          type: string
+        source:
           type: string
         timeout:
           $ref: '#/components/schemas/TimeDuration'
-        title:
+        url:
+          $ref: '#/components/schemas/ConfigURLType2'
+      type: object
+    ConfigPagerdutyImage:
+      properties:
+        alt:
           type: string
-        title_link:
+        href:
           type: string
-        username:
+        src:
           type: string
       type: object
-    ConfigRocketchatAttachmentField:
+    ConfigMSTeamsV2Config:
       properties:
-        short:
-          type:
-          - boolean
-          - 'null'
-        title:
-          type: string
-        value:
-          type: string
-      type: object
-    ConfigOpsGenieConfigResponder:
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-        username:
-          type: string
-      type: object
-    ConfigSlackConfirmationField:
-      properties:
-        dismiss_text:
-          type: string
-        ok_text:
-          type: string
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        send_resolved:
+          type: boolean
         text:
           type: string
         title:
           type: string
-      type: object
-    AlertmanagertypesChannel:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        data:
-          type: string
-        id:
-          type: string
-        name:
-          type: string
-        orgId:
-          type: string
-        type:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-      required:
-      - id
-      - name
-      - type
-      - data
-      - orgId
-      type: object
-    ConfigURLType2:
-      type: object
-    ConfigThreadingConfig:
-      properties:
-        enabled:
-          type: boolean
-        thread_by_date:
+        webhook_url:
+          $ref: '#/components/schemas/ConfigSecretURL'
+        webhook_url_file:
           type: string
       type: object
     ConfigReceiver:
@@ -756,93 +707,77 @@ components:
             $ref: '#/components/schemas/ConfigWechatConfig'
           type: array
       type: object
-    RenderErrorResponse:
+    ConfigAuthorization:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
+        credentials:
           type: string
-      required:
-      - status
-      - error
+        credentials_file:
+          type: string
+        credentials_ref:
+          type: string
+        type:
+          type: string
       type: object
-    ConfigRocketchatConfig:
+    ConfigRocketchatAttachmentField:
       properties:
-        actions:
-          items:
-            $ref: '#/components/schemas/ConfigRocketchatAttachmentAction'
-          type: array
-        api_url:
-          $ref: '#/components/schemas/ConfigURLType2'
-        channel:
-          type: string
-        color:
-          type: string
-        emoji:
-          type: string
-        fields:
-          items:
-            $ref: '#/components/schemas/ConfigRocketchatAttachmentField'
-          type: array
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        icon_url:
-          type: string
-        image_url:
-          type: string
-        link_names:
-          type: boolean
-        send_resolved:
-          type: boolean
-        short_fields:
-          type: boolean
-        text:
-          type: string
-        thumb_url:
-          type: string
+        short:
+          type:
+          - boolean
+          - 'null'
         title:
           type: string
-        title_link:
-          type: string
-        token:
-          type: string
-        token_file:
-          type: string
-        token_id:
-          type: string
-        token_id_file:
+        value:
           type: string
       type: object
-    Sigv4SigV4Config:
+    ConfigJiraFieldConfig:
+      properties:
+        enable_update:
+          type:
+          - boolean
+          - 'null'
+        template:
+          type: string
       type: object
+    ConfigRocketchatAttachmentAction:
+      properties:
+        image_url:
+          type: string
+        is_webview:
+          type: boolean
+        msg:
+          type: string
+        msg_in_chat_window:
+          type: boolean
+        msg_processing_type:
+          type: string
+        text:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+        webview_height_ratio:
+          type: string
+      type: object
+    ConfigDuration:
+      format: int64
+      type: string
+    ConfigThreadingConfig:
+      properties:
+        enabled:
+          type: boolean
+        thread_by_date:
+          type: string
+      type: object
+    TimeDuration:
+      format: int64
+      type: integer
     ConfigPagerdutyLink:
       properties:
         href:
           type: string
         text:
           type: string
-      type: object
-    ConfigWebhookConfig:
-      properties:
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        max_alerts:
-          minimum: 0
-          type: integer
-        send_resolved:
-          type: boolean
-        timeout:
-          $ref: '#/components/schemas/TimeDuration'
-        url:
-          type: string
-        url_file:
-          type: string
-      type: object
-    ConfigProxyHeader:
-      additionalProperties:
-        items:
-          type: string
-        type: array
       type: object
     ConfigWechatConfig:
       properties:
@@ -871,61 +806,6 @@ components:
         to_user:
           type: string
       type: object
-    ConfigMattermostField:
-      properties:
-        short:
-          type:
-          - boolean
-          - 'null'
-        title:
-          type: string
-        value:
-          type: string
-      type: object
-    ConfigDuration:
-      format: int64
-      type: string
-    ConfigMattermostProps:
-      properties:
-        card:
-          type: string
-      type: object
-    ConfigSlackAction:
-      properties:
-        confirm:
-          $ref: '#/components/schemas/ConfigSlackConfirmationField'
-        name:
-          type: string
-        style:
-          type: string
-        text:
-          type: string
-        type:
-          type: string
-        url:
-          type: string
-        value:
-          type: string
-      type: object
-    ConfigHostPort:
-      type: object
-    ConfigMSTeamsV2Config:
-      properties:
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        send_resolved:
-          type: boolean
-        text:
-          type: string
-        title:
-          type: string
-        webhook_url:
-          $ref: '#/components/schemas/ConfigSecretURL'
-        webhook_url_file:
-          type: string
-      type: object
-    ConfigHeaders:
-      type: object
     ConfigBasicAuth:
       properties:
         password:
@@ -941,24 +821,77 @@ components:
         username_ref:
           type: string
       type: object
-    ConfigURL:
-      type: object
-    ConfigPagerdutyImage:
+    ConfigTLSConfig:
       properties:
-        alt:
+        ca:
           type: string
-        href:
+        ca_file:
           type: string
-        src:
+        ca_ref:
+          type: string
+        cert:
+          type: string
+        cert_file:
+          type: string
+        cert_ref:
+          type: string
+        insecure_skip_verify:
+          type: boolean
+        key:
+          type: string
+        key_file:
+          type: string
+        key_ref:
+          type: string
+        max_version:
+          minimum: 0
+          type: integer
+        min_version:
+          minimum: 0
+          type: integer
+        server_name:
           type: string
       type: object
-    ConfigMattermostConfig:
+    ConfigOpsGenieConfigResponder:
       properties:
-        attachments:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        username:
+          type: string
+      type: object
+    ConfigSlackConfig:
+      properties:
+        actions:
           items:
-            $ref: '#/components/schemas/ConfigMattermostAttachment'
+            $ref: '#/components/schemas/ConfigSlackAction'
           type: array
+        api_url:
+          $ref: '#/components/schemas/ConfigSecretURL'
+        api_url_file:
+          type: string
+        app_token:
+          type: string
+        app_token_file:
+          type: string
+        app_url:
+          $ref: '#/components/schemas/ConfigURLType2'
+        callback_id:
+          type: string
         channel:
+          type: string
+        color:
+          type: string
+        fallback:
+          type: string
+        fields:
+          items:
+            $ref: '#/components/schemas/ConfigSlackField'
+          type: array
+        footer:
           type: string
         http_config:
           $ref: '#/components/schemas/ConfigHTTPClientConfig'
@@ -966,377 +899,72 @@ components:
           type: string
         icon_url:
           type: string
-        priority:
-          $ref: '#/components/schemas/ConfigMattermostPriority'
-        props:
-          $ref: '#/components/schemas/ConfigMattermostProps'
-        send_resolved:
-          type: boolean
-        text:
-          type: string
-        type:
-          type: string
-        username:
-          type: string
-        webhook_url:
-          $ref: '#/components/schemas/ConfigSecretURL'
-        webhook_url_file:
-          type: string
-      type: object
-    ConfigAuthorization:
-      properties:
-        credentials:
-          type: string
-        credentials_file:
-          type: string
-        credentials_ref:
-          type: string
-        type:
-          type: string
-      type: object
-    ConfigIncidentioConfig:
-      properties:
-        alert_source_token:
-          type: string
-        alert_source_token_file:
-          type: string
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        max_alerts:
-          minimum: 0
-          type: integer
-        send_resolved:
-          type: boolean
-        timeout:
-          $ref: '#/components/schemas/TimeDuration'
-        url:
-          $ref: '#/components/schemas/ConfigURLType2'
-        url_file:
-          type: string
-      type: object
-    ConfigDiscordConfig:
-      properties:
-        avatar_url:
-          type: string
-        content:
-          type: string
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        message:
-          type: string
-        send_resolved:
-          type: boolean
-        title:
-          type: string
-        username:
-          type: string
-        webhook_url:
-          $ref: '#/components/schemas/ConfigSecretURL'
-        webhook_url_file:
-          type: string
-      type: object
-    ConfigJiraConfig:
-      properties:
-        api_type:
-          type: string
-        api_url:
-          $ref: '#/components/schemas/ConfigURLType2'
-        custom_fields:
-          additionalProperties: {}
-          type: object
-        description:
-          $ref: '#/components/schemas/ConfigJiraFieldConfig'
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        issue_type:
-          type: string
-        labels:
-          items:
-            type: string
-          type: array
-        priority:
-          type: string
-        project:
-          type: string
-        reopen_duration:
-          $ref: '#/components/schemas/ModelDuration'
-        reopen_transition:
-          type: string
-        resolve_transition:
-          type: string
-        send_resolved:
-          type: boolean
-        summary:
-          $ref: '#/components/schemas/ConfigJiraFieldConfig'
-        wont_fix_resolution:
-          type: string
-      type: object
-    ConfigSNSConfig:
-      properties:
-        api_url:
-          type: string
-        attributes:
-          additionalProperties:
-            type: string
-          type: object
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        message:
-          type: string
-        phone_number:
-          type: string
-        send_resolved:
-          type: boolean
-        sigv4:
-          $ref: '#/components/schemas/Sigv4SigV4Config'
-        subject:
-          type: string
-        target_arn:
-          type: string
-        topic_arn:
-          type: string
-      type: object
-    ConfigSecretURL:
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    ConfigJiraFieldConfig:
-      properties:
-        enable_update:
-          type:
-          - boolean
-          - 'null'
-        template:
-          type: string
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    ConfigPagerdutyConfig:
-      properties:
-        class:
-          type: string
-        client:
-          type: string
-        client_url:
-          type: string
-        component:
-          type: string
-        description:
-          type: string
-        details:
-          additionalProperties: {}
-          type: object
-        group:
-          type: string
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        images:
-          items:
-            $ref: '#/components/schemas/ConfigPagerdutyImage'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/ConfigPagerdutyLink'
-          type: array
-        routing_key:
-          type: string
-        routing_key_file:
-          type: string
-        send_resolved:
-          type: boolean
-        service_key:
-          type: string
-        service_key_file:
-          type: string
-        severity:
-          type: string
-        source:
-          type: string
-        timeout:
-          $ref: '#/components/schemas/TimeDuration'
-        url:
-          $ref: '#/components/schemas/ConfigURLType2'
-      type: object
-    ConfigOpsGenieConfig:
-      properties:
-        actions:
-          type: string
-        api_key:
-          type: string
-        api_key_file:
-          type: string
-        api_url:
-          $ref: '#/components/schemas/ConfigURLType2'
-        description:
-          type: string
-        details:
-          additionalProperties:
-            type: string
-          type: object
-        entity:
-          type: string
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        message:
-          type: string
-        note:
-          type: string
-        priority:
-          type: string
-        responders:
-          items:
-            $ref: '#/components/schemas/ConfigOpsGenieConfigResponder'
-          type: array
-        send_resolved:
-          type: boolean
-        source:
-          type: string
-        tags:
-          type: string
-        update_alerts:
-          type: boolean
-      type: object
-    ConfigRocketchatAttachmentAction:
-      properties:
         image_url:
           type: string
-        is_webview:
+        link_names:
           type: boolean
-        msg:
+        message_text:
           type: string
-        msg_in_chat_window:
-          type: boolean
-        msg_processing_type:
-          type: string
-        text:
-          type: string
-        type:
-          type: string
-        url:
-          type: string
-        webview_height_ratio:
-          type: string
-      type: object
-    ConfigSlackField:
-      properties:
-        short:
-          type:
-          - boolean
-          - 'null'
-        title:
-          type: string
-        value:
-          type: string
-      type: object
-    ConfigMSTeamsConfig:
-      properties:
-        http_config:
-          $ref: '#/components/schemas/ConfigHTTPClientConfig'
-        send_resolved:
-          type: boolean
-        summary:
-          type: string
-        text:
-          type: string
-        title:
-          type: string
-        webhook_url:
-          $ref: '#/components/schemas/ConfigSecretURL'
-        webhook_url_file:
-          type: string
-      type: object
-    ConfigHTTPClientConfig:
-      properties:
-        authorization:
-          $ref: '#/components/schemas/ConfigAuthorization'
-        basic_auth:
-          $ref: '#/components/schemas/ConfigBasicAuth'
-        bearer_token:
-          type: string
-        bearer_token_file:
-          type: string
-        enable_http2:
-          type: boolean
-        follow_redirects:
-          type: boolean
-        http_headers:
-          $ref: '#/components/schemas/ConfigHeaders'
-        no_proxy:
-          type: string
-        oauth2:
-          $ref: '#/components/schemas/ConfigOAuth2'
-        proxy_connect_header:
-          $ref: '#/components/schemas/ConfigProxyHeader'
-        proxy_from_environment:
-          type: boolean
-        proxy_url:
-          $ref: '#/components/schemas/ConfigURL'
-        tls_config:
-          $ref: '#/components/schemas/ConfigTLSConfig'
-      type: object
-    ConfigOAuth2:
-      properties:
-        audience:
-          type: string
-        claims:
-          additionalProperties: {}
-          type: object
-        client_certificate_key:
-          type: string
-        client_certificate_key_file:
-          type: string
-        client_certificate_key_id:
-          type: string
-        client_certificate_key_ref:
-          type: string
-        client_id:
-          type: string
-        client_secret:
-          type: string
-        client_secret_file:
-          type: string
-        client_secret_ref:
-          type: string
-        endpoint_params:
-          additionalProperties:
-            type: string
-          type: object
-        grant_type:
-          type: string
-        iss:
-          type: string
-        no_proxy:
-          type: string
-        proxy_connect_header:
-          $ref: '#/components/schemas/ConfigProxyHeader'
-        proxy_from_environment:
-          type: boolean
-        proxy_url:
-          $ref: '#/components/schemas/ConfigURL'
-        scopes:
+        mrkdwn_in:
           items:
             type: string
           type: array
-        signature_algorithm:
+        pretext:
           type: string
-        token_url:
+        send_resolved:
+          type: boolean
+        short_fields:
+          type: boolean
+        text:
+          type: string
+        thumb_url:
+          type: string
+        timeout:
+          $ref: '#/components/schemas/TimeDuration'
+        title:
+          type: string
+        title_link:
+          type: string
+        username:
+          type: string
+      type: object
+    ConfigPushoverConfig:
+      properties:
+        device:
+          type: string
+        expire:
+          $ref: '#/components/schemas/ConfigDuration'
+        html:
+          type: boolean
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        message:
+          type: string
+        monospace:
+          type: boolean
+        priority:
+          type: string
+        retry:
+          $ref: '#/components/schemas/ConfigDuration'
+        send_resolved:
+          type: boolean
+        sound:
+          type: string
+        title:
+          type: string
+        token:
+          type: string
+        token_file:
+          type: string
+        ttl:
+          $ref: '#/components/schemas/ConfigDuration'
+        url:
+          type: string
+        url_title:
+          type: string
+        user_key:
+          type: string
+        user_key_file:
           type: string
       type: object
     ConfigWebexConfig:
@@ -1397,9 +1025,381 @@ components:
         to:
           type: string
       type: object
-    TimeDuration:
-      format: int64
-      type: integer
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    Sigv4SigV4Config:
+      type: object
+    ConfigVictorOpsConfig:
+      properties:
+        api_key:
+          type: string
+        api_key_file:
+          type: string
+        api_url:
+          $ref: '#/components/schemas/ConfigURLType2'
+        custom_fields:
+          additionalProperties:
+            type: string
+          type: object
+        entity_display_name:
+          type: string
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        message_type:
+          type: string
+        monitoring_tool:
+          type: string
+        routing_key:
+          type: string
+        send_resolved:
+          type: boolean
+        state_message:
+          type: string
+      type: object
+    ConfigURLType2:
+      type: object
+    ConfigMattermostField:
+      properties:
+        short:
+          type:
+          - boolean
+          - 'null'
+        title:
+          type: string
+        value:
+          type: string
+      type: object
+    ConfigSlackAction:
+      properties:
+        confirm:
+          $ref: '#/components/schemas/ConfigSlackConfirmationField'
+        name:
+          type: string
+        style:
+          type: string
+        text:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+        value:
+          type: string
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    ConfigWebhookConfig:
+      properties:
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        max_alerts:
+          minimum: 0
+          type: integer
+        send_resolved:
+          type: boolean
+        timeout:
+          $ref: '#/components/schemas/TimeDuration'
+        url:
+          type: string
+        url_file:
+          type: string
+      type: object
+    ConfigRocketchatConfig:
+      properties:
+        actions:
+          items:
+            $ref: '#/components/schemas/ConfigRocketchatAttachmentAction'
+          type: array
+        api_url:
+          $ref: '#/components/schemas/ConfigURLType2'
+        channel:
+          type: string
+        color:
+          type: string
+        emoji:
+          type: string
+        fields:
+          items:
+            $ref: '#/components/schemas/ConfigRocketchatAttachmentField'
+          type: array
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        icon_url:
+          type: string
+        image_url:
+          type: string
+        link_names:
+          type: boolean
+        send_resolved:
+          type: boolean
+        short_fields:
+          type: boolean
+        text:
+          type: string
+        thumb_url:
+          type: string
+        title:
+          type: string
+        title_link:
+          type: string
+        token:
+          type: string
+        token_file:
+          type: string
+        token_id:
+          type: string
+        token_id_file:
+          type: string
+      type: object
+    ConfigHostPort:
+      type: object
+    ConfigMattermostAttachment:
+      properties:
+        author_icon:
+          type: string
+        author_link:
+          type: string
+        author_name:
+          type: string
+        color:
+          type: string
+        fallback:
+          type: string
+        fields:
+          items:
+            $ref: '#/components/schemas/ConfigMattermostField'
+          type: array
+        footer:
+          type: string
+        footer_icon:
+          type: string
+        image_url:
+          type: string
+        pretext:
+          type: string
+        text:
+          type: string
+        thumb_url:
+          type: string
+        title:
+          type: string
+        title_link:
+          type: string
+      type: object
+    AlertmanagertypesChannel:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        data:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+        orgId:
+          type: string
+        type:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      - name
+      - type
+      - data
+      - orgId
+      type: object
+    ConfigSNSConfig:
+      properties:
+        api_url:
+          type: string
+        attributes:
+          additionalProperties:
+            type: string
+          type: object
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        message:
+          type: string
+        phone_number:
+          type: string
+        send_resolved:
+          type: boolean
+        sigv4:
+          $ref: '#/components/schemas/Sigv4SigV4Config'
+        subject:
+          type: string
+        target_arn:
+          type: string
+        topic_arn:
+          type: string
+      type: object
+    ConfigMattermostConfig:
+      properties:
+        attachments:
+          items:
+            $ref: '#/components/schemas/ConfigMattermostAttachment'
+          type: array
+        channel:
+          type: string
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        icon_emoji:
+          type: string
+        icon_url:
+          type: string
+        priority:
+          $ref: '#/components/schemas/ConfigMattermostPriority'
+        props:
+          $ref: '#/components/schemas/ConfigMattermostProps'
+        send_resolved:
+          type: boolean
+        text:
+          type: string
+        type:
+          type: string
+        username:
+          type: string
+        webhook_url:
+          $ref: '#/components/schemas/ConfigSecretURL'
+        webhook_url_file:
+          type: string
+      type: object
+    ConfigOpsGenieConfig:
+      properties:
+        actions:
+          type: string
+        api_key:
+          type: string
+        api_key_file:
+          type: string
+        api_url:
+          $ref: '#/components/schemas/ConfigURLType2'
+        description:
+          type: string
+        details:
+          additionalProperties:
+            type: string
+          type: object
+        entity:
+          type: string
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        message:
+          type: string
+        note:
+          type: string
+        priority:
+          type: string
+        responders:
+          items:
+            $ref: '#/components/schemas/ConfigOpsGenieConfigResponder'
+          type: array
+        send_resolved:
+          type: boolean
+        source:
+          type: string
+        tags:
+          type: string
+        update_alerts:
+          type: boolean
+      type: object
+    ConfigURL:
+      type: object
+    ConfigJiraConfig:
+      properties:
+        api_type:
+          type: string
+        api_url:
+          $ref: '#/components/schemas/ConfigURLType2'
+        custom_fields:
+          additionalProperties: {}
+          type: object
+        description:
+          $ref: '#/components/schemas/ConfigJiraFieldConfig'
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        issue_type:
+          type: string
+        labels:
+          items:
+            type: string
+          type: array
+        priority:
+          type: string
+        project:
+          type: string
+        reopen_duration:
+          $ref: '#/components/schemas/ModelDuration'
+        reopen_transition:
+          type: string
+        resolve_transition:
+          type: string
+        send_resolved:
+          type: boolean
+        summary:
+          $ref: '#/components/schemas/ConfigJiraFieldConfig'
+        wont_fix_resolution:
+          type: string
+      type: object
+    ConfigMSTeamsConfig:
+      properties:
+        http_config:
+          $ref: '#/components/schemas/ConfigHTTPClientConfig'
+        send_resolved:
+          type: boolean
+        summary:
+          type: string
+        text:
+          type: string
+        title:
+          type: string
+        webhook_url:
+          $ref: '#/components/schemas/ConfigSecretURL'
+        webhook_url_file:
+          type: string
+      type: object
+    ConfigSlackField:
+      properties:
+        short:
+          type:
+          - boolean
+          - 'null'
+        title:
+          type: string
+        value:
+          type: string
+      type: object
+    ConfigProxyHeader:
+      additionalProperties:
+        items:
+          type: string
+        type: array
+      type: object
+    ConfigMattermostProps:
+      properties:
+        card:
+          type: string
+      type: object
   securitySchemes:
     api_key:
       description: API Keys

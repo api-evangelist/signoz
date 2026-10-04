@@ -90,6 +90,16 @@ components:
       - code
       - message
       type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
     FeaturetypesGettableFeature:
       properties:
         defaultVariant:
@@ -113,16 +123,6 @@ components:
       properties:
         message:
           type: string
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
       type: object
   securitySchemes:
     api_key:

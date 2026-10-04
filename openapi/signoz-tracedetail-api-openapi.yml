@@ -95,32 +95,47 @@ paths:
       - tracedetail
 components:
   schemas:
-    TelemetrytypesSignal:
-      enum:
-      - traces
-      - logs
-      - metrics
-      type: string
-    TracedetailtypesPostableWaterfall:
+    ErrorsJSON:
       properties:
-        aggregations:
-          items:
-            $ref: '#/components/schemas/TracedetailtypesSpanAggregation'
-          type:
-          - array
-          - 'null'
-        limit:
-          minimum: 0
-          type: integer
-        selectedSpanId:
+        code:
           type: string
-        uncollapsedSpans:
+        errors:
           items:
-            type: string
-          type:
-          - array
-          - 'null'
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
       type: object
+    TelemetrytypesTelemetryFieldKey:
+      properties:
+        description:
+          type: string
+        fieldContext:
+          $ref: '#/components/schemas/TelemetrytypesFieldContext'
+        fieldDataType:
+          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
+        name:
+          type: string
+        signal:
+          $ref: '#/components/schemas/TelemetrytypesSignal'
+        unit:
+          type: string
+      required:
+      - name
+      type: object
+    TelemetrytypesFieldDataType:
+      enum:
+      - string
+      - bool
+      - float64
+      - int64
+      - number
+      type: string
     TelemetrytypesFieldContext:
       enum:
       - metric
@@ -129,14 +144,6 @@ components:
       - resource
       - attribute
       - body
-      type: string
-    TelemetrytypesFieldDataType:
-      enum:
-      - string
-      - bool
-      - float64
-      - int64
-      - number
       type: string
     RenderErrorResponse:
       properties:
@@ -155,6 +162,19 @@ components:
         field:
           $ref: '#/components/schemas/TelemetrytypesTelemetryFieldKey'
       type: object
+    TracedetailtypesEvent:
+      properties:
+        attributeMap:
+          additionalProperties: {}
+          type: object
+        isError:
+          type: boolean
+        name:
+          type: string
+        timeUnixNano:
+          minimum: 0
+          type: integer
+      type: object
     TracedetailtypesSpanAggregationResult:
       properties:
         aggregation:
@@ -169,12 +189,11 @@ components:
           - object
           - 'null'
       type: object
-    TracedetailtypesSpanAggregationType:
-      enum:
-      - span_count
-      - execution_time_percentage
-      - duration
-      type: string
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
     TracedetailtypesWaterfallSpan:
       properties:
         attributes:
@@ -247,6 +266,32 @@ components:
         trace_state:
           type: string
       type: object
+    TracedetailtypesPostableWaterfall:
+      properties:
+        aggregations:
+          items:
+            $ref: '#/components/schemas/TracedetailtypesSpanAggregation'
+          type:
+          - array
+          - 'null'
+        limit:
+          minimum: 0
+          type: integer
+        selectedSpanId:
+          type: string
+        uncollapsedSpans:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+      type: object
+    TracedetailtypesSpanAggregationType:
+      enum:
+      - span_count
+      - execution_time_percentage
+      - duration
+      type: string
     TracedetailtypesGettableWaterfallTrace:
       properties:
         aggregations:
@@ -295,57 +340,12 @@ components:
           - array
           - 'null'
       type: object
-    TracedetailtypesEvent:
-      properties:
-        attributeMap:
-          additionalProperties: {}
-          type: object
-        isError:
-          type: boolean
-        name:
-          type: string
-        timeUnixNano:
-          minimum: 0
-          type: integer
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    TelemetrytypesTelemetryFieldKey:
-      properties:
-        description:
-          type: string
-        fieldContext:
-          $ref: '#/components/schemas/TelemetrytypesFieldContext'
-        fieldDataType:
-          $ref: '#/components/schemas/TelemetrytypesFieldDataType'
-        name:
-          type: string
-        signal:
-          $ref: '#/components/schemas/TelemetrytypesSignal'
-        unit:
-          type: string
-      required:
-      - name
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
+    TelemetrytypesSignal:
+      enum:
+      - traces
+      - logs
+      - metrics
+      type: string
   securitySchemes:
     api_key:
       description: API Keys

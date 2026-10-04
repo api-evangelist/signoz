@@ -301,6 +301,22 @@ paths:
       - routepolicies
 components:
   schemas:
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
     RenderErrorResponse:
       properties:
         error:
@@ -338,21 +354,10 @@ components:
       - channels
       - name
       type: object
-    ErrorsJSON:
+    ErrorsResponseerroradditional:
       properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
         message:
           type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
       type: object
     AlertmanagertypesGettableRoutePolicy:
       properties:
@@ -399,11 +404,6 @@ components:
       - id
       - createdAt
       - updatedAt
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
       type: object
     AlertmanagertypesExpressionKind:
       enum:

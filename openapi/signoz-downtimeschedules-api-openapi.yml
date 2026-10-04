@@ -302,48 +302,46 @@ paths:
       - downtimeschedules
 components:
   schemas:
-    RuletypesMaintenanceKind:
-      enum:
-      - fixed
-      - recurring
-      type: string
-    RuletypesRepeatOn:
-      enum:
-      - sunday
-      - monday
-      - tuesday
-      - wednesday
-      - thursday
-      - friday
-      - saturday
-      type: string
-    RuletypesSchedule:
+    ErrorsJSON:
       properties:
-        endTime:
-          format: date-time
+        code:
           type: string
-        recurrence:
-          $ref: '#/components/schemas/RuletypesRecurrence'
-        startTime:
-          format: date-time
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
           type: string
-        timezone:
+        url:
           type: string
       required:
-      - timezone
+      - code
+      - message
       type: object
-    RuletypesRepeatType:
-      enum:
-      - daily
-      - weekly
-      - monthly
-      type: string
     RuletypesMaintenanceStatus:
       enum:
       - active
       - upcoming
       - expired
       type: string
+    RuletypesPostablePlannedMaintenance:
+      properties:
+        alertIds:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        description:
+          type: string
+        name:
+          type: string
+        schedule:
+          $ref: '#/components/schemas/RuletypesSchedule'
+      required:
+      - name
+      - schedule
+      type: object
     RenderErrorResponse:
       properties:
         error:
@@ -354,6 +352,16 @@ components:
       - status
       - error
       type: object
+    RuletypesRepeatOn:
+      enum:
+      - sunday
+      - monday
+      - tuesday
+      - wednesday
+      - thursday
+      - friday
+      - saturday
+      type: string
     RuletypesPlannedMaintenance:
       properties:
         alertIds:
@@ -391,39 +399,15 @@ components:
       - status
       - kind
       type: object
-    RuletypesPostablePlannedMaintenance:
+    RuletypesMaintenanceKind:
+      enum:
+      - fixed
+      - recurring
+      type: string
+    ErrorsResponseerroradditional:
       properties:
-        alertIds:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        description:
-          type: string
-        name:
-          type: string
-        schedule:
-          $ref: '#/components/schemas/RuletypesSchedule'
-      required:
-      - name
-      - schedule
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
         message:
           type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
       type: object
     RuletypesRecurrence:
       properties:
@@ -450,10 +434,26 @@ components:
       - duration
       - repeatType
       type: object
-    ErrorsResponseerroradditional:
+    RuletypesRepeatType:
+      enum:
+      - daily
+      - weekly
+      - monthly
+      type: string
+    RuletypesSchedule:
       properties:
-        message:
+        endTime:
+          format: date-time
           type: string
+        recurrence:
+          $ref: '#/components/schemas/RuletypesRecurrence'
+        startTime:
+          format: date-time
+          type: string
+        timezone:
+          type: string
+      required:
+      - timezone
       type: object
   securitySchemes:
     api_key:

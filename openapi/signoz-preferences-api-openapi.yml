@@ -356,9 +356,42 @@ paths:
       - Preferences
 components:
   schemas:
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
     PreferencetypesUpdatablePreference:
       properties:
         value: {}
+      type: object
+    PreferencetypesValue:
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
       type: object
     PreferencetypesPreference:
       properties:
@@ -383,39 +416,6 @@ components:
         value:
           $ref: '#/components/schemas/PreferencetypesValue'
         valueType:
-          type: string
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    PreferencetypesValue:
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
           type: string
       type: object
   securitySchemes:

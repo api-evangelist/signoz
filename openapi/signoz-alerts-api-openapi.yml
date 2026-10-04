@@ -74,6 +74,36 @@ paths:
       - Alerts
 components:
   schemas:
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    ModelLabelSet:
+      additionalProperties:
+        type: string
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
     AlertmanagertypesDeprecatedGettableAlert:
       properties:
         annotations:
@@ -115,36 +145,6 @@ components:
           - 'null'
         state:
           type: string
-      type: object
-    ModelLabelSet:
-      additionalProperties:
-        type: string
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
       type: object
     ErrorsResponseerroradditional:
       properties:

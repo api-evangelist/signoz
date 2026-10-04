@@ -93,6 +93,80 @@ paths:
       - authz
 components:
   schemas:
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    AuthtypesResource:
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - type
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    AuthtypesGettableTransaction:
+      properties:
+        authorized:
+          type: boolean
+        object:
+          $ref: '#/components/schemas/AuthtypesObject'
+        relation:
+          type: string
+      required:
+      - relation
+      - object
+      - authorized
+      type: object
+    AuthtypesTransaction:
+      properties:
+        object:
+          $ref: '#/components/schemas/AuthtypesObject'
+        relation:
+          type: string
+      required:
+      - relation
+      - object
+      type: object
+    AuthtypesObject:
+      properties:
+        resource:
+          $ref: '#/components/schemas/AuthtypesResource'
+        selector:
+          type: string
+      required:
+      - resource
+      - selector
+      type: object
     AuthtypesGettableResources:
       properties:
         relations:
@@ -110,80 +184,6 @@ components:
       required:
       - resources
       - relations
-      type: object
-    AuthtypesGettableTransaction:
-      properties:
-        authorized:
-          type: boolean
-        object:
-          $ref: '#/components/schemas/AuthtypesObject'
-        relation:
-          type: string
-      required:
-      - relation
-      - object
-      - authorized
-      type: object
-    AuthtypesObject:
-      properties:
-        resource:
-          $ref: '#/components/schemas/AuthtypesResource'
-        selector:
-          type: string
-      required:
-      - resource
-      - selector
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    AuthtypesResource:
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-      required:
-      - name
-      - type
-      type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    AuthtypesTransaction:
-      properties:
-        object:
-          $ref: '#/components/schemas/AuthtypesObject'
-        relation:
-          type: string
-      required:
-      - relation
-      - object
       type: object
   securitySchemes:
     api_key:

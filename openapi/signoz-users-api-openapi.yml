@@ -1167,75 +1167,85 @@ paths:
       - Users
 components:
   schemas:
-    AuthtypesRole:
+    AuthtypesUserWithRoles:
       properties:
         createdAt:
           format: date-time
           type: string
-        description:
+        displayName:
+          type: string
+        email:
           type: string
         id:
           type: string
-        name:
-          type: string
+        isRoot:
+          type: boolean
         orgId:
           type: string
-        type:
+        status:
           type: string
         updatedAt:
           format: date-time
           type: string
+        userRoles:
+          items:
+            $ref: '#/components/schemas/AuthtypesUserRole'
+          type:
+          - array
+          - 'null'
       required:
       - id
-      - name
-      - description
-      - type
-      - orgId
       type: object
-    TypesPostableForgotPassword:
+    ErrorsJSON:
       properties:
-        email:
+        code:
           type: string
-        frontendBaseURL:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
           type: string
-        orgId:
+        url:
           type: string
       required:
-      - orgId
-      - email
+      - code
+      - message
       type: object
-    TypesChangePasswordRequest:
+    TypesPostableBulkInviteRequest:
       properties:
-        newPassword:
-          type: string
-        oldPassword:
-          type: string
+        invites:
+          items:
+            $ref: '#/components/schemas/TypesPostableInvite'
+          type: array
+      required:
+      - invites
       type: object
-    TypesPostableResetPassword:
+    TypesPostableRole:
       properties:
-        password:
+        name:
           type: string
-        token:
-          type: string
+      required:
+      - name
       type: object
-    TypesInvite:
+    TypesDeprecatedUser:
       properties:
         createdAt:
           format: date-time
+          type: string
+        displayName:
           type: string
         email:
           type: string
         id:
           type: string
-        inviteLink:
-          type: string
-        name:
-          type: string
+        isRoot:
+          type: boolean
         orgId:
           type: string
         role:
           type: string
-        token:
+        status:
           type: string
         updatedAt:
           format: date-time
@@ -1267,97 +1277,6 @@ components:
       - updatedAt
       - role
       type: object
-    TypesDeprecatedUser:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        displayName:
-          type: string
-        email:
-          type: string
-        id:
-          type: string
-        isRoot:
-          type: boolean
-        orgId:
-          type: string
-        role:
-          type: string
-        status:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-      required:
-      - id
-      type: object
-    TypesPostableInvite:
-      properties:
-        email:
-          type: string
-        frontendBaseUrl:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    TypesPostableBulkInviteRequest:
-      properties:
-        invites:
-          items:
-            $ref: '#/components/schemas/TypesPostableInvite'
-          type: array
-      required:
-      - invites
-      type: object
-    TypesUpdatableUser:
-      properties:
-        displayName:
-          type: string
-      required:
-      - displayName
-      type: object
-    AuthtypesUserWithRoles:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        displayName:
-          type: string
-        email:
-          type: string
-        id:
-          type: string
-        isRoot:
-          type: boolean
-        orgId:
-          type: string
-        status:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-        userRoles:
-          items:
-            $ref: '#/components/schemas/AuthtypesUserRole'
-          type:
-          - array
-          - 'null'
-      required:
-      - id
-      type: object
     TypesUser:
       properties:
         createdAt:
@@ -1381,21 +1300,15 @@ components:
       required:
       - id
       type: object
-    ErrorsJSON:
+    RenderErrorResponse:
       properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
           type: string
       required:
-      - code
-      - message
+      - status
+      - error
       type: object
     TypesResetPasswordToken:
       properties:
@@ -1411,16 +1324,103 @@ components:
       required:
       - id
       type: object
-    TypesPostableRole:
+    TypesUpdatableUser:
       properties:
-        name:
+        displayName:
           type: string
       required:
-      - name
+      - displayName
       type: object
     ErrorsResponseerroradditional:
       properties:
         message:
+          type: string
+      type: object
+    TypesPostableInvite:
+      properties:
+        email:
+          type: string
+        frontendBaseUrl:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+      type: object
+    TypesInvite:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        email:
+          type: string
+        id:
+          type: string
+        inviteLink:
+          type: string
+        name:
+          type: string
+        orgId:
+          type: string
+        role:
+          type: string
+        token:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      type: object
+    TypesPostableForgotPassword:
+      properties:
+        email:
+          type: string
+        frontendBaseURL:
+          type: string
+        orgId:
+          type: string
+      required:
+      - orgId
+      - email
+      type: object
+    AuthtypesRole:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        description:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+        orgId:
+          type: string
+        type:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      - name
+      - description
+      - type
+      - orgId
+      type: object
+    TypesChangePasswordRequest:
+      properties:
+        newPassword:
+          type: string
+        oldPassword:
+          type: string
+      type: object
+    TypesPostableResetPassword:
+      properties:
+        password:
+          type: string
+        token:
           type: string
       type: object
   securitySchemes:
