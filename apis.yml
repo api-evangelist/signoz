@@ -894,6 +894,8 @@ apis:
   humanURL: https://signoz.io
   baseURL: https://{host}:{port}
   tags:
+  - ServiceAccount
+  tags_raw:
   - Service Account
   properties:
   - type: OpenAPI
