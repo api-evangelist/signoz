@@ -301,32 +301,6 @@ paths:
       - routepolicies
 components:
   schemas:
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
     AlertmanagertypesPostableRoutePolicy:
       properties:
         channels:
@@ -354,11 +328,21 @@ components:
       - channels
       - name
       type: object
-    ErrorsResponseerroradditional:
+    RenderErrorResponse:
       properties:
-        message:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
           type: string
+      required:
+      - status
+      - error
       type: object
+    AlertmanagertypesExpressionKind:
+      enum:
+      - rule
+      - policy
+      type: string
     AlertmanagertypesGettableRoutePolicy:
       properties:
         channels:
@@ -405,11 +389,27 @@ components:
       - createdAt
       - updatedAt
       type: object
-    AlertmanagertypesExpressionKind:
-      enum:
-      - rule
-      - policy
-      type: string
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
   securitySchemes:
     api_key:
       description: API Keys

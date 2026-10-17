@@ -60,6 +60,16 @@ components:
         enabled:
           type: boolean
       type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
     ErrorsJSON:
       properties:
         code:
@@ -81,15 +91,14 @@ components:
         enabled:
           type: boolean
       type: object
-    RenderErrorResponse:
+    GlobaltypesIdentNConfig:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
+        apikey:
+          $ref: '#/components/schemas/GlobaltypesAPIKeyConfig'
+        impersonation:
+          $ref: '#/components/schemas/GlobaltypesImpersonationConfig'
+        tokenizer:
+          $ref: '#/components/schemas/GlobaltypesTokenizerConfig'
       type: object
     GlobaltypesConfig:
       properties:
@@ -112,15 +121,6 @@ components:
       properties:
         message:
           type: string
-      type: object
-    GlobaltypesIdentNConfig:
-      properties:
-        apikey:
-          $ref: '#/components/schemas/GlobaltypesAPIKeyConfig'
-        impersonation:
-          $ref: '#/components/schemas/GlobaltypesImpersonationConfig'
-        tokenizer:
-          $ref: '#/components/schemas/GlobaltypesTokenizerConfig'
       type: object
     GlobaltypesImpersonationConfig:
       properties:

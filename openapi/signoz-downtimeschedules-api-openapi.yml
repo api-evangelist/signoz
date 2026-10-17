@@ -302,66 +302,6 @@ paths:
       - downtimeschedules
 components:
   schemas:
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    RuletypesMaintenanceStatus:
-      enum:
-      - active
-      - upcoming
-      - expired
-      type: string
-    RuletypesPostablePlannedMaintenance:
-      properties:
-        alertIds:
-          items:
-            type: string
-          type:
-          - array
-          - 'null'
-        description:
-          type: string
-        name:
-          type: string
-        schedule:
-          $ref: '#/components/schemas/RuletypesSchedule'
-      required:
-      - name
-      - schedule
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    RuletypesRepeatOn:
-      enum:
-      - sunday
-      - monday
-      - tuesday
-      - wednesday
-      - thursday
-      - friday
-      - saturday
-      type: string
     RuletypesPlannedMaintenance:
       properties:
         alertIds:
@@ -399,16 +339,63 @@ components:
       - status
       - kind
       type: object
-    RuletypesMaintenanceKind:
-      enum:
-      - fixed
-      - recurring
-      type: string
-    ErrorsResponseerroradditional:
+    RenderErrorResponse:
       properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    RuletypesSchedule:
+      properties:
+        endTime:
+          format: date-time
+          type: string
+        recurrence:
+          $ref: '#/components/schemas/RuletypesRecurrence'
+        startTime:
+          format: date-time
+          type: string
+        timezone:
+          type: string
+      required:
+      - timezone
+      type: object
+    RuletypesRepeatOn:
+      enum:
+      - sunday
+      - monday
+      - tuesday
+      - wednesday
+      - thursday
+      - friday
+      - saturday
+      type: string
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
         message:
           type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
       type: object
+    RuletypesMaintenanceStatus:
+      enum:
+      - active
+      - upcoming
+      - expired
+      type: string
     RuletypesRecurrence:
       properties:
         duration:
@@ -434,27 +421,40 @@ components:
       - duration
       - repeatType
       type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    RuletypesMaintenanceKind:
+      enum:
+      - fixed
+      - recurring
+      type: string
+    RuletypesPostablePlannedMaintenance:
+      properties:
+        alertIds:
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        description:
+          type: string
+        name:
+          type: string
+        schedule:
+          $ref: '#/components/schemas/RuletypesSchedule'
+      required:
+      - name
+      - schedule
+      type: object
     RuletypesRepeatType:
       enum:
       - daily
       - weekly
       - monthly
       type: string
-    RuletypesSchedule:
-      properties:
-        endTime:
-          format: date-time
-          type: string
-        recurrence:
-          $ref: '#/components/schemas/RuletypesRecurrence'
-        startTime:
-          format: date-time
-          type: string
-        timezone:
-          type: string
-      required:
-      - timezone
-      type: object
   securitySchemes:
     api_key:
       description: API Keys

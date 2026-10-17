@@ -197,6 +197,23 @@ paths:
       - zeus
 components:
   schemas:
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    ZeustypesPostableHost:
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      type: object
     ErrorsJSON:
       properties:
         code:
@@ -213,22 +230,23 @@ components:
       - code
       - message
       type: object
-    ZeustypesPostableHost:
+    ZeustypesHost:
       properties:
+        is_default:
+          type: boolean
         name:
+          type: string
+        url:
           type: string
       required:
       - name
+      - is_default
+      - url
       type: object
-    RenderErrorResponse:
+    ErrorsResponseerroradditional:
       properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
+        message:
           type: string
-      required:
-      - status
-      - error
       type: object
     ZeustypesPostableProfile:
       properties:
@@ -287,24 +305,6 @@ components:
       - state
       - tier
       - hosts
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    ZeustypesHost:
-      properties:
-        is_default:
-          type: boolean
-        name:
-          type: string
-        url:
-          type: string
-      required:
-      - name
-      - is_default
-      - url
       type: object
   securitySchemes:
     api_key:

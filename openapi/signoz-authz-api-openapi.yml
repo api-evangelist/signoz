@@ -93,6 +93,29 @@ paths:
       - authz
 components:
   schemas:
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    AuthtypesGettableTransaction:
+      properties:
+        authorized:
+          type: boolean
+        object:
+          $ref: '#/components/schemas/AuthtypesObject'
+        relation:
+          type: string
+      required:
+      - relation
+      - object
+      - authorized
+      type: object
     ErrorsJSON:
       properties:
         code:
@@ -119,34 +142,6 @@ components:
       - name
       - type
       type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    AuthtypesGettableTransaction:
-      properties:
-        authorized:
-          type: boolean
-        object:
-          $ref: '#/components/schemas/AuthtypesObject'
-        relation:
-          type: string
-      required:
-      - relation
-      - object
-      - authorized
-      type: object
     AuthtypesTransaction:
       properties:
         object:
@@ -157,15 +152,10 @@ components:
       - relation
       - object
       type: object
-    AuthtypesObject:
+    ErrorsResponseerroradditional:
       properties:
-        resource:
-          $ref: '#/components/schemas/AuthtypesResource'
-        selector:
+        message:
           type: string
-      required:
-      - resource
-      - selector
       type: object
     AuthtypesGettableResources:
       properties:
@@ -184,6 +174,16 @@ components:
       required:
       - resources
       - relations
+      type: object
+    AuthtypesObject:
+      properties:
+        resource:
+          $ref: '#/components/schemas/AuthtypesResource'
+        selector:
+          type: string
+      required:
+      - resource
+      - selector
       type: object
   securitySchemes:
     api_key:

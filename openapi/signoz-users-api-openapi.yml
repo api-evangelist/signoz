@@ -1167,6 +1167,174 @@ paths:
       - Users
 components:
   schemas:
+    TypesChangePasswordRequest:
+      properties:
+        newPassword:
+          type: string
+        oldPassword:
+          type: string
+      type: object
+    TypesPostableForgotPassword:
+      properties:
+        email:
+          type: string
+        frontendBaseURL:
+          type: string
+        orgId:
+          type: string
+      required:
+      - orgId
+      - email
+      type: object
+    TypesPostableBulkInviteRequest:
+      properties:
+        invites:
+          items:
+            $ref: '#/components/schemas/TypesPostableInvite'
+          type: array
+      required:
+      - invites
+      type: object
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    TypesPostableRole:
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    AuthtypesRole:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        description:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+        orgId:
+          type: string
+        type:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      - name
+      - description
+      - type
+      - orgId
+      type: object
+    TypesResetPasswordToken:
+      properties:
+        expiresAt:
+          format: date-time
+          type: string
+        id:
+          type: string
+        passwordId:
+          type: string
+        token:
+          type: string
+      required:
+      - id
+      type: object
+    TypesUpdatableUser:
+      properties:
+        displayName:
+          type: string
+      required:
+      - displayName
+      type: object
+    TypesPostableResetPassword:
+      properties:
+        password:
+          type: string
+        token:
+          type: string
+      type: object
+    ErrorsJSON:
+      properties:
+        code:
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorsResponseerroradditional'
+          type: array
+        message:
+          type: string
+        url:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+    TypesDeprecatedUser:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        displayName:
+          type: string
+        email:
+          type: string
+        id:
+          type: string
+        isRoot:
+          type: boolean
+        orgId:
+          type: string
+        role:
+          type: string
+        status:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - id
+      type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    AuthtypesUserRole:
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        id:
+          type: string
+        role:
+          $ref: '#/components/schemas/AuthtypesRole'
+        roleId:
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+        userId:
+          type: string
+      required:
+      - id
+      - userId
+      - roleId
+      - createdAt
+      - updatedAt
+      - role
+      type: object
     AuthtypesUserWithRoles:
       properties:
         createdAt:
@@ -1196,157 +1364,6 @@ components:
       required:
       - id
       type: object
-    ErrorsJSON:
-      properties:
-        code:
-          type: string
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorsResponseerroradditional'
-          type: array
-        message:
-          type: string
-        url:
-          type: string
-      required:
-      - code
-      - message
-      type: object
-    TypesPostableBulkInviteRequest:
-      properties:
-        invites:
-          items:
-            $ref: '#/components/schemas/TypesPostableInvite'
-          type: array
-      required:
-      - invites
-      type: object
-    TypesPostableRole:
-      properties:
-        name:
-          type: string
-      required:
-      - name
-      type: object
-    TypesDeprecatedUser:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        displayName:
-          type: string
-        email:
-          type: string
-        id:
-          type: string
-        isRoot:
-          type: boolean
-        orgId:
-          type: string
-        role:
-          type: string
-        status:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-      required:
-      - id
-      type: object
-    AuthtypesUserRole:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        id:
-          type: string
-        role:
-          $ref: '#/components/schemas/AuthtypesRole'
-        roleId:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-        userId:
-          type: string
-      required:
-      - id
-      - userId
-      - roleId
-      - createdAt
-      - updatedAt
-      - role
-      type: object
-    TypesUser:
-      properties:
-        createdAt:
-          format: date-time
-          type: string
-        displayName:
-          type: string
-        email:
-          type: string
-        id:
-          type: string
-        isRoot:
-          type: boolean
-        orgId:
-          type: string
-        status:
-          type: string
-        updatedAt:
-          format: date-time
-          type: string
-      required:
-      - id
-      type: object
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    TypesResetPasswordToken:
-      properties:
-        expiresAt:
-          format: date-time
-          type: string
-        id:
-          type: string
-        passwordId:
-          type: string
-        token:
-          type: string
-      required:
-      - id
-      type: object
-    TypesUpdatableUser:
-      properties:
-        displayName:
-          type: string
-      required:
-      - displayName
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
-    TypesPostableInvite:
-      properties:
-        email:
-          type: string
-        frontendBaseUrl:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
-      type: object
     TypesInvite:
       properties:
         createdAt:
@@ -1372,56 +1389,39 @@ components:
       required:
       - id
       type: object
-    TypesPostableForgotPassword:
+    TypesPostableInvite:
       properties:
         email:
           type: string
-        frontendBaseURL:
+        frontendBaseUrl:
           type: string
-        orgId:
+        name:
           type: string
-      required:
-      - orgId
-      - email
+        role:
+          type: string
       type: object
-    AuthtypesRole:
+    TypesUser:
       properties:
         createdAt:
           format: date-time
           type: string
-        description:
+        displayName:
+          type: string
+        email:
           type: string
         id:
           type: string
-        name:
-          type: string
+        isRoot:
+          type: boolean
         orgId:
           type: string
-        type:
+        status:
           type: string
         updatedAt:
           format: date-time
           type: string
       required:
       - id
-      - name
-      - description
-      - type
-      - orgId
-      type: object
-    TypesChangePasswordRequest:
-      properties:
-        newPassword:
-          type: string
-        oldPassword:
-          type: string
-      type: object
-    TypesPostableResetPassword:
-      properties:
-        password:
-          type: string
-        token:
-          type: string
       type: object
   securitySchemes:
     api_key:

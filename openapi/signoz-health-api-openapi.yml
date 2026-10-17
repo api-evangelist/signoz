@@ -141,6 +141,11 @@ components:
       - code
       - message
       type: object
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
     RenderErrorResponse:
       properties:
         error:
@@ -163,11 +168,6 @@ components:
           type:
           - object
           - 'null'
-      type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
       type: object
   securitySchemes:
     api_key:

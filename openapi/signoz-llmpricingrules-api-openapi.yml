@@ -234,6 +234,28 @@ paths:
       - llmpricingrules
 components:
   schemas:
+    LlmpricingruletypesStringSlice:
+      items:
+        type: string
+      type:
+      - array
+      - 'null'
+    RenderErrorResponse:
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorsJSON'
+        status:
+          type: string
+      required:
+      - status
+      - error
+      type: object
+    LlmpricingruletypesLLMPricingRuleCacheMode:
+      enum:
+      - subtract
+      - additive
+      - unknown
+      type: string
     ErrorsJSON:
       properties:
         code:
@@ -249,53 +271,6 @@ components:
       required:
       - code
       - message
-      type: object
-    LlmpricingruletypesUpdatableLLMPricingRules:
-      properties:
-        rules:
-          items:
-            $ref: '#/components/schemas/LlmpricingruletypesUpdatableLLMPricingRule'
-          type:
-          - array
-          - 'null'
-      required:
-      - rules
-      type: object
-    LlmpricingruletypesLLMPricingRuleCacheMode:
-      enum:
-      - subtract
-      - additive
-      - unknown
-      type: string
-    RenderErrorResponse:
-      properties:
-        error:
-          $ref: '#/components/schemas/ErrorsJSON'
-        status:
-          type: string
-      required:
-      - status
-      - error
-      type: object
-    LlmpricingruletypesGettablePricingRules:
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRule'
-          type:
-          - array
-          - 'null'
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
-      required:
-      - items
-      - total
-      - offset
-      - limit
       type: object
     LlmpricingruletypesLLMPricingRule:
       properties:
@@ -345,11 +320,6 @@ components:
       - isOverride
       - enabled
       type: object
-    ErrorsResponseerroradditional:
-      properties:
-        message:
-          type: string
-      type: object
     LlmpricingruletypesLLMPricingCacheCosts:
       properties:
         mode:
@@ -367,12 +337,31 @@ components:
       enum:
       - per_million_tokens
       type: string
-    LlmpricingruletypesStringSlice:
-      items:
-        type: string
-      type:
-      - array
-      - 'null'
+    ErrorsResponseerroradditional:
+      properties:
+        message:
+          type: string
+      type: object
+    LlmpricingruletypesGettablePricingRules:
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/LlmpricingruletypesLLMPricingRule'
+          type:
+          - array
+          - 'null'
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+      required:
+      - items
+      - total
+      - offset
+      - limit
+      type: object
     LlmpricingruletypesLLMRulePricing:
       properties:
         cache:
@@ -386,6 +375,17 @@ components:
       required:
       - input
       - output
+      type: object
+    LlmpricingruletypesUpdatableLLMPricingRules:
+      properties:
+        rules:
+          items:
+            $ref: '#/components/schemas/LlmpricingruletypesUpdatableLLMPricingRule'
+          type:
+          - array
+          - 'null'
+      required:
+      - rules
       type: object
     LlmpricingruletypesUpdatableLLMPricingRule:
       properties:
