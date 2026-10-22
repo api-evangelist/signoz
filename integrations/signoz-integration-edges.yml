@@ -14,6 +14,7 @@ checked:
 - https://www.skills.sh/sitemap.xml
 - opentofu/integrations/opentofu-integration-edges.yml
 - terraform/integrations/terraform-integration-edges.yml
+- digital-ocean/integrations/digital-ocean-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: OpenTelemetry
@@ -139,6 +140,23 @@ edges:
   category: infrastructure-as-code provider registry listing
   badges:
   - Verified publisher (GitHub domain-verified organization)
+- partner_name: Digital Ocean (own)
+  partner: digital-ocean
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.digitalocean.com/apps/signoz
+  mirror_of: digital-ocean/integrations/digital-ocean-integration-edges.yml
+  apps:
+  - SigNoz
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: Monitoring
 source:
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
